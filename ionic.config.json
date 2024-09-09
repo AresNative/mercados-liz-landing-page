@@ -1,0 +1,7 @@
+{
+  "name": "etiquetado",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}

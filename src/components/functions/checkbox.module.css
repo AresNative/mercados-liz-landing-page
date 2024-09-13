@@ -1,0 +1,12 @@
+.checkbox{
+    
+    --checkbox-background-checked:var(--violet-6);
+    --checkmark-color:var(--violet-1);
+    --border-color:var(--violet-8);
+    --border-color-checked: var(--violet-8);
+   
+}
+.checkbox p{
+
+    margin: 1rem;
+}

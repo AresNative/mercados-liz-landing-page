@@ -1,83 +1,35 @@
 /* src/index.css */
-@import 'normalize.css';
+/* @import 'normalize.css'; */
 
-
-/* variables-p3.css */
-@supports (color: color(display-p3 1 1 1)) {
-    @media (color-gamut: p3) {
-
-        :root,
-        .light,
-        .light-theme {
-            --violet-1: oklch(99.3% 0.0039 298);
-            --violet-2: oklch(98.2% 0.0091 298);
-            --violet-3: oklch(95.9% 0.0246 298);
-            --violet-4: oklch(93.2% 0.0393 298);
-            --violet-5: oklch(90% 0.0543 298);
-            --violet-6: oklch(86% 0.0707 298);
-            --violet-7: oklch(80.5% 0.0926 298);
-            --violet-8: oklch(73.4% 0.1223 298);
-            --violet-9: oklch(37% 0.1114 298);
-            --violet-10: oklch(43.4% 0.1114 298);
-            --violet-11: oklch(51.7% 0.1223 298);
-            --violet-12: oklch(32.4% 0.1114 298);
-
-            --violet-a1: color(display-p3 0.349 0.0235 1 / 0.012);
-            --violet-a2: color(display-p3 0.302 0.0235 0.8627 / 0.028);
-            --violet-a3: color(display-p3 0.2392 0.0078 0.9451 / 0.067);
-            --violet-a4: color(display-p3 0.2235 0.0039 0.9294 / 0.106);
-            --violet-a5: color(display-p3 0.2275 0.0039 0.902 / 0.157);
-            --violet-a6: color(display-p3 0.2196 0.0039 0.8392 / 0.216);
-            --violet-a7: color(display-p3 0.2039 0.0039 0.7882 / 0.295);
-            --violet-a8: color(display-p3 0.2078 0 0.7569 / 0.4);
-            --violet-a9: color(display-p3 0.098 0 0.298 / 0.812);
-            --violet-a10: color(display-p3 0.102 0 0.3333 / 0.742);
-            --violet-a11: color(display-p3 0.1333 0 0.4314 / 0.659);
-            --violet-a12: color(display-p3 0.0941 0 0.2784 / 0.863);
-
-            --gray-1: oklch(99.1% 0 none);
-            --gray-2: oklch(98.1% 0 none);
-            --gray-3: oklch(95.3% 0 none);
-            --gray-4: oklch(93% 0 none);
-            --gray-5: oklch(90.8% 0 none);
-            --gray-6: oklch(88.4% 0 none);
-            --gray-7: oklch(85.1% 0 none);
-            --gray-8: oklch(79.1% 0 none);
-            --gray-9: oklch(64.3% 0 none);
-            --gray-10: oklch(60.9% 0 none);
-            --gray-11: oklch(50.3% 0 none);
-            --gray-12: oklch(24.3% 0 none);
-        }
-    }
-}
-
-
-:root,
-.light,
-.light-theme {
-    --color-background: #fff;
-}
-
-.use-input{
-    background: var(--violet-7);
-    margin: 1rem;
-    margin-top: 5%;
-    margin-bottom: 1%;
-    border: 2px solid var(--violet-8);
-    border-radius: .4rem;
-}
 
 ion-select {
     --background: var(--violet-1);
     margin: 1rem;
     border-radius: 3%;
-
 }
 
-:root,
-.light,
-.light-theme {
+:root {
+    --color-background: #fff;
+
+    --ion-color-violet: #f3eeff;
+        --ion-color-violet-rgb: 243, 238, 255;
+        --ion-color-violet-contrast: #000000;
+        --ion-color-violet-contrast-rgb: 0, 0, 0;
+        --ion-color-violet-shade: #d6d1e0;
+        --ion-color-violet-tint: #f4f0ff;
+
+    --ion-color-rose: #cebff0;
+        --ion-color-rose-rgb: 178, 152, 236;
+        --ion-color-rose-contrast: #000000;
+        --ion-color-rose-contrast-rgb: 0, 0, 0;
+        --ion-color-rose-shade: #9d86d0;
+        --ion-color-rose-tint: #baa2ee;
+
+   
+
+        
     --violet-1: #fdfcff;
+    --violet-1-rgb: 253, 252, 255;
     --violet-2: #faf8ff;
     --violet-3: #f3eeff;
     --violet-4: #ebe4ff;
@@ -138,4 +90,31 @@ ion-select {
     --gray-surface: #ffffffcc;
     --gray-indicator: #8d8d8d;
     --gray-track: #8d8d8d;
+}
+
+
+ion-datetime {
+    --background: var(--violet-1);
+    border-radius: 16px;
+    box-shadow: rgba(var(--violet-8), 0.3) 0px 10px 15px -3px;
+    margin: 1rem;
+    border:0.2px solid var(--gray-2);
+}
+
+.ion-color-rose {
+    --ion-color-base: var(--ion-color-rose);
+    --ion-color-base-rgb: var(--ion-color-rose-rgb);
+    --ion-color-contrast: var(--ion-color-rose-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-rose-contrast-rgb);
+    --ion-color-shade: var(--ion-color-rose-shade);
+    --ion-color-tint: var(--ion-color-rose-tint);
+}
+
+.ion-color-violet {
+    --ion-color-base: var(--ion-color-violet);
+    --ion-color-base-rgb: var(--ion-color-violet-rgb);
+    --ion-color-contrast: var(--ion-color-violet-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-violet-contrast-rgb);
+    --ion-color-shade: var(--ion-color-violet-shade);
+    --ion-color-tint: var(--ion-color-violet-tint);
 }

@@ -1,16 +1,16 @@
 /* src/components/UserCard.css */
 .user-card {
     display: flex;
-    align-items: center;
+    align-items:normal;
     padding: 16px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--gray-1);
     border-radius: 8px;
-    background-color: #f9f9f9;
+    background:var(--violet-1);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
     max-width: 400px;
-    margin: auto;
-    margin-top: 4rem;
+    margin:1rem;
+    margin-top: 1rem;
 }
 
 .user-card:hover {
@@ -33,12 +33,12 @@
 .user-card__name {
     font-size: 1.2rem;
     margin: 0 0 8px;
-    font-weight: bold;
+    font-weight: lighter;
     color: #333;
 }
 
 .user-card__email {
     font-size: 0.9rem;
     margin: 0;
-    color: #666;
-}
+    color:var(--gray-a10);
+} 

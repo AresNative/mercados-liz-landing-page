@@ -5,5 +5,6 @@
     --color-activated: var(--violet-1);
      margin:1rem;
     --background-hover :var(--violet-7);
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
 }

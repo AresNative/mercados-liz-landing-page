@@ -1,0 +1,15 @@
+.select{
+    --background:var(--violet-1);
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important ;
+    --placeholder-color:var(--violet-12);
+      font-size:large;
+    --border-radius: 0.5rem !important;
+    margin: 0.rem !important;
+}
+
+.select-option{
+         --background: var(--violet-1);
+        --border-radius: 0.5rem;
+        font-size: large;
+        margin: 0.5rem;     
+}

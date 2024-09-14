@@ -4,6 +4,8 @@ import { Input } from '@/components/functions/input';
 import { Button } from '@/components/functions/button';
 import { Accordion } from '@/components/functions/accordion';
 import { CheckBox } from '@/components/functions/checkbox';
+import { Select } from '@/components/functions/select';
+import { Search } from '@/components/functions/search';
 
 const Home: React.FC = () => {
   return (
@@ -24,7 +26,9 @@ const Home: React.FC = () => {
           avatarUrl="https://via.placeholder.com/64"
         />
         <Button />
-        <CheckBox/>
+        <CheckBox />
+        <Select />
+        <Search />
       </IonContent>
     </IonPage>
   );

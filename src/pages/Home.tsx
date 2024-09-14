@@ -1,7 +1,11 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import './Home.css';
+import { IonContent, IonDatetime, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import UserCard from '@/components/displays/card';
 import { Input } from '@/components/functions/input';
+import { Button } from '@/components/functions/button';
+import { Accordion } from '@/components/functions/accordion';
+import { CheckBox } from '@/components/functions/checkbox';
+import { Select } from '@/components/functions/select';
+import { Search } from '@/components/functions/search';
 
 const Home: React.FC = () => {
   return (
@@ -12,15 +16,19 @@ const Home: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-
         <Input />
+        <Accordion />
+        <IonDatetime presentation="date" color={'rose'}></IonDatetime>
 
         <UserCard
           name="John Doe"
           email="john.doe@example.com"
           avatarUrl="https://via.placeholder.com/64"
         />
-
+        <Button />
+        <CheckBox />
+        <Select />
+        <Search />
       </IonContent>
     </IonPage>
   );

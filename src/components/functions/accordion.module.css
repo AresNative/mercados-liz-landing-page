@@ -1,0 +1,13 @@
+.accordion{
+    --background:var(--violet-1);
+    border-radius: 1rem;
+    font-size:small;
+    border: 1px solid var(--gray-a1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+
+}
+   div[slot='content'] {
+       background: rgba(var(--ion-color-rose-rgb), 0.02);
+    border: 1px solid var(--gray-a1);
+    }

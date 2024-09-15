@@ -1,27 +1,86 @@
-/* src/index.css */
-/* @import 'normalize.css'; */
+*{
+    font-family: 'Courier Prime', Courier, monospace;
+    scrollbar-width: 0px;
+}
+.titulos{
+    font-family:'Bad Script';
+    font-size: xx-large;
+    --color: #fff;
+    font-weight: 600;
+}
+.header-titulo{
+    font-size: xx-large;
+    font-weight: 500;
+    color: var(--color-background);
+}
+.section-1{
+    background-image: url(fondo.jpg);
+    background-size: cover;
+    color: #FFFFFF;
+    padding-top: 5rem;
+    height: 100vh;
+}
+.section-1 div{
+    backdrop-filter: blur(4px);
+    height: 100vh;
+}
+/* .overlay {
+    background: linear-gradient(to bottom, #805ad580, #805ad5e6);
+}
+.overlay p {
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    z-index: 1;
+    margin: 0;
+} */
 
+ion-item{
+    --background: transparent;
 
+}
+ion-toolbar{
+    --background: #ffffff60;
+}
+.img-center{
+    width: 100%;
+}
+
+.img-center img{
+    display: block;
+    object-fit: cover;
+    height: 25rem;
+    width: 25rem; 
+    border: 3px solid #000;
+    border-radius: 5px;
+    box-shadow: 11px 10px 0px 0px #fcfbff52;
+    margin: 2rem auto;
+}
+.header{
+  --background: transparent;
+  position: absolute;
+
+ 
+}
 
 :root {
     --color-background: #fff;
 
     --ion-color-violet: #f3eeff;
-        --ion-color-violet-rgb: 243, 238, 255;
-        --ion-color-violet-contrast: #000000;
-        --ion-color-violet-contrast-rgb: 0, 0, 0;
-        --ion-color-violet-shade: #d6d1e0;
-        --ion-color-violet-tint: #f4f0ff;
+    --ion-color-violet-rgb: 243, 238, 255;
+    --ion-color-violet-contrast: #000000;
+    --ion-color-violet-contrast-rgb: 0, 0, 0;
+    --ion-color-violet-shade: #d6d1e0;
+    --ion-color-violet-tint: #f4f0ff;
 
     --ion-color-rose: #cebff0;
-        --ion-color-rose-rgb: 178, 152, 236;
-        --ion-color-rose-contrast: #000000;
-        --ion-color-rose-contrast-rgb: 0, 0, 0;
-        --ion-color-rose-shade: #9d86d0;
-        --ion-color-rose-tint: #baa2ee;
-
-   
-
+    --ion-color-rose-rgb: 178, 152, 236;
+    --ion-color-rose-contrast: #000000;
+    --ion-color-rose-contrast-rgb: 0, 0, 0;
+    --ion-color-rose-shade: #9d86d0;
+    --ion-color-rose-tint: #baa2ee;
         
     --violet-1: #fdfcff;
     --violet-1-rgb: 253, 252, 255;

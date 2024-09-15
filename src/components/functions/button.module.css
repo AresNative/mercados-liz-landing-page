@@ -1,10 +1,39 @@
-.button {
-    --background: var(--violet-6);
-    --background-activated: var(--violet-8);
-    --color:var(--violet-1);
-    --color-activated: var(--violet-1);
-     margin:1rem;
-    --background-hover :var(--violet-7);
-    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.use-button {
+    margin: 1rem;
+    border-radius: 1rem;
+    border: 1px solid #f2f2f8;
+    transition: .1s ease;
+}
 
+.use-button:active {
+    transform: scale(0.95);
+}
+
+.default{
+    --background: var(--violet-6);
+    --background-hover :var(--violet-7);
+    --background-activated: var(--violet-8);
+
+    --color: var(--violet-1);
+    --color-activated: var(--violet-1);
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+    --background: var(--violet-9);
+    --background-hover: var(--violet-a10);
+    --background-activated: var(--violet-12);
+
+    --color: var(--violet-1);
+    --color-activated: var(--violet-1);
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.light {
+    --background: transparent;
+    --background-hover: #fcfcfc;
+    --background-activated: #f2f2f7;
+
+    --color: var(--violet-a12);
+    --color-activated: var(--violet-a12);
 }

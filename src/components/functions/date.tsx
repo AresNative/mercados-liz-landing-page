@@ -1,7 +1,7 @@
 import { IonDatetime } from '@ionic/react';
 import { useState } from 'react';
 
-function DatePicker(): JSX.Element {
+export function DatePicker(): JSX.Element {
     const [selectedDate, setSelectedDate] = useState<string>("");
 
     return (
@@ -14,5 +14,3 @@ function DatePicker(): JSX.Element {
         />
     );
 }
-
-export default DatePicker;

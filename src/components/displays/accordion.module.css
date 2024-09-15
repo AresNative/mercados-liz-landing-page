@@ -1,0 +1,9 @@
+.accordion{
+    --background:var(--violet-2);
+    border-radius: 1rem;
+    font-size:small;
+    border: 1px solid var(--gray-a1);
+}
+div[slot='content'] {
+   border-bottom: 1px solid #f2f2f8;
+}

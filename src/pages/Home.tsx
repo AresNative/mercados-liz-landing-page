@@ -1,38 +1,49 @@
-import { IonContent, IonDatetime, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import UserCard from '@/components/displays/card';
-import { Input } from '@/components/functions/input';
-import { Button } from '@/components/functions/button';
-import { Accordion } from '@/components/functions/accordion';
-import { CheckBox } from '@/components/functions/checkbox';
-import { Select } from '@/components/functions/select';
-import { Search } from '@/components/functions/search';
-import { Color } from '@/components/functions/colors';
+
+import { MyMap } from '@/components/plugins/map';
+import Page from '@/template/page';
+import { IonItem } from '@ionic/react';
 
 const Home: React.FC = () => {
   return (
-    <IonPage className='ionic-app'>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Blank</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent fullscreen>
-        <Input />
-        <Accordion />
-        <IonDatetime presentation="date" color={'rose'}></IonDatetime>
+    <Page titulo='Mercados Liz'>
 
-        <UserCard
-          name="John Doe"
-          email="john.doe@example.com"
-          avatarUrl="https://via.placeholder.com/64"
-        />
-        <Button />
-        <CheckBox />
-        <Select />
-        <Search />
-        <Color />
-      </IonContent>
-    </IonPage>
+      <section className='section-1'>
+        <div style={{ display: "flex" }}>
+          <div className='overlay'>
+            <IonItem className="titulos" style={{ width: "34rem" }}>Siempre Frescos Siempre Bien</IonItem>
+
+            <p style={{ width: "34rem", margin: "1rem" }}>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. At ullam, repudiandae esse non qui facilis quo. Et provident ipsa doloremque
+              dolore adipisci vero eum voluptates hic suscipit harum? Minus, in!
+            </p>
+          </div>
+
+          <div className='img-center'>
+            <img src='/merc2.jpg' />
+          </div>
+        </div>
+      </section>
+
+
+      <section style={{
+        borderTop: "1px solid #00000e",
+        borderBottom: "1px solid #00000e",
+        textAlign: "center",
+        paddingTop: "3rem",
+        paddingBottom: "3rem"
+      }}>
+        redes
+      </section>
+
+      <IonItem style={{
+        width: "34rem",
+        marginBottom: "4rem",
+        marginTop: "4rem"
+      }}>Donde encontrarnos</IonItem>
+
+      <MyMap />
+
+    </Page >
   );
 };
 

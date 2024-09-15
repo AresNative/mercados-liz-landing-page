@@ -6,5 +6,6 @@ export function Button() {
         <IonButton className={styles["button"]} type="submit"  >
             Impresora
         </IonButton>
+        
     )
 }

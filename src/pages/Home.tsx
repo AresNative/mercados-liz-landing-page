@@ -6,6 +6,7 @@ import { Accordion } from '@/components/functions/accordion';
 import { CheckBox } from '@/components/functions/checkbox';
 import { Select } from '@/components/functions/select';
 import { Search } from '@/components/functions/search';
+import { Color } from '@/components/functions/colors';
 
 const Home: React.FC = () => {
   return (
@@ -29,6 +30,7 @@ const Home: React.FC = () => {
         <CheckBox />
         <Select />
         <Search />
+        <Color />
       </IonContent>
     </IonPage>
   );

@@ -14,3 +14,15 @@
 .use-input:focus {
     border: 3px solid var(--violet-6) !important;
 }
+
+.use-color{
+    background: var(--violet-2);
+        margin: 1rem;
+        border: 3px solid var(--gray-a1);
+        border-radius: .4rem;
+       
+        width: 4rem;
+        outline: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}

@@ -1,46 +1,74 @@
+import { Select } from '@/components/functions/select';
 import { MyMap } from '@/components/plugins/map';
 import Page from '@/template/page';
-import { IonItem } from '@ionic/react';
-
+import { IonButton, IonFab, IonFabButton, IonIcon } from '@ionic/react';
+import {
+  chevronDown,
+  logoFacebook,
+  logoWhatsapp,
+  mailOutline
+} from 'ionicons/icons';
 const Home: React.FC = () => {
   return (
     <Page titulo='Mercados Liz'>
 
       <section className='section-1'>
-        <div style={{ display: "flex" }}>
-          <div className='overlay'>
-            <IonItem className="titulos" style={{ width: "34rem" }}>Siempre Frescos Siempre Bien</IonItem>
+        <div className='overlay'>
+          <p className="titulos">Siempre Frescos Siempre Bien</p>
+          <p style={{ margin: "2rem auto" }}>
+            Ofrecemos variedad en productos de abarrotes, carniceria, panaderia, frutas y verduras, ventas al mayoreo, pedidos y mucho mas.
+          </p>
+        </div>
 
-            <p style={{ width: "34rem", margin: "1rem" }}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. At ullam, repudiandae esse non qui facilis quo. Et provident ipsa doloremque
-              dolore adipisci vero eum voluptates hic suscipit harum? Minus, in!
-            </p>
-          </div>
-
-          <div className='img-center'>
-            <img src='/merc2.jpg' />
-          </div>
+        <div className='img-center'>
+          <img src='/merc2.jpg' loading='lazy' />
+          {/* <img src='/merc1.jpg' loading='lazy' />
+          <img src='/merc3.jpg' loading='lazy' /> */}
         </div>
       </section>
 
+      <IonFab style={{ top: '90%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+        <IonFabButton color="liz">
+          <IonIcon icon={chevronDown}></IonIcon>
+        </IonFabButton>
+      </IonFab>
 
-      <section style={{
-        borderTop: "1px solid #00000e",
-        borderBottom: "1px solid #00000e",
-        textAlign: "center",
-        paddingTop: "3rem",
-        paddingBottom: "3rem"
-      }}>
-        redes
+
+      <nav className='section-2'>
+        <ul>
+          <li>
+            <IonButton shape='round' fill="clear">
+              <IonIcon size='large' icon={logoFacebook} />
+            </IonButton>
+          </li>
+          <li>
+            <IonButton color="success" shape='round' fill="clear">
+              <IonIcon size='large' icon={logoWhatsapp} />
+            </IonButton>
+          </li>
+          <li>
+            <IonButton color="liz" shape='round' fill="clear">
+              <IonIcon size='large' icon={mailOutline} />
+            </IonButton>
+          </li>
+        </ul>
+      </nav>
+
+      <section className='section-3'>
+        <p
+          className="titulos"
+          style={{
+            marginTop: "4rem"
+          }}>
+          Donde encontrarnos
+        </p>
+
+        <div style={{ margin: "2rem auto ", width: "40rem" }}>
+          <Select />
+
+          <MyMap />
+        </div>
       </section>
-
-      <IonItem style={{
-        width: "34rem",
-        marginBottom: "4rem",
-        marginTop: "4rem"
-      }}>Donde encontrarnos</IonItem>
-
-      <MyMap />
 
     </Page >
   );

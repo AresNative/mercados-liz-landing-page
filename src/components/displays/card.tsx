@@ -1,14 +1,10 @@
-// src/components/UserCard.tsx
-import React from 'react';
-import './card.css'; // Importamos los estilos específicos del componente
-
+import './card.css';
 interface UserCardProps {
     name: string;
     email: string;
     avatarUrl: string;
 }
-
-const UserCard: React.FC<UserCardProps> = ({ name, email, avatarUrl }) => {
+export function UserCard({ name, email, avatarUrl }: UserCardProps) {
     return (
         <div className="user-card">
             <img src={avatarUrl} alt={`${name}'s avatar`} className="user-card__avatar" />
@@ -19,5 +15,3 @@ const UserCard: React.FC<UserCardProps> = ({ name, email, avatarUrl }) => {
         </div>
     );
 };
-
-export default UserCard;

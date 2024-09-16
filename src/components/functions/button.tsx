@@ -12,5 +12,6 @@ export const Button: React.FC<buttonAction> = ({ onClick: any, type, color }) =>
         <IonButton className={`${styles["use-button"]} ${styles[color]}`} type={type}>
             button
         </IonButton>
+        
     )
 }

@@ -61,6 +61,12 @@ ion-toolbar{
     font-weight: 300;
     text-align: center;
 }
+.sub-titulos {
+    font-size: 2.5rem;
+    font-weight: 300;
+    text-align: center;
+    color:var(--violet-12);
+}
 
 .section-1 {
     background-image: 

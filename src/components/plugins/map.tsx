@@ -3,8 +3,8 @@ import styles from "./map.module.css"
 export function MyMap() {
     return (
         <div className={styles['map']}>
-            <Map height={300} defaultCenter={[50.879, 4.6997]} defaultZoom={11}>
-                <Marker width={50} anchor={[50.879, 4.6997]} />
+            <Map height={300} defaultCenter={[32.0947939, -116.5735554]} defaultZoom={15}>
+                <Marker width={50} anchor={[32.0947939, -116.5735554]} />
             </Map>
         </div>
     )

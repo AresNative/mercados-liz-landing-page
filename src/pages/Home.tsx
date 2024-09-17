@@ -1,6 +1,8 @@
 
 import { UserCard } from '@/components/displays/card';
 import { IconCard } from '@/components/displays/card-icon';
+import { Button } from '@/components/functions/button';
+import { Input } from '@/components/functions/input';
 import { Select } from '@/components/functions/select';
 import { MyMap } from '@/components/plugins/map';
 import Page from '@/template/page';
@@ -11,14 +13,14 @@ import {
   logoWhatsapp,
   mailOutline
 } from 'ionicons/icons';
-import { CreditCard, Package, ShoppingCart, Truck } from 'lucide-react';
+import { CreditCard, Mail, MapPin, Package, Phone, ShoppingCart, Truck } from 'lucide-react';
 const Home: React.FC = () => {
   return (
     <Page titulo='Mercados Liz'>
       <section className='section-1'>
         <div className='overlay'>
           <h1 className="titulos">Siempre Frescos Siempre Bien</h1>
-          <p>
+          <p style={{ fontSize: "x-large" }}>
             Ofrecemos variedad en productos de abarrotes, carniceria, panaderia, frutas y verduras, ventas al mayoreo, pedidos y mucho mas.
           </p>
         </div>
@@ -30,10 +32,6 @@ const Home: React.FC = () => {
             <IonIcon icon={chevronDown}></IonIcon>
           </IonFabButton>
         </IonFab>
-
-        <h3 className='titulos'>
-          Contactanos en:
-        </h3>
 
         <ul>
           <li>
@@ -48,7 +46,7 @@ const Home: React.FC = () => {
           </li>
           <li>
             <IonButton color="liz" shape='round' fill="clear">
-              <IonIcon size='large' icon={mailOutline} />
+              <Mail color="var(--primary)" size={24} />
             </IonButton>
           </li>
         </ul>
@@ -57,7 +55,7 @@ const Home: React.FC = () => {
       <section style={{ marginTop: "5rem" }}>
         <h2 className="titulos">Nuestras caracteristicas</h2>
         <ul className='product'>
-          <IconCard title='Selección Local' text='test de texto largo de ejemplo' >
+          <IconCard title='Selección Local' text='Productos auténticos del Valle de Guadalupe' >
 
             <ShoppingCart color='var(--primary)' size={48} />
           </IconCard>
@@ -73,6 +71,43 @@ const Home: React.FC = () => {
           <IconCard title='Pagos Seguros' text='Múltiples opciones disponibles' >
             <CreditCard color='var(--primary)' size={48} />
           </IconCard>
+        </ul>
+      </section>
+
+      <section className='mail'>
+        <h2 className="titulos">Concto directo</h2>
+        <ul className='product'>
+          <li>
+            <Input />
+            <Input />
+            <IonButton type="submit" color="liz" fill='clear' shape='round' >
+              Enviar
+            </IonButton>
+          </li>
+          <li className="card-mail">
+            <h3>Información de Contacto</h3>
+
+            <div className="contact-item">
+              <MapPin color="var(--primary)" size={24} />
+              <span>Calle Principal 216, 22750 Francisco Zarco, B.C.</span>
+            </div>
+
+            <div className="contact-item">
+              <Phone color="var(--primary)" size={24} />
+              <span>+52 646 123 4567</span>
+            </div>
+
+            <div className="contact-item">
+              <Mail color="var(--primary)" size={24} />
+              <span>atncliente@mercadosliz.com</span>
+            </div>
+
+            <div className="contact-item">
+              <span><strong>Horario de Atención:{" "}</strong></span>
+              <span>7:00 AM - 11:00 PM</span>
+            </div>
+          </li>
+
         </ul>
       </section>
 

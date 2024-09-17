@@ -30,7 +30,7 @@
 }
 
 .light {
-    --background: transparent;
+    --background: #fff;
     --background-hover: #fcfcfc;
     --background-activated: #f2f2f7;
 

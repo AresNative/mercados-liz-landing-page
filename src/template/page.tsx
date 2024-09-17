@@ -13,7 +13,9 @@ const Page: React.FC<ContainerProps> = ({ children, titulo }) => {
                 <Headers title={titulo} />
 
                 <IonContent>
-                    {children}
+                    <main>
+                        {children}
+                    </main>
 
                     <IonFooter >
                         <IonToolbar>

@@ -68,6 +68,7 @@ ion-fab-button:active {
 }
 
 .section-2 {
+    position: relative;
     border-bottom: 1px solid #cccccce0;
     padding-top: 3rem;
     padding-bottom: 3rem;

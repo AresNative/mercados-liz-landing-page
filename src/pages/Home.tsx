@@ -25,14 +25,16 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      <IonFab style={{ top: '76%', left: '50%', transform: 'translate(-50%, -50%)' }}>
-        <IonFabButton color="liz">
-          <IonIcon icon={chevronDown}></IonIcon>
-        </IonFabButton>
-      </IonFab>
+
 
 
       <nav className='section-2'>
+        <IonFab style={{ bottom: '-4rem', left: '50%', transform: 'translate(-50%, -50%)' }}>
+          <IonFabButton color="liz">
+            <IonIcon icon={chevronDown}></IonIcon>
+          </IonFabButton>
+        </IonFab>
+
         <ul>
           <li>
             <IonButton shape='round' fill="clear">
@@ -51,8 +53,8 @@ const Home: React.FC = () => {
           </li>
         </ul>
       </nav>
-      <section>
 
+      <section style={{ marginTop: "10rem" }}>
         <h2 className="titulos">Nuestras caracteristicas</h2>
         <ul className='product'>
           <IconCard title='Selección Local' text='test de texto largo de ejemplo' >

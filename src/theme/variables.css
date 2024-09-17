@@ -6,13 +6,12 @@
 }
 
 ion-content {
-    --background: #fffffe;
+    --background: #fdfdfd;
     color: #333;
     padding: 5rem;
     line-height: 1.6;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
     overflow: hidden;
 }
 
@@ -41,25 +40,30 @@ ion-fab-button:active {
 }
 
 .overlay {
-    width: 100%;
+    width: 70%;
     padding: 5rem;
     text-align: inherit;
+    margin: auto;
+    color: var(--ion-color-liz-tint);
+    text-shadow: #2b2b2ba2 2px 2px 5px;
 }
-
+.overlay .titulos{
+    color: var(--ion-color-liz-tint);
+}
 .titulos {
     font-family: "Lobster";
-    font-size: xx-large;
+    font-size: 3rem;
     font-weight: 300;
     text-align: center;
 }
 
 .section-1 {
     background-image: 
-    linear-gradient(#ffff, #ffffff60),
-     url(fondo.jpg);
+    linear-gradient( #ffffff00,#fdfdfd),
+     url(merc1.jpg);
     background-size: cover;
     padding-top: 10rem;
-    height: 100vh;
+    height: 60vh;
     display: flex;
 }
 
@@ -78,8 +82,17 @@ ion-fab-button:active {
     list-style: none;
 }
 
+.product {
+    display: flex;
+    width: 70%;
+    margin: auto;
+    margin-top: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
 .section-3 {
-    width: 50rem;
+    width: 80%;
     margin: auto;
 }
 

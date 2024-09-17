@@ -5,13 +5,13 @@ interface HeaderProps {
 }
 export function Headers({ title }: HeaderProps) {
     return (
-        <IonHeader translucent className={style["headers"]}>
-            <IonToolbar>
-                <IonTitle size="large">
-                    <img src="/Logo.png" width={80} />
+        <IonHeader className={style["headers"]} >
+            <IonToolbar color="liz">
+                <IonTitle size="large" className="titulos">
+                    Liz
                 </IonTitle>
-                <IonButtons slot="end" >
-                    <IonMenuButton color="liz" />
+                <IonButtons slot="end">
+                    <IonMenuButton color="light" />
                 </IonButtons>
             </IonToolbar>
         </IonHeader>

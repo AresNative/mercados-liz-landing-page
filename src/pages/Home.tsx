@@ -1,4 +1,6 @@
 
+import { UserCard } from '@/components/displays/card';
+import { IconCard } from '@/components/displays/card-icon';
 import { Select } from '@/components/functions/select';
 import { MyMap } from '@/components/plugins/map';
 import Page from '@/template/page';
@@ -9,26 +11,21 @@ import {
   logoWhatsapp,
   mailOutline
 } from 'ionicons/icons';
+import { CreditCard, Package, ShoppingCart, Truck } from 'lucide-react';
 const Home: React.FC = () => {
   return (
     <Page titulo='Mercados Liz'>
 
       <section className='section-1'>
         <div className='overlay'>
-          <p className="titulos">Siempre Frescos Siempre Bien</p>
-          <p style={{ margin: "2rem auto" }}>
+          <h1 className="titulos">Siempre Frescos Siempre Bien</h1>
+          <p>
             Ofrecemos variedad en productos de abarrotes, carniceria, panaderia, frutas y verduras, ventas al mayoreo, pedidos y mucho mas.
           </p>
         </div>
-
-        <div className='img-center'>
-          <img src='/merc2.jpg' loading='lazy' />
-          {/* <img src='/merc1.jpg' loading='lazy' />
-          <img src='/merc3.jpg' loading='lazy' /> */}
-        </div>
       </section>
 
-      <IonFab style={{ top: '90%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+      <IonFab style={{ top: '76%', left: '50%', transform: 'translate(-50%, -50%)' }}>
         <IonFabButton color="liz">
           <IonIcon icon={chevronDown}></IonIcon>
         </IonFabButton>
@@ -54,19 +51,38 @@ const Home: React.FC = () => {
           </li>
         </ul>
       </nav>
+      <section>
 
+        <h2 className="titulos">Nuestras caracteristicas</h2>
+        <ul className='product'>
+          <IconCard title='Selección Local' text='test de texto largo de ejemplo' >
+            <ShoppingCart color='var(--primary)' />
+          </IconCard>
+
+          <IconCard title='Entrega a Domicilio' text='Rápida en todo el Valle y alrededores' >
+            <Truck color='var(--primary)' />
+          </IconCard>
+
+          <IconCard title='Mayoreo' text='test de texto largo de ejemplo' >
+            <Package color='var(--primary)' />
+          </IconCard>
+
+          <IconCard title='Pagos Seguros' text='Múltiples opciones disponibles' >
+            <CreditCard color='var(--primary)' />
+          </IconCard>
+        </ul>
+      </section>
       <section className='section-3'>
-        <p
+        <h2
           className="titulos"
           style={{
             marginTop: "4rem"
           }}>
           Donde encontrarnos
-        </p>
+        </h2>
 
         <div style={{ margin: "2rem auto ", width: "40rem" }}>
           <Select />
-
           <MyMap />
         </div>
       </section>

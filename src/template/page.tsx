@@ -15,7 +15,7 @@ const Page: React.FC<ContainerProps> = ({ children, titulo }) => {
                 <IonContent>
                     {children}
 
-                    <IonFooter translucent={true}>
+                    <IonFooter >
                         <IonToolbar>
                             <ul style={{
                                 display: "flex",
@@ -26,11 +26,10 @@ const Page: React.FC<ContainerProps> = ({ children, titulo }) => {
                                 justifyContent: "center" // Alinea horizontalmente el contenido
                             }}>
                                 <li>
-                                    © SUPERMERCADOS MEJIA S. DE R.L. DE C.V. Todos los derechos reservados.
+                                    ©{fecha} SUPERMERCADOS MEJIA S. DE R.L. DE C.V. Todos los derechos reservados.
                                 </li>
-                                <li>|</li>
                                 <li>
-                                    {fecha} {/* Muestra solo el año */}
+
                                 </li>
                             </ul>
 

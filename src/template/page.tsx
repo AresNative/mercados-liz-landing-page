@@ -23,7 +23,7 @@ const Page: React.FC<ContainerProps> = ({ children, titulo }) => {
                                 gap: "1rem",
                                 width: "100%",
                                 alignItems: "center",
-                                justifyContent: "center" // Alinea horizontalmente el contenido
+                                justifyContent: "center"
                             }}>
                                 <li>
                                     ©{fecha} SUPERMERCADOS MEJIA S. DE R.L. DE C.V. Todos los derechos reservados.
@@ -38,7 +38,7 @@ const Page: React.FC<ContainerProps> = ({ children, titulo }) => {
 
                 </IonContent>
 
-            </IonPage>
+            </IonPage >
         </>
     )
 }

@@ -15,7 +15,6 @@ import { CreditCard, Package, ShoppingCart, Truck } from 'lucide-react';
 const Home: React.FC = () => {
   return (
     <Page titulo='Mercados Liz'>
-
       <section className='section-1'>
         <div className='overlay'>
           <h1 className="titulos">Siempre Frescos Siempre Bien</h1>
@@ -25,15 +24,16 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-
-
-
       <nav className='section-2'>
         <IonFab style={{ bottom: '-4rem', left: '50%', transform: 'translate(-50%, -50%)' }}>
           <IonFabButton color="liz">
             <IonIcon icon={chevronDown}></IonIcon>
           </IonFabButton>
         </IonFab>
+
+        <h3 className='titulos'>
+          Contactanos en:
+        </h3>
 
         <ul>
           <li>
@@ -54,26 +54,28 @@ const Home: React.FC = () => {
         </ul>
       </nav>
 
-      <section style={{ marginTop: "10rem" }}>
+      <section style={{ marginTop: "5rem" }}>
         <h2 className="titulos">Nuestras caracteristicas</h2>
         <ul className='product'>
           <IconCard title='Selección Local' text='test de texto largo de ejemplo' >
-            <ShoppingCart color='var(--primary)' />
+
+            <ShoppingCart color='var(--primary)' size={48} />
           </IconCard>
 
           <IconCard title='Entrega a Domicilio' text='Rápida en todo el Valle y alrededores' >
-            <Truck color='var(--primary)' />
+            <Truck color='var(--primary)' size={48} />
           </IconCard>
 
           <IconCard title='Mayoreo' text='test de texto largo de ejemplo' >
-            <Package color='var(--primary)' />
+            <Package color='var(--primary)' size={48} />
           </IconCard>
 
           <IconCard title='Pagos Seguros' text='Múltiples opciones disponibles' >
-            <CreditCard color='var(--primary)' />
+            <CreditCard color='var(--primary)' size={48} />
           </IconCard>
         </ul>
       </section>
+
       <section className='section-3'>
         <h2
           className="titulos"

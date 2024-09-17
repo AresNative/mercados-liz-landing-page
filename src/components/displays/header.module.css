@@ -1,8 +1,19 @@
-.headers{
-    height: 2rem;
-}
-.headers ion-title{
+.headers {
     height: 3rem;
-    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.headers ion-title {
+    height: 4rem;
     cursor: pointer;
+    padding: 5px;
+}
+
+.centerButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
 }

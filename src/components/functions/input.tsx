@@ -1,8 +1,18 @@
 import { IonInput } from "@ionic/react"
 import styles from "./input.module.css"
-export function Input() {
+
+interface Inputprops {
+    label: string;
+    type:  'text' | 'password' | 'email' | 'number' | undefined;
+}
+export function Input({ label, type }: Inputprops) {
     return (
-        <IonInput label="Floating label" labelPlacement="floating" placeholder="Enter text" className={styles["use-input"]} />
+        <IonInput
+            type={type}
+            label={label}
+            labelPlacement="floating"
+            placeholder="Enter text"
+            className={styles["use-input"]} />
     )
 }
 

@@ -1,73 +1,147 @@
-*{
-    font-family: 'Courier Prime', Courier, monospace;
-    scrollbar-width: 0px;
-}
-.titulos{
-    font-family:'Bad Script';
-    font-size: xx-large;
-    --color: #fff;
-    font-weight: 600;
-}
-.header-titulo{
-    font-size: xx-large;
-    font-weight: 500;
-    color: var(--color-background);
-}
-.section-1{
-    background-image: url(fondo.jpg);
-    background-size: cover;
-    color: #FFFFFF;
-    padding-top: 5rem;
-    height: 100vh;
-}
-.section-1 div{
-    backdrop-filter: blur(4px);
-    height: 100vh;
-}
-/* .overlay {
-    background: linear-gradient(to bottom, #805ad580, #805ad5e6);
-}
-.overlay p {
-    bottom: 20px;
-    left: 20px;
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-    z-index: 1;
+* {
     margin: 0;
-} */
-
-ion-item{
-    --background: transparent;
-
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Sans", sans-serif;
 }
+ion-content {
+    --background: #fdfdfd;
+    color: #333;
+    padding: 5rem;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    /* --overflow: hidden; */
+}
+ion-item,
+ion-label,
+ion-list{
+    --background: transparent !important;
+}
+ion-datetime {
+    --background: var(--primary);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    margin: 1rem;
+    border: 0.2px solid var(--gray-2);
+    box-shadow: 0 4px 6px #0000001a;
+}
+
+ion-button,
+ion-fab-button {
+    transition: .1s ease;
+}
+
+ion-button:active,
+ion-fab-button:active {
+    transform: scale(0.85);
+}
+ion-footer, 
 ion-toolbar{
-    --background: #ffffff60;
-}
-.img-center{
-    width: 100%;
+    --background: #fff;
+    background: #fff;
+    box-shadow: 0 4px 6px #0000001a;
 }
 
-.img-center img{
+.overlay {
+    width: 70%;
+    padding: 5rem;
+    text-align: inherit;
+    margin: auto;
+    color: var(--ion-color-liz-tint);
+    text-shadow: #2b2b2ba2 2px 2px 5px;
+}
+.overlay .titulos{
+    color: var(--primary);
+}
+
+.titulos {
+    font-family: "Lobster";
+    font-size: 3rem;
+    font-weight: 300;
+    text-align: center;
+}
+.sub-titulos {
+    font-size: 2.5rem;
+    font-weight: 300;
+    text-align: center;
+    color:var(--violet-12);
+}
+
+.section-1 {
+    background-image: 
+    linear-gradient( #ffffff00,#fdfdfd),
+     url(merc1.jpg);
+    background-size: cover;
+    padding-top: 5rem;
+    height: 65vh;
+    display: flex;
+}
+
+.section-2 {
+    position: relative;
+    border-bottom: 1px solid #cccccce0;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-2 ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.product {
+    display: flex;
+    width: 70%;
+    margin: auto;
+    margin-top: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-3 {
+    width: 80%;
+    margin: auto;
+}
+
+.img-center {
+    width: 100%;
+    align-items: center;
+}
+
+.img-center img {
     display: block;
     object-fit: cover;
-    height: 25rem;
-    width: 25rem; 
-    border: 3px solid #000;
-    border-radius: 5px;
-    box-shadow: 11px 10px 0px 0px #fcfbff52;
-    margin: 2rem auto;
-}
-.header{
-  --background: transparent;
-  position: absolute;
 
- 
+    height: 25rem;
+    width: 25rem;
+
+    margin: 2rem auto;
+
+    border: 3px solid var(--violet-a9);
+    border-radius: 5px;
+
+    box-shadow: var(--shadow);
 }
 
 :root {
-    --color-background: #fff;
+    --primary: #7700c0;
+    --shadow: 11px 10px 1px 0px var(--primary);
 
+    --ion-color-liz: #7700c0;
+    --ion-color-liz-rgb: 119, 0, 192;
+    --ion-color-liz-contrast: #ffffff;
+    --ion-color-liz-contrast-rgb: 255, 255, 255;
+    --ion-color-liz-shade: #6900a9;
+    --ion-color-liz-tint: #851ac6;
+
+    --color-background: #fff;
+    
     --ion-color-violet: #f3eeff;
     --ion-color-violet-rgb: 243, 238, 255;
     --ion-color-violet-contrast: #000000;
@@ -81,7 +155,7 @@ ion-toolbar{
     --ion-color-rose-contrast-rgb: 0, 0, 0;
     --ion-color-rose-shade: #9d86d0;
     --ion-color-rose-tint: #baa2ee;
-        
+
     --violet-1: #fdfcff;
     --violet-1-rgb: 253, 252, 255;
     --violet-2: #faf8ff;
@@ -146,16 +220,14 @@ ion-toolbar{
     --gray-track: #8d8d8d;
 }
 
-
-ion-datetime {
-    --background: var(--violet-1);
-    border-radius: 16px;
-    box-shadow: rgba(var(--violet-8), 0.3) 0px 10px 15px -3px;
-    margin: 1rem;
-    border:0.2px solid var(--gray-2);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.ion-color-liz {
+    --ion-color-base: var(--ion-color-liz);
+    --ion-color-base-rgb: var(--ion-color-liz-rgb);
+    --ion-color-contrast: var(--ion-color-liz-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-liz-contrast-rgb);
+    --ion-color-shade: var(--ion-color-liz-shade);
+    --ion-color-tint: var(--ion-color-liz-tint);
 }
-
 .ion-color-rose {
     --ion-color-base: var(--ion-color-rose);
     --ion-color-base-rgb: var(--ion-color-rose-rgb);

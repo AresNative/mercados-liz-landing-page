@@ -1,6 +1,7 @@
 
 import { UserCard } from '@/components/displays/card';
 import { IconCard } from '@/components/displays/card-icon';
+import { MainForm } from '@/components/form/main-form';
 import { Button } from '@/components/functions/button';
 import { Input } from '@/components/functions/input';
 import { Select } from '@/components/functions/select';
@@ -75,14 +76,14 @@ const Home: React.FC = () => {
       </section>
 
       <section className='mail'>
-        <h2 className="titulos">Concto directo</h2>
+        <h2 className="titulos">Contacto directo</h2>
         <ul className='product'>
           <li>
-            <Input />
-            <Input />
-            <IonButton type="submit" color="liz" fill='clear' shape='round' >
-              Enviar
-            </IonButton>
+            <MainForm message='Enviar'>
+              <Input label="Nombre(s)" type="text" />
+              <Input label="Mensage" type="text" />
+            </MainForm>
+
           </li>
           <li className="card-mail">
             <h3>Información de Contacto</h3>

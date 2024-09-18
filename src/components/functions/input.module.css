@@ -1,10 +1,9 @@
 .use-input {
-    border: 1px solid #f2f2f8;
-    border-radius: .4rem;
+    border-bottom: 1px solid #f2f2f8;
     --padding-start: 10px;
-    width: 80%;
     margin: auto;
     outline: none;
+    margin-top: 1%;
 }
 .use-input:focus {
     border: 1px solid #482f72;

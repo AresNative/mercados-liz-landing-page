@@ -1,3 +1,4 @@
+import { MainForm } from "@/components/form/main-form";
 import { Input } from "@/components/functions/input";
 import Page from "@/template/page";
 import { IonButton } from "@ionic/react";
@@ -10,16 +11,15 @@ const ContactPage = () => {
                 <h1 className="titulos">Nuestras sucursales</h1>
                 <ul className='product'>
                     <li>
-                        <Input />
-                        <Input />
-                        <IonButton type="submit" color="liz" fill='clear' shape='round' >
-                            Enviar
-                        </IonButton>
+                        <MainForm message='Enviar'>
+                            <Input label="Nombre(s)" type="text" />
+                            <Input label="Mensage" type="text" />
+                        </MainForm>
                     </li>
                     <li>
                         <ul style={{ width: "30rem" }}>
                             {/* ----------------------------------------------------------- */}
-                            <li>
+                            <li style={{ padding: "15px" }}>
                                 <h2>MATRIZ</h2>
                                 <div className="contact-item">
                                     <MapPin color="var(--primary)" size={24} />
@@ -42,7 +42,7 @@ const ContactPage = () => {
                                 </div>
                             </li>
                             {/* ----------------------------------------------------------- */}
-                            <li style={{ background: "#fff", padding: "5px" }}>
+                            <li style={{ background: "#fff", padding: "15px", borderRadius: "5px" }}>
                                 <h2>VALLE DE GUADALUPE</h2>
                                 <div className="contact-item">
                                     <MapPin color="var(--primary)" size={24} />
@@ -65,7 +65,7 @@ const ContactPage = () => {
                                 </div>
                             </li>
                             {/* ----------------------------------------------------------- */}
-                            <li>
+                            <li style={{ padding: "15px" }}>
                                 <h2>VALLE DE LAS PALMAS</h2>
                                 <div className="contact-item">
                                     <MapPin color="var(--primary)" size={24} />
@@ -88,7 +88,7 @@ const ContactPage = () => {
                                 </div>
                             </li>
                             {/* ----------------------------------------------------------- */}
-                            <li style={{ background: "#fff", padding: "5px" }}>
+                            <li style={{ background: "#fff", padding: "15px", borderRadius: "5px" }}>
                                 <h2>TESTERAZO</h2>
                                 <div className="contact-item">
                                     <MapPin color="var(--primary)" size={24} />
@@ -102,7 +102,7 @@ const ContactPage = () => {
 
                                 <div className="contact-item">
                                     <Mail color="var(--primary)" size={24} />
-                                    <span>gerencia03@mercadosliz.com</span>
+                                    <span>gerencia04@mercadosliz.com</span>
                                 </div>
 
                                 <div className="contact-item">

@@ -1,9 +1,16 @@
 import { IonCheckbox } from "@ionic/react";
 import styles from "./checkbox.module.css"
-export function CheckBox() {
+
+interface checkBoxProps {
+    label: string;
+}
+
+export function CheckBox({label}:checkBoxProps) {
+    
+
     return (
         <IonCheckbox className={styles["checkbox"]}>
-            <p> Listaashdajshdjakh ashaj ahsah ahsashd</p>
+     {label}
         </IonCheckbox>
     )
 }

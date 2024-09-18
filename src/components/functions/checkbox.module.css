@@ -4,6 +4,7 @@
     --border-color:var(--violet-8);
     --border-color-checked: var(--violet-8);
     --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1%;
 }
 .checkbox p{
     margin: 1rem;

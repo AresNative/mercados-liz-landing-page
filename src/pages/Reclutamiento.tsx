@@ -11,32 +11,37 @@ const Reclutamiento = () => {
 
     return (
         <Page titulo="Reclutamiento" >
-
             <form className="margen-pagina">
-                <p className="sub-titulos">Si estas interesado en unirte de nuestra familia,
-                    llena el siguiente formulario </p>
-                <div style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignContent: "center",
-                    justifyContent: "center",
-                    width: "80%",
-                    margin: "auto"
-                }}>
-                    <Input label="Nombre(s) " type="text" />
-                    <Input label="Apellido Paterno" type="text" />
-                    <Input label="Apellido Materno" type="text" />
-                    <Input label="Correo Electronico" type="email" />
-                    <Input label="Años de experiencia" type="number" />
-                    <Select />{/*Areas disponibles para solicitar empleo  */}
-                    <Button type="submit" color="dark" label="Seleccionar archivo PDF" /> {/*Seleccionar archivo*/}
-                    <textarea className="textarea"> Cuentanos Sobre ti </textarea>
-                    <CheckBox label="Acepto los terminos y condiciones al envio de mis datos." />
-                    <Button type="submit" color="default" label="Enviar datos" />{/*Enviar informacion*/}
-
+                    <p className="sub-titulos">Si estas interesado en unirte de nuestra familia,
+                        llena el siguiente formulario </p>
+                    <div style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignContent: "center",
+                        justifyContent: "center",
+                        width: "80%",
+                    margin: "auto",
+                    background: 'white',
+                    padding: '1rem',
+                    borderRadius: '5px',
+                    boxShadow: '0 4px 6px #0000001a' ,
+                    
+                    }}>
+                        <Input label="Nombre(s) " type="text" />
+                        <Input label="Apellido Paterno" type="text" />
+                        <Input label="Apellido Materno" type="text" />
+                        <Input label="Correo Electronico" type="email" />
+                        <Input label="Años de experiencia" type="number" />
+                        <Select />{/*Areas disponibles para solicitar empleo  */}
+                        <Button type="submit" color="dark" label="Seleccionar archivo PDF" /> {/*Seleccionar archivo*/}
+                        <textarea className="textarea"> Cuentanos Sobre ti </textarea>
+                        <CheckBox label="Acepto los terminos y condiciones al envio de mis datos." />
+                        <Button type="submit" color="default" label="Enviar datos" />{/*Enviar informacion*/}
                 </div>
-            </form>
+                </form>
+            
         </Page>
+
     )
 }
 export default Reclutamiento;

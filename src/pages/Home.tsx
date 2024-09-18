@@ -20,7 +20,7 @@ const Home: React.FC = () => {
     <Page titulo='Mercados Liz'>
       <section className='section-1'>
         <div className='overlay'>
-          <h1 className="titulos">Siempre Frescos Siempre Bien</h1>
+          <h1 className="titulos">Siempre Fresco Siempre Bien</h1>
           <p style={{ fontSize: "x-large" }}>
             Ofrecemos variedad en productos de abarrotes, carniceria, panaderia, frutas y verduras, ventas al mayoreo, pedidos y mucho mas.
           </p>

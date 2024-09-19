@@ -129,6 +129,22 @@ ion-toolbar{
     box-shadow: var(--shadow);
 }
 
+.img-uva{
+    opacity: 0.6;
+    position: absolute;
+    left: 84%;
+    top: 10%;
+    height: 100px;
+    width: 100px;
+    transform: rotate(105deg);
+    z-index: 100;
+}
+@media (max-width:450px) {
+    .img-uva {
+        display: none;
+    }
+}
+
 :root {
     --primary: #7700c0;
     --shadow: 11px 10px 1px 0px var(--primary);

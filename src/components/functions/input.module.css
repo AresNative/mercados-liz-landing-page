@@ -2,10 +2,10 @@
     border: 1px solid #f2f2f8;
     border-radius: .4rem;
     --padding-start: 10px;
-    margin: auto;
     outline: none;
-    margin-top: 1%;
+
 }
 .use-input:focus {
     border: 1px solid #482f72;
 }
+

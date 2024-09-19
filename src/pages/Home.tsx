@@ -1,21 +1,35 @@
-
-import { UserCard } from '@/components/displays/card';
 import { IconCard } from '@/components/displays/card-icon';
 import { MainForm } from '@/components/form/main-form';
-import { Button } from '@/components/functions/button';
 import { Input } from '@/components/functions/input';
 import { Select } from '@/components/functions/select';
 import { MyMap } from '@/components/plugins/map';
+import { RootState } from '@/store/store';
 import Page from '@/template/page';
 import { IonButton, IonFab, IonFabButton, IonIcon } from '@ionic/react';
 import {
   chevronDown,
   logoFacebook,
-  logoWhatsapp,
-  mailOutline
+  logoWhatsapp
 } from 'ionicons/icons';
 import { CreditCard, Mail, MapPin, Package, Phone, ShoppingCart, Truck } from 'lucide-react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { asingn, deleteFilter, clearAll } from "@/store/reducers";
+
+const generateId = () => '_' + Math.random().toString(36).substr(2, 9);
+
+
 const Home: React.FC = () => {
+  const dispatch = useDispatch();
+  const selector = useSelector((state: RootState) => state.filters.filters);
+
+  useEffect(() => {
+    console.log(selector);
+  }, [selector])
+
+  function incrementTes(suc: string) {
+    dispatch(asingn({ id: generateId(), sucursal: suc }))
+  }
   return (
     <Page titulo='Mercados Liz'>
       <section className='section-1'>
@@ -58,19 +72,19 @@ const Home: React.FC = () => {
         <ul className='product'>
           <IconCard title='Selección Local' text='Productos auténticos del Valle de Guadalupe' >
 
-            <ShoppingCart color='var(--primary)' size={48} />
+            <ShoppingCart color='var(--primary)' size={40} />
           </IconCard>
 
           <IconCard title='Entrega a Domicilio' text='Rápida en todo el Valle y alrededores' >
-            <Truck color='var(--primary)' size={48} />
+            <Truck color='var(--primary)' size={40} />
           </IconCard>
 
           <IconCard title='Mayoreo' text='test de texto largo de ejemplo' >
-            <Package color='var(--primary)' size={48} />
+            <Package color='var(--primary)' size={40} />
           </IconCard>
 
           <IconCard title='Pagos Seguros' text='Múltiples opciones disponibles' >
-            <CreditCard color='var(--primary)' size={48} />
+            <CreditCard color='var(--primary)' size={40} />
           </IconCard>
         </ul>
       </section>
@@ -80,8 +94,8 @@ const Home: React.FC = () => {
         <ul className='product'>
           <li>
             <MainForm message='Enviar'>
-              <Input label="Nombre(s)" type="text" />
-              <Input label="Mensage" type="text" />
+              <Input label="Nombre(s)" type="text" placheolder="Ingrese sus nombres" />
+              <Input label="Mensage" type="text" placheolder="Exprese sus dudas..." />
             </MainForm>
 
           </li>
@@ -122,7 +136,22 @@ const Home: React.FC = () => {
         </h2>
 
         <div style={{ margin: "2rem auto ", width: "40rem" }}>
-          <Select />
+          <Select values={
+            [
+              {
+                name: "Matriz"
+              }, {
+                name: "Valle de guadalupe"
+              }, {
+                name: "Valle de las palmas"
+              }, {
+                name: "Testerazo"
+              }
+            ]
+          }
+            message='Sucursales'
+            onChange={incrementTes}
+          />
           <MyMap />
         </div>
       </section>

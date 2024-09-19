@@ -1,7 +1,6 @@
 import { MainForm } from "@/components/form/main-form";
 import { Input } from "@/components/functions/input";
 import Page from "@/template/page";
-import { IonButton } from "@ionic/react";
 import { Mail, MapPin, Phone } from "lucide-react";
 const ContactPage = () => {
     return (
@@ -12,8 +11,8 @@ const ContactPage = () => {
                 <ul className='product'>
                     <li>
                         <MainForm message='Enviar'>
-                            <Input label="Nombre(s)" type="text" />
-                            <Input label="Mensage" type="text" />
+                            <Input label="Nombre(s)" type="text" placheolder="Ingrese sus nombres" />
+                            <Input label="Mensage" type="text" placheolder="Exprese sus dudas..." />
                         </MainForm>
                     </li>
                     <li>

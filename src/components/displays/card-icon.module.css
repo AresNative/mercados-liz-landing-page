@@ -15,8 +15,7 @@
    
     transition: box-shadow 0.3s ease;
    
-    max-width: 400px;
-    margin: 1rem;
+    max-width: 600px;
     margin-top: 1rem;
 }
 .icon-card:hover {

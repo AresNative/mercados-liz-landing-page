@@ -3,11 +3,12 @@ import styles from "./main-form.module.css"
 import { Send } from "lucide-react";
 interface FromProps {
     children?: React.ReactNode;
+    jsonForm?: any;
     functionFrom?: string;
     message: string;
 }
 
-export function MainForm({ message, functionFrom, children }: FromProps) {
+export function MainForm({ message, functionFrom, children, jsonForm }: FromProps) {
     return (
         <form className={styles["form"]}>
             {children}
@@ -30,7 +31,6 @@ export function MainForm({ message, functionFrom, children }: FromProps) {
                     <Send style={{ fontSize: "16px" }} />
                 </span>
             </IonButton>
-
         </form>
     )
 }

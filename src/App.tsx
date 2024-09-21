@@ -4,8 +4,8 @@ import { IonReactRouter } from '@ionic/react-router';
 import Home from '@/pages/Home';
 import Reclutamiento from '@/pages/Reclutamiento';
 import Offers from '@/pages/Offers';
-import More from '@/pages/SeeMore';
 import ContactPage from '@/pages/Contact';
+import Billing from '@/pages/Billing';
 
 import '@/theme/variables.css';
 /* Core CSS required for Ionic components to work properly */
@@ -42,8 +42,8 @@ const App: React.FC = () => (
         <Route exact path="/Ofertas">
           <Offers />
         </Route>
-        <Route exact path="/More">
-          <More />
+        <Route exact path="/billing">
+          <Billing />
         </Route>
         <Route exact path="/Contact">
           <ContactPage />

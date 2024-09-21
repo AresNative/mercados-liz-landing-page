@@ -16,8 +16,8 @@ export function Menu() {
                     <IonItem routerLink="/Ofertas">
                         <IonLabel>Ofertas</IonLabel>
                     </IonItem>
-                    <IonItem routerLink="/More">
-                        <IonLabel>Descubre mas de nosotros</IonLabel>
+                    <IonItem routerLink="/billing">
+                        <IonLabel>Facturacion</IonLabel>
                     </IonItem>
                     <IonItem routerLink="/Contact">
                         <IonLabel>Contactanos</IonLabel>
@@ -29,7 +29,7 @@ export function Menu() {
             </IonContent>
             <IonFooter>
                 <IonGrid>
-                    <IonRow style={{ padding: "5px" }}>
+                    <IonRow style={{ padding: "10px" }}>
                         <IonCol style={{ display: "flex", alignItems: "center", gap: "1rem", cursor: "pointer" }}>
                             Log In <LogIn />
                         </IonCol>

@@ -3,15 +3,16 @@ import styles from "./input.module.css"
 
 interface Inputprops {
     label: string;
-    type:  'text' | 'password' | 'email' | 'number' | undefined;
+    type: 'text' | 'password' | 'email' | 'number' | undefined;
+    placheolder: string;
 }
-export function Input({ label, type }: Inputprops) {
+export function Input({ label, type, placheolder }: Inputprops) {
     return (
         <IonInput
             type={type}
             label={label}
             labelPlacement="floating"
-            placeholder="Enter text"
+            placeholder={placheolder}
             className={styles["use-input"]} />
     )
 }

@@ -1,19 +1,19 @@
 .reclutamiento{
     display: flex;
-            gap: 5px;
-            flex-direction: column;
-            align-content: center;
-            justify-content: center;
-            width: 80%;
-            margin: auto;
-            --background: white;
-            padding: 1rem;
-            border-radius:5px;
-            box-shadow: 0 4px 6px #0000001a;
+    gap: 5px;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+    --background: white;
+    padding: 1rem;
+    border-radius:15px;
+    box-shadow: 0 4px 6px #0000001a;
 }
 .reclutamiento-columnas{
-        display: flex;
-            gap: 5px;
+    display: flex;
+    gap: 2rem;
 }
 @media (max-width:430px) {
     .reclutamiento-columnas{

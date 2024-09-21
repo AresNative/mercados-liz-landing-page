@@ -1,12 +1,36 @@
-import { IonSelect, IonSelectOption } from "@ionic/react"
-import styles from "./select.module.css"
+import { IonSelect, IonSelectOption } from "@ionic/react";
+import styles from "./select.module.css";
 
-export function Select() {
+interface SelectProps {
+    values: any[];
+    color?: string;
+    message: string;
+    onChange?: any;
+}
+
+export function Select({ values, message, onChange }: SelectProps) {
     return (
-        <IonSelect className={styles["select"]} interface="popover" placeholder=" Select fruit">
-            <IonSelectOption className={styles["select-option"]} value="apples">Apples</IonSelectOption>
-            <IonSelectOption className={styles["select-option"]} value="oranges">Oranges</IonSelectOption>
-            <IonSelectOption className={styles["select-option"]} value="bananas">Bananas</IonSelectOption>
+        <IonSelect
+            className={styles["select"]}
+            interface="popover"
+            placeholder={message}
+            onIonChange={(e: any) => onChange(`${e.detail.value}`)}
+        >
+            {values.length &&
+                values.map((data: any, index: number) => {
+                    const optionValue = data.name || data.nombre || Object.values(data)[0];
+                    return (
+                        <IonSelectOption
+                            className={styles["select-option"]}
+                            key={index}
+                            value={optionValue}
+                        >
+
+                            {optionValue}
+
+                        </IonSelectOption>
+                    );
+                })}
         </IonSelect>
-    )
+    );
 }

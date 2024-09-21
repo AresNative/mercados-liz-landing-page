@@ -1,6 +1,5 @@
 .use-input {
-    border: 1px solid #f2f2f8;
-    border-radius: .4rem;
+    border-bottom: 1px solid #e9e9e9e0;
     --padding-start: 10px;
     outline: none;
 

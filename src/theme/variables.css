@@ -4,19 +4,14 @@
     box-sizing: border-box;
     font-family: "Noto Sans", sans-serif;
 }
+main{
+    min-height: 100%;
+}
 ion-content {
     --background: #fdfdfd;
     color: #333;
     padding: 5rem;
     line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-    /* --overflow: hidden; */
-}
-ion-item,
-ion-label,
-ion-list{
-    --background: transparent !important;
 }
 ion-datetime {
     --background: var(--primary);
@@ -42,7 +37,22 @@ ion-toolbar{
     background: #fff;
     box-shadow: 0 4px 6px #0000001a;
 }
+ion-popover{
+    --width: auto;
+}
+ion-select-popover {
+    width: auto;
+    overflow: hidden;
+}
+ul {
+    list-style: none;
+}
 
+h3 {
+    font-size: 18px;
+    margin-bottom: 16px;
+    color: var(--primary);
+}
 .overlay {
     width: 70%;
     padding: 5rem;
@@ -57,7 +67,7 @@ ion-toolbar{
 
 .titulos {
     font-family: "Lobster";
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: 300;
     text-align: center;
 }
@@ -70,7 +80,7 @@ ion-toolbar{
 
 .section-1 {
     background-image: 
-    linear-gradient( #ffffff00,#fdfdfd),
+    linear-gradient(#ffffff00 0%, #fdfdfde5 70%, #fdfdfd 100%),
      url(merc1.jpg);
     background-size: cover;
     padding-top: 5rem;
@@ -97,11 +107,34 @@ ion-toolbar{
 
 .product {
     display: flex;
-    width: 70%;
+    gap: 2rem;
+    width: 80%;
     margin: auto;
     margin-top: 2rem;
     align-items: center;
     justify-content: center;
+}
+
+.card-mail {
+    list-style: none;
+    padding: 16px;
+    width: 50%;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.contact-item svg {
+    margin-right: 12px;
+    min-width: 24px;
+}
+
+.contact-item span {
+    font-size: 16px;
+    color: #333;
 }
 
 .section-3 {
@@ -109,8 +142,17 @@ ion-toolbar{
     margin: auto;
 }
 
-.img-center {
-    width: 100%;
+.mail{
+    min-height: 20rem;
+    background: #fff;
+
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
     align-items: center;
 }
 

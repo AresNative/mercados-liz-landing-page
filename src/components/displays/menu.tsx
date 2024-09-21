@@ -16,8 +16,8 @@ export function Menu() {
                     <IonItem routerLink="/Ofertas">
                         <IonLabel>Ofertas</IonLabel>
                     </IonItem>
-                    <IonItem routerLink="/More">
-                        <IonLabel>Descubre mas de nosotros</IonLabel>
+                    <IonItem routerLink="/billing">
+                        <IonLabel>Facturacion</IonLabel>
                     </IonItem>
                     <IonItem routerLink="/Contact">
                         <IonLabel>Contactanos</IonLabel>

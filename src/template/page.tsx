@@ -11,7 +11,6 @@ const Page: React.FC<ContainerProps> = ({ children, titulo }) => {
             <Menu />
             <IonPage id="main-content">
                 <Headers title={titulo} />
-
                 <IonContent>
                     <main>
                         {children}
@@ -21,6 +20,7 @@ const Page: React.FC<ContainerProps> = ({ children, titulo }) => {
                         <IonToolbar>
                             <ul style={{
                                 display: "flex",
+                                flexDirection: "column",
                                 listStyle: "none",
                                 gap: "1rem",
                                 width: "100%",
@@ -30,16 +30,22 @@ const Page: React.FC<ContainerProps> = ({ children, titulo }) => {
                                 <li>
                                     ©{fecha} SUPERMERCADOS MEJIA S. DE R.L. DE C.V. Todos los derechos reservados.
                                 </li>
-                                <li>
-
+                                <li style={{ display: "flex", gap: "2rem" }}>
+                                    <a style={{ color: "var(--primary)" }}>
+                                        Términos y Condiciones
+                                    </a>
+                                    <a style={{ color: "var(--primary)" }}>
+                                        Política de Privacidad
+                                    </a>
+                                    <a style={{ color: "var(--primary)" }}>
+                                        Contacto
+                                    </a>
                                 </li>
                             </ul>
 
                         </IonToolbar>
                     </IonFooter>
-
                 </IonContent>
-
             </IonPage >
         </>
     )

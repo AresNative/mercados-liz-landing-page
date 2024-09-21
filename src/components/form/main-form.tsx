@@ -1,4 +1,4 @@
-import { IonButton } from "@ionic/react";
+import { IonButton, IonItem } from "@ionic/react";
 import styles from "./main-form.module.css"
 import { Send } from "lucide-react";
 interface FromProps {
@@ -12,25 +12,27 @@ export function MainForm({ message, functionFrom, children, jsonForm }: FromProp
     return (
         <form className={styles["form"]}>
             {children}
-            <IonButton
-                color="liz"
-                size="small"
-                fill="outline"
-                style={{
-                    marginTop: "10px",
-                }}
-            >
-                <span
+            <div>
+                <IonButton
+                    color="liz"
+                    size="small"
+                    fill="outline"
+                    slot="end"
                     style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "5px",
+                        marginTop: "10px",
                     }}
                 >
-                    {message}
-                    <Send style={{ fontSize: "16px" }} />
-                </span>
-            </IonButton>
+                    <span
+                        style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "5px",
+                        }}>
+                        {message}
+                        <Send style={{ fontSize: "16px" }} />
+                    </span>
+                </IonButton>
+            </div>
         </form>
     )
 }

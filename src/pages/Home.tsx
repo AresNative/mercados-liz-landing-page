@@ -3,7 +3,6 @@ import { MainForm } from '@/components/form/main-form';
 import { Input } from '@/components/functions/input';
 import { Select } from '@/components/functions/select';
 import { MyMap } from '@/components/plugins/map';
-import { RootState } from '@/store/store';
 import Page from '@/template/page';
 import { IonButton, IonFab, IonFabButton, IonIcon } from '@ionic/react';
 import {
@@ -12,23 +11,14 @@ import {
   logoWhatsapp
 } from 'ionicons/icons';
 import { CreditCard, Mail, MapPin, Package, Phone, ShoppingCart, Truck } from 'lucide-react';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { asingn, deleteFilter, clearAll } from "@/store/reducers";
-
-const generateId = () => '_' + Math.random().toString(36).substr(2, 9);
-
 
 const Home: React.FC = () => {
   const dispatch = useDispatch();
-  const selector = useSelector((state: RootState) => state.filters.filters);
-
-  useEffect(() => {
-    console.log(selector);
-  }, [selector])
 
   function incrementTes(suc: string) {
-    dispatch(asingn({ id: generateId(), sucursal: suc }))
+    dispatch(asingn({ sucursal: suc }))
   }
   return (
     <Page titulo='Mercados Liz'>
@@ -97,7 +87,6 @@ const Home: React.FC = () => {
               <Input label="Nombre(s)" type="text" placheolder="Ingrese sus nombres" />
               <Input label="Mensage" type="text" placheolder="Exprese sus dudas..." />
             </MainForm>
-
           </li>
           <li className="card-mail">
             <h3>Información de Contacto</h3>
@@ -139,13 +128,13 @@ const Home: React.FC = () => {
           <Select values={
             [
               {
-                name: "Matriz"
+                name: "Matriz"//32.0998035,-116.5654255,15z
               }, {
-                name: "Valle de guadalupe"
+                name: "Valle de guadalupe"//32.0945219,-116.576508
               }, {
-                name: "Valle de las palmas"
+                name: "Valle de las palmas"//32.3622361,-116.6245621,14.5z
               }, {
-                name: "Testerazo"
+                name: "Testerazo"//32.2943975,-116.5420665
               }
             ]
           }

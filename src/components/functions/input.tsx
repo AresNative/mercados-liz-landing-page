@@ -1,10 +1,11 @@
-import { IonInput } from "@ionic/react"
+import { IonInput, IonInputPasswordToggle } from "@ionic/react"
 import styles from "./input.module.css"
 
 interface Inputprops {
     label: string;
     type: 'text' | 'password' | 'email' | 'number' | undefined;
     placheolder: string;
+
 }
 export function Input({ label, type, placheolder }: Inputprops) {
     return (
@@ -13,7 +14,11 @@ export function Input({ label, type, placheolder }: Inputprops) {
             label={label}
             labelPlacement="floating"
             placeholder={placheolder}
-            className={styles["use-input"]} />
+            className={styles["use-input"]}
+            
+            
+        />
+        
     )
 }
 

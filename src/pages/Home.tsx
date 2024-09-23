@@ -124,7 +124,7 @@ const Home: React.FC = () => {
           Donde encontrarnos
         </h2>
 
-        <div style={{ margin: "2rem auto ", width: "40rem" }}>
+        <div style={{ margin: "2rem auto ", width: "90%" }}>
           <Select values={
             [
               {

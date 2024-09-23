@@ -1,48 +1,34 @@
-/* Animación para el hover con opacidad */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Estilo base para el nav */
 .nav {
     background: #fff;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    align-items: center;
     width: 100%;
     padding: 10px 0;
 }
 
-/* Estilo para los ul que se comporten de manera flexible */
 .ul {
     display: flex;
-    white-space: nowrap;
     gap: 2rem;
-    animation: marquee 10s linear infinite;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    animation: marquee 15s linear infinite;
 }
 
-/* Cada item (li) en la lista, donde se aplicarán las animaciones */
 .ul li {
-    display: flex;
-    flex-direction: column;
-    background: #fff;
-    border-radius: 12px;
-    min-width: 200px;
+    padding: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.ul li:hover~.marquee {
+
+.ul li:hover {
+    transform: translateY(-10px);
+}
+
+.ul:hover {
     animation-play-state: paused;
-    /* Pausa la animación */
 }
-/* Retrasar animaciones en cascada */
+
 @keyframes marquee {
     0% {
         transform: translateX(100%);
@@ -50,5 +36,66 @@
 
     100% {
         transform: translateX(-100%);
+    }
+}
+
+.content{
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    min-height: 40vh;
+    background: #fff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    padding: 2rem;
+}
+.marca{
+    width: 90%;
+    height: 10rem;
+
+    background: var(--secondary);
+    color: #fff;
+    
+    padding: 10px;
+    border: 1px solid var(--gray-1);
+    border-radius: 1rem;
+    box-shadow: 0 4px 4px #0000001a;
+}
+.marca h2{
+    font-size: xx-large;
+    font-weight: 700;
+    font-variant: small-caps;
+}
+.productos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    width: 90%;
+    margin: auto;
+}
+
+.productos li {
+    flex: 1 1 calc(50% - 2rem);
+    min-height: 200px;
+    background: #f2f2f7;
+    padding: 10px;
+    border: 1px solid var(--gray-1);
+    border-radius: 1rem;
+    box-shadow: 0 4px 4px #0000001a;
+}
+
+.productos li:nth-child(1):only-child {
+    flex: 1 1 100%;
+}
+
+@media (max-width: 768px) {
+    .productos li {
+        flex: 1 1 calc(100% - 2rem);
     }
 }

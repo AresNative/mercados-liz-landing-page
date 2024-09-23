@@ -19,7 +19,6 @@
     min-height: 200px;
     min-width: 300px;
     max-width: 600px;
-    margin-top: 1rem;
 }
 .icon-card:hover {
     cursor: pointer;

@@ -29,7 +29,6 @@ export function MyMap() {
     return (
         <div className={styles['map']}>
             <Map
-                height={300}
                 defaultCenter={[32.0947939, -116.5735554]} // Coordenadas por defecto
                 center={sucursalVista || [32.0947939, -116.5735554]}
                 // Mostrar la sucursal o la vista por defecto

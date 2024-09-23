@@ -1,5 +1,5 @@
 import { Headers } from "@/components/displays/header";
-import { Menu } from "@/components/displays/menu";
+import { Menu } from "@/pages/menu";
 import { IonContent, IonFooter, IonPage, IonToolbar } from "@ionic/react";
 
 interface ContainerProps { children: React.ReactNode, titulo: string }

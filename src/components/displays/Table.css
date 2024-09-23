@@ -24,36 +24,3 @@
 .responsive-table tbody tr:hover{
     background-color: #f2f2f7;
 }
-
-@media screen and (max-width: 600px) {
-    .responsive-table thead {
-        display: none;
-    }
-
-    .responsive-table,
-    .responsive-table tbody,
-    .responsive-table tr,
-    .responsive-table td {
-        display: block;
-        width: 100%;
-    }
-
-    .responsive-table tr {
-        margin-bottom: 15px;
-    }
-
-    .responsive-table td {
-        text-align: right;
-        padding-left: 50%;
-        position: relative;
-    }
-
-    .responsive-table td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 0;
-        padding-left: 10px;
-        font-weight: bold;
-        text-align: left;
-    }
-}

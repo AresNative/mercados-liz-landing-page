@@ -8,7 +8,7 @@ main{
     min-height: 100%;
 }
 ion-content {
-    --background: #fdfdfd;
+    --background: #f2f2f7;
     color: #333;
     padding: 5rem;
     line-height: 1.6;
@@ -47,14 +47,15 @@ ion-select-popover {
 ul {
     list-style: none;
 }
-
+h1,h2,h3,h4{
+    font-size: xx-large;
+    text-align: inherit;
+}
 h3 {
-    font-size: 18px;
-    margin-bottom: 16px;
     color: var(--primary);
 }
 .overlay {
-    width: 70%;
+    width: 80%;
     padding: 5rem;
     text-align: inherit;
     margin: auto;
@@ -64,10 +65,14 @@ h3 {
 .overlay .titulos{
     color: var(--primary);
 }
-
+h1.titulos{
+    font-size: 4rem;
+    font-family: "Lobster";
+    font-weight: 300;
+    text-align: center;
+}
 .titulos {
     font-family: "Lobster";
-    font-size: 4rem;
     font-weight: 300;
     text-align: center;
 }
@@ -80,19 +85,28 @@ h3 {
 
 .section-1 {
     background-image: 
-    linear-gradient(#ffffff00 0%, #fdfdfde5 70%, #fdfdfd 100%),
+    linear-gradient(#ffffff00 0%, #fdfdfde5 70%, #f2f2f7 100%),
      url(merc1.jpg);
     background-size: cover;
     padding-top: 5rem;
     height: 65vh;
     display: flex;
 }
-
+@media (max-width: 510px) {
+    .section-1 {
+        height: 100%;
+    }
+    .overlay{
+        width: 100%;
+        padding: 15px;
+    }
+}
 .section-2 {
     position: relative;
     border-bottom: 1px solid #cccccce0;
     padding-top: 3rem;
     padding-bottom: 3rem;
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -107,10 +121,13 @@ h3 {
 
 .product {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
     gap: 2rem;
-    width: 80%;
+    width: 90%;
     margin: auto;
     margin-top: 2rem;
+    margin-bottom: 2rem;
     align-items: center;
     justify-content: center;
 }
@@ -120,7 +137,11 @@ h3 {
     padding: 16px;
     width: 50%;
 }
-
+@media (max-width: 510px) {
+    .card-mail {
+        width: 90%;
+    }
+}
 .contact-item {
     display: flex;
     align-items: center;
@@ -181,6 +202,7 @@ h3 {
     transform: rotate(105deg);
     z-index: 100;
 }
+
 @media (max-width:450px) {
     .img-uva {
         display: none;
@@ -189,6 +211,7 @@ h3 {
 
 :root {
     --primary: #7700c0;
+    --secondary: #DDF26D;
     --shadow: 11px 10px 1px 0px var(--primary);
 
     --ion-color-liz: #7700c0;

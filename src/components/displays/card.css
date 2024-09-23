@@ -2,15 +2,20 @@
 .user-card {
     display: flex;
     align-items:normal;
+
     padding: 16px;
+    
     border: 1px solid var(--gray-1);
-    border-radius: 8px;
-    background:var(--violet-1);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+
+    box-shadow: 0 4px 4px #0000001a;
     transition: box-shadow 0.3s ease;
-    max-width: 400px;
-    margin:1rem;
-    margin-top: 1rem;
+    background: #f2f2f7;
+
+    height: 100%;
+    min-height: 100px;
+    min-width: 300px;
+    max-width: 600px;
 }
 
 .user-card:hover {

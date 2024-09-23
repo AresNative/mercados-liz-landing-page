@@ -15,8 +15,10 @@
    
     transition: box-shadow 0.3s ease;
    
+    height: 100%;
+    min-height: 200px;
+    min-width: 300px;
     max-width: 600px;
-    margin-top: 1rem;
 }
 .icon-card:hover {
     cursor: pointer;
@@ -30,6 +32,7 @@
 .icon-card__text {
     font-size: 0.9rem;
     font-weight: lighter;
-    margin: 0;
+    width: 80%;
+    margin: auto;
     color: var(--gray-a10);
 }

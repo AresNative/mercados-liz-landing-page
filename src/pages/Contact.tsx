@@ -16,7 +16,7 @@ const ContactPage = () => {
                         </MainForm>
                     </li>
                     <li>
-                        <ul style={{ width: "30rem" }}>
+                        <ul>
                             {/* ----------------------------------------------------------- */}
                             <li style={{ padding: "15px" }}>
                                 <h2>MATRIZ</h2>

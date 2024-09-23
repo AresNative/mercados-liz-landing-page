@@ -1,6 +1,6 @@
 import { ModalBase } from "@/pages/login";
-import { IonAlert, IonButton, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonItem, IonLabel, IonList, IonMenu, IonRow, IonText, IonTitle, IonToolbar } from "@ionic/react";
-import { CircleUser, LogIn, LogOut, User, UserCheck, UserPlus } from "lucide-react";
+import { IonAlert, IonButton, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonMenu, IonRow, IonText, IonTitle, IonToolbar } from "@ionic/react";
+import { UserPlus } from "lucide-react";
 import { useRef, useState } from "react";
 import styles from "@/pages/login.module.css";
 import { Button } from "@/components/functions/button";
@@ -33,24 +33,7 @@ export function Menu() {
                 );
             case "Logout":
                 return (
-                    <form className={styles["modal"]}>
-
-                        <IonText id="present-alert"> ¿Seguro que desea cerrar sesion?</IonText>
-                        <IonAlert trigger="present-alert"
-                            header="Cerrar Sesion"
-                            className="custom-alert" buttons={[
-                                {
-                                    text: 'No',
-                                    cssClass: 'alert-button-cancel',
-                                },
-                                {
-                                    text: 'Si',
-                                    cssClass: 'alert-button-confirm',
-                                },
-                            ]}
-                        ></IonAlert>
-
-                    </form>
+                    <></>
                 );
             case "Registro":
                 return (
@@ -101,17 +84,20 @@ export function Menu() {
                     <IonGrid>
                         <IonRow style={{ padding: "10px" }}>
 
-                            <IonCol style={{ display: "flex", alignItems: "center", gap: "1rem", cursor: "pointer" }}>
-                                <User onClick={() => { openModal("Login") }} />
+                            <IonCol  style={{ display: "flex", alignItems: "center", gap: "1rem", cursor: "pointer", justifyContent: "center", color: "var(--)" }}>
+                                <IonIcon color="liz" icon="login.svg" size="small" onClick={() => { openModal("Login") }} />
                             </IonCol>
 
-                            <IonCol style={{ display: "flex", alignItems: "center", gap: "1rem", cursor: "pointer" }}>
-                                 <LogOut onClick={() => { openModal("Logout") }} />
+                            <IonCol style={{ display: "flex", alignItems: "center", gap: "1rem", cursor: "pointer", justifyContent: "center" }}>
+
+                                <IonButton color="liz" size="small" shape='round' fill="clear" id="present-alert" onClick={() => { ("Logout") }}>
+                                    <IonIcon icon="logout.svg" size="small" />
+                                </IonButton>
 
                             </IonCol>
 
-                            <IonCol style={{ display: "flex", alignItems: "center", gap: "1rem", cursor: "pointer" }}>
-                                 <UserPlus onClick={() => { openModal("Registro"); }} />
+                            <IonCol style={{ display: "flex", alignItems: "center", cursor: "pointer", justifyContent: "center" }}>
+                                <UserPlus color="var(--primary)" onClick={() => { openModal("Registro"); }} />
                             </IonCol>
 
                         </IonRow>
@@ -120,6 +106,19 @@ export function Menu() {
             </IonMenu>
 
             <ModalBase modalRef={modalRef} closeModal={closeModal}>{renderForm()}</ModalBase>
+            <IonAlert trigger="present-alert"
+                header="¿Desea Cerrar Sesion?"
+                className="custom-alert" buttons={[
+                    {
+                        text: 'No',
+                        cssClass: 'alert-button-cancel ',
+                    },
+                    {
+                        text: 'Si',
+                        cssClass: 'alert-button-confirm',
+                    },
+                ]}
+            ></IonAlert>
         </>
     )
 }

@@ -107,6 +107,7 @@ h3 {
 
 .product {
     display: flex;
+    flex-wrap: wrap-reverse;
     gap: 2rem;
     width: 80%;
     margin: auto;

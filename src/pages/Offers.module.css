@@ -1,0 +1,54 @@
+/* Animación para el hover con opacidad */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilo base para el nav */
+.nav {
+    background: #fff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+}
+
+/* Estilo para los ul que se comporten de manera flexible */
+.ul {
+    display: flex;
+    white-space: nowrap;
+    gap: 2rem;
+    animation: marquee 10s linear infinite;
+}
+
+/* Cada item (li) en la lista, donde se aplicarán las animaciones */
+.ul li {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 12px;
+    min-width: 200px;
+}
+.ul li:hover~.marquee {
+    animation-play-state: paused;
+    /* Pausa la animación */
+}
+/* Retrasar animaciones en cascada */
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}

@@ -1,19 +1,9 @@
 .modal{
-    margin:2rem;
-    display: flex;
-        gap: 5px;
-        flex-direction: column;
-        align-content: center;
-        justify-content: center;
-        width: 90%;
-        height: 90%;
-        padding: 1rem;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px #0000001a; 
+    --background:transparent;
 }
 .modal-columnas {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
 }
 @media (max-width:430px) {
     .modal-columnas {
@@ -30,12 +20,33 @@
     font-size: 3rem;
     text-align: center;
     margin-bottom: 0%;
+    margin-top: 1%;
     color: var(--violet-10);
 }
 .subtitulos-log{
     font-family: "Noto Sans", sans-serif;
-    color: gray;
+    color: #fffefe;
     font-size: smaller;
     text-align: center;
     margin-top: 0%;
 }
+.modal2 {
+    background: rgba(209, 209, 209, 0.308);
+        /* Color de fondo semitransparente */
+        backdrop-filter: blur(9px);
+        /* Aplicar desenfoque */
+        -webkit-backdrop-filter: blur(15px);
+        /* Compatibilidad con Safari */
+        border-radius: 20px;
+        /* Bordes redondeados */
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        /* Borde con transparencia */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        /* Sombra ligera */
+        padding: 20px;
+        color: #fff;
+        /* Texto blanco */
+}
+
+
+   

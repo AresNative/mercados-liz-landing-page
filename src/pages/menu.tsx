@@ -1,7 +1,6 @@
 import { ModalBase } from "@/pages/login";
-import { IonButton, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonItem, IonLabel, IonList, IonMenu, IonRow, IonTitle, IonToolbar } from "@ionic/react";
-import { LogIn, LogOut, UserPlus } from "lucide-react";
-import { MainForm } from "../components/form/main-form";
+import { IonAlert, IonButton, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonItem, IonLabel, IonList, IonMenu, IonRow, IonText, IonTitle, IonToolbar } from "@ionic/react";
+import { CircleUser, LogIn, LogOut, User, UserCheck, UserPlus } from "lucide-react";
 import { useRef, useState } from "react";
 import styles from "@/pages/login.module.css";
 import { Button } from "@/components/functions/button";
@@ -26,10 +25,9 @@ export function Menu() {
                     <form className={styles["modal"]}>
                         <h1 className={styles["tituloslog"]}> Iniciar sesión</h1>
                         <h1 className={styles["subtitulos-log"]}> Ingresa tus credenciales para acceder</h1>
-
                         <Input label="Usuario" type="email" placheolder="Nombre de usuario" />
                         <Input label="Contraseña" type="password" placheolder="Contraseña" />
-                        {/* <Button type="submit" color="default" label="Iniciar sesion">Iniciar Sesion</Button> */}
+                        <Button type="submit" color="default" label="Iniciar sesion" />
                     </form>
 
                 );
@@ -37,7 +35,20 @@ export function Menu() {
                 return (
                     <form className={styles["modal"]}>
 
-                        <input type="text" placeholder="Texto de confirmacion para cerrar sesion" />
+                        <IonText id="present-alert"> ¿Seguro que desea cerrar sesion?</IonText>
+                        <IonAlert trigger="present-alert"
+                            header="Cerrar Sesion"
+                            className="custom-alert" buttons={[
+                                {
+                                    text: 'No',
+                                    cssClass: 'alert-button-cancel',
+                                },
+                                {
+                                    text: 'Si',
+                                    cssClass: 'alert-button-confirm',
+                                },
+                            ]}
+                        ></IonAlert>
 
                     </form>
                 );
@@ -47,12 +58,11 @@ export function Menu() {
                     <form className={styles["modal"]}>
                         <h1 className={styles["tituloslog"]}> Registrate</h1>
                         <h1 className={styles["subtitulos-log"]}> Ingresa los siguientes datos para crear un nuevo usuario</h1>
-
                         <Input label="Nombre" type="text" placheolder="Nombre(s)" />
                         <Input label="Apellidos" type="text" placheolder="Apellidos" />
                         <Input label="Correo" type="email" placheolder="usuario@mercadosliz.com" />
                         <Input label="Contraseña" type="password" placheolder="Ingrese contraseña" />
-                        {/*  <Button type="submit" color="default" label="Registrar usuario">Iniciar Sesion</Button> */}
+                        <Button type="submit" color="default" label="Registrar usuario" />
                     </form >
                 );
             default:
@@ -91,16 +101,17 @@ export function Menu() {
                     <IonGrid>
                         <IonRow style={{ padding: "10px" }}>
 
-                            <IonCol style={{ display: "flex", alignItems: "center", gap: "0rem", cursor: "pointer" }}>
-                                Log In <LogIn onClick={() => { openModal("Login") }} />
+                            <IonCol style={{ display: "flex", alignItems: "center", gap: "1rem", cursor: "pointer" }}>
+                                <User onClick={() => { openModal("Login") }} />
                             </IonCol>
 
-                            <IonCol style={{ display: "flex", alignItems: "center", gap: "0rem", cursor: "pointer" }}>
-                                Log Out <LogOut onClick={() => { openModal("Logout") }} />
+                            <IonCol style={{ display: "flex", alignItems: "center", gap: "1rem", cursor: "pointer" }}>
+                                 <LogOut onClick={() => { openModal("Logout") }} />
+
                             </IonCol>
 
-                            <IonCol style={{ display: "flex", alignItems: "center", gap: "0rem", cursor: "pointer" }}>
-                                Registro <UserPlus onClick={() => { openModal("Registro"); }} />
+                            <IonCol style={{ display: "flex", alignItems: "center", gap: "1rem", cursor: "pointer" }}>
+                                 <UserPlus onClick={() => { openModal("Registro"); }} />
                             </IonCol>
 
                         </IonRow>

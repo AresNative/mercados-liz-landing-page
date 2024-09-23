@@ -1,12 +1,7 @@
 import { useImperativeHandle, useRef } from 'react';
-import {
-    IonButton,
-    IonModal,
-    IonContent,
-    IonToolbar,
-} from '@ionic/react';
+import {IonModal} from '@ionic/react';
 import styles from "@/pages/login.module.css";
-import { UserPlus, X } from 'lucide-react';
+import { X } from 'lucide-react';
 
 
 interface LogInProps {
@@ -29,15 +24,18 @@ export function ModalBase({ children, modalRef, closeModal }: LogInProps) {
     }*/
     return (
         <>
-            <div style={{ paddingTop: "2rem" }} >
-
-                <IonModal ref={modalRef} >
-                    <IonContent >
-                        <IonToolbar >
-                            {children}
-                            <X color="red" onClick={closeModal} />
-                        </IonToolbar>
-                    </IonContent>
+            <div style={{ paddingTop: "0rem" }}  >
+                <IonModal ref={modalRef} className={styles["modal"]}>
+                    <div className={styles["modal2"]}>
+                        {children}
+                        <X color="red" onClick={closeModal} style={{
+                            position:"absolute",
+                            top:"10px",
+                            right:"10px",
+                            cursor: 'pointer'
+                        }}
+             />
+                    </div>
 
 
                 </IonModal>
@@ -45,6 +43,3 @@ export function ModalBase({ children, modalRef, closeModal }: LogInProps) {
         </>
     );
 }
-
-
-

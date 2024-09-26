@@ -1,12 +1,17 @@
-import { ModalBase } from "@/pages/login";
-import { IonAlert, IonButton, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonMenu, IonRow, IonText, IonTitle, IonToolbar } from "@ionic/react";
+import { ModalBase } from "@/pages/modal";
+import { IonAlert, IonButton, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonMenu, IonRow, IonText, IonTitle, IonToolbar, useIonRouter } from "@ionic/react";
 import { UserPlus } from "lucide-react";
 import { useRef, useState } from "react";
-import styles from "@/pages/login.module.css";
+import styles from "@/pages/modal.module.css";
 import { Button } from "@/components/functions/button";
 import { Input } from "@/components/functions/input";
+import { useHistory } from "react-router-dom";
 
 export function Menu() {
+    const router = useHistory();
+    const handleClick = () => {  // Re-direccion de pagina 
+        router.push('/Sesion');
+    };
     const [name, setname] = useState("");
     const modalRef = useRef<HTMLIonModalElement>(null);
 
@@ -27,7 +32,7 @@ export function Menu() {
                         <h1 className={styles["subtitulos-log"]}> Ingresa tus credenciales para acceder</h1>
                         <Input label="Usuario" type="email" placheolder="Nombre de usuario" />
                         <Input label="Contraseña" type="password" placheolder="Contraseña" />
-                        <Button type="submit" color="default" label="Iniciar sesion" />
+                        <Button type="button" color="default" label="Iniciar sesion" onClick={handleClick} />
                     </form>
 
                 );
@@ -45,7 +50,7 @@ export function Menu() {
                         <Input label="Apellidos" type="text" placheolder="Apellidos" />
                         <Input label="Correo" type="email" placheolder="usuario@mercadosliz.com" />
                         <Input label="Contraseña" type="password" placheolder="Ingrese contraseña" />
-                        <Button type="submit" color="default" label="Registrar usuario" />
+                        <Button type="button" color="default" label="Registrar usuario" onClick={() => { openModal("Login") }} />
                     </form >
                 );
             default:
@@ -84,7 +89,7 @@ export function Menu() {
                     <IonGrid>
                         <IonRow style={{ padding: "10px" }}>
 
-                            <IonCol  style={{ display: "flex", alignItems: "center", gap: "1rem", cursor: "pointer", justifyContent: "center", color: "var(--)" }}>
+                            <IonCol style={{ display: "flex", alignItems: "center", gap: "1rem", cursor: "pointer", justifyContent: "center", color: "var(--)" }}>
                                 <IonIcon color="liz" icon="login.svg" size="small" onClick={() => { openModal("Login") }} />
                             </IonCol>
 
@@ -106,6 +111,7 @@ export function Menu() {
             </IonMenu>
 
             <ModalBase modalRef={modalRef} closeModal={closeModal}>{renderForm()}</ModalBase>
+
             <IonAlert trigger="present-alert"
                 header="¿Desea Cerrar Sesion?"
                 className="custom-alert" buttons={[

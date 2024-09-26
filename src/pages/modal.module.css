@@ -1,5 +1,6 @@
 .modal{
     --background:transparent;
+
 }
 .modal-columnas {
     display: flex;
@@ -31,7 +32,8 @@
     margin-top: 0%;
 }
 .modal2 {
-    background: rgba(209, 209, 209, 0.308);
+    background: linear-gradient(#fffefe7a,#610bc456)
+    /*  rgba(209, 209, 209, 0.308) */;
         /* Color de fondo semitransparente */
         backdrop-filter: blur(9px);
         /* Aplicar desenfoque */

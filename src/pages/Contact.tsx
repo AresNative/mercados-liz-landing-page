@@ -12,7 +12,7 @@ const ContactPage = () => {
                     <li>
                         <MainForm message='Enviar'>
                             <Input label="Nombre(s)" type="text" placheolder="Ingrese sus nombres" />
-                            <Input label="Mensage" type="text" placheolder="Exprese sus dudas..." />
+                            <Input label="Mensaj e" type="text" placheolder="Exprese sus dudas..." />
                         </MainForm>
                     </li>
                     <li>

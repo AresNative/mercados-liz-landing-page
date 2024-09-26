@@ -84,9 +84,9 @@ h1.titulos{
 }
 
 .section-1 {
-    background-image: 
-    linear-gradient(#ffffff00 0%, #fdfdfde5 70%, #f2f2f7 100%),
-     url(merc1.jpg);
+    background-image:
+            linear-gradient(#ffffff00 0%, #fdfdfde5 70%, #f2f2f7 100%),
+            url('/merc1.jpg');
     background-size: cover;
     padding-top: 5rem;
     height: 65vh;

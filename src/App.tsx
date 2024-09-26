@@ -5,6 +5,7 @@ import Home from '@/pages/Home';
 import Reclutamiento from '@/pages/Reclutamiento';
 import Offers from '@/pages/Offers';
 import ContactPage from '@/pages/Contact';
+import SesionPage from '@/pages/Sesion';
 import Billing from '@/pages/Billing';
 
 import '@/theme/variables.css';
@@ -23,6 +24,7 @@ import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
+
 
 setupIonicReact({
   mode: 'ios'
@@ -47,6 +49,9 @@ const App: React.FC = () => (
         </Route>
         <Route exact path="/Contact">
           <ContactPage />
+        </Route>
+        <Route exact path="/Sesion">
+          <SesionPage />
         </Route>
         {/*  */}
         <Route exact path="/">

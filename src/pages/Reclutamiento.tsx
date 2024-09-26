@@ -33,9 +33,9 @@ const Reclutamiento = () => {
                         }, {
                             puesto: "TESTERAZO"
                         }
-                    ]} message='' />
+                    ]} message='Sucursal' />
                     {/*Areas disponibles para solicitar empleo  */}
-                    <input type="file"/>
+                    <input type="file" />
                     {/*Seleccionar archivo*/}
                     <textarea className="textarea" placeholder="Cuéntanos Sobre ti" defaultValue={''} />
                     <CheckBox label="Acepto los terminos y condiciones al envio de mis datos." />

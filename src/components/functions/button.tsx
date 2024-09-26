@@ -6,11 +6,12 @@ interface buttonAction {
     label: string;
     type: "submit" | "button";
     color: "default" | "dark" | "light"
+
 }
 
-export const Button: React.FC<buttonAction> = ({ onClick: any, type, color, label }) => {
+export const Button: React.FC<buttonAction> = ({ onClick, type, color, label }) => {
     return (
-        <IonButton className={`${styles["use-button"]} ${styles[color]}`} type={type}>
+        <IonButton onClick={onClick} className={`${styles["use-button"]} ${styles[color]}`} type={type} >
             {label}
         </IonButton>
 

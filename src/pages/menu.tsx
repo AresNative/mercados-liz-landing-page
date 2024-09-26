@@ -1,8 +1,8 @@
-import { ModalBase } from "@/pages/login";
+import { ModalBase } from "@/pages/modal";
 import { IonAlert, IonButton, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonMenu, IonRow, IonText, IonTitle, IonToolbar, useIonRouter } from "@ionic/react";
 import { UserPlus } from "lucide-react";
 import { useRef, useState } from "react";
-import styles from "@/pages/login.module.css";
+import styles from "@/pages/modal.module.css";
 import { Button } from "@/components/functions/button";
 import { Input } from "@/components/functions/input";
 import { useHistory } from "react-router-dom";
@@ -111,6 +111,7 @@ export function Menu() {
             </IonMenu>
 
             <ModalBase modalRef={modalRef} closeModal={closeModal}>{renderForm()}</ModalBase>
+
             <IonAlert trigger="present-alert"
                 header="¿Desea Cerrar Sesion?"
                 className="custom-alert" buttons={[

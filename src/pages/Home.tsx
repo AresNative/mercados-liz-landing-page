@@ -12,7 +12,9 @@ import {
 } from 'ionicons/icons';
 import { CreditCard, Mail, MapPin, Package, Phone, ShoppingCart, Truck } from 'lucide-react';
 import { useDispatch } from 'react-redux';
-import { asingn, deleteFilter, clearAll } from "@/store/reducers";
+import { asingn } from "@/store/reducers";
+import { useEffect } from 'react';
+import { GetUserInfo } from '@/services/web_site_gets';
 
 const Home: React.FC = () => {
   const dispatch = useDispatch();
@@ -20,6 +22,14 @@ const Home: React.FC = () => {
   function incrementTes(suc: string) {
     dispatch(asingn({ sucursal: suc }))
   }
+  useEffect(() => {
+
+    GetUserInfo()
+    return () => {
+
+    }
+  }, [])
+
   return (
     <Page titulo='Mercados Liz'>
       <section className='section-1'>

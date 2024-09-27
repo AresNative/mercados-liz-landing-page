@@ -1,5 +1,5 @@
 import { ModalBase } from "@/pages/modal";
-import { IonAlert, IonButton, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonMenu, IonRow, IonText, IonTitle, IonToolbar, useIonRouter } from "@ionic/react";
+import { IonAlert, IonButton, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonMenu, IonRow,  IonTitle, IonToolbar } from "@ionic/react";
 import { UserPlus } from "lucide-react";
 import { useRef, useState } from "react";
 import styles from "@/pages/modal.module.css";

@@ -24,10 +24,13 @@ const Home: React.FC = () => {
   }
   useEffect(() => {
 
-    GetUserInfo()
-    return () => {
+    GetUserInfo().then((info: any) => {
+      console.log(info);
 
-    }
+
+
+    })
+
   }, [])
 
   return (

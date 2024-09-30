@@ -1,11 +1,12 @@
 import { ModalBase } from "@/pages/modal";
-import { IonAlert, IonButton, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonMenu, IonRow,  IonTitle, IonToolbar } from "@ionic/react";
+import { IonAlert, IonButton, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonMenu, IonRow, IonTitle, IonToolbar } from "@ionic/react";
 import { UserPlus } from "lucide-react";
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import styles from "@/pages/modal.module.css";
 import { Button } from "@/components/functions/button";
 import { Input } from "@/components/functions/input";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import {  Tooltip } from "@nextui-org/react";
 
 export function Menu() {
     const router = useHistory();
@@ -36,6 +37,8 @@ export function Menu() {
                     </form>
 
                 );
+
+
             case "Logout":
                 return (
                     <></>
@@ -89,14 +92,23 @@ export function Menu() {
                     <IonGrid>
                         <IonRow style={{ padding: "10px" }}>
 
+
                             <IonCol style={{ display: "flex", alignItems: "center", gap: "1rem", cursor: "pointer", justifyContent: "center", color: "var(--)" }}>
-                                <IonIcon color="liz" icon="login.svg" size="small" onClick={() => { openModal("Login") }} />
+                                <Tooltip content="Iniciar Sesion" >
+                                    <span className="text-lg  cursor-pointer active:opacity-80">
+                                        <IonIcon color="liz" icon="login.svg" size="small" onClick={() => { openModal("Login") }} />
+                                    </span>
+                                </Tooltip>
                             </IonCol>
 
                             <IonCol style={{ display: "flex", alignItems: "center", gap: "1rem", cursor: "pointer", justifyContent: "center" }}>
 
                                 <IonButton color="liz" size="small" shape='round' fill="clear" id="present-alert" onClick={() => { ("Logout") }}>
-                                    <IonIcon icon="logout.svg" size="small" />
+                                    <Tooltip content="Cerrar sesion">
+                                        <span className="text-lg text-default-100 cursor-pointer active:opacity-80">
+                                            <IonIcon icon="logout.svg" size="small" content="fuera" />
+                                        </span>
+                                    </Tooltip>
                                 </IonButton>
 
                             </IonCol>

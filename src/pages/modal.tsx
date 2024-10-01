@@ -14,19 +14,10 @@ export function ModalBase({ children, modalRef, closeModal }: ModalProps) {
     return (
         <>
             <div style={{ paddingTop: "0rem" }}  >
-                <IonModal ref={modalRef} className={styles["modal"]}>
+                <IonModal ref={modalRef} className={styles["modal"]} >
                     <div className={styles["modal2"]}>
-                        {children}
-                        <X color="red" onClick={closeModal} style={{
-                            position: "absolute",
-                            top: "10px",
-                            right: "10px",
-                            cursor: 'pointer'
-                        }}
-                        />
+                        {children  }
                     </div>
-
-
                 </IonModal>
             </div>
         </>

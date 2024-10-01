@@ -1,63 +1,102 @@
 import { ModalBase } from "@/pages/modal";
 import { IonAlert, IonButton, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonMenu, IonRow, IonTitle, IonToolbar } from "@ionic/react";
-import { UserPlus } from "lucide-react";
 import React, { useRef, useState } from "react";
 import styles from "@/pages/modal.module.css";
 import { Button } from "@/components/functions/button";
 import { Input } from "@/components/functions/input";
-import { Link, useHistory } from "react-router-dom";
-import {  Tooltip } from "@nextui-org/react";
+import { useHistory } from "react-router-dom";
+import { Tooltip } from "@nextui-org/react";
+import { BadgeDollarSign, BriefcaseBusiness, FileCheck, FilePlus2, HeartHandshakeIcon, MessagesSquare, X } from 'lucide-react';
 
 export function Menu() {
     const router = useHistory();
-    const handleClick = () => {  // Re-direccion de pagina 
+    const handleClickLogin = () => {  // Redireccion de pagina despues del login
         router.push('/Sesion');
     };
-    const [name, setname] = useState("");
+
+    const handleClickSignup = () => {  // Redireccion de pagina despues del registro
+        router.push('/Login');
+    };
+
+    const [name, setname] = useState("Login");  // Inicializa en  Login
     const modalRef = useRef<HTMLIonModalElement>(null);
 
+    // Abre el modal
     function openModal(modalName: string) {
         setname(modalName);
-        modalRef.current?.present(); // Abre el modal
+        modalRef.current?.present();
     }
+
+    // Cierra el modal
     function closeModal() {
-        modalRef.current?.dismiss(); // Cierra el modal
+        modalRef.current?.dismiss();
     }
 
+    //  Login o Sign up
     function renderForm() {
-        switch (name) {
-            case "Login":
-                return (
+        if (name === "Login") {
+            return (
+
+                <div className={styles["modal-container"]}>
+                    <div className={styles["tab-container"]}>
+                        <button className={`${styles["tab-button"]} ${name === "Login" ? styles["active"] : ""}`} onClick={() => setname("Login")}>
+                            Iniciar Sesión
+                        </button>
+                        <button className={styles["tab-button"]} onClick={() => setname("Sign up")}>
+                            Registrate
+                        </button>
+                    </div>
                     <form className={styles["modal"]}>
-                        <h1 className={styles["tituloslog"]}> Iniciar sesión</h1>
-                        <h1 className={styles["subtitulos-log"]}> Ingresa tus credenciales para acceder</h1>
-                        <Input label="Usuario" type="email" placheolder="Nombre de usuario" />
-                        <Input label="Contraseña" type="password" placheolder="Contraseña" />
-                        <Button type="button" color="default" label="Iniciar sesion" onClick={handleClick} />
+                        <div>
+                            <X color="red" onClick={closeModal} style={{
+                                position: "absolute",
+                                top: "30px",
+                                right: "110px",
+                                cursor: 'pointer'
+                            }}
+                            />
+                        </div>
+                        <Input label="Usuario" type="email" placheolder="Ingresa tu usario" />
+                        <Input label="Contraseña" type="password" placheolder="Ingresa tu contraseña" />
+                        <p className={styles["switch-text"]}>¿No tienes cuenta?
+                            <span onClick={() => setname("Sign up")} className={styles["switch-link"]}>Registrate aqui</span>
+                        </p>
+                        <Button type="button" color="default" label="Iniciar Sesión" onClick={handleClickLogin} />
                     </form>
-
-                );
-
-
-            case "Logout":
-                return (
-                    <></>
-                );
-            case "Registro":
-                return (
-
+                </div>
+            );
+        } else if (name === "Sign up") {
+            return (
+                <div className={styles["modal-container"]}>
+                    <div className={styles["tab-container"]}>
+                        <button className={styles["tab-button"]} onClick={() => setname("Login")}>
+                            Iniciar Sesión
+                        </button>
+                        <button className={`${styles["tab-button"]} ${name === "Sign up" ? styles["active"] : ""}`} onClick={() => setname("Sign up")}>
+                            Registrate
+                        </button>
+                    </div>
                     <form className={styles["modal"]}>
-                        <h1 className={styles["tituloslog"]}> Registrate</h1>
-                        <h1 className={styles["subtitulos-log"]}> Ingresa los siguientes datos para crear un nuevo usuario</h1>
-                        <Input label="Nombre" type="text" placheolder="Nombre(s)" />
-                        <Input label="Apellidos" type="text" placheolder="Apellidos" />
-                        <Input label="Correo" type="email" placheolder="usuario@mercadosliz.com" />
-                        <Input label="Contraseña" type="password" placheolder="Ingrese contraseña" />
-                        <Button type="button" color="default" label="Registrar usuario" onClick={() => { openModal("Login") }} />
-                    </form >
-                );
-            default:
-                return <></>;
+                        <div>
+                            <X color="red" onClick={closeModal} style={{
+                                position: "absolute",
+                                top: "30px",
+                                right: "110px",
+                                cursor: 'pointer'
+                            }}
+                            />
+                        </div>
+                        <Input label="Nombre(s)" type="text" placheolder="Ingresa tu mombre(s)" />
+                        <Input label="Apellidos" type="text" placheolder="Ingresa tus apellidos" />
+                        <Input label="Correo" type="email" placheolder="Usuario@mercadosliz.com" />
+                        <Input label="Contraseña" type="password" placheolder="Ingresa una contraseña" />
+                        <p className={styles["switch-text"]}>¿Ya tienes una cuenta?
+                            <span onClick={() => setname("Login")} className={styles["switch-link"]}>Inicia Sesion</span>
+                        </p>
+                        <Button type="button" color="default" label="Registrate" onClick={handleClickSignup} />
+                    </form>
+                </div>
+            );
         }
     }
 
@@ -72,36 +111,51 @@ export function Menu() {
                 <IonContent className="ion-padding">
                     <IonList style={{ borderRadius: "5px" }}>
                         <IonItem routerLink="/">
-                            <IonLabel>Home</IonLabel>
+                            <IonLabel>
+
+                                Home
+                            </IonLabel>
                         </IonItem>
                         <IonItem routerLink="/Ofertas">
-                            <IonLabel>Ofertas</IonLabel>
+                            <IonLabel>
+                                < BadgeDollarSign />
+                                Ofertas
+                            </IonLabel>
                         </IonItem>
                         <IonItem routerLink="/billing">
-                            <IonLabel>Facturacion</IonLabel>
+                            <IonLabel>
+                                <FilePlus2 />
+                                Facturación
+                            </IonLabel>
                         </IonItem>
                         <IonItem routerLink="/Contact">
-                            <IonLabel>Contactanos</IonLabel>
+                            <IonLabel  >
+                                <MessagesSquare  />
+                                Contáctanos
+                            </IonLabel>
                         </IonItem>
                         <IonItem routerLink="/Reclutamiento">
-                            <IonLabel>Unete a la familia</IonLabel>
+                            <IonLabel >
+                                <BriefcaseBusiness  />
+                                Únete a la familia
+                            </IonLabel>
                         </IonItem>
                     </IonList>
                 </IonContent>
                 <IonFooter>
                     <IonGrid>
-                        <IonRow style={{ padding: "10px" }}>
-
-
+                        <IonRow style={{ padding: "5px" }}>
+                            {/* Ícono de Login para abrir el modal */}
                             <IonCol style={{ display: "flex", alignItems: "center", gap: "1rem", cursor: "pointer", justifyContent: "center", color: "var(--)" }}>
-                                <Tooltip content="Iniciar Sesion" >
-                                    <span className="text-lg  cursor-pointer active:opacity-80">
-                                        <IonIcon color="liz" icon="login.svg" size="small" onClick={() => { openModal("Login") }} />
+                                <Tooltip content="Iniciar Sesión">
+                                    <span className="text-lg cursor-pointer active:opacity-80">
+                                        <IonIcon color="liz" icon="login.svg" size="small" onClick={() => openModal("Login")} />
                                     </span>
                                 </Tooltip>
                             </IonCol>
 
-                            <IonCol style={{ display: "flex", alignItems: "center", gap: "1rem", cursor: "pointer", justifyContent: "center" }}>
+                            {/* Ícono de log out para  el modal */}
+                            <IonCol style={{ display: "flex", alignItems: "center", gap: "0.5rem", cursor: "pointer", justifyContent: "center" }}>
 
                                 <IonButton color="liz" size="small" shape='round' fill="clear" id="present-alert" onClick={() => { ("Logout") }}>
                                     <Tooltip content="Cerrar sesion">
@@ -110,20 +164,18 @@ export function Menu() {
                                         </span>
                                     </Tooltip>
                                 </IonButton>
-
                             </IonCol>
-
-                            <IonCol style={{ display: "flex", alignItems: "center", cursor: "pointer", justifyContent: "center" }}>
-                                <UserPlus color="var(--primary)" onClick={() => { openModal("Registro"); }} />
-                            </IonCol>
-
                         </IonRow>
                     </IonGrid>
                 </IonFooter>
             </IonMenu>
 
-            <ModalBase modalRef={modalRef} closeModal={closeModal}>{renderForm()}</ModalBase>
+            {/* cerrar modal */}
+            <ModalBase modalRef={modalRef} closeModal={closeModal}>
+                {renderForm()}
+            </ModalBase>
 
+            {/* Alerta de cerrar sesión */}
             <IonAlert trigger="present-alert"
                 header="¿Desea Cerrar Sesion?"
                 className="custom-alert" buttons={[
@@ -138,5 +190,5 @@ export function Menu() {
                 ]}
             ></IonAlert>
         </>
-    )
+    );
 }

@@ -9,7 +9,7 @@ export function Headers({ title }: HeaderProps) {
     return (
         <IonHeader className={style["headers"]}>
             <IonToolbar color="liz">
-                <IonTitle size="large" className="titulos">
+                <IonTitle size="large" className={style["titulos"]}>
                     Liz
                 </IonTitle>
                 <IonButtons slot="end" className={style["centerButton"]}>

@@ -1,6 +1,6 @@
 .modal{
     --background:transparent;
-
+    
 }
 .modal-columnas {
     display: flex;
@@ -11,7 +11,6 @@
         flex-direction: column;
     }
 }
-
 .modal-button{
     align-content: center;
     size: small;
@@ -32,23 +31,49 @@
     margin-top: 0%;
 }
 .modal2 {
-    background: linear-gradient(#fffefe7a,#610bc456)
-    /*  rgba(209, 209, 209, 0.308) */;
-        /* Color de fondo semitransparente */
-        backdrop-filter: blur(9px);
-        /* Aplicar desenfoque */
-        -webkit-backdrop-filter: blur(15px);
-        /* Compatibilidad con Safari */
-        border-radius: 20px;
-        /* Bordes redondeados */
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        /* Borde con transparencia */
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        /* Sombra ligera */
-        padding: 20px;
-        color: #fff;
-        /* Texto blanco */
+    background:transparent;
+    padding: 20px; 
 }
-
-
-   
+.modal-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+}
+.tab-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+.tab-button {
+    flex: 1;
+    padding: 10px;
+    background-color: #faf8f8;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+}
+.active {
+    background-color: #f3eefd;
+    border-bottom: 2px solid #8400ff4f;
+}
+.input-group {
+    margin-bottom: 16px;
+}
+.switch-text {
+    font-size: 14px;
+    color: #6c757d;
+    margin-top: 10px;
+}
+.switch-link {
+    color: #dd1bc3;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.button {
+    margin-top: 20px;
+}

@@ -1,7 +1,7 @@
 {
   "name": "etiquetado",
   "private": true,
-  "version": "0.0.1",
+  "version": "1.2.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -12,6 +12,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@capacitor/android": "6.1.2",
     "@capacitor/app": "6.0.1",
     "@capacitor/core": "6.1.2",
     "@capacitor/haptics": "6.0.1",
@@ -19,9 +20,12 @@
     "@capacitor/status-bar": "6.0.1",
     "@ionic/react": "^8.0.0",
     "@ionic/react-router": "^8.0.0",
+    "@nextui-org/react": "^2.4.8",
     "@reduxjs/toolkit": "^2.2.7",
     "@types/react-router": "^5.1.20",
     "@types/react-router-dom": "^5.3.3",
+    "dotenv": "^16.4.5",
+    "framer-motion": "^11.9.0",
     "ionicons": "^7.0.0",
     "lucide-react": "^0.441.0",
     "normalize.css": "^8.0.1",

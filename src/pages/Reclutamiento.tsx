@@ -13,7 +13,7 @@ const Reclutamiento = () => {
         <Page titulo="Reclutamiento" >
             <img src="/uvas.png" className="img-uva" />
             <form className="margen-pagina">
-                <p className="sub-titulos">Si estas interesado en unirte de nuestra familia, llena el siguiente formulario </p>
+                <p className="sub-titulos">Si estás interesado en unirte de nuestra familia, llena el siguiente formulario </p>
 
                 <div className={styles["reclutamiento"]} >
                     <Input label="Nombre(s) " type="text" placheolder="" />

@@ -12,7 +12,9 @@ import {
 } from 'ionicons/icons';
 import { CreditCard, Mail, MapPin, Package, Phone, ShoppingCart, Truck } from 'lucide-react';
 import { useDispatch } from 'react-redux';
-import { asingn, deleteFilter, clearAll } from "@/store/reducers";
+import { asingn } from "@/store/reducers";
+import { useEffect } from 'react';
+import { GetUserInfo } from '@/services/web_site_gets';
 
 const Home: React.FC = () => {
   const dispatch = useDispatch();
@@ -20,13 +22,24 @@ const Home: React.FC = () => {
   function incrementTes(suc: string) {
     dispatch(asingn({ sucursal: suc }))
   }
+  useEffect(() => {
+
+    GetUserInfo().then((info: any) => {
+      console.log(info);
+
+
+
+    })
+
+  }, [])
+
   return (
     <Page titulo='Mercados Liz'>
       <section className='section-1'>
         <div className='overlay'>
           <h1 className="titulos">Siempre Fresco Siempre Bien</h1>
           <p style={{ fontSize: "x-large" }}>
-            Ofrecemos variedad en productos de abarrotes, carniceria, panaderia, frutas y verduras, ventas al mayoreo, pedidos y mucho mas.
+            Ofrecemos variedad en productos de abarrotes, carnicería, panadería, frutas y verduras, ventas al mayoreo, pedidos y mucho más.
           </p>
         </div>
       </section>

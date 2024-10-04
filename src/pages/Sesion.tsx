@@ -25,7 +25,7 @@ export default SesionPage;
 
         /*Login modificar*/
         //Select Required  // Solicitar area para registro de usuario
-        //modal cambiar efecto Custom Backdrop-- ()
+        //modal cambiar efecto Custom Backdrop-- () 
         //With Form -tabs- cambiar la forma de usuario(Listo)-- Hacer los campos obligatorios
 
 

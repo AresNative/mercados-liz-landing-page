@@ -39,7 +39,7 @@ const Home: React.FC = () => {
         <div className='overlay'>
           <h1 className="titulos">Siempre Fresco Siempre Bien</h1>
           <p style={{ fontSize: "x-large" }}>
-            Ofrecemos variedad en productos de abarrotes, carniceria, panaderia, frutas y verduras, ventas al mayoreo, pedidos y mucho mas.
+            Ofrecemos variedad en productos de abarrotes, carnicería, panadería, frutas y verduras, ventas al mayoreo, pedidos y mucho más.
           </p>
         </div>
       </section>

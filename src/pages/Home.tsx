@@ -85,7 +85,7 @@ const Home: React.FC = () => {
           <li>
             <MainForm message='Enviar'>
               <Input label="Nombre(s)" type="text" placheolder="Ingrese sus nombres" />
-              <Input label="Mensage" type="text" placheolder="Exprese sus dudas..." />
+              <Input label="Mensaje" type="text" placheolder="Exprese sus dudas..." />
             </MainForm>
           </li>
           <li className="card-mail">

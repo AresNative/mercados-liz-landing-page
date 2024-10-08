@@ -1,0 +1,11 @@
+.list-columnas {
+    display: flex;
+    gap: 2rem;
+}
+
+@media (max-width:430px) {
+    .list-columnas {
+        flex-direction: column;
+    }
+
+}

@@ -191,6 +191,14 @@ h1.titulos{
 
     box-shadow: var(--shadow);
 }
+.logo-img {
+    align-self:center;
+    display: block;
+    height: 20rem;
+    width: 20rem;
+    border-radius: 5px;
+    opacity: 0.1;
+}
 
 .img-uva{
     opacity: 0.6;

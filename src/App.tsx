@@ -24,6 +24,7 @@ import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
+import RHPage from './pages/Rh';
 
 
 setupIonicReact({
@@ -52,6 +53,9 @@ const App: React.FC = () => (
         </Route>
         <Route exact path="/Sesion">
           <SesionPage />
+        </Route>
+        <Route exact path="/Sesion/RecursosHumanos">
+          <RHPage />
         </Route>
         {/*  */}
         <Route exact path="/">

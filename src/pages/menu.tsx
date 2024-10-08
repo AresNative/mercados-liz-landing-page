@@ -6,7 +6,7 @@ import { Button } from "@/components/functions/button";
 import { Input } from "@/components/functions/input";
 import { useHistory } from "react-router-dom";
 import { Tooltip } from "@nextui-org/react";
-import { BadgeDollarSign, BriefcaseBusiness, FileCheck, FilePlus2, HeartHandshakeIcon, Home, Info, MessagesSquare, X } from 'lucide-react';
+import { BadgeDollarSign, BriefcaseBusiness,  FilePlus2,  Home, Info, X } from 'lucide-react';
 import { Select } from "@/components/functions/select";
 
 export function Menu() {

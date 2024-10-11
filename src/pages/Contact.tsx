@@ -12,7 +12,7 @@ const ContactPage = () => {
                     <li>
                         <MainForm message='Enviar'>
                             <Input label="Nombre(s)" type="text" placheolder="Ingrese sus nombres" />
-                            <Input label="Mensage" type="text" placheolder="Exprese sus dudas..." />
+                            <Input label="Mensaj e" type="text" placheolder="Exprese sus dudas..." />
                         </MainForm>
                     </li>
                     <li>
@@ -27,7 +27,7 @@ const ContactPage = () => {
 
                                 <div className="contact-item">
                                     <Phone color="var(--primary)" size={24} />
-                                    <span>+52 646 123 4567</span>
+                                    <span>+52 646 596 9489</span>
                                 </div>
 
                                 <div className="contact-item">

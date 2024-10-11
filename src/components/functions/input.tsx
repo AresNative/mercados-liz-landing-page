@@ -15,10 +15,10 @@ export function Input({ label, type, placheolder }: Inputprops) {
             labelPlacement="floating"
             placeholder={placheolder}
             className={styles["use-input"]}
-            
-            
+
+          
         />
-        
+
     )
 }
 

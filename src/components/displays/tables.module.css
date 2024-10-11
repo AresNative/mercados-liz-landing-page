@@ -1,0 +1,56 @@
+.table {
+    background: #faeeff;
+    margin-top: 3rem !important;
+    margin: auto;
+    padding: 10px;
+    width: 50vh;
+    height: 50vh;
+    border: 1px solid #f8f8f8e0;
+    font-family: "Lobster"!important;
+    border-radius: 25px;    
+}
+
+.table-header {
+    font-size: x-small;
+    text-align: center;
+    
+}
+table-body {
+    margin: 2px;
+    padding: auto;
+}
+
+table-cell * {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: x-small;
+}
+.table-row{
+    font-family: 'Times New Roman', Times, serif;
+    
+    margin: 2rem ;
+    padding: auto;
+}
+
+.form{
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+    background: #ffffff;
+    padding: 1rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px #0000001a;
+    margin-bottom: 2rem;
+}
+.divbu{
+   
+    align-content: center !important;
+    justify-content: center;
+    display: flex;
+}
+.icontabla {
+    stroke: #8605f0;
+}

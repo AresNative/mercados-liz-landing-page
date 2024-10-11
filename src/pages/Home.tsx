@@ -15,6 +15,7 @@ import { useDispatch } from 'react-redux';
 import { asingn } from "@/store/reducers";
 import { useEffect } from 'react';
 import { GetUserInfo } from '@/services/web_site_gets';
+import { List } from '@/components/displays/list';
 
 const Home: React.FC = () => {
   const dispatch = useDispatch();
@@ -98,7 +99,7 @@ const Home: React.FC = () => {
           <li>
             <MainForm message='Enviar'>
               <Input label="Nombre(s)" type="text" placheolder="Ingrese sus nombres" />
-              <Input label="Mensage" type="text" placheolder="Exprese sus dudas..." />
+              <Input label="Mensaje" type="text" placheolder="Exprese sus dudas..." />
             </MainForm>
           </li>
           <li className="card-mail">
@@ -111,7 +112,7 @@ const Home: React.FC = () => {
 
             <div className="contact-item">
               <Phone color="var(--primary)" size={24} />
-              <span>+52 646 123 4567</span>
+              <span>+52 646 596 9489</span>
             </div>
 
             <div className="contact-item">
@@ -138,22 +139,27 @@ const Home: React.FC = () => {
         </h2>
 
         <div style={{ margin: "2rem auto ", width: "90%" }}>
-          <Select values={
-            [
-              {
-                name: "Matriz"//32.0998035,-116.5654255,15z
-              }, {
-                name: "Valle de guadalupe"//32.0945219,-116.576508
-              }, {
-                name: "Valle de las palmas"//32.3622361,-116.6245621,14.5z
-              }, {
-                name: "Testerazo"//32.2943975,-116.5420665
-              }
-            ]
-          }
-            message='Sucursales'
-            onChange={incrementTes}
-          />
+
+          <List >
+
+            <IonButton style={{ textDecoration:"underline"}} color="liz" shape='round' fill="clear" onClick={() => incrementTes("Matriz")}>
+              <MapPin color="var(--primary)" size={24}/> Mayoreo
+            </IonButton>
+
+            <IonButton style={{ textDecoration: "underline" }} color="liz" shape='round' fill="clear" onClick={() => incrementTes("Valle de guadalupe")}>
+              <MapPin color="var(--primary)" size={24}/> Valle de Guadalupe
+            </IonButton>
+            
+            <IonButton style={{ textDecoration: "underline" }} color="liz" shape='round' fill="clear" onClick={() => incrementTes("Valle de las palmas")}>
+              <MapPin color="var(--primary)" size={24}/> Valle de las Palmas
+            </IonButton>
+
+            <IonButton style={{ textDecoration: "underline" }} color="liz" shape='round' fill="clear" onClick={() => incrementTes("Testerazo")}>
+              <MapPin color="var(--primary)" size={24}/> Testerazo
+            </IonButton>
+
+          </List>
+
           <MyMap />
         </div>
       </section>

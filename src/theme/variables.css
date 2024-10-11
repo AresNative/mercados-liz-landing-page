@@ -84,9 +84,9 @@ h1.titulos{
 }
 
 .section-1 {
-    background-image: 
-    linear-gradient(#ffffff00 0%, #fdfdfde5 70%, #f2f2f7 100%),
-     url(merc1.jpg);
+    background-image:
+            linear-gradient(#ffffff00 0%, #fdfdfde5 70%, #f2f2f7 100%),
+            url('/merc1.jpg');
     background-size: cover;
     padding-top: 5rem;
     height: 65vh;
@@ -191,6 +191,14 @@ h1.titulos{
 
     box-shadow: var(--shadow);
 }
+.logo-img {
+    align-self:center;
+    display: block;
+    height: 20rem;
+    width: 20rem;
+    border-radius: 5px;
+    opacity: 0.1;
+}
 
 .img-uva{
     opacity: 0.6;
@@ -200,6 +208,26 @@ h1.titulos{
     height: 100px;
     width: 100px;
     transform: rotate(105deg);
+    z-index: 100;
+}
+.img-uva1 {
+    opacity: 0.6;
+    position: absolute;
+    left: 8%;
+    top: 10%;
+    height: 200px;
+    width: 200px;
+    transform: rotate(10deg);
+    z-index: 100;
+}
+.img-uva2 {
+    opacity: 0.6;
+    position: absolute;
+    left: 40%;
+    top: 50%;
+    height: 200px;
+    width: 200px;
+    transform: rotate(10deg);
     z-index: 100;
 }
 

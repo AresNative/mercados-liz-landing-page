@@ -1,56 +1,78 @@
 import Page from "@/template/page";
-import { IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonTextarea } from "@ionic/react";
+import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonTextarea } from "@ionic/react";
 import { Button } from "@nextui-org/react";
-import { Plane, Star } from "lucide-react";
-import { SetStateAction, useState } from "react";
+import { Plane, SendHorizonal, SendIcon, Star } from "lucide-react";
+import { useState } from "react";
+import styles from "@/pages/calificacion.module.css"
+
+
+
+interface Estrellas {
+    values: number[];  // Cambié el tipo a `number[]` porque esperas números
+    rating: number;
+}
+
+
+
 
 export default function ServicioPage() {
-    const [rating, setRating] = useState(0); // Estado para el rating
-    const [comment, setComment] = useState(''); // Estado para el comentario
+
+    const calif: Estrellas = {
+        values: [1, 2, 3, 4, 5],  // Cambié las llaves a corchetes
+        rating: 2
+    }
+
+    const [rating, setRating] = useState(0); // Calificación seleccionada
+    const [hoverRating, setHoverRating] = useState(0); // Calificación al pasar el ratón
 
     const handleRating = (value: number) => {
-        setRating(value); // Actualiza la calificación con el valor seleccionado
+        setRating(value);
     };
 
     const handleSubmit = () => {
         console.log('Rating:', rating);
-        console.log('Comment:', comment);
         // Aquí puedes agregar la lógica para enviar la calificación y el comentario a tu backend
-        alert('¡Gracias por tu calificación!');
-        setRating(0); // Resetea el rating
-        setComment(''); // Resetea el comentario
+        alert('Mercados Liz agradece tu opinión ');
+        setRating(0);
     };
+
+
 
     return (
         <Page titulo={"Servicio"}>
-            <IonCard>
+
+            <img src="/uvas.png" className="img-uva" />
+            <img src="/uvas.png" className="img-uva1" />
+            <img src="/uvas.png" className="img-uva2" />
+            <IonCard className={styles["form"]}>
                 <IonCardHeader>
-                    <IonCardTitle>Evaluación de Servicio</IonCardTitle>
+                    <IonCardTitle className="titulos ">Evaluación del servicio</IonCardTitle>
                 </IonCardHeader>
-                <IonCardContent>
-                    <div className="flex justify-center space-x-1 mb-4">
-                        {[1, 2, 3, 4, 5].map((star) => (
+                <IonCardContent className={styles["content-card"]}>
+                    <div className={styles["content"]} >
+                        {calif.values.map((star: any) => (
                             <Star
                                 key={star}
-                                className={`w-8 h-8 cursor-pointer ${star <= rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'
-                                    }`}
-                                onClick={() => handleRating(star)} // Actualiza el rating al hacer clic en una estrella
+                                className={` ${rating + 1 <= star ? `${styles.estrellas}` : `${styles.estrella2}`}`}
+                                onClick={() => handleRating(star)}
+                                onMouseEnter={() => setHoverRating(star)}
+                                onMouseLeave={() => setHoverRating(0)}
+                                size={35}
+
+
                             />
                         ))}
                     </div>
-                    <IonTextarea
-                        placeholder="Danos tu opinión, es importante para nosotros escucharte"
-                        value={comment} // Vincula el valor del textarea al estado 'comment'
-                        onIonChange={(e: { detail: { value: SetStateAction<string>; }; }) => setComment(e.detail.value!)} // Actualiza el estado cuando cambia el valor
-                    />
-                    <Button
+                    <IonTextarea className={styles["textarea2"]} placeholder="Deja tu opinión , para nosotros es muy importante escucharte" />
+                    <IonButton
                         onClick={handleSubmit}
-                        className="w-full"
-                        disabled={rating === 0 || comment.trim() === ''} // Deshabilita el botón si no hay rating o comentario
-                    >
-                        <Plane />
-                        Enviar
-                    </Button>
+                        disabled={rating === 0}
+                        fill="outline"
+                        slot="center"
+                        color="liz"
+                        >
+                        Enviar <SendIcon color="purple" />
+                    </IonButton>
                 </IonCardContent>
             </IonCard>
         </Page>

@@ -23,7 +23,7 @@ const Reclutamiento = () => {
                     </div>
                     <Input label="Correo Electronico" type="email" placheolder="" />
                     <Input label="Años de experiencia" type="number" placheolder="" />
-                    <Select values={[
+                    <Select multiple values={[
                         {
                             puesto: "MATRIZ"
                         }, {

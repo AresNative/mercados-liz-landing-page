@@ -1,6 +1,8 @@
 .list-columnas {
     display: flex;
     gap: 2rem;
+    margin-bottom: 1rem;
+    background: transparent ;
 }
 
 @media (max-width:430px) {

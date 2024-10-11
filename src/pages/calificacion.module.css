@@ -1,0 +1,68 @@
+.estrellas{
+    cursor: pointer;
+        gap: 5px;
+        align-content: center;
+        border-radius: 1%;
+        stroke-width: 2%;
+
+}
+.estrella2 {
+    fill: var(--violet-6) !important;
+    border-radius: 1%;
+    stroke-width: 2%;
+}
+.estrellas:hover {
+    stroke-width: 1%;
+}
+
+.form {
+    z-index: 200 !important;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 10%;
+    margin: 10rem auto;
+    background: #ffffff;
+    padding: 1rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px #0000001a;
+    margin-bottom: 2rem;
+    font-size: large;
+
+}
+.content-card{
+    z-index: 200 !important;
+    width: 90%;
+    display:flex;
+    flex-direction: column;
+
+}
+
+.content-card ion-button{
+    z-index: 200 !important;
+    width: 8rem;
+    margin: auto;
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+.content{
+    z-index: 200 !important;
+     width: 12rem;
+    margin: auto;
+}
+.textarea2 {
+    z-index: 200 !important;
+    background: transparent;
+    border: 1px solid rgba(136, 136, 136, 0.11);
+    resize: none;
+    width: 90%;
+    height: 10rem auto ;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 1rem;
+
+}

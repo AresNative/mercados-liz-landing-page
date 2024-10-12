@@ -15,3 +15,14 @@ export function UserCard({ name, email, avatarUrl }: UserCardProps) {
         </div>
     );
 };
+
+export function OffertCard({ avatarUrl }: UserCardProps) {
+    return (
+        <div className="use-card">
+            <img src={avatarUrl} className="use-card__avatar" />
+            <div className="use-card__info">
+
+            </div>
+        </div>
+    );
+};

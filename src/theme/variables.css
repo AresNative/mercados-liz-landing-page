@@ -38,10 +38,10 @@ ion-toolbar{
     box-shadow: 0 4px 6px #0000001a;
 }
 ion-popover{
-    --width: auto;
+    --width: 12rem;
 }
 ion-select-popover {
-    width: auto;
+    width: 12rem;
     overflow: hidden;
 }
 ul {
@@ -227,6 +227,16 @@ h1.titulos{
     top: 50%;
     height: 200px;
     width: 200px;
+    transform: rotate(10deg);
+    z-index: 100;
+}
+.img-logo {
+    opacity: 0.6;
+    position: absolute;
+    left: 80%;
+    top: 40%;
+    height: 300px;
+    width: 300px;
     transform: rotate(10deg);
     z-index: 100;
 }

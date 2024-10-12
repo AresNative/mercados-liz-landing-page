@@ -47,3 +47,28 @@
     margin: 0;
     color:var(--gray-a10);
 } 
+/* src/components/offertCard.css */
+.use-card {
+    display: flex;
+    align-items: normal;
+    padding: 16px;
+    border-radius: 1rem;
+}
+
+.use-card:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.use-card__avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 70%;
+    margin-right: 16px;
+   
+}
+
+.use-card__info {
+    display: flex;
+    flex-direction: column;
+}
+

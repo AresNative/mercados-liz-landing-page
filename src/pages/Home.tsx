@@ -16,6 +16,8 @@ import { asingn } from "@/store/reducers";
 import { useEffect } from 'react';
 import { GetUserInfo } from '@/services/web_site_gets';
 import { List } from '@/components/displays/list';
+import { OffertCard, UserCard } from '@/components/displays/card';
+import styles from "@/pages/modal.module.css";
 
 const Home: React.FC = () => {
   const dispatch = useDispatch();
@@ -92,6 +94,25 @@ const Home: React.FC = () => {
           </IconCard>
         </ul>
       </section>
+
+          <section>
+        <nav className={styles["nav"]}>
+          <ul className={styles["ul"]}>
+            <li>
+              <OffertCard avatarUrl="https://www.cocacolaep.com/assets/Uploads/resources/Coca-Cola-1210.jpg" email="" name="" />
+            </li>
+            <li>
+              <OffertCard avatarUrl="" email="" name="" />
+            </li>
+            <li>
+              <OffertCard avatarUrl="" email="" name="" />
+            </li>
+            <li>
+              <OffertCard avatarUrl="" email="" name="" />
+            </li>
+          </ul>
+          </nav>
+        </section>
 
       <section className='mail'>
         <h2 className="titulos">Contacto directo</h2>

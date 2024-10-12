@@ -40,13 +40,14 @@ export default function ServicioPage() {
 
     return (
         <Page titulo={"Servicio"}>
-
+ 
             <img src="/uvas.png" className="img-uva" />
+      
             <img src="/uvas.png" className="img-uva1" />
             <img src="/uvas.png" className="img-uva2" />
             <IonCard className={styles["form"]}>
                 <IonCardHeader>
-                    <IonCardTitle className="titulos ">Evaluación del servicio</IonCardTitle>
+                    <IonCardTitle className="titulos ">Califica nuestro servicio</IonCardTitle>
                 </IonCardHeader>
                 <IonCardContent className={styles["content-card"]}>
                     <div className={styles["content"]} >

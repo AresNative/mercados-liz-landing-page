@@ -47,28 +47,55 @@
     margin: 0;
     color:var(--gray-a10);
 } 
-/* src/components/offertCard.css */
-.use-card {
+
+
+/* Offert card*/
+
+
+.offert-card {
     display: flex;
     align-items: normal;
     padding: 16px;
-    border-radius: 1rem;
+    border-radius: 4rem;
+    height: 10%;
+    min-height: 200px;
+    min-width: 200px;
+    max-width: 200px;
 }
 
-.use-card:hover {
+.offert-card:hover {
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
 }
 
-.use-card__avatar {
-    width: 120px;
-    height: 120px;
-    border-radius: 70%;
-    margin-right: 16px;
+.offert-card__avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    
+}
+
+/* Histori card*/
+
+.histo-card {
+    background: transparent;
+    min-height: 100px;
+        min-width: 50px;
+        max-width: 100px;
+    
+}
+
+.histo-card:hover {
+    animation-play-state: paused !important;
+      
+}
+
+.histo-card__avatar {
+    width: 100px;
+    height: 100px ;
    
 }
 
-.use-card__info {
-    display: flex;
-    flex-direction: column;
-}
+
+
+
 

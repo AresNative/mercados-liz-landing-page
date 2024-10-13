@@ -82,6 +82,12 @@ h1.titulos{
     text-align: center;
     color:var(--violet-12);
 }
+.sub-titulos2 {
+    font-size: 2rem;
+    font-weight: 250;
+    text-align: center;
+    color: whitesmoke;
+}
 
 .section-1 {
     background-image:

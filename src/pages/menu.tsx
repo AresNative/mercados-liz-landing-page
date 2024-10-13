@@ -6,7 +6,7 @@ import { Button } from "@/components/functions/button";
 import { Input } from "@/components/functions/input";
 import { useHistory } from "react-router-dom";
 import { Tooltip } from "@nextui-org/react";
-import { BadgeDollarSign, BriefcaseBusiness,  FilePlus2,  Grape,  Home, Info, Popcorn, Star, X } from 'lucide-react';
+import { BadgeDollarSign, BookOpen, BriefcaseBusiness,  FilePlus2,  Grape,  Home, Info, Library, Popcorn, Star, X } from 'lucide-react';
 import { Select } from "@/components/functions/select";
 
 export function Menu() {
@@ -159,7 +159,7 @@ export function Menu() {
 
                         <IonItem routerLink="/Historia">
                             <IonLabel style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-                                <Grape color='purple' size={20} />  Nuestra Historia
+                                <BookOpen color='purple' size={20} />  Nuestra Historia
                             </IonLabel>
                         </IonItem>
                         <IonItem routerLink="/Servicio">

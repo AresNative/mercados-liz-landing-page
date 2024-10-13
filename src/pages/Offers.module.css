@@ -1,5 +1,6 @@
 .nav {
-    background: #fff;
+ /*    background:#f2f2f7; */
+    background: #ffffff;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -9,16 +10,15 @@
 
 .ul {
     display: flex;
-    gap: 2rem;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    animation: marquee 15s linear infinite;
+    width: 141%;
+    animation: marquee 15s linear infinite !important;
 }
 
 .ul li {
     padding: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
 
 .ul li:hover {
@@ -43,7 +43,7 @@
     margin-top: 4rem;
     margin-bottom: 2rem;
     min-height: 40vh;
-    background: #fff;
+
 
     display: flex;
     flex-direction: column;
@@ -96,6 +96,72 @@
 
 @media (max-width: 768px) {
     .productos li {
+        flex: 1 1 calc(100% - 2rem);
+    }
+}
+
+
+/*Combos */
+.contentcom {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    min-height: 40vh;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    padding: 2rem;
+}
+
+.marcacom {
+    width: 90%;
+    height: 12rem;
+
+    background: rgb(168, 74, 231);
+    color: #fff;
+
+    padding: 10px;
+    border: 1px solid var(--gray-1);
+    border-radius: 1rem;
+    box-shadow: 0 4px 4px #0000001a;
+}
+
+.marcacom h2 {
+    font-size: xx-large;
+    font-weight: 700;
+    font-variant: small-caps;
+}
+
+.productoscom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    width: 90%;
+    margin: auto;
+}
+
+.productoscom li {
+    flex: 1 1 calc(50% - 2rem);
+    min-height: 200px;
+    background: #f2f2f7;
+    padding: 10px;
+    border: 1px solid var(--gray-1);
+    border-radius: 1rem;
+    box-shadow: 0 4px 4px #0000001a;
+}
+
+.productoscom li:nth-child(1):only-child {
+    flex: 1 1 100%;
+}
+
+@media (max-width: 768px) {
+    .productoscom li {
         flex: 1 1 calc(100% - 2rem);
     }
 }

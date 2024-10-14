@@ -1,15 +1,18 @@
 .estrellas{
     cursor: pointer;
-        gap: 5px;
+        gap: 1px;
         align-content: center;
         border-radius: 1%;
-        stroke-width: 2%;
-
+        stroke-width: 1%;
+        
 }
+
+
 .estrella2 {
     fill: var(--violet-6) !important;
     border-radius: 1%;
-    stroke-width: 2%;
+    stroke-width: 1%;
+    
 }
 .estrellas:hover {
     stroke-width: 1%;
@@ -31,6 +34,13 @@
     box-shadow: 0 4px 6px #0000001a;
     margin-bottom: 2rem;
     font-size: large;
+}
+@media (max-width:430px) {
+    .form {
+        width: 70%;
+        height: 20%;
+        flex-direction: column;
+    }
 
 }
 .content-card{

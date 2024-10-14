@@ -3,7 +3,6 @@ import './HistoriaPage.css';
 import {Cake, Construction, HousePlus, PartyPopper, ShoppingBasket, ShoppingCart, Store } from "lucide-react";
 
 
-
 const HistoriaPage = () => {
     return (
         <Page titulo="Historia">
@@ -16,9 +15,8 @@ const HistoriaPage = () => {
                         <ShoppingBasket size={40} />
                     </div>
                     <div className="timeline-content">
-                        <h3>1980 - Inicio tienda </h3>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                            quasi in nesciunt voluptates ex voluptas ab doloremque .</p>
+                        <h3>1990 - Inicio tienda </h3>
+                        <p> Lorem ipsum dolaaaaaaor sit, amet consectetur adipisicing elit.</p>
                     </div>
                 </div>
 
@@ -27,9 +25,8 @@ const HistoriaPage = () => {
                         <Store size={40} />
                     </div>
                     <div className="timeline-content">
-                        <h3>1990 - creacion de mercado</h3>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                            quasi in nesciunt voluptates ex voluptas ab doloremque ..</p>
+                        <h3>2000 - Creacion de mercado</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam perferendis, dolor molestias suscipit cum adipisci, a officiis iure alias eveniet, deserunt sed placeat veniam optio esse libero rem! Repellat, in!</p>
                     </div>
                 </div>
 
@@ -38,9 +35,8 @@ const HistoriaPage = () => {
                         <ShoppingCart size={40} />
                     </div>
                     <div className="timeline-content">
-                        <h3>2000 - segunda sucursal</h3>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                            quasi in nesciunt voluptates ex voluptas ab doloremque ..</p>
+                        <h3>2005 - Segunda sucursal</h3>
+                        <p></p>
                     </div>
                 </div>
 
@@ -49,9 +45,11 @@ const HistoriaPage = () => {
                         <Cake size={40}  />
                     </div>
                     <div className="timeline-content">
-                        <h3>2010 - aniversario #4 </h3>
+                        <h3>2010 - Aniversario  </h3>
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                            quasi in nesciunt voluptates ex voluptas ab doloremque ..</p>
+                            quasi in nesciunt
+                           
+                            .</p>
                     </div>
                 </div>
 
@@ -60,9 +58,9 @@ const HistoriaPage = () => {
                         <HousePlus size={40} />
                     </div>
                     <div className="timeline-content">
-                        <h3>2020 - inaguracion mayoreo</h3>
+                        <h3>2020 - Inaguracion mayoreo</h3>
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                            quasi in nesciunt voluptates ex voluptas ab doloremque ..</p>
+                            quasi in nesciunt volup tates ex voluptas ab doloremque .</p>
                     </div>
                 </div>
 
@@ -71,9 +69,9 @@ const HistoriaPage = () => {
                         <PartyPopper size={40} />
                     </div>
                     <div className="timeline-content">
-                        <h3>2022 - aniversario #8</h3>
+                        <h3>2022 - Aniversario #8</h3>
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                            quasi in nesciunt voluptates ex voluptas ab doloremque ..</p>
+                            quasi in nesciunt voluptates ex voluptas ab doloremque .</p>
                     </div>
                 </div>
                 <div className="timeline-event">
@@ -81,9 +79,9 @@ const HistoriaPage = () => {
                         <Construction size={40} />
                     </div>
                     <div className="timeline-content">
-                        <h3>2025 - proxima sucursal</h3>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                            quasi in nesciunt voluptates ex voluptas ab doloremque ..</p>
+                        <h3>2025 - Proxima sucursal</h3>
+                        <p>Lorem ipsum sit, amet consectetur adipisicing elit.
+                            quasi in nesciunt voluptates ex voluptas ab doloremque .</p>
                     </div>
                 </div>
                 <div className="timeline-event">
@@ -91,12 +89,19 @@ const HistoriaPage = () => {
                         <Construction size={40} />
                     </div>
                     <div className="timeline-content">
-                        <h3>2026 - proxima sucursal</h3>
+                        <h3>2026 - Proxima sucursal</h3>
                         <p></p>
                     </div>
                 </div>
                
+               
             </div>
+            <div>
+                <section>
+                    <h1> </h1>
+                </section>
+            </div>
+            
         </Page>
     );
 }

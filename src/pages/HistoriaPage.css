@@ -13,7 +13,13 @@
     padding: 10px 0;
     width: 100%;
     max-width: 600px;
-    margin: 0 auto;
+    margin: 0 auto;  
+}
+@media (max-width:450px) {
+    .timeline {
+        padding-left: 10px ;
+        
+    }
 }
 
 .timeline-event {
@@ -37,6 +43,15 @@
 .timeline-event .timeline-content {
     padding-left: 20px;
     flex-grow: 1;
+    max-inline-size: 40rem;
+   
+}
+@media (max-width:450px) {
+    .timeline-event .timeline-content {
+        padding-right: 10px;
+        max-inline-size: 20rem;
+
+    }
 }
 
 .timeline-event h3 {

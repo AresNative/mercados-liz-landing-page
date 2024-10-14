@@ -262,6 +262,16 @@ h1.titulos{
         display: none;
     }
 }
+@media (max-width:450px) {
+    .img-uva2 {
+        display: none;
+    }
+}
+@media (max-width:450px) {
+    .img-uva4 {
+        display: none;
+    }
+}
 
 :root {
     --primary: #7700c0;

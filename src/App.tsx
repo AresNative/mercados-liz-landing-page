@@ -65,7 +65,7 @@ const App: React.FC = () => (
         <Route exact path="/Servicio">
           <ServicioPage />
         </Route>
-        <Route exact path="/ProvedoresNuev">
+        <Route exact path="/ProveedoresNuev">
           <NuevoProvePage />
         </Route>
         <Route exact path="/Sesion/RecursosHumanos">

@@ -54,9 +54,7 @@ const preguntas: Pregunta[] = [
             
         ]
     },
-    
-    
-    
+ 
 ];
 
 const NuevoProvePage = () => {
@@ -149,7 +147,6 @@ const NuevoProvePage = () => {
                         <Button label="Enviar" type={"button"} color={"default"} onClick={handleEnviar} />
                         </div>
                     </div>
-
                 </form>
             </Page >
 

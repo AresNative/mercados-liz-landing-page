@@ -29,13 +29,3 @@ export function OffertCard({ avatarUrl }: UserCardProps) {
 
     );
 };
-export function HistoryCard({ avatarUrl }: UserCardProps) {
-    return (
-        <div className="histo-card">
-            <img src={avatarUrl} className="histo-card__avatar" />
-
-        </div>
-
-
-    );
-};

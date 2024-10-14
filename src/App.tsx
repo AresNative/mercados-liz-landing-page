@@ -26,6 +26,9 @@ import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 import RHPage from './pages/Rh';
 import ServicioPage from './pages/Calificacion';
+import HistoriaPage from './pages/History';
+import NuevoProvePage from './pages/nuevosprovedores';
+
 
 
 setupIonicReact({
@@ -52,11 +55,18 @@ const App: React.FC = () => (
         <Route exact path="/Contact">
           <ContactPage />
         </Route>
+        <Route exact path="/Historia">
+          <HistoriaPage />
+        </Route>
+
         <Route exact path="/Sesion">
           <SesionPage />
         </Route>
         <Route exact path="/Servicio">
           <ServicioPage />
+        </Route>
+        <Route exact path="/ProveedoresNuev">
+          <NuevoProvePage />
         </Route>
         <Route exact path="/Sesion/RecursosHumanos">
           <RHPage />

@@ -1,0 +1,86 @@
+.icons {
+    cursor: pointer;
+    gap: 5px;
+    align-content: center;
+    border-radius: 1%;
+    stroke-width: 2%;
+
+}
+/* Estructura de la línea de tiempo */
+.timeline {
+    position: relative;
+    margin: 40px 0;
+    padding: 10px 0;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;  
+}
+@media (max-width:450px) {
+    .timeline {
+        padding-left: 10px ;
+        
+    }
+}
+
+.timeline-event {
+    display: flex;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.timeline-event .timeline-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+}
+
+.timeline-event .timeline-content {
+    padding-left: 20px;
+    flex-grow: 1;
+    max-inline-size: 40rem;
+   
+}
+@media (max-width:450px) {
+    .timeline-event .timeline-content {
+        padding-right: 10px;
+        max-inline-size: 20rem;
+
+    }
+}
+
+.timeline-event h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.timeline-event p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #666;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 30px;
+    width: 4px;
+    background-color: #ccc;
+}
+
+.timeline-event .timeline-icon {
+    border: 3px solid white;
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+
+

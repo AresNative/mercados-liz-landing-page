@@ -38,10 +38,10 @@ ion-toolbar{
     box-shadow: 0 4px 6px #0000001a;
 }
 ion-popover{
-    --width: auto;
+    --width: 12rem;
 }
 ion-select-popover {
-    width: auto;
+    width: 12rem;
     overflow: hidden;
 }
 ul {
@@ -81,6 +81,12 @@ h1.titulos{
     font-weight: 300;
     text-align: center;
     color:var(--violet-12);
+}
+.sub-titulos2 {
+    font-size: 2rem;
+    font-weight: 250;
+    text-align: center;
+    color: whitesmoke;
 }
 
 .section-1 {
@@ -230,9 +236,39 @@ h1.titulos{
     transform: rotate(10deg);
     z-index: 100;
 }
+.img-uva4 {
+    opacity: 0.6;
+    position: absolute;
+    left: 7%;
+    top: 4%;
+    height: 60px;
+    width: 60px;
+    transform: rotate(10deg);
+   
+}
+.img-logo {
+    opacity: 0.6;
+    position: absolute;
+    left: 80%;
+    top: 40%;
+    height: 300px;
+    width: 300px;
+    transform: rotate(10deg);
+    z-index: 100;
+}
 
 @media (max-width:450px) {
     .img-uva {
+        display: none;
+    }
+}
+@media (max-width:450px) {
+    .img-uva2 {
+        display: none;
+    }
+}
+@media (max-width:450px) {
+    .img-uva4 {
         display: none;
     }
 }

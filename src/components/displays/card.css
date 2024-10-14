@@ -47,3 +47,34 @@
     margin: 0;
     color:var(--gray-a10);
 } 
+
+
+/* Offert card*/
+
+.offert-card {
+    display: flex;
+    align-items: normal;
+    border-radius: 50%;
+    min-height: 200px;
+    min-width: 200px;
+    max-width: 200px;
+}
+
+.offert-card:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.offert-card__avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    
+}
+
+
+
+
+
+
+
+

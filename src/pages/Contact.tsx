@@ -12,14 +12,14 @@ const ContactPage = () => {
                     <li>
                         <MainForm message='Enviar'>
                             <Input label="Nombre(s)" type="text" placheolder="Ingrese sus nombres" />
-                            <Input label="Mensaj e" type="text" placheolder="Exprese sus dudas..." />
+                            <Input label="Mensaje" type="text" placheolder="Exprese sus dudas..." />
                         </MainForm>
                     </li>
                     <li>
                         <ul>
                             {/* ----------------------------------------------------------- */}
                             <li style={{ padding: "15px" }}>
-                                <h2>MATRIZ</h2>
+                                <h2></h2>
                                 <div className="contact-item">
                                     <MapPin color="var(--primary)" size={24} />
                                     <span>84 Calle Principal, Ensenada, Baja California, 22750.</span>

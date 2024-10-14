@@ -3,7 +3,7 @@ import styles from "./input.module.css"
 
 interface Inputprops {
     label: string;
-    type: 'text' | 'password' | 'email' | 'number' | undefined;
+    type: 'text' | 'password' | 'email' | 'number' |'date'|undefined;
     placheolder: string;
 
 }

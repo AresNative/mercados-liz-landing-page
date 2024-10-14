@@ -10,12 +10,16 @@ import {
   logoFacebook,
   logoWhatsapp
 } from 'ionicons/icons';
-import { CreditCard, Mail, MapPin, Package, Phone, ShoppingCart, Truck } from 'lucide-react';
+import { CreditCard, Mail, MapPin, Package, Phone, Plane, ShoppingCart, Truck } from 'lucide-react';
 import { useDispatch } from 'react-redux';
 import { asingn } from "@/store/reducers";
 import { useEffect } from 'react';
 import { GetUserInfo } from '@/services/web_site_gets';
 import { List } from '@/components/displays/list';
+import { OffertCard, UserCard } from '@/components/displays/card';
+import Styles from "./Offers.module.css";
+
+
 
 const Home: React.FC = () => {
   const dispatch = useDispatch();
@@ -93,6 +97,42 @@ const Home: React.FC = () => {
         </ul>
       </section>
 
+      <section style={{ marginTop: "5rem" }} >
+       
+        <nav className={Styles["nav"]}>
+          <h2 className="titulos">Marcas que nos acompañan </h2>
+          <ul className={Styles["ul"]}>
+            <li>
+              <OffertCard avatarUrl="https://www.cocacolaep.com/assets/Uploads/resources/Coca-Cola-1210.jpg" email="" name="" />
+            </li>
+            <li>
+              <OffertCard avatarUrl="https://cdn.shopify.com/s/files/1/1547/6619/files/logo.png?v=1698644298" email="" name="" />
+            </li>
+            <li>
+              <OffertCard avatarUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSgEuX0hSXHfBeGvSHwOyoXcd-sJOh96GvQQ&s" email="" name="" />
+            </li>
+            <li>
+              <OffertCard avatarUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDB4JLjNoNbV3cFRQ7OYalFLZPb6-rPcsXKA&s" email="" name="" />
+            </li>
+            <li>
+              <OffertCard avatarUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7Ub0t4Q4nI1ec4QiDNyMYDTIhYDkKfpgEdg&s" email="" name="" />
+            </li>
+            <li>
+              <OffertCard avatarUrl="https://www.lala.com.mx/storage/app/media/LogotipoEvolucion/2016.png" email="" name="" />
+            </li>
+            <li>
+              <OffertCard avatarUrl="https://storage.googleapis.com/www-paredro-com/uploads/2018/11/%C2%BFPor-que%CC%81-el-logo-de-Sabritas-tiene-una-carita-feliz.jpg" email="" name="" />
+            </li>
+            <li>
+              <OffertCard avatarUrl="https://upload.wikimedia.org/wikipedia/commons/6/68/Pepsi_2023.svg" email="" name="" />
+            </li>
+            <li>
+              <OffertCard avatarUrl="https://purina.com.mx/sites/default/files/styles/webp/public/2024-02/Gatina_C_0.png.webp?itok=bkyb6mPj" email="" name="" />
+            </li>
+          </ul>
+        </nav>
+      </section>
+
       <section className='mail'>
         <h2 className="titulos">Contacto directo</h2>
         <ul className='product'>
@@ -142,20 +182,20 @@ const Home: React.FC = () => {
 
           <List >
 
-            <IonButton style={{ textDecoration:"underline"}} color="liz" shape='round' fill="clear" onClick={() => incrementTes("Matriz")}>
-              <MapPin color="var(--primary)" size={24}/> Mayoreo
+            <IonButton style={{ textDecoration: "underline" }} color="liz" shape='round' fill="clear" onClick={() => incrementTes("Matriz")}>
+              <MapPin color="var(--primary)" size={24} /> Mayoreo
             </IonButton>
 
             <IonButton style={{ textDecoration: "underline" }} color="liz" shape='round' fill="clear" onClick={() => incrementTes("Valle de guadalupe")}>
-              <MapPin color="var(--primary)" size={24}/> Valle de Guadalupe
+              <MapPin color="var(--primary)" size={24} /> Valle de Guadalupe
             </IonButton>
-            
+
             <IonButton style={{ textDecoration: "underline" }} color="liz" shape='round' fill="clear" onClick={() => incrementTes("Valle de las palmas")}>
-              <MapPin color="var(--primary)" size={24}/> Valle de las Palmas
+              <MapPin color="var(--primary)" size={24} /> Valle de las Palmas
             </IonButton>
 
             <IonButton style={{ textDecoration: "underline" }} color="liz" shape='round' fill="clear" onClick={() => incrementTes("Testerazo")}>
-              <MapPin color="var(--primary)" size={24}/> Testerazo
+              <MapPin color="var(--primary)" size={24} /> Testerazo
             </IonButton>
 
           </List>

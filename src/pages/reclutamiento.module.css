@@ -10,6 +10,7 @@
     padding: 1rem;
     border-radius:15px;
     box-shadow: 0 4px 6px #0000001a;
+    min-height: 4rem;
 }
 .reclutamiento-columnas{
     display: flex;
@@ -20,4 +21,9 @@
        flex-direction: column;
     }
 
+}
+
+.boton{
+    margin-bottom: 1rem;
+    position:absolute !important;
 }

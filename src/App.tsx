@@ -28,6 +28,7 @@ import RHPage from './pages/Rh';
 import ServicioPage from './pages/Calificacion';
 import HistoriaPage from './pages/History';
 import NuevoProvePage from './pages/nuevosprovedores';
+import ProveePage from './pages/portalprov';
 
 
 
@@ -68,6 +69,10 @@ const App: React.FC = () => (
         <Route exact path="/ProveedoresNuev">
           <NuevoProvePage />
         </Route>
+        <Route exact path="/Proveedores">
+          <ProveePage />
+        </Route>
+
         <Route exact path="/Sesion/RecursosHumanos">
           <RHPage />
         </Route>

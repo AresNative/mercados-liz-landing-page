@@ -6,7 +6,7 @@ import { Button } from "@/components/functions/button";
 import { Input } from "@/components/functions/input";
 import { useHistory } from "react-router-dom";
 import { Tooltip } from "@nextui-org/react";
-import { BadgeDollarSign, BookOpen, BookOpenText, BriefcaseBusiness,  FilePlus2, Home, Info, ScrollText, ShoppingBagIcon, Star, X } from 'lucide-react';
+import { BadgeDollarSign,  BookOpenText, BriefcaseBusiness,  FileBadge,  FilePlus2, Home, Info,  ShoppingBagIcon, Star, X } from 'lucide-react';
 import { Select } from "@/components/functions/select";
 
 export function Menu() {
@@ -101,7 +101,8 @@ export function Menu() {
                                     name: "Contabilidad"//
                                 }, {
                                     name: "Recibo"//
-                                }
+                                },
+                                
                             ]
                         }
                             message='Áreas'
@@ -172,6 +173,12 @@ export function Menu() {
                         <IonItem routerLink="/ProveedoresNuev">
                             <IonLabel style={{ display: "flex", alignItems: "center", gap: "2px" }}>
                                 <ShoppingBagIcon color='pink' size={20} /> Nuevos Proveedores
+                            </IonLabel>
+                        </IonItem>
+
+                        <IonItem routerLink="/Proveedores">
+                            <IonLabel style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                                <FileBadge color='pink' size={20} /> Proveedores
                             </IonLabel>
                         </IonItem>
 

@@ -40,11 +40,11 @@ export default function ServicioPage() {
 
     return (
         <Page titulo={"Servicio"}>
- 
-            <img src="/uvas.png" className="img-uva" />
+
+            {/* <img src="/uvas.png" className="img-uva" />
       
             <img src="/uvas.png" className="img-uva1" />
-            <img src="/uvas.png" className="img-uva2" />
+            <img src="/uvas.png" className="img-uva2" /> */}
             <IonCard className={styles["form"]}>
                 <IonCardHeader>
                     <IonCardTitle className="titulos ">Califica nuestro servicio</IonCardTitle>
@@ -59,8 +59,6 @@ export default function ServicioPage() {
                                 onMouseEnter={() => setHoverRating(star)}
                                 onMouseLeave={() => setHoverRating(0)}
                                 size={35}
-
-
                             />
                         ))}
                     </div>
@@ -71,7 +69,7 @@ export default function ServicioPage() {
                         fill="outline"
                         slot="center"
                         color="liz"
-                        >
+                    >
                         Enviar <SendIcon color="purple" />
                     </IonButton>
                 </IonCardContent>

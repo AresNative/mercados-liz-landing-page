@@ -1,4 +1,4 @@
-import Page from "@/template/page";
+
 import "@/pages/margen-pagina.css"
 import { Input } from "@/components/functions/input";
 import { Select } from "@/components/functions/select";
@@ -6,6 +6,9 @@ import { Button } from "@/components/functions/button";
 import '@/components/displays/textarea.css'
 import styles from "./reclutamiento.module.css"
 import { useState } from "react";
+import { IonButton } from "@ionic/react";
+import { FileText } from "lucide-react";
+import Page from "@/template/page";
 
 interface Opcion {
     texto: string;
@@ -30,34 +33,27 @@ const preguntas: Pregunta[] = [
         id: 1,
         texto: "Datos Generales",
         opciones: [
-            { texto: "Información general proveedor", tipo: "h1" },
+            { texto: "Información general", tipo: "h1" },
+            { texto: "Proveedor", tipo: "text" },
             {
-                texto: "Informacion", tipo: "text", subopciones: [
-                    { texto: "Nombre", tipo: "text" },
-                    { texto: "Correo electronico", tipo: "email" }
+                texto: "Datos", tipo: "text", subopciones: [
+                    { texto: "Fecha ", tipo: "date" },
+                    {
+                        texto: "Tipo de Movimiento", tipo: "select", multiple: false, values: [
+                            { nombre: "Factura" },
+                            { nombre: "Pago" },
+                            { nombre: "Notificación" },
+                            { nombre: "Validación de datos " },
+                            { nombre: "etc." }
+                        ]
+                    },
                 ]
             },
-            {
-                texto: "Compañia", tipo: "text", subopciones: [
-                    { texto: "Compañia", tipo: "text" },
-                    { texto: "Tipo de productos", tipo: "text" }
-                ]
-            },
-            {
-                texto: "Departamento al que va dirigido", tipo: "select", values: [
-                    { nombre: "A" },
-                    { nombre: "C" },
-                    { nombre: "A" },
-                    { nombre: "C" }
-                ]
-            },
-            
         ]
     },
- 
 ];
 
-const NuevoProvePage = () => {
+const ProveePage = () => {
 
     const [paginaActual, setPaginaActual] = useState(0)
     const [respuestas, setRespuestas] = useState<Respuesta[]>([])
@@ -77,31 +73,28 @@ const NuevoProvePage = () => {
             return nuevasRespuestas
         })
     }
+    const AbrirPDF = () => {
 
-    
+        const urlPDF = ''; // Ruta al archivo pdf
+        window.open(urlPDF, '_blank'); // Abre el pdf en una nueva pestaña
+    };
 
     const handleEnviar = () => {
         console.log("Respuestas enviadas:", respuestas)
         // Aquí puedes implementar la lógica para enviar las respuestas a un servidor
-        alert("¡Gracias, nos pondremos en contacto con ustedes!")
+        alert("¡Cuestionario enviado con éxito!")
     }
 
     const respuestaActual = respuestas.find(r => r.preguntaId === preguntaActual.id)?.respuesta || ""
-
     return (
-
-        <Page titulo="NuevoProvePage" >
-           {/*  <img src="/uvas.png" className="img-uva" /> */}
-           
-                <form >
-                    <h2 className="titulos">Si quieres ser nuestro proveedor llena el siguiente formulario </h2>
-
-                <div className={styles["reclutamiento"]} >
-                    <p></p>
+        <Page titulo="Proveedor">
+            <>
+                <form className="margen-pagina">
+                    <p className="sub-titulos"> </p>
+                    <div className={styles["reclutamiento"]} >
                         {preguntaActual.opciones.map((data: Opcion, index: number) => {
                             return (
                                 <div className={styles["reclutamiento-columnas"]} key={index}>
-
                                     {data.subopciones ? (
                                         // Si hay subopciones, mostrar los inputs o selects dentro de subopciones
                                         <>
@@ -141,17 +134,69 @@ const NuevoProvePage = () => {
                                 </div>
                             );
                         })}
-                    
-                                <p></p>
-                            <input type="file" />
-                        <div style={{ display: "flex" }}>
-                        <Button label="Enviar" type={"button"} color={"default"} onClick={handleEnviar} />
+
+                        <div className="container-input">
+                            <input type="file" data-multiple-caption="{count} archivos seleccionados" multiple />
                         </div>
+
+                        <div>
+                            <textarea className="textarea" placeholder="Comentario"></textarea>
+                        </div>
+
+                        <div style={{ display: "flex" }}>
+                            <Button label="Enviar" onClick={handleEnviar} type={"button"} color={"default"} />
+                        </div>
+
                     </div>
+
                 </form>
-            </Page >
+            </>
+            <div className={styles["reclutamiento"]} >
+                <table className={styles["responsive-table"]}>
+                    <thead>
+                        <tr>
+                            <th>Proveedor</th>
+                            <th>Movimiento</th>
+                            <th>Fecha</th>
+                            <th>Comentarios</th>
+                            <th><center>Archivo</center></th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-    )
+                        <tr>
+                            <td>Provedor 1</td>
+                            <td>Factura</td>
+                            <td>10/10/2023</td>
+                            <td>"Comentario"</td>
+                            <td>
+                                <IonButton color={"danger"} slot="end" shape="round" size="small" fill="clear" onClick={AbrirPDF}>
+                                    <FileText />
+                                </IonButton>
+                            </td>
+                        </tr>
 
-}
-export default NuevoProvePage;
+                        <tr>
+                            <td>Provedor 2</td>
+                            <td>Factura</td>
+                            <td>10/11/2023</td>
+                            <td></td>
+                            <td>
+                                <IonButton color={"danger"} slot="end" shape="round" size="small" fill="clear" onClick={AbrirPDF}>
+                                    <FileText />
+                                </IonButton>
+                            </td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+        </Page>
+
+    );
+
+};
+export default ProveePage;
+
+

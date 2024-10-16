@@ -245,11 +245,6 @@ const Reclutamiento = () => {
 
             <form className="margen-pagina">
                 <p className="sub-titulos">Si estás interesado en unirte de nuestra familia, llena el siguiente formulario </p>
-
-
-
-
-
                 <div className={styles["reclutamiento"]} >
                     {preguntaActual.opciones.map((data: Opcion, index: number) => {
                         return (
@@ -295,9 +290,9 @@ const Reclutamiento = () => {
                         );
                     })}
 
-
+                    {esUltimaPagina && (<input type="file" data-multiple-caption="{count} archivos seleccionados" multiple />)}
                     {esUltimaPagina && (<CheckBox label={"Acepto los terminos y condiones de la aplicación."} />)}
-
+                   
                     <div style={{ display: "flex" }}>
 
                         <Button label={"Volver"} onClick={handleAnterior

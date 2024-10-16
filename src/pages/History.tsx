@@ -48,8 +48,7 @@ const HistoriaPage = () => {
                         <h3>2010 - Aniversario  </h3>
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                             quasi in nesciunt
-                           
-                            .</p>
+                            </p>
                     </div>
                 </div>
 

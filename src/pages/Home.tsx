@@ -52,25 +52,31 @@ const Home: React.FC = () => {
       <nav className='section-2'>
         <IonFab style={{ bottom: '-4rem', left: '50%', transform: 'translate(-50%, -50%)' }}>
           <IonFabButton color="liz">
-            <IonIcon icon={chevronDown}></IonIcon>
-          </IonFabButton>
+            <IonIcon icon={chevronDown} ></IonIcon>
+          </IonFabButton >
         </IonFab>
 
         <ul>
           <li>
-            <IonButton shape='round' fill="clear">
-              <IonIcon size='large' icon={logoFacebook} />
-            </IonButton>
+            <a href="https://www.facebook.com/share/1WZv93NVER/" target="_blank" >
+              <IonButton shape='round' fill="clear">
+                <IonIcon size='large' icon={logoFacebook} />
+              </IonButton>
+            </a>
           </li>
           <li>
+            <a href="https://www.facebook.com/share/1WZv93NVER/" target="_blank" >
             <IonButton color="success" shape='round' fill="clear">
               <IonIcon size='large' icon={logoWhatsapp} />
-            </IonButton>
+              </IonButton>
+              </a>
           </li>
           <li>
+            <a href="https://www.facebook.com/share/1WZv93NVER/" target="_blank" >
             <IonButton color="liz" shape='round' fill="clear">
               <Mail color="var(--primary)" size={24} />
-            </IonButton>
+              </IonButton>
+              </a>
           </li>
         </ul>
       </nav>

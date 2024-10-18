@@ -8,7 +8,7 @@ import styles from "@/components/displays/tables.module.css";
 
 const RHPage = () => {
     return (
-        <Page titulo="RecursosHumanos">
+        <Page /* titulo="RecursosHumanos" */>
             <h1 className="titulos"> Recursos humanos</h1>
             <div className={styles["divbu"]}>
                 <Button type="button" color="default" label=" Agregar Vacante" onClick={{}} />

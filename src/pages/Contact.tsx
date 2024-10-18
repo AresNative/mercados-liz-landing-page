@@ -4,7 +4,7 @@ import Page from "@/template/page";
 import { Mail, MapPin, Phone } from "lucide-react";
 const ContactPage = () => {
     return (
-        <Page titulo="Contactanos en">
+        <Page /* titulo="Contactanos en" */>
 
             <section style={{ marginBottom: "3rem" }}>
                 <h1 className="titulos" style={{ marginTop: "3.5rem" }}>Nuestras sucursales</h1>

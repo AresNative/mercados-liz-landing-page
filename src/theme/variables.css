@@ -83,6 +83,19 @@ h2.titulos {
     text-align: center;
     margin: 2.3rem;
 }
+.titulos2 {
+    font-family: "Lobster";
+    font-weight: 300;
+    text-align: center;
+    margin: 2.3rem;
+    color: #000000;
+}
+h2.titulos2 {
+    font-size: 2.5rem;
+    font-family: "Lobster";
+    font-weight: 300;
+    text-align: center;
+}
 @media (max-width: 376px) {
     .titulos  {
         max-inline-size: 20rem;
@@ -426,3 +439,4 @@ h2.titulos {
     --ion-color-shade: var(--ion-color-violet-shade);
     --ion-color-tint: var(--ion-color-violet-tint);
 }
+

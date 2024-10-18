@@ -91,7 +91,7 @@ const NuevoProvePage = () => {
 
     return (
 
-        <Page titulo="NuevoProvePage" >
+        <Page /* titulo="NuevoProvePage" */ >
             {/*  <img src="/uvas.png" className="img-uva" /> */}
             <form >
                 <h2 className="titulos" style={{ marginTop: "4.5rem" }}>Si quieres ser nuestro proveedor llena el siguiente formulario </h2>

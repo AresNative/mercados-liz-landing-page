@@ -38,7 +38,7 @@ const Home: React.FC = () => {
   }, [])
 
   return (
-    <Page titulo='Mercados Liz'>
+    <Page /* titulo='Mercados Liz' */>
       <section className='section-1'>
         <div className='overlay'>
           <h1 className="titulos">Siempre Fresco Siempre Bien</h1>

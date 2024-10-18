@@ -26,7 +26,7 @@
 }
 
 .ul:hover {
-    animation-play-state: paused;
+    animation-play-state: paused !important;
 }
 
 @keyframes marquee {
@@ -43,23 +43,18 @@
     margin-top: 4rem;
     margin-bottom: 2rem;
     min-height: 40vh;
-
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 2rem;
-
     padding: 2rem;
 }
 .marca{
     width: 90%;
     height: 10rem;
-
     background: var(--secondary);
     color: #fff;
-    
     padding: 10px;
     border: 1px solid var(--gray-1);
     border-radius: 1rem;
@@ -100,42 +95,33 @@
     }
 }
 
-
 /*Combos */
 .contentcom {
     margin-top: 4rem;
     margin-bottom: 2rem;
     min-height: 40vh;
-
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 2rem;
-
     padding: 2rem;
 }
-
 .marcacom {
     width: 90%;
     height: 12rem;
-
     background: rgb(168, 74, 231);
     color: #fff;
-
     padding: 10px;
     border: 1px solid var(--gray-1);
     border-radius: 1rem;
     box-shadow: 0 4px 4px #0000001a;
 }
-
 .marcacom h2 {
     font-size: xx-large;
     font-weight: 700;
     font-variant: small-caps;
 }
-
 .productoscom {
     display: flex;
     flex-wrap: wrap;
@@ -145,7 +131,6 @@
     width: 90%;
     margin: auto;
 }
-
 .productoscom li {
     flex: 1 1 calc(50% - 2rem);
     min-height: 200px;
@@ -155,13 +140,26 @@
     border-radius: 1rem;
     box-shadow: 0 4px 4px #0000001a;
 }
-
 .productoscom li:nth-child(1):only-child {
     flex: 1 1 100%;
 }
-
 @media (max-width: 768px) {
     .productoscom li {
         flex: 1 1 calc(100% - 2rem);
     }
+}
+.icon{
+    margin: 1rem;
+    font-size: medium;
+    font-family: /* "Lobster" */ serif ;  
+    font-size: 2rem;   
+    color: #0000001a;
+}
+.icons {
+    stroke-width: 50%;
+    margin: 1rem;
+}
+.div{
+    width: auto;
+    height:auto;
 }

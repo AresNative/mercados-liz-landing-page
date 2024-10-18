@@ -8,6 +8,7 @@ import { BookText } from "lucide-react";
 const Billing = () => {
     return (
         <Page titulo="Sobre Nosotros">
+            <h1 className="titulos">aa</h1>
             <div style={{ width: "90%", margin: "auto", marginTop: "4rem", display: "flex", justifyContent: "center" }}>
                 <MainForm message='Continuar'>
                     <h2 style={{ fontWeight: "600" }}>Agregar Nueva Factura</h2>
@@ -19,7 +20,7 @@ const Billing = () => {
                 </MainForm>
             </div>
 
-            <div style={{ width: "90%", margin: "auto", marginTop: "2rem", background: "#fff", border: "1px solid #e9e9e9e0", borderRadius: "15px", padding: "15px" }}>
+            <div style={{ width: "90%", margin: "auto", marginTop: "2rem", background: "#fff", border: "1px solid #e9e9e9e0", borderRadius: "15px", padding: "15px" , marginBottom: "1rem" }}>
                 <h2 style={{ display: "flex", fontWeight: "600", width: "100%" }}>Mis facturas
                     <IonButton style={{ float: "right", width: "5rem" }} color={"danger"} shape="round" size="small" fill="clear">
                         <BookText size={20} />

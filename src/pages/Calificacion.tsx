@@ -1,7 +1,6 @@
 import Page from "@/template/page";
 import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonTextarea } from "@ionic/react";
-import { Button } from "@nextui-org/react";
-import { Plane, SendHorizonal, SendIcon, Star } from "lucide-react";
+import { SendIcon, Star } from "lucide-react";
 import { useState } from "react";
 import styles from "@/pages/calificacion.module.css"
 

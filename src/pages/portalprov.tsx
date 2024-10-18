@@ -4,7 +4,7 @@ import { Input } from "@/components/functions/input";
 import { Select } from "@/components/functions/select";
 import { Button } from "@/components/functions/button";
 import '@/components/displays/textarea.css'
-import styles from "./reclutamiento.module.css"
+import styles from "./portalprov.module.css"
 import { useState } from "react";
 import { IonButton } from "@ionic/react";
 import { FileText } from "lucide-react";
@@ -89,9 +89,11 @@ const ProveePage = () => {
     return (
         <Page titulo="Proveedor">
             <>
-                <form className="margen-pagina">
-                    <p className="sub-titulos"> </p>
+                <h2 className="titulos" style={{ marginTop: "5rem" }}> Portal proveedores Mercado Mejia </h2>
+                <form className="margen-pagina ">
+                   
                     <div className={styles["reclutamiento"]} >
+                       
                         {preguntaActual.opciones.map((data: Opcion, index: number) => {
                             return (
                                 <div className={styles["reclutamiento-columnas"]} key={index}>
@@ -136,7 +138,7 @@ const ProveePage = () => {
                         })}
 
                         <div className="container-input">
-                            <input type="file" data-multiple-caption="{count} archivos seleccionados" multiple />
+                            <input type="file" data-multiple-caption="{count} archivos seleccionados" accept=".xml,.pdf" multiple />
                         </div>
 
                         <div>
@@ -151,47 +153,46 @@ const ProveePage = () => {
 
                 </form>
             </>
-            <div className={styles["reclutamiento"]} >
-                <table className={styles["responsive-table"]}>
-                    <thead>
-                        <tr>
-                            <th>Proveedor</th>
-                            <th>Movimiento</th>
-                            <th>Fecha</th>
-                            <th>Comentarios</th>
-                            <th><center>Archivo</center></th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            <div className={styles["form"]}>
+                    <table className={styles["responsive-table"]}>
+                        <thead>
+                            <tr>
+                                <th>Proveedor</th>
+                                <th>Movimiento</th>
+                                <th>Fecha</th>
+                                <th>Comentarios</th>
+                                <th><center>Archivo</center></th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-                        <tr>
-                            <td>Provedor 1</td>
-                            <td>Factura</td>
-                            <td>10/10/2023</td>
-                            <td>"Comentario"</td>
-                            <td>
-                                <IonButton color={"danger"} slot="end" shape="round" size="small" fill="clear" onClick={AbrirPDF}>
-                                    <FileText />
-                                </IonButton>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td>Provedor 1</td>
+                                <td>Factura</td>
+                                <td>10/10/2023</td>
+                                <td>"Comentario"</td>
+                                <td>
+                                    <IonButton color={"danger"} slot="end" shape="round" size="small" fill="clear" onClick={AbrirPDF}>
+                                     
+                                    <FileText /> 
+                                    </IonButton>
+                                </td>
+                            </tr>
 
-                        <tr>
-                            <td>Provedor 2</td>
-                            <td>Factura</td>
-                            <td>10/11/2023</td>
-                            <td></td>
-                            <td>
-                                <IonButton color={"danger"} slot="end" shape="round" size="small" fill="clear" onClick={AbrirPDF}>
-                                    <FileText />
-                                </IonButton>
-                            </td>
-                        </tr>
-
-
-                    </tbody>
-                </table>
-            </div>
+                            <tr>
+                                <td>Provedor 2</td>
+                                <td>Factura</td>
+                                <td>10/11/2023</td>
+                                <td></td>
+                                <td>
+                                    <IonButton color={"danger"} slot="end" shape="round" size="small" fill="clear" onClick={AbrirPDF}>
+                                        <FileText />
+                                    </IonButton>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
         </Page>
 
     );

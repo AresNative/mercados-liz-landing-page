@@ -3,7 +3,7 @@ import styles from "./input.module.css"
 
 interface Inputprops {
     label: string;
-    type: 'text' | 'password' | 'email' | 'number' |'date'|undefined;
+    type: 'text' | 'password' | 'email' | 'number' | 'date' | undefined;
     placheolder: string;
 
 }
@@ -15,8 +15,6 @@ export function Input({ label, type, placheolder }: Inputprops) {
             labelPlacement="floating"
             placeholder={placheolder}
             className={styles["use-input"]}
-
-          
         />
 
     )

@@ -7,7 +7,7 @@ const HistoriaPage = () => {
     return (
         <Page titulo="Historia">
             {/* Icono de página en construcción */}
-            <h1 className="titulos" z-index="100%">Conoce nuestra Historia </h1>
+            <h1 className="titulos" z-index="100%" style={{ marginTop: "4rem" }}>Conoce nuestra Historia </h1>
             {/* Línea de tiempo */}
             <div className="timeline">
                 <div className="timeline-event">

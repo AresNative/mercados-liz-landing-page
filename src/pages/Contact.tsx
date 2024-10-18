@@ -7,7 +7,7 @@ const ContactPage = () => {
         <Page titulo="Contactanos en">
 
             <section style={{ marginBottom: "3rem" }}>
-                <h1 className="titulos">Nuestras sucursales</h1>
+                <h1 className="titulos" style={{ marginTop: "3.5rem" }}>Nuestras sucursales</h1>
                 <ul className='product'>
                     <li>
                         <MainForm message='Enviar'>
@@ -19,7 +19,7 @@ const ContactPage = () => {
                         <ul>
                             {/* ----------------------------------------------------------- */}
                             <li style={{ padding: "15px" }}>
-                                <h2></h2>
+                                <h2>MAYOREO</h2>
                                 <div className="contact-item">
                                     <MapPin color="var(--primary)" size={24} />
                                     <span>84 Calle Principal, Ensenada, Baja California, 22750.</span>

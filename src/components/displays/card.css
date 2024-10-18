@@ -17,6 +17,11 @@
     min-width: 300px;
     max-width: 600px;
 }
+@media (max-width: 768px) {
+    .user-card {
+        margin-top: 4.5rem;
+    }
+}
 
 .user-card:hover {
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);

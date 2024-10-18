@@ -6,7 +6,7 @@ import { Button } from "@/components/functions/button";
 import { Input } from "@/components/functions/input";
 import { useHistory } from "react-router-dom";
 import { Tooltip } from "@nextui-org/react";
-import { BadgeDollarSign,  BookOpenText, BriefcaseBusiness,  FileBadge,  FilePlus2, Home, Info,  ShoppingBagIcon, Star, X } from 'lucide-react';
+import { BadgeDollarSign, BookOpenText, BriefcaseBusiness, FileBadge, FilePlus2, Home, Info, ShoppingBagIcon, Star, X } from 'lucide-react';
 import { Select } from "@/components/functions/select";
 
 export function Menu() {
@@ -102,7 +102,7 @@ export function Menu() {
                                 }, {
                                     name: "Recibo"//
                                 },
-                                
+
                             ]
                         }
                             message='Áreas'
@@ -120,7 +120,7 @@ export function Menu() {
 
     return (
         <>
-            <IonMenu side="end" contentId="main-content">
+            <IonMenu side="end" contentId="main-content" >
                 <IonHeader>
                     <IonToolbar color="liz">
                         <IonTitle>Menú</IonTitle>
@@ -182,8 +182,8 @@ export function Menu() {
                             </IonLabel>
                         </IonItem>
 
-                        
-                       
+
+
                     </IonList>
                 </IonContent>
                 <IonFooter>

@@ -38,7 +38,7 @@ export default function ServicioPage() {
 
 
     return (
-        <Page titulo={"Servicio"}>
+        <Page /*  titulo={"Servicio"} */>
 
             {/* <img src="/uvas.png" className="img-uva" />
       

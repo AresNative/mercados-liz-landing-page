@@ -120,8 +120,8 @@ export function Menu() {
 
     return (
         <>
-            <IonMenu side="end" contentId="main-content" >
-                <IonHeader>
+            <IonMenu side="end" contentId="main-content"  >
+                <IonHeader >
                     <IonToolbar color="liz">
                         <IonTitle>Menú</IonTitle>
                     </IonToolbar>

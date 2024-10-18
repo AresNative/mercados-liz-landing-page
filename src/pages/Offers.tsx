@@ -1,19 +1,19 @@
 import Page from "@/template/page";
 import Styles from "./Offers.module.css";
 import { UserCard } from "@/components/displays/card";
-import { IonButton,  IonLabel } from "@ionic/react";
-import { ShoppingBasket, } from "lucide-react";
+import { IonButton, IonLabel } from "@ionic/react";
+import { BookOpenCheck, ShoppingBasket, } from "lucide-react";
 
 
 const AbrirPDF = () => {
-
-    const urlPDF =''; // Ruta al archivo pdf
+    const urlPDF = ''; // Ruta al archivo pdf
     window.open(urlPDF, '_blank'); // Abre el pdf en una nueva pestaña
 };
 
 const Offers = () => {
     return (
-        <Page titulo="Ofertas">
+        <Page /* titulo="Ofertas" */>
+
             <nav className={Styles["nav"]}>
                 <ul className={Styles["ul"]}>
                     <li>
@@ -41,18 +41,17 @@ const Offers = () => {
                     </li>
                 </ul>
             </nav>
+
             <div className={Styles["icon"]}>
                 <IonButton shape="round" fill="clear" onClick={AbrirPDF}>
-
-                    <IonLabel style={{ display: "flex", alignItems: "center", gap: "2px" }} className={Styles["icon"]}>
+                    <IonLabel style={{ display: "flex", alignItems: "center", gap: "2px" }} >
                         <div className={Styles["div"]}>
-
-                        <h2 className="titulos"> Conoce nuestras promociones <ShoppingBasket color="purple" size={80} className="icons" /> </h2> 
+                            <h2 className="titulos2" style={{ display: "flex", alignItems: "center", gap: "2px" }}>Conoce todas las ofertas <BookOpenCheck color="purple" size={80} className="icons" /> </h2>
                         </div>
                     </IonLabel>
                 </IonButton>
-
             </div>
+
             <section className={Styles["content"]}>
                 <div className={Styles["marca"]}>
                     <h2>marca</h2>

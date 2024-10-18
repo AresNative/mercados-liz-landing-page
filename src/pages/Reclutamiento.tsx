@@ -234,7 +234,7 @@ const Reclutamiento = () => {
     const respuestaActual = respuestas.find(r => r.preguntaId === preguntaActual.id)?.respuesta || ""
 
     return (
-        <Page titulo="Reclutamiento" >
+        <Page/*  titulo="Reclutamiento" */ >
             <img src="/uvas.png" className="img-uva5" />
 
             <form className="margen-pagina">

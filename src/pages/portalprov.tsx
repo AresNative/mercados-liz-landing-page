@@ -87,9 +87,9 @@ const ProveePage = () => {
 
     const respuestaActual = respuestas.find(r => r.preguntaId === preguntaActual.id)?.respuesta || ""
     return (
-        <Page titulo="Proveedor">
+        <Page /* titulo="Proveedor" */>
             <>
-                <h2 className="titulos" style={{ marginTop: "5rem" }}> Portal proveedores Mercado Mejia </h2>
+                <h2 className="titulos" style={{ marginTop: "5rem" }}> Portal proveedores Mercados Mejia </h2>
                 <form className="margen-pagina ">
                    
                     <div className={styles["reclutamiento"]} >
@@ -154,6 +154,7 @@ const ProveePage = () => {
                 </form>
             </>
             <div className={styles["form"]}>
+                <h2>Mis documentos</h2>
                     <table className={styles["responsive-table"]}>
                         <thead>
                             <tr>

@@ -1,22 +1,64 @@
-import { Headers } from "@/components/displays/header";
 import { Menu } from "@/pages/menu";
-import { IonContent, IonFooter, IonPage, IonToolbar } from "@ionic/react";
+import { IonButtons, IonContent, IonFooter, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from "@ionic/react";
+import { useEffect, useRef, useState } from "react";
+import style from "@/components/displays/header.module.css";
 
-interface ContainerProps { children: React.ReactNode, titulo: string }
+interface ContainerProps {
+    children: React.ReactNode;
+}
 
-const Page: React.FC<ContainerProps> = ({ children, titulo }) => {
+const Page: React.FC<ContainerProps> = ({ children }) => {
     const fecha = new Date().getFullYear();
+    const contentRef = useRef<HTMLIonContentElement>(null);
+    const [headerColor, setHeaderColor] = useState<string>('transparent');
+    const [tooltipColor, setTooltipColor] = useState<string>('#000');
+    // Función para manejar el scroll
+    const handleScroll = (scrollTop: number) => {
+        if (scrollTop > 50) {
+            setHeaderColor('#6900a9'); // Cambiar color del header al azul
+            setTooltipColor("#fff")
+        } else {
+            setHeaderColor('transparent'); // Cambiar a transparente cuando el scroll es menor a 50px
+            setTooltipColor("#000")
+        }
+    };
+
+    useEffect(() => {
+        const contentElement = contentRef.current;
+
+        if (!contentElement) return; // Si la referencia no está disponible, salir del efecto
+
+        // Evento de scroll
+        const onScroll = (event: CustomEvent) => {
+            const scrollTop = (event.detail as any).scrollTop;
+            handleScroll(scrollTop);
+        };
+
+        contentElement.addEventListener('ionScroll', onScroll);
+
+        // Limpiar el evento al desmontar el componente
+        return () => {
+            contentElement.removeEventListener('ionScroll', onScroll);
+        };
+    }, []);
+
     return (
         <>
             <Menu />
             <IonPage id="main-content">
-                <Headers title={titulo} />
-                <IonContent>
-                    <main>
-                        {children}
-                    </main>
-
-                    <IonFooter >
+                <IonHeader className={`ion-no-border ${style["headers"]}`} > {/* Cambiamos a uso de variable CSS */}
+                    <IonToolbar className={style["toolbar"]} style={{ '--background': headerColor, color: tooltipColor }}>
+                        <IonTitle size="large" className={style["titulos"]}>
+                            Liz
+                        </IonTitle>
+                        <IonButtons slot="end" className={style["centerButton"]}>
+                            <IonMenuButton color="light" />
+                        </IonButtons>
+                    </IonToolbar>
+                </IonHeader>
+                <IonContent fullscreen ref={contentRef} scrollEvents={true}>
+                    <main>{children}</main>
+                    <IonFooter>
                         <IonToolbar>
                             <ul style={{
                                 display: "flex",
@@ -27,28 +69,19 @@ const Page: React.FC<ContainerProps> = ({ children, titulo }) => {
                                 alignItems: "center",
                                 justifyContent: "center"
                             }}>
-                                <li>
-                                    ©{fecha} SUPERMERCADOS MEJIA S. DE R.L. DE C.V. Todos los derechos reservados.
-                                </li>
+                                <li>©{fecha} SUPERMERCADOS MEJIA S. DE R.L. DE C.V. Todos los derechos reservados.</li>
                                 <li style={{ display: "flex", gap: "2rem" }}>
-                                    <a style={{ color: "var(--primary)" }}>
-                                        Términos y Condiciones
-                                    </a>
-                                    <a style={{ color: "var(--primary)" }}>
-                                        Política de Privacidad
-                                    </a>
-                                    <a style={{ color: "var(--primary)" }}>
-                                        Contacto
-                                    </a>
+                                    <a style={{ color: "var(--primary)" }}>Términos y Condiciones</a>
+                                    <a style={{ color: "var(--primary)" }}>Política de Privacidad</a>
+                                    <a style={{ color: "var(--primary)" }}>Contacto</a>
                                 </li>
                             </ul>
-
                         </IonToolbar>
                     </IonFooter>
                 </IonContent>
-            </IonPage >
+            </IonPage>
         </>
-    )
-}
+    );
+};
 
 export default Page;

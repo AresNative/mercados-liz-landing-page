@@ -1,5 +1,12 @@
 .margen-pagina{
-margin: 1rem;
+margin: 1rem auto;
 
-
+}
+@media (max-width:430px) {
+    .margen-pagina {
+        margin-top: 1rem;
+        margin-left: -25px;
+        width: 27rem;
+   
+    }
 }

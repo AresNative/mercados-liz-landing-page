@@ -6,6 +6,7 @@ import { Button } from "@/components/functions/button";
 import '@/components/displays/textarea.css'
 import styles from "./reclutamiento.module.css"
 import { useState } from "react";
+import { Book, Notebook } from "lucide-react";
 
 interface Opcion {
     texto: string;
@@ -51,10 +52,10 @@ const preguntas: Pregunta[] = [
                     { nombre: "C" }
                 ]
             },
-            
+
         ]
     },
- 
+
 ];
 
 const NuevoProvePage = () => {
@@ -78,7 +79,7 @@ const NuevoProvePage = () => {
         })
     }
 
-    
+
 
     const handleEnviar = () => {
         console.log("Respuestas enviadas:", respuestas)
@@ -91,65 +92,66 @@ const NuevoProvePage = () => {
     return (
 
         <Page titulo="NuevoProvePage" >
-           {/*  <img src="/uvas.png" className="img-uva" /> */}
-           
-                <form >
-                    <h2 className="titulos">Si quieres ser nuestro proveedor llena el siguiente formulario </h2>
-
+            {/*  <img src="/uvas.png" className="img-uva" /> */}
+            <form >
+                <h2 className="titulos" style={{ marginTop: "4.5rem" }}>Si quieres ser nuestro proveedor llena el siguiente formulario </h2>
                 <div className={styles["reclutamiento"]} >
                     <p></p>
-                        {preguntaActual.opciones.map((data: Opcion, index: number) => {
-                            return (
-                                <div className={styles["reclutamiento-columnas"]} key={index}>
+                    {preguntaActual.opciones.map((data: Opcion, index: number) => {
+                        return (
+                            <div className={styles["reclutamiento-columnas"]} key={index}>
 
-                                    {data.subopciones ? (
-                                        // Si hay subopciones, mostrar los inputs o selects dentro de subopciones
-                                        <>
-                                            {data.subopciones.map((subdata, subIndex) => (
-                                                subdata.tipo === "select" ? (
-                                                    <Select
-                                                        key={subIndex}
-                                                        multiple={subdata.multiple}
-                                                        values={subdata.values || []} // Usamos las opciones de select en las subopciones
-                                                        message={subdata.texto}       // Usamos el texto como mensaje o label
-                                                    />
-                                                ) : (
-                                                    <Input
-                                                        key={subIndex}
-                                                        label={subdata.texto}
-                                                        type={subdata.tipo}
-                                                        placheolder=""
-                                                    />
-                                                )
-                                            ))}
-                                        </>
+                                {data.subopciones ? (
+                                    // Si hay subopciones, mostrar los inputs o selects dentro de subopciones
+                                    <>
+                                        {data.subopciones.map((subdata, subIndex) => (
+                                            subdata.tipo === "select" ? (
+                                                <Select
+                                                    key={subIndex}
+                                                    multiple={subdata.multiple}
+                                                    values={subdata.values || []} // Usamos las opciones de select en las subopciones
+                                                    message={subdata.texto}       // Usamos el texto como mensaje o label
+                                                />
+                                            ) : (
+                                                <Input
+                                                    key={subIndex}
+                                                    label={subdata.texto}
+                                                    type={subdata.tipo}
+                                                    placheolder=""
+                                                />
+                                            )
+                                        ))}
+                                    </>
+                                ) : (
+                                    // Verificar si el tipo es "select" en las opciones principales
+                                    data.tipo === "select" ? (
+                                        <Select
+                                            multiple={data.multiple}
+                                            values={data.values || []}  // Usamos las opciones del select desde data.values
+                                            message={data.texto}        // Usamos el texto como mensaje o label
+                                        />
+                                    ) : data.tipo === "h1" ? (
+                                        <h1>{data.texto}</h1>
                                     ) : (
-                                        // Verificar si el tipo es "select" en las opciones principales
-                                        data.tipo === "select" ? (
-                                            <Select
-                                                multiple={data.multiple}
-                                                values={data.values || []}  // Usamos las opciones del select desde data.values
-                                                message={data.texto}        // Usamos el texto como mensaje o label
-                                            />
-                                        ) : data.tipo === "h1" ? (
-                                            <h1>{data.texto}</h1>
-                                        ) : (
-                                            // Si no es "select", renderizar Input normal
-                                            <Input label={data.texto} type={data.tipo} placheolder="" />
-                                        )
-                                    )}
-                                </div>
-                            );
-                        })}
-                    
-                                <p></p>
-                            <input type="file" />
-                        <div style={{ display: "flex" }}>
+                                        // Si no es "select", renderizar Input normal
+                                        <Input label={data.texto} type={data.tipo} placheolder="" />
+                                    )
+                                )}
+                            </div>
+                        );
+                    })}
+
+                    <p className="sub-titulos5">En caso de tener un catalogo con sus productos favor de agregarlo </p>
+                  
+                        <input type="file" accept=".pdf,.xlsx"  />
+                       
+
+                    <div style={{ display: "flex" }}>
                         <Button label="Enviar" type={"button"} color={"default"} onClick={handleEnviar} />
-                        </div>
                     </div>
-                </form>
-            </Page >
+                </div>
+            </form>
+        </Page >
 
     )
 

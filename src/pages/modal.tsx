@@ -1,6 +1,6 @@
 import { IonModal } from '@ionic/react';
 import styles from "@/pages/modal.module.css";
-import { X } from 'lucide-react';
+
 
 
 interface ModalProps {

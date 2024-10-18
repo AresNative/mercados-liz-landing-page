@@ -31,10 +31,10 @@ ion-button:active,
 ion-fab-button:active {
     transform: scale(0.85);
 }
-ion-footer, 
-ion-toolbar{
-    --background: #fff;
-    background: #fff;
+ion-header{
+    --background: transparent !important;
+}
+ion-footer{
     box-shadow: 0 4px 6px #0000001a;
 }
 ion-popover{
@@ -71,10 +71,24 @@ h1.titulos{
     font-weight: 300;
     text-align: center;
 }
+h2.titulos {
+    font-size: 2.5rem;
+    font-family: "Lobster";
+    font-weight: 300;
+    text-align: center;
+}
 .titulos {
     font-family: "Lobster";
     font-weight: 300;
     text-align: center;
+    margin: 2.3rem;
+}
+@media (max-width: 376px) {
+    .titulos  {
+        max-inline-size: 20rem;
+        margin-left: 4rem;
+        
+    }
 }
 .sub-titulos {
     font-size: 2.5rem;
@@ -84,18 +98,32 @@ h1.titulos{
 }
 .sub-titulos2 {
     font-size: 2rem;
-    font-weight: 250;
+    font-weight: 150;
     text-align: center;
     color: whitesmoke;
 }
-
+.sub-titulos3 { 
+    font-size: 2.5rem;
+    font-weight: 300;
+    text-align: center;
+}
+.sub-titulos4 {
+    font-size: 2rem;
+    font-weight: 150;
+    text-align: center;
+}
+.sub-titulos5 {
+    font-size: 1rem;
+    font-weight: 3000;
+ /* text-align: center; */
+    color: #6900a9;
+}
 .section-1 {
     background-image:
             linear-gradient(#ffffff00 0%, #fdfdfde5 70%, #f2f2f7 100%),
             url('/merc1.jpg');
     background-size: cover;
-    padding-top: 5rem;
-    height: 65vh;
+    height: 75vh;
     display: flex;
 }
 @media (max-width: 510px) {
@@ -109,7 +137,7 @@ h1.titulos{
 }
 .section-2 {
     position: relative;
-    border-bottom: 1px solid #cccccce0;
+    border-bottom: 1px solid #734896e0;
     padding-top: 3rem;
     padding-bottom: 3rem;
     
@@ -172,13 +200,10 @@ h1.titulos{
 .mail{
     min-height: 20rem;
     background: #fff;
-
     margin-bottom: 2rem;
     margin-top: 2rem;
-
     display: flex;
     flex-direction: column;
-
     justify-content: center;
     align-items: center;
 }
@@ -186,15 +211,11 @@ h1.titulos{
 .img-center img {
     display: block;
     object-fit: cover;
-
     height: 25rem;
     width: 25rem;
-
     margin: 2rem auto;
-
     border: 3px solid var(--violet-a9);
     border-radius: 5px;
-
     box-shadow: var(--shadow);
 }
 .logo-img {
@@ -208,9 +229,19 @@ h1.titulos{
 
 .img-uva{
     opacity: 0.6;
-    position: absolute;
+    position: absolute !important;
     left: 84%;
     top: 10%;
+    height: 100px;
+    width: 100px;
+    transform: rotate(105deg);
+    z-index: 100;
+}
+.img-uva5 {
+    opacity: 0.6;
+    position: absolute;
+    left: 85%;
+    top: 20%;
     height: 100px;
     width: 100px;
     transform: rotate(105deg);
@@ -269,6 +300,11 @@ h1.titulos{
 }
 @media (max-width:450px) {
     .img-uva4 {
+        display: none;
+    }
+}
+@media (max-width:450px) {
+    .img-uva5 {
         display: none;
     }
 }

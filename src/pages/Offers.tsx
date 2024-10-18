@@ -1,8 +1,15 @@
 import Page from "@/template/page";
 import Styles from "./Offers.module.css";
 import { UserCard } from "@/components/displays/card";
-import { IonCardContent } from "@ionic/react";
+import { IonButton,  IonLabel } from "@ionic/react";
+import { ShoppingBasket, } from "lucide-react";
 
+
+const AbrirPDF = () => {
+
+    const urlPDF =''; // Ruta al archivo pdf
+    window.open(urlPDF, '_blank'); // Abre el pdf en una nueva pestaña
+};
 
 const Offers = () => {
     return (
@@ -34,7 +41,18 @@ const Offers = () => {
                     </li>
                 </ul>
             </nav>
+            <div className={Styles["icon"]}>
+                <IonButton shape="round" fill="clear" onClick={AbrirPDF}>
 
+                    <IonLabel style={{ display: "flex", alignItems: "center", gap: "2px" }} className={Styles["icon"]}>
+                        <div className={Styles["div"]}>
+
+                        <h2 className="titulos"> Conoce nuestras promociones <ShoppingBasket color="purple" size={80} className="icons" /> </h2> 
+                        </div>
+                    </IonLabel>
+                </IonButton>
+
+            </div>
             <section className={Styles["content"]}>
                 <div className={Styles["marca"]}>
                     <h2>marca</h2>
@@ -50,11 +68,10 @@ const Offers = () => {
 
             <section className={Styles["contentcom"]}>
                 <div className={Styles["marcacom"]}>
-                    <h1 className="titulos">Nuestros Combos</h1>
+                    <h2 className="titulos">Nuestros Combos</h2>
                     <h3 className="sub-titulos2">Conoce nuestros combos especiales para ti </h3>
                 </div>
-           
-                <ul className={Styles["productoscom"]}>  
+                <ul className={Styles["productoscom"]}>
                     <li>Combo1</li>
 
                     <li> combo2 </li>

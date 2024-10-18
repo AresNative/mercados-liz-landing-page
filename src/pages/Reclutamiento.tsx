@@ -158,7 +158,6 @@ const preguntas: Pregunta[] = [
         texto: "Vacante",
         opciones: [
             { texto: "Puesto vacante actual", tipo: "h1" },
-            { texto: "¿Cuenta con papeleo completo?", tipo: "text" },
             { texto: "¿Como se entero de la vacante? ", tipo: "text" },
             {
                 texto: "Estudios", tipo: "text", subopciones: [
@@ -234,17 +233,12 @@ const Reclutamiento = () => {
 
     const respuestaActual = respuestas.find(r => r.preguntaId === preguntaActual.id)?.respuesta || ""
 
-
-
-
-
-
     return (
         <Page titulo="Reclutamiento" >
-            <img src="/uvas.png" className="img-uva" />
+            <img src="/uvas.png" className="img-uva5" />
 
             <form className="margen-pagina">
-                <p className="sub-titulos">Si estás interesado en unirte de nuestra familia, llena el siguiente formulario </p>
+                <h2 className="titulos" style={{ marginBottom: "3rem", marginTop: "4.5rem", marginRight: "1rem" ,}}>Si estás interesado en unirte de nuestra familia, llena el siguiente formulario </h2>
                 <div className={styles["reclutamiento"]} >
                     {preguntaActual.opciones.map((data: Opcion, index: number) => {
                         return (
@@ -290,9 +284,9 @@ const Reclutamiento = () => {
                         );
                     })}
 
-                    {esUltimaPagina && (<input type="file" data-multiple-caption="{count} archivos seleccionados" multiple />)}
+                    {esUltimaPagina && (<input type="file" data-multiple-caption="{count} archivos seleccionados" accept=".pdf" multiple/>)}
                     {esUltimaPagina && (<CheckBox label={"Acepto los terminos y condiones de la aplicación."} />)}
-                   
+
                     <div style={{ display: "flex" }}>
 
                         <Button label={"Volver"} onClick={handleAnterior

@@ -4,24 +4,21 @@
     border: 1px solid #e9e9e9e0;
     border-radius: 10px;
 }
-
 .responsive-table {
     width: 100%;
     border-collapse: collapse;
 }
-
 .responsive-table th,
 .responsive-table td {
     padding: 8px;
     text-align: left;
+    max-inline-size: 1rem;
 }
-
 .responsive-table th {
     font-weight: 600;
     color: #4d4d4de0;
     border-bottom: 1px solid #e9e9e9e0;
 }
-
 .responsive-table tbody tr:hover {
     background-color: #f2f2f7;
 }
@@ -38,4 +35,55 @@
     border-radius: 15px;
     box-shadow: 0 4px 6px #0000001a;
     margin-bottom: 2rem;
+}
+@media (max-width:430px) {
+    .responsive-table {
+        width: 36rem;
+        overflow: scroll !important;
+        font-size: x-large !important;
+        }
+}
+
+@media (max-width:430px) {
+    .form {
+       
+        width: 23.5rem;  
+        overflow: scroll !important;
+    }
+}
+@media (max-width:430px) {
+    .responsive-table th,
+    .responsive-table td {
+    text-align: left;
+    max-inline-size: 3rem;
+    font-size: 15px !important;
+     }
+}
+.reclutamiento {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+    background: #ffffff;
+    padding: 1rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px #0000001a;
+    min-height: 4rem;
+}
+.reclutamiento-columnas {
+    display: flex;
+    gap: 1rem;
+}
+@media (max-width:430px) {
+    .reclutamiento-columnas {
+        flex-direction: column;
+    }
+
+}
+.boton {
+    margin-bottom: 1rem;
+    position: absolute !important;
 }

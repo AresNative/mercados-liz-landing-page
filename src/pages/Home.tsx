@@ -1,7 +1,6 @@
 import { IconCard } from '@/components/displays/card-icon';
 import { MainForm } from '@/components/form/main-form';
 import { Input } from '@/components/functions/input';
-import { Select } from '@/components/functions/select';
 import { MyMap } from '@/components/plugins/map';
 import Page from '@/template/page';
 import { IonButton, IonFab, IonFabButton, IonIcon } from '@ionic/react';
@@ -16,7 +15,7 @@ import { asingn } from "@/store/reducers";
 import { useEffect } from 'react';
 import { GetUserInfo } from '@/services/web_site_gets';
 import { List } from '@/components/displays/list';
-import { OffertCard, UserCard } from '@/components/displays/card';
+import { OffertCard } from '@/components/displays/card';
 import Styles from "./Offers.module.css";
 
 
@@ -66,23 +65,23 @@ const Home: React.FC = () => {
           </li>
           <li>
             <a href="https://www.facebook.com/share/1WZv93NVER/" target="_blank" >
-            <IonButton color="success" shape='round' fill="clear">
-              <IonIcon size='large' icon={logoWhatsapp} />
+              <IonButton color="success" shape='round' fill="clear">
+                <IonIcon size='large' icon={logoWhatsapp} />
               </IonButton>
-              </a>
+            </a>
           </li>
           <li>
             <a href="https://www.facebook.com/share/1WZv93NVER/" target="_blank" >
-            <IonButton color="liz" shape='round' fill="clear">
-              <Mail color="var(--primary)" size={24} />
+              <IonButton color="liz" shape='round' fill="clear">
+                <Mail color="var(--primary)" size={24} />
               </IonButton>
-              </a>
+            </a>
           </li>
         </ul>
       </nav>
 
       <section style={{ marginTop: "5rem" }}>
-        <h2 className="titulos">Nuestras caracteristicas</h2>
+        <h2 className="titulos">Nuestras características</h2>
         <ul className='product'>
           <IconCard title='Selección Local' text='Productos auténticos del Valle de Guadalupe' >
 
@@ -104,7 +103,7 @@ const Home: React.FC = () => {
       </section>
 
       <section style={{ marginTop: "5rem" }} >
-       
+
         <nav className={Styles["nav"]}>
           <h2 className="titulos">Marcas que nos acompañan </h2>
           <ul className={Styles["ul"]}>
@@ -184,7 +183,7 @@ const Home: React.FC = () => {
           Donde encontrarnos
         </h2>
 
-        <div style={{ margin: "2rem auto ", width: "90%" }}>
+        <div style={{ margin: "2rem auto ", width: "90% " }}>
 
           <List >
 

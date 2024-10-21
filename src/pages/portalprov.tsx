@@ -197,8 +197,5 @@ const ProveePage = () => {
         </Page>
 
     );
-
 };
 export default ProveePage;
-
-

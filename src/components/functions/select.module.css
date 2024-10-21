@@ -5,10 +5,10 @@
     margin: 1%;
     border-radius: 5px;
     width: 100%;
-}ion-popover {
+}
+ion-popover {
     --width: 12rem;
 }
-
 ion-select-popover {
     width: 12rem;
     overflow: hidden;

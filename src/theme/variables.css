@@ -150,10 +150,9 @@ h2.titulos2 {
 }
 .section-2 {
     position: relative;
-    border-bottom: 1px solid #734896e0;
+    border-bottom: 1px solid #880febe0;
     padding-top: 3rem;
     padding-bottom: 3rem;
-    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -300,6 +299,9 @@ h2.titulos2 {
     transform: rotate(10deg);
     z-index: 100;
 }
+.marcas{
+
+}
 
 @media (max-width:450px) {
     .img-uva {
@@ -439,4 +441,3 @@ h2.titulos2 {
     --ion-color-shade: var(--ion-color-violet-shade);
     --ion-color-tint: var(--ion-color-violet-tint);
 }
-

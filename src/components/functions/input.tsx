@@ -16,7 +16,6 @@ export function Input({ label, type, placheolder }: Inputprops) {
             placeholder={placheolder}
             className={styles["use-input"]}
         />
-
     )
 }
 

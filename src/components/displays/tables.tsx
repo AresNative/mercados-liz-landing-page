@@ -1,6 +1,5 @@
 import styles from "@/components/displays/tables.module.css";
 import {  IonIcon } from "@ionic/react";
-import { Tooltip } from "@nextui-org/react";
 
 export default function Tabla() {
     return (

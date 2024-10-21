@@ -6,7 +6,6 @@ interface buttonAction {
     label: string;
     type: "submit" | "button";
     color: "default" | "dark" | "light"
-
 }
 
 export const Button: React.FC<buttonAction> = ({ onClick, type, color, label }) => {

@@ -4,18 +4,11 @@ import { SendIcon, Star } from "lucide-react";
 import { useState } from "react";
 import styles from "@/pages/calificacion.module.css"
 
-
-
 interface Estrellas {
     values: number[];  // Cambié el tipo a `number[]` porque esperas números
     rating: number;
 }
-
-
-
-
 export default function ServicioPage() {
-
     const calif: Estrellas = {
         values: [1, 2, 3, 4, 5],  // Cambié las llaves a corchetes
         rating: 2
@@ -23,7 +16,6 @@ export default function ServicioPage() {
 
     const [rating, setRating] = useState(0); // Calificación seleccionada
     const [hoverRating, setHoverRating] = useState(0); // Calificación al pasar el ratón
-
     const handleRating = (value: number) => {
         setRating(value);
     };
@@ -35,15 +27,9 @@ export default function ServicioPage() {
         setRating(0);
     };
 
-
-
     return (
         <Page /*  titulo={"Servicio"} */>
-
-            {/* <img src="/uvas.png" className="img-uva" />
-      
-            <img src="/uvas.png" className="img-uva1" />
-            <img src="/uvas.png" className="img-uva2" /> */}
+            {/* <img src="/uvas.png" className="img-uva" />*/}
             <IonCard className={styles["form"]}>
                 <IonCardHeader>
                     <IonCardTitle className="titulos ">Califica nuestro servicio</IonCardTitle>

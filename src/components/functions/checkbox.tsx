@@ -6,8 +6,6 @@ interface checkBoxProps {
 }
 
 export function CheckBox({label}:checkBoxProps) {
-    
-
     return (
         <IonCheckbox className={styles["checkbox"]}>
      {label}

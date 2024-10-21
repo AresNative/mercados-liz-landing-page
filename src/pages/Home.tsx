@@ -18,8 +18,6 @@ import { List } from '@/components/displays/list';
 import { OffertCard } from '@/components/displays/card';
 import Styles from "./Offers.module.css";
 
-
-
 const Home: React.FC = () => {
   const dispatch = useDispatch();
 
@@ -104,7 +102,7 @@ const Home: React.FC = () => {
 
       <section style={{ marginTop: "5rem" }} >
 
-        <nav className={Styles["nav"]}>
+        <nav  >
           <h2 className="titulos">Marcas que nos acompañan </h2>
           <ul className={Styles["ul"]}>
             <li>
@@ -186,7 +184,6 @@ const Home: React.FC = () => {
         <div style={{ margin: "2rem auto ", width: "90% " }}>
 
           <List >
-
             <IonButton style={{ textDecoration: "underline" }} color="liz" shape='round' fill="clear" onClick={() => incrementTes("Matriz")}>
               <MapPin color="var(--primary)" size={24} /> Mayoreo
             </IonButton>

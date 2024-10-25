@@ -97,7 +97,7 @@ const Home: React.FC = () => {
         </ul>
       </section>
 
-      <section style={{ marginTop: "5rem" }} >
+      <section style={{ marginTop: "5rem", borderTop: "1px solid #b4b4b4e0" }} >
 
         <nav  >
           <h2 className="titulos">Marcas que nos acompañan </h2>

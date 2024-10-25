@@ -8,30 +8,40 @@
     padding: 10px 0;
     margin: auto;   
 }
+.marquee-container {
+    overflow: hidden;
+    width: 100%;
+}
+
+/* CSS */
 .ul {
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 141%;
-    animation: marquee 15s linear infinite !important; 
+    width: calc(200%);
+    animation: marquee 15s linear infinite;
 }
+
 .ul li {
+    flex: 0 0 auto;
     padding: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .ul li:hover {
     transform: translateY(-10px);
 }
+
 .ul:hover {
-    animation-play-state: paused !important;
+    animation-play-state: paused;
 }
+
 @keyframes marquee {
-    0% {
-        transform: translateX(100%);
+    from {
+        transform: translateX(0);
     }
 
-    100% {
-        transform: translateX(-100%);
+    to {
+        transform: translateX(-50%);
     }
 }
 .content{

@@ -10,16 +10,19 @@ interface ContainerProps {
 const Page: React.FC<ContainerProps> = ({ children }) => {
     const fecha = new Date().getFullYear();
     const contentRef = useRef<HTMLIonContentElement>(null);
-    const [headerColor, setHeaderColor] = useState<string>('transparent');
-    const [tooltipColor, setTooltipColor] = useState<string>('#000');
-    // Función para manejar el scroll
+    const [headerColor, setHeaderColor] = useState('transparent');
+    const [blurEffect, setBlurEffect] = useState('none'); // Nuevo estado para el efecto de blur
+    const [tooltipColor, setTooltipColor] = useState("#000");
+
     const handleScroll = (scrollTop: number) => {
         if (scrollTop > 50) {
-            setHeaderColor('#6900a9'); // Cambiar color del header al azul
-            setTooltipColor("#fff")
+            setHeaderColor('#270f4e41'); // Cambiar color del header //#7600c096
+            setBlurEffect('blur(10px)');  // Aplicar el efecto de desenfoque
+            setTooltipColor("#000");
         } else {
             setHeaderColor('transparent'); // Cambiar a transparente cuando el scroll es menor a 50px
-            setTooltipColor("#000")
+            setBlurEffect('none');  // Eliminar el desenfoque
+            setTooltipColor("#000");
         }
     };
 
@@ -47,7 +50,7 @@ const Page: React.FC<ContainerProps> = ({ children }) => {
             <Menu />
             <IonPage id="main-content">
                 <IonHeader className={`ion-no-border ${style["headers"]}`} > {/* Cambiamos a uso de variable CSS */}
-                    <IonToolbar className={style["toolbar"]} style={{ '--background': headerColor, color: tooltipColor }}>
+                    <IonToolbar className={style["toolbar"]} style={{ '--background': headerColor, color: tooltipColor, backdropFilter: blurEffect }}>
                         <IonTitle size="large" className={style["titulos"]}>
                             Liz
                         </IonTitle>
@@ -84,4 +87,4 @@ const Page: React.FC<ContainerProps> = ({ children }) => {
     );
 };
 
-export default Page;
+export default Page

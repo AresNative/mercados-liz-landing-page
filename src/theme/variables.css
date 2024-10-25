@@ -66,24 +66,28 @@ h3 {
     color: var(--primary);
 }
 h1.titulos{
+    margin-top: 5rem;
     font-size: 4rem;
     font-family: "Lobster";
     font-weight: 300;
     text-align: center;
 }
 h2.titulos {
+    margin-top: .5rem;
     font-size: 2.5rem;
     font-family: "Lobster";
     font-weight: 300;
     text-align: center;
 }
 .titulos {
+    margin-top: .5rem;
     font-family: "Lobster";
     font-weight: 300;
     text-align: center;
     margin: 2.3rem;
 }
 .titulos2 {
+    margin-top: .5rem;
     font-family: "Lobster";
     font-weight: 300;
     text-align: center;
@@ -91,19 +95,23 @@ h2.titulos {
     color: #000000;
 }
 h2.titulos2 {
+    margin-top: .5rem;
     font-size: 2.5rem;
     font-family: "Lobster";
     font-weight: 300;
     text-align: center;
 }
-@media (max-width: 376px) {
+@media (max-width: 340px) {
     .titulos  {
         max-inline-size: 20rem;
-        margin-left: 4rem;
+        margin-left: 3.5rem;
+        margin-right: 1.5rem;
         
     }
 }
+
 .sub-titulos {
+    
     font-size: 2.5rem;
     font-weight: 300;
     text-align: center;
@@ -299,10 +307,6 @@ h2.titulos2 {
     transform: rotate(10deg);
     z-index: 100;
 }
-.marcas{
-
-}
-
 @media (max-width:450px) {
     .img-uva {
         display: none;

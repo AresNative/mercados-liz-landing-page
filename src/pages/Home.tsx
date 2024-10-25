@@ -90,7 +90,7 @@ const Home: React.FC = () => {
             <Truck color='var(--primary)' size={40} />
           </IconCard>
 
-          <IconCard title='Mayoreo' text='test de texto largo de ejemplo' >
+          <IconCard title='Mayoreo' text='Productos a mayoreo y menudeo' >
             <Package color='var(--primary)' size={40} />
           </IconCard>
 

@@ -44,9 +44,9 @@ const Offers = () => {
 
             <div className={Styles["icon"]}>
                 <IonButton shape="round" fill="clear" onClick={AbrirPDF}>
-                    <IonLabel style={{ display: "flex", alignItems: "center", gap: "2px" }} >
+                    <IonLabel  >
                         <div className={Styles["div"]}>
-                            <h2 className="titulos2" >Conoce todas las ofertas <BookOpenCheck color="purple" size={80} className="icons" /> </h2>
+                            <h1 className="titulos2" >Conoce todas las ofertas <BookOpenCheck color="purple" size={80} className="icons" /> </h1>
                         </div>
                     </IonLabel>
                 </IonButton>

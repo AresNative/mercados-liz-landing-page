@@ -2,11 +2,19 @@
 margin: 1rem auto;
 
 }
-@media (max-width:430px) {
+@media (max-width:443px) {
     .margen-pagina {
         margin-top: 1rem;
         margin-left: -25px;
         width: 27rem;
    
+    }
+}
+@media (max-width:443px) {
+    .margen-pagina {
+        margin-top: 1rem;
+        margin-left: -45px;
+        width: 27rem;
+
     }
 }

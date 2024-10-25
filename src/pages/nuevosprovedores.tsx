@@ -91,7 +91,7 @@ const NuevoProvePage = () => {
         <Page /* titulo="NuevoProvePage" */ >
             {/*  <img src="/uvas.png" className="img-uva" /> */}
             <form >
-                <h2 className="titulos" style={{ marginTop: "4.5rem" }}>Si quieres ser nuestro proveedor llena el siguiente formulario </h2>
+                <h2 className="titulos" style={{ marginTop: "6rem" }}>Si quieres ser nuestro proveedor llena el siguiente formulario </h2>
                 <div className={styles["reclutamiento"]} >
                     <p></p>
                     {preguntaActual.opciones.map((data: Opcion, index: number) => {

@@ -71,12 +71,10 @@
     width: 4px;
     background-color: #ccc;
 }
-
 .timeline-event .timeline-icon {
     border: 3px solid white;
     box-shadow: 0 0 0 4px #0000001a;
 }
-
 
 
 /*Img*/
@@ -85,10 +83,8 @@
     width: 100px;
     /* Ajusta el tamaño según tus necesidades */
     height: 100px;
-    
     /* Color de fondo para cuando no se ve la imagen */
 }
-
 .container img {
     position: absolute;
     top: 0;
@@ -99,7 +95,6 @@
     opacity: 0;
     transition: opacity 0.5s ease;
 }
-
 .container .content {
     position: relative;
     z-index: 1;
@@ -110,8 +105,19 @@
     font-size: 20px;
     font-weight: bold;
 }
-
 .container:hover img {
     opacity: 1;
     /* La imagen se vuelve visible */
+}
+@media (max-width:450px) {
+    .container img {
+        padding-left: 1.5rem;
+    }
+}
+@media (max-width:450px) {
+    .container  {
+        width: 85px;
+        /* Ajusta el tamaño según tus necesidades */
+        height: 60px;
+    }
 }

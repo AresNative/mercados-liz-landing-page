@@ -60,7 +60,7 @@
 .textarea2 {
     z-index: 200 !important;
     background: transparent;
-    border: 1px solid rgba(136, 136, 136, 0.11);
+    border: 1px solid #8888881c;
     resize: none;
     width: 90%;
     height: 10rem auto ;

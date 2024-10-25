@@ -6,7 +6,6 @@ import { Button } from "@/components/functions/button";
 import '@/components/displays/textarea.css'
 import styles from "./reclutamiento.module.css"
 import { useState } from "react";
-import { Book, Notebook } from "lucide-react";
 
 interface Opcion {
     texto: string;
@@ -79,8 +78,6 @@ const NuevoProvePage = () => {
         })
     }
 
-
-
     const handleEnviar = () => {
         console.log("Respuestas enviadas:", respuestas)
         // Aquí puedes implementar la lógica para enviar las respuestas a un servidor
@@ -91,10 +88,10 @@ const NuevoProvePage = () => {
 
     return (
 
-        <Page titulo="NuevoProvePage" >
+        <Page /* titulo="NuevoProvePage" */ >
             {/*  <img src="/uvas.png" className="img-uva" /> */}
             <form >
-                <h2 className="titulos" style={{ marginTop: "4.5rem" }}>Si quieres ser nuestro proveedor llena el siguiente formulario </h2>
+                <h2 className="titulos" style={{ marginTop: "6rem" }}>Si quieres ser nuestro proveedor llena el siguiente formulario </h2>
                 <div className={styles["reclutamiento"]} >
                     <p></p>
                     {preguntaActual.opciones.map((data: Opcion, index: number) => {
@@ -142,18 +139,13 @@ const NuevoProvePage = () => {
                     })}
 
                     <p className="sub-titulos5">En caso de tener un catalogo con sus productos favor de agregarlo </p>
-                  
                         <input type="file" accept=".pdf,.xlsx"  />
-                       
-
                     <div style={{ display: "flex" }}>
                         <Button label="Enviar" type={"button"} color={"default"} onClick={handleEnviar} />
                     </div>
                 </div>
             </form>
         </Page >
-
     )
-
 }
 export default NuevoProvePage;

@@ -6,29 +6,25 @@
     flex-direction: column;
     width: 100%;
     padding: 10px 0;
+    margin: auto;   
 }
-
 .ul {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 141%;
-    animation: marquee 15s linear infinite !important;
+    animation: marquee 15s linear infinite !important; 
 }
-
 .ul li {
     padding: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
-
 .ul li:hover {
     transform: translateY(-10px);
 }
-
 .ul:hover {
     animation-play-state: paused !important;
 }
-
 @keyframes marquee {
     0% {
         transform: translateX(100%);
@@ -38,7 +34,6 @@
         transform: translateX(-100%);
     }
 }
-
 .content{
     margin-top: 4rem;
     margin-bottom: 2rem;
@@ -74,7 +69,6 @@
     width: 90%;
     margin: auto;
 }
-
 .productos li {
     flex: 1 1 calc(50% - 2rem);
     min-height: 200px;
@@ -84,7 +78,6 @@
     border-radius: 1rem;
     box-shadow: 0 4px 4px #0000001a;
 }
-
 .productos li:nth-child(1):only-child {
     flex: 1 1 100%;
 }
@@ -94,11 +87,10 @@
         flex: 1 1 calc(100% - 2rem);
     }
 }
-
 /*Combos */
 .contentcom {
     margin-top: 4rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0rem;
     min-height: 40vh;
     display: flex;
     flex-direction: column;
@@ -110,7 +102,9 @@
 .marcacom {
     width: 90%;
     height: 12rem;
-    background: rgb(168, 74, 231);
+ /**/
+    background: #7600c096;
+/**/
     color: #fff;
     padding: 10px;
     border: 1px solid var(--gray-1);
@@ -134,7 +128,7 @@
 .productoscom li {
     flex: 1 1 calc(50% - 2rem);
     min-height: 200px;
-    background: #f2f2f7;
+    background: #f2f2f700;
     padding: 10px;
     border: 1px solid var(--gray-1);
     border-radius: 1rem;
@@ -149,17 +143,53 @@
     }
 }
 .icon{
-    margin: 1rem;
+    margin-left: 1px;
+    margin: .5rem;
+    margin-bottom: 1rem;
     font-size: medium;
-    font-family: /* "Lobster" */ serif ;  
-    font-size: 2rem;   
+    font-size: 4rem;   
     color: #0000001a;
 }
 .icons {
     stroke-width: 50%;
     margin: 1rem;
+    padding: 15px;
 }
 .div{
-    width: auto;
-    height:auto;
+   padding: auto;
+    width: 46rem ;
+    height: 5rem ;
+}
+
+@media (max-width: 340px) {
+    .div {
+        align-items: center;
+        max-inline-size: 20rem;
+        width:19rem;
+        height: 8rem;
+    }
+}
+
+.contentcom {
+    margin-top: 4rem;
+    margin-bottom: 0rem;
+    min-height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+@media (max-width: 340px) {
+    .nav {
+            /*    background:#f2f2f7; */
+            background: #ffffff;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        
+          
+        }
 }

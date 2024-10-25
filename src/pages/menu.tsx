@@ -1,12 +1,22 @@
 import { ModalBase } from "@/pages/modal";
-import { IonAlert, IonButton, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonMenu, IonRow, IonTitle, IonToolbar } from "@ionic/react";
+import {
+    IonAlert, IonButton, IonCol, IonContent,
+    IonFooter, IonGrid, IonHeader, IonIcon,
+    IonItem, IonLabel, IonToolbar, IonTitle,
+    IonList, IonMenu, IonRow
+} from "@ionic/react";
 import React, { useRef, useState } from "react";
 import styles from "@/pages/modal.module.css";
 import { Button } from "@/components/functions/button";
 import { Input } from "@/components/functions/input";
 import { useHistory } from "react-router-dom";
 import { Tooltip } from "@nextui-org/react";
-import { BadgeDollarSign, BookOpenText, BriefcaseBusiness, FileBadge, FilePlus2, Home, Info, ShoppingBagIcon, Star, X } from 'lucide-react';
+import {
+    BadgeDollarSign, BookOpenText,
+    BriefcaseBusiness, FileBadge,
+    FilePlus2, Home, Info, Star,
+    ShoppingBagIcon, X
+} from 'lucide-react';
 import { Select } from "@/components/functions/select";
 
 export function Menu() {
@@ -14,11 +24,9 @@ export function Menu() {
     const handleClickLogin = () => {  // Redireccion de pagina despues del login
         router.push('/Sesion');
     };
-
     const handleClickSignup = () => {  // Redireccion de pagina despues del registro
         router.push('/Login');
     };
-
     const [name, setname] = useState("Login");  // Inicializa en  Login
     const modalRef = useRef<HTMLIonModalElement>(null);
 
@@ -27,12 +35,10 @@ export function Menu() {
         setname(modalName);
         modalRef.current?.present();
     }
-
     // Cierra el modal
     function closeModal() {
         modalRef.current?.dismiss();
     }
-
     //  Login o Sign up
     function renderForm() {
         if (name === "Login") {
@@ -106,7 +112,6 @@ export function Menu() {
                             ]
                         }
                             message='Áreas'
-
                         />
                         <p className={styles["switch-text"]}>¿Ya tienes una cuenta?
                             <span onClick={() => setname("Login")} className={styles["switch-link"]}> Inicia Sesión</span>
@@ -120,8 +125,8 @@ export function Menu() {
 
     return (
         <>
-            <IonMenu side="end" contentId="main-content" >
-                <IonHeader>
+            <IonMenu side="end" contentId="main-content"  >
+                <IonHeader >
                     <IonToolbar color="liz">
                         <IonTitle>Menú</IonTitle>
                     </IonToolbar>
@@ -181,8 +186,6 @@ export function Menu() {
                                 <FileBadge color='pink' size={20} /> Proveedores
                             </IonLabel>
                         </IonItem>
-
-
 
                     </IonList>
                 </IonContent>

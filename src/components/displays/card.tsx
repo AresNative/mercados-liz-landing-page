@@ -14,8 +14,6 @@ export function UserCard({ name, email, avatarUrl }: UserCardProps) {
                 <p className="user-card__email">{email}</p>
             </div>
         </div>
-
-
     );
 };
 
@@ -23,9 +21,6 @@ export function OffertCard({ avatarUrl }: UserCardProps) {
     return (
         <div className="offert-card">
             <img src={avatarUrl}  className="offert-card__avatar" />
-            
         </div>
-
-
     );
 };

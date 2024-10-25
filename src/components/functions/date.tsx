@@ -3,7 +3,6 @@ import { useState } from 'react';
 
 export function DatePicker(): JSX.Element {
     const [selectedDate, setSelectedDate] = useState<string>("");
-
     return (
         <IonDatetime
             className='ion-date'

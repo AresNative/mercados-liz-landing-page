@@ -43,10 +43,8 @@
         font-size: x-large !important;
         }
 }
-
 @media (max-width:430px) {
     .form {
-       
         width: 23.5rem;  
         overflow: scroll !important;
     }
@@ -86,4 +84,36 @@
 .boton {
     margin-bottom: 1rem;
     position: absolute !important;
+}
+@media (max-width: 345px) {
+    .reclutamiento {
+        display: flex;
+        gap: 5px;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        width: 75%;
+        margin: auto;
+        background: #ffffff;
+        padding: 1rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 6px #0000001a;
+        min-height: 4rem;
+    }
+}
+@media (max-width: 345px) {
+    .form {
+        display: flex;
+            gap: 5px;
+            flex-direction: column;
+            align-content: center;
+            justify-content: center;
+            width: 95%;
+            margin: auto;
+            background: #ffffff;
+            padding: 1rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px #0000001a;
+            margin-bottom: 2rem;
+    }
 }

@@ -18,8 +18,6 @@ import { List } from '@/components/displays/list';
 import { OffertCard } from '@/components/displays/card';
 import Styles from "./Offers.module.css";
 
-
-
 const Home: React.FC = () => {
   const dispatch = useDispatch();
 
@@ -38,7 +36,7 @@ const Home: React.FC = () => {
   }, [])
 
   return (
-    <Page titulo='Mercados Liz'>
+    <Page /* titulo='Mercados Liz' */>
       <section className='section-1'>
         <div className='overlay'>
           <h1 className="titulos">Siempre Fresco Siempre Bien</h1>
@@ -92,7 +90,7 @@ const Home: React.FC = () => {
             <Truck color='var(--primary)' size={40} />
           </IconCard>
 
-          <IconCard title='Mayoreo' text='test de texto largo de ejemplo' >
+          <IconCard title='Mayoreo' text='Productos a mayoreo y menudeo' >
             <Package color='var(--primary)' size={40} />
           </IconCard>
 
@@ -104,7 +102,7 @@ const Home: React.FC = () => {
 
       <section style={{ marginTop: "5rem" }} >
 
-        <nav className={Styles["nav"]}>
+        <nav  >
           <h2 className="titulos">Marcas que nos acompañan </h2>
           <ul className={Styles["ul"]}>
             <li>
@@ -186,7 +184,6 @@ const Home: React.FC = () => {
         <div style={{ margin: "2rem auto ", width: "90% " }}>
 
           <List >
-
             <IonButton style={{ textDecoration: "underline" }} color="liz" shape='round' fill="clear" onClick={() => incrementTes("Matriz")}>
               <MapPin color="var(--primary)" size={24} /> Mayoreo
             </IonButton>

@@ -2,7 +2,6 @@
     border-bottom: 1px solid #e9e9e9e0;
     --padding-start: 10px;
     outline: none;
-
 }
 .use-input:focus {
     border: 1px solid #482f72;

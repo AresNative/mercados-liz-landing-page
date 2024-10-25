@@ -2,19 +2,23 @@ import Page from "@/template/page";
 import './HistoriaPage.css';
 import {Cake, Construction, HousePlus, PartyPopper, ShoppingBasket, ShoppingCart, Store } from "lucide-react";
 
-
 const HistoriaPage = () => {
     return (
-        <Page titulo="Historia">
+        <Page/*  titulo="Historia" */>
             {/* Icono de página en construcción */}
-            <h1 className="titulos" z-index="100%" style={{ marginTop: "4rem" }}>Conoce nuestra Historia </h1>
+            <h1 className="titulos" z-index="100%" style={{ marginTop: "6rem" }}>Conoce nuestra Historia </h1>
             {/* Línea de tiempo */}
-            <div className="timeline">
-                <div className="timeline-event">
+            <div className="timeline ">
+                <div className="timeline-event ">
                     <div className="timeline-icon" style={{ backgroundColor: '#FF5656' }}>
+                        <div className="container">
+                            <img src="/uvas.png" />
+                        </div>
                         <ShoppingBasket size={40} />
+                       
                     </div>
-                    <div className="timeline-content">
+
+                <div className="timeline-content">
                         <h3>1990 - Inicio tienda </h3>
                         <p> Lorem ipsum dolaaaaaaor sit, amet consectetur adipisicing elit.</p>
                     </div>
@@ -22,9 +26,14 @@ const HistoriaPage = () => {
 
                 <div className="timeline-event">
                     <div className="timeline-icon" style={{ backgroundColor: '#FFA500' }}>
+                        <div className=" container">
+                           
+                            <img src="/uvas.png" />
+                        </div>
                         <Store size={40} />
                     </div>
-                    <div className="timeline-content">
+                   
+                 <div className="timeline-content">
                         <h3>2000 - Creacion de mercado</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam perferendis, dolor molestias suscipit cum adipisci, a officiis iure alias eveniet, deserunt sed placeat veniam optio esse libero rem! Repellat, in!</p>
                     </div>
@@ -92,7 +101,6 @@ const HistoriaPage = () => {
                         <p></p>
                     </div>
                 </div>
-               
                
             </div>
             <div>

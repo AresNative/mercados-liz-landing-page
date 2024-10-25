@@ -234,11 +234,11 @@ const Reclutamiento = () => {
     const respuestaActual = respuestas.find(r => r.preguntaId === preguntaActual.id)?.respuesta || ""
 
     return (
-        <Page titulo="Reclutamiento" >
+        <Page  /*  titulo="Reclutamiento" */ >
             <img src="/uvas.png" className="img-uva5" />
 
             <form className="margen-pagina">
-                <h2 className="titulos" style={{ marginBottom: "3rem", marginTop: "4.5rem", marginRight: "1rem" ,}}>Si estás interesado en unirte de nuestra familia, llena el siguiente formulario </h2>
+                <h2 className="titulos" style={{ marginBottom: "3rem", marginTop: "6rem", marginRight: "2rem" ,}}>Si estás interesado en unirte de nuestra familia, llena el siguiente formulario </h2>
                 <div className={styles["reclutamiento"]} >
                     {preguntaActual.opciones.map((data: Opcion, index: number) => {
                         return (

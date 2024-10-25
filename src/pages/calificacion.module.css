@@ -3,21 +3,16 @@
         gap: 1px;
         align-content: center;
         border-radius: 1%;
-        stroke-width: 1%;
-        
+        stroke-width: 1%;    
 }
-
-
 .estrella2 {
     fill: var(--violet-6) !important;
     border-radius: 1%;
     stroke-width: 1%;
-    
 }
 .estrellas:hover {
     stroke-width: 1%;
 }
-
 .form {
     z-index: 200 !important;
     display: flex;
@@ -41,7 +36,6 @@
         height: 20%;
         flex-direction: column;
     }
-
 }
 .content-card{
     z-index: 200 !important;
@@ -49,9 +43,7 @@
     display:flex;
     flex-direction: column;
     margin: auto;
-
 }
-
 .content-card ion-button{
     z-index: 200 !important;
     width: 8rem;
@@ -68,12 +60,11 @@
 .textarea2 {
     z-index: 200 !important;
     background: transparent;
-    border: 1px solid rgba(136, 136, 136, 0.11);
+    border: 1px solid #8888881c;
     resize: none;
     width: 90%;
     height: 10rem auto ;
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 1rem;
-
 }

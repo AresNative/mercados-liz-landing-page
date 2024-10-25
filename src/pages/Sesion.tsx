@@ -1,11 +1,16 @@
 import Page from "@/template/page"
+import  Styles  from "./sesion.module.css";
+
 
 const SesionPage = () => {
 
     return (
-        <Page titulo="Sesion">
+        <Page /* titulo="Sesion" */>
             <>
-                <img src="/uvas.png" />
+                <div className={Styles["container"] }>
+                    <div className={Styles["content"]}> AAAAAAAA</div>
+                    <img src="/uvas.png"  />
+               </div>
             </>
         </Page>
     )

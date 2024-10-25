@@ -66,31 +66,52 @@ h3 {
     color: var(--primary);
 }
 h1.titulos{
+    margin-top: 5rem;
     font-size: 4rem;
     font-family: "Lobster";
     font-weight: 300;
     text-align: center;
 }
 h2.titulos {
+    margin-top: .5rem;
     font-size: 2.5rem;
     font-family: "Lobster";
     font-weight: 300;
     text-align: center;
 }
 .titulos {
+    margin-top: .5rem;
     font-family: "Lobster";
     font-weight: 300;
     text-align: center;
     margin: 2.3rem;
 }
-@media (max-width: 376px) {
+.titulos2 {
+    margin-top: .5rem;
+    font-family: "Lobster";
+    font-weight: 300;
+    text-align: center;
+    margin: 2.3rem;
+    color: #000000;
+}
+h2.titulos2 {
+    margin-top: .5rem;
+    font-size: 2.5rem;
+    font-family: "Lobster";
+    font-weight: 300;
+    text-align: center;
+}
+@media (max-width: 340px) {
     .titulos  {
         max-inline-size: 20rem;
-        margin-left: 4rem;
+        margin-left: 3.5rem;
+        margin-right: 1.5rem;
         
     }
 }
+
 .sub-titulos {
+    
     font-size: 2.5rem;
     font-weight: 300;
     text-align: center;
@@ -137,10 +158,9 @@ h2.titulos {
 }
 .section-2 {
     position: relative;
-    border-bottom: 1px solid #734896e0;
+    border-bottom: 1px solid #880febe0;
     padding-top: 3rem;
     padding-bottom: 3rem;
-    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -287,7 +307,6 @@ h2.titulos {
     transform: rotate(10deg);
     z-index: 100;
 }
-
 @media (max-width:450px) {
     .img-uva {
         display: none;

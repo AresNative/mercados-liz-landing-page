@@ -1,19 +1,19 @@
 import Page from "@/template/page";
 import Styles from "./Offers.module.css";
 import { UserCard } from "@/components/displays/card";
-import { IonButton,  IonLabel } from "@ionic/react";
-import { ShoppingBasket, } from "lucide-react";
+import { IonButton, IonLabel } from "@ionic/react";
+import { BookOpenCheck } from "lucide-react";
 
 
 const AbrirPDF = () => {
-
-    const urlPDF =''; // Ruta al archivo pdf
+    const urlPDF = ''; // Ruta al archivo pdf
     window.open(urlPDF, '_blank'); // Abre el pdf en una nueva pestaña
 };
 
 const Offers = () => {
     return (
-        <Page titulo="Ofertas">
+        <Page /* titulo="Ofertas" */>
+
             <nav className={Styles["nav"]}>
                 <ul className={Styles["ul"]}>
                     <li>
@@ -41,18 +41,17 @@ const Offers = () => {
                     </li>
                 </ul>
             </nav>
+
             <div className={Styles["icon"]}>
                 <IonButton shape="round" fill="clear" onClick={AbrirPDF}>
-
-                    <IonLabel style={{ display: "flex", alignItems: "center", gap: "2px" }} className={Styles["icon"]}>
+                    <IonLabel  >
                         <div className={Styles["div"]}>
-
-                        <h2 className="titulos"> Conoce nuestras promociones <ShoppingBasket color="purple" size={80} className="icons" /> </h2> 
+                            <h1 className="titulos2" >Conoce todas las ofertas <BookOpenCheck color="purple" size={80} className="icons" /> </h1>
                         </div>
                     </IonLabel>
                 </IonButton>
-
             </div>
+
             <section className={Styles["content"]}>
                 <div className={Styles["marca"]}>
                     <h2>marca</h2>
@@ -69,7 +68,7 @@ const Offers = () => {
             <section className={Styles["contentcom"]}>
                 <div className={Styles["marcacom"]}>
                     <h2 className="titulos">Nuestros Combos</h2>
-                    <h3 className="sub-titulos2">Conoce nuestros combos especiales para ti </h3>
+                    <p style={{ display: "flex", alignItems: "center", gap: "2px" }}>Conoce nuestros combos especiales para ti </p>
                 </div>
                 <ul className={Styles["productoscom"]}>
                     <li>Combo1</li>
@@ -81,7 +80,6 @@ const Offers = () => {
                 </ul>
             </section>
         </Page>
-
     )
 }
 export default Offers;

@@ -28,9 +28,6 @@ const Home: React.FC = () => {
 
     GetUserInfo().then((info: any) => {
       console.log(info);
-
-
-
     })
 
   }, [])

@@ -25,15 +25,12 @@
 .contenedor:hover img {
     opacity: 1;
 }
-
-
-
   .container {
       position: relative;
       width: 300px;
       /* Ajusta el tamaño según tus necesidades */
       height: 200px;
-      background-color: lightgray;
+      background-color: rgba(211, 211, 211, 0);
       /* Color de fondo para cuando no se ve la imagen */
   }
    .container img {
@@ -59,4 +56,45 @@
    .container:hover img {
        opacity: 1;
        /* La imagen se vuelve visible */
+   }
+
+   
+   /*puebas boton ofertas */
+
+   .icon {
+       margin-left: 1px;
+       margin: .5rem;
+       margin-bottom: 1rem;
+       font-size: medium;
+       font-size: 4rem;
+       color: #0000001a;
+   }
+   .icons {
+       stroke-width: 50%;
+       margin: 1.5rem;
+       size: 2px;
+   }
+   .div {
+       width: 49rem;
+       height: 5rem;
+   }
+   .cont {
+       padding-left: 1px;
+       margin-left: 1px;
+       width: 46rem;
+       height: 5rem;
+   }
+   @media (max-width: 340px) {
+       .div {
+
+           gap: 2rem;
+           width: 90%;
+           margin: auto;
+       }
+   }
+   @media (max-width: 340px) {
+       .icons {
+           stroke-width: 50%;
+           size: 1rem;
+       }
    }

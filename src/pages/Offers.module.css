@@ -1,5 +1,6 @@
 .nav {
  /*    background:#f2f2f7; */
+    
     background: #ffffff;
     overflow: hidden;
     display: flex;
@@ -150,26 +151,39 @@
     font-size: 4rem;   
     color: #0000001a;
 }
-.icons {
+.icons{
+
     stroke-width: 50%;
-    margin: 1rem;
-    padding: 15px;
+    margin: 1.5rem;
+    size: 2px;
 }
 .div{
-   padding: auto;
-    width: 46rem ;
+    width: 49rem ;
     height: 5rem ;
 }
-
+.cont{
+        padding-left: 1px;
+        margin-left: 1px;
+        width: 46rem;
+        height: 5rem;
+}
 @media (max-width: 340px) {
     .div {
-        align-items: center;
-        max-inline-size: 20rem;
-        width:19rem;
-        height: 8rem;
+  
+        gap: 2rem;
+        width: 90%;
+        margin: auto;
+      
     }
 }
-
+@media (max-width: 340px) {
+.icons {
+        stroke-width: 50%;
+        size: 1rem;
+      
+     
+    }
+}
 .contentcom {
     margin-top: 4rem;
     margin-bottom: 0rem;

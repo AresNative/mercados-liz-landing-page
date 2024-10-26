@@ -16,8 +16,8 @@ const Page: React.FC<ContainerProps> = ({ children }) => {
 
     const handleScroll = (scrollTop: number) => {
         if (scrollTop > 50) {
-            setHeaderColor('#270f4e41'); // Cambiar color del header //#7600c096
-            setBlurEffect('blur(10px)');  // Aplicar el efecto de desenfoque
+            setHeaderColor('#d1d1d196'); // Cambiar color del header //#7600c096
+            setBlurEffect('blur(10px)');// Aplicar el efecto de desenfoque
             setTooltipColor("#000");
         } else {
             setHeaderColor('transparent'); // Cambiar a transparente cuando el scroll es menor a 50px

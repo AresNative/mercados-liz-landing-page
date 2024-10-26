@@ -42,12 +42,14 @@ const Offers = () => {
                 </ul>
             </nav>
 
-            <div className={Styles["icon"]}>
+            {/* Pueba boton oferta  */}
+            <div style={{ display: "flex", justifyContent: "center", marginTop: "2rem" }}>
                 <IonButton shape="round" fill="clear" onClick={AbrirPDF}>
-                    <IonLabel  >
-                        <div className={Styles["div"]}>
-                            <h1 className="titulos2" >Conoce todas las ofertas <BookOpenCheck color="purple" size={80} className="icons" /> </h1>
-                        </div>
+                    <IonLabel style={{ color: "purple", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                        <h1 style={{ color: "purple", fontFamily: "'Lobster', cursive", fontSize: "3rem", margin: 0 }}>
+                            Nuestras Ofertas
+                        </h1>
+                        <BookOpenCheck color="purple" size={80}  />
                     </IonLabel>
                 </IonButton>
             </div>

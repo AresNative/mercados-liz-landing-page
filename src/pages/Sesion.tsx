@@ -1,6 +1,12 @@
 import Page from "@/template/page"
 import  Styles  from "./sesion.module.css";
+import { IonButton, IonLabel } from "@ionic/react";
+import { BookOpenCheck } from "lucide-react";
 
+const AbrirPDF = () => {
+    const urlPDF = ''; // Ruta al archivo pdf
+    window.open(urlPDF, '_blank'); // Abre el pdf en una nueva pestaña
+};
 
 const SesionPage = () => {
 
@@ -10,7 +16,22 @@ const SesionPage = () => {
                 <div className={Styles["container"] }>
                     <div className={Styles["content"]}> AAAAAAAA</div>
                     <img src="/uvas.png"  />
-               </div>
+                </div>
+
+             {/* Pueba boton oferta  */ }
+                <div style={{ display: "flex", justifyContent: "center", margin: "1rem" }}>
+                    <IonButton shape="round" fill="clear" onClick={AbrirPDF}>
+                        <IonLabel style={{ color: "purple", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                            <h1 style={{ color: "purple", fontFamily: "'Lobster', cursive", fontSize: "3rem", margin: 0 }}>
+                                Nuestras Ofertas
+                            </h1>
+                            <BookOpenCheck color="purple" size={80} />
+                        </IonLabel>
+                    </IonButton>
+                </div>
+
+
+
             </>
         </Page>
     )

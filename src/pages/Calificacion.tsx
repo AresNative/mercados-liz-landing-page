@@ -30,6 +30,7 @@ export default function ServicioPage() {
     return (
         <Page /*  titulo={"Servicio"} */>
             {/* <img src="/uvas.png" className="img-uva" />*/}
+            <form> 
             <IonCard className={styles["form"]}>
                 <IonCardHeader>
                     <IonCardTitle className="titulos ">Califica nuestro servicio</IonCardTitle>
@@ -58,7 +59,8 @@ export default function ServicioPage() {
                         Enviar <SendIcon color="purple" />
                     </IonButton>
                 </IonCardContent>
-            </IonCard>
+                </IonCard>
+            </form>
         </Page>
     );
 }

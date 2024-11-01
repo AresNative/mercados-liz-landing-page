@@ -12,9 +12,9 @@ const RHPage = () => {
             <h1 className="titulos"> Recursos humanos</h1>
             <div className={styles["divbu"]}>
                 <Button type="button" color="default" label=" Agregar Vacante" onClick={{}} />
-                <Button type="button" color="default" label=" Postulaciones" onClick={{  }} />
+                <Button type="button" color="default" label=" Postulaciones" onClick={{}} />
             </div>
-            
+
             <form className={styles["form"]}>
                 <Input label="Puesto" type="text" placheolder="Ingrese tipo de puesto" />
                 <Input label="Horario" type="number" placheolder="Ingresa el Horario" />
@@ -41,17 +41,16 @@ const RHPage = () => {
                 <IonTextarea className="textarea2 " placeholder="Mas información sobre el puesto solicitado"> </IonTextarea>
                 <Button type="button" color="default" label="Publicar Vacante" onClick={{}} />
             </form>
+            <Tabla />
 
-            <Tabla/>
 
-           
 
         </Page>
     )
 }
 export default RHPage;
 
-        /*
-         <Button type="submit" color="default" label="Agregar Vacante"/>
-           <Button type="submit" color="default" label="Postulaciones" /> 
-        */
+/*
+ <Button type="submit" color="default" label="Agregar Vacante"/>
+   <Button type="submit" color="default" label="Postulaciones" /> 
+*/

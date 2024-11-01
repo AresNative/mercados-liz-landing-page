@@ -15,10 +15,30 @@ import {
     BadgeDollarSign, BookOpenText,
     BriefcaseBusiness, FileBadge,
     FilePlus2, Home, Info, Star,
-    ShoppingBagIcon, X
+    ShoppingBagIcon, X,
 } from 'lucide-react';
 import { Select } from "@/components/functions/select";
+import { useForm, useWatch, Control } from "react-hook-form";
+import { GetUserInfo } from "@/services/web_site_gets";
+import { PostUser, PostUserReg } from "@/services/web_site_post";
+import Swal from 'sweetalert2';
 
+interface RutasProps {
+    link: string;
+    icon: React.ReactNode;
+    text: string;
+}
+
+const Rutas: React.FC<RutasProps> = ({ link, icon, text }) => {
+    return (
+        <IonItem routerLink={link}>
+            <IonLabel style={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
+                {icon}
+                {text}
+            </IonLabel>
+        </IonItem>
+    );
+};
 export function Menu() {
     const router = useHistory();
     const handleClickLogin = () => {  // Redireccion de pagina despues del login
@@ -39,7 +59,31 @@ export function Menu() {
     function closeModal() {
         modalRef.current?.dismiss();
     }
+
     //  Login o Sign up
+    const { register, control, handleSubmit } = useForm();
+    const onSubmit = handleSubmit((data) => {
+        //GetUserInfo();
+        if (name === "Login") {
+            PostUser(data).then((r: any) => {
+                mostrarAlerta();
+            });
+        } else {
+            const { name, apellido, ...otros } = data;
+            const dataForm = { name: `${name} ${apellido}`, date: new Date(), ...otros };
+            PostUserReg(dataForm).then((r: any) => {
+                mostrarAlerta();
+            });
+        }
+    });
+    const mostrarAlerta = () => {
+        Swal.fire({
+            title: 'Error',
+            text: 'Usuario no encontrado, por favor verifique los datos ingresados',
+            icon: 'warning', // Puedes cambiar el icono a 'success', 'error', etc.
+            confirmButtonText: 'Aceptar',
+        });
+    };
     function renderForm() {
         if (name === "Login") {
             return (
@@ -53,7 +97,7 @@ export function Menu() {
                             Registrate
                         </button>
                     </div>
-                    <form className={styles["modal"]}>
+                    <form onSubmit={onSubmit} className={styles["modal"]}>
                         <div>
                             <X color="red" onClick={closeModal} style={{
                                 position: "absolute",
@@ -63,12 +107,12 @@ export function Menu() {
                             }}
                             />
                         </div>
-                        <Input label="Usuario" type="email" placheolder="Ingresa tu usario" />
-                        <Input label="Contraseña" type="password" placheolder="Ingresa tu contraseña" />
+                        <Input props={register("email")} label="Usuario" type="email" placheolder="Ingresa tu usario" />
+                        <Input props={register("password")} label="Contraseña" type="password" placheolder="Ingresa tu contraseña" />
                         <p className={styles["switch-text"]}>¿No tienes cuenta?
                             <span onClick={() => setname("Sign up")} className={styles["switch-link"]}> Registrate aquí</span>
                         </p>
-                        <Button type="button" color="default" label="Iniciar Sesión" onClick={handleClickLogin} />
+                        <Button type="submit" color="default" label="Iniciar Sesión"/*  onClick={handleClickLogin} */ />
                     </form>
                 </div>
             );
@@ -83,7 +127,7 @@ export function Menu() {
                             Registrate
                         </button>
                     </div>
-                    <form className={styles["modal"]}>
+                    <form onSubmit={onSubmit} className={styles["modal"]}>
                         <div>
                             <X color="red" onClick={closeModal} style={{
                                 position: "absolute",
@@ -93,10 +137,10 @@ export function Menu() {
                             }}
                             />
                         </div>
-                        <Input label="Nombre(s)" type="text" placheolder="Ingresa tu mombre(s)" />
-                        <Input label="Apellidos" type="text" placheolder="Ingresa tus apellidos" />
-                        <Input label="Correo" type="email" placheolder="Usuario@mercadosliz.com" />
-                        <Input label="Contraseña" type="password" placheolder="Ingresa una contraseña" />
+                        <Input props={register("name")} label="Nombre(s)" type="text" placheolder="Ingresa tu mombre(s)" />
+                        <Input props={register("apellido")} label="Apellidos" type="text" placheolder="Ingresa tus apellidos" />
+                        <Input props={register("email")} label="Correo" type="email" placheolder="Usuario@mercadosliz.com" />
+                        <Input props={register("password")} label="Contraseña" type="password" placheolder="Ingresa una contraseña" />
                         <Select values={
                             [
                                 {
@@ -116,12 +160,25 @@ export function Menu() {
                         <p className={styles["switch-text"]}>¿Ya tienes una cuenta?
                             <span onClick={() => setname("Login")} className={styles["switch-link"]}> Inicia Sesión</span>
                         </p>
-                        <Button type="button" color="default" label="Registrate" onClick={handleClickSignup} />
+                        <Button type="submit" color="default" label="Registrate" /* onClick={handleClickSignup} */ />
                     </form>
                 </div>
             );
         }
     }
+    //marcas que nos acompañan
+    const ruta: any = [{
+        link: "/", icon: <Home color='var(--primary)' size={20} />, text: "Inicio"
+    },
+    { link: "/Ofertas", icon: <BadgeDollarSign color='green' size={20} />, text: "Ofertas" },
+    { link: "/billing", icon: <FilePlus2 color='var(--primary)' size={20} />, text: "Facturación" },
+    { link: "/Contact", icon: <Info color='#6cb2ff' size={20} />, text: "Más información" },//
+    { link: "/Reclutamiento", icon: <BriefcaseBusiness color='var(--primary)' size={20} />, text: "Únete a la familia" },
+    { link: "/Historia", icon: <BookOpenText color='purple' size={20} />, text: "Nuestra Historia" },
+    { link: "/Servicio", icon: <Star color='blue' size={20} />, text: "Valoranos" },//
+    { link: "/ProveedoresNuev", icon: <ShoppingBagIcon color='pink' size={20} />, text: "Nuevos Proveedores" },
+    { link: "/Proveedores", icon: <FileBadge color='pink' size={20} />, text: "Proveedores" }
+    ]
 
     return (
         <>
@@ -133,60 +190,7 @@ export function Menu() {
                 </IonHeader>
                 <IonContent className="ion-padding">
                     <IonList style={{ borderRadius: "5px" }}>
-                        <IonItem routerLink="/">
-                            <IonLabel style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-                                <Home color='var(--primary)' size={20} />
-                                Inicio
-                            </IonLabel>
-                        </IonItem>
-                        <IonItem routerLink="/Ofertas">
-                            <IonLabel style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-                                <BadgeDollarSign color='green' size={20} />   Ofertas
-                            </IonLabel>
-                        </IonItem>
-                        <IonItem routerLink="/billing">
-                            <IonLabel style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-                                <FilePlus2 color='var(--primary)' size={20} />  Facturación
-
-                            </IonLabel>
-                        </IonItem>
-                        <IonItem routerLink="/Contact">
-                            <IonLabel style={{ display: "flex", alignItems: "center", gap: "2px" }} >
-                                <Info color='#6cb2ff' size={20} />  Más información
-
-                            </IonLabel>
-                        </IonItem>
-                        <IonItem routerLink="/Reclutamiento">
-                            <IonLabel style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-                                <BriefcaseBusiness color='var(--primary)' size={20} /> Únete a la familia
-
-                            </IonLabel>
-                        </IonItem>
-
-                        <IonItem routerLink="/Historia">
-                            <IonLabel style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-                                <BookOpenText color='purple' size={20} />  Nuestra Historia
-                            </IonLabel>
-                        </IonItem>
-                        <IonItem routerLink="/Servicio">
-                            <IonLabel style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-                                <Star color='blue' size={20} /> Valoranos
-
-                            </IonLabel>
-                        </IonItem>
-
-                        <IonItem routerLink="/ProveedoresNuev">
-                            <IonLabel style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-                                <ShoppingBagIcon color='pink' size={20} /> Nuevos Proveedores
-                            </IonLabel>
-                        </IonItem>
-
-                        <IonItem routerLink="/Proveedores">
-                            <IonLabel style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-                                <FileBadge color='pink' size={20} /> Proveedores
-                            </IonLabel>
-                        </IonItem>
-
+                        {ruta.map((data: any, key: any) => (<Rutas key={key} link={data.link} icon={data.icon} text={data.text} />))}
                     </IonList>
                 </IonContent>
                 <IonFooter>

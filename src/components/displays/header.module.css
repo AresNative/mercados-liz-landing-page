@@ -25,6 +25,7 @@
     font-size: 4rem;
     font-family: "Lobster";
     font-weight: 300;
+    text-shadow: 1px 1px 5px #e8c0ff;
 }
 .toolbar {
     position: absolute;

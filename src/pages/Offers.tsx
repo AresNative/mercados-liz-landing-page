@@ -11,34 +11,34 @@ const AbrirPDF = () => {
 };
 
 const Offers = () => {
+    function rutas(link: string) {
+        return (
+            <UserCard avatarUrl={link} />)
+    }
+    //Ofertas parte1
+    const ruta: any = [
+        { link: "https://www.cocacolaep.com/assets/Uploads/resources/Coca-Cola-1210.jpg" },
+        { link: "https://cdn.shopify.com/s/files/1/1547/6619/files/logo.png?v=1698644298" },
+        { link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSgEuX0hSXHfBeGvSHwOyoXcd-sJOh96GvQQ&s" },
+
+    ]
+    //Ofertas parte 2
+    const ruta2: any = [
+        { link: "https://www.cocacolaep.com/assets/Uploads/resources/Coca-Cola-1210.jpg" },
+        { link: "https://cdn.shopify.com/s/files/1/1547/6619/files/logo.png?v=1698644298" },
+        { link: "https://cdn.shopify.com/s/files/1/1547/6619/files/logo.png?v=1698644298" },
+
+    ]
     return (
         <Page /* titulo="Ofertas" */>
 
             <nav className={Styles["nav"]}>
                 <ul className={Styles["ul"]}>
-                    <li>
-                        <UserCard avatarUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDB4JLjNoNbV3cFRQ7OYalFLZPb6-rPcsXKA&s" email="" name="" />
-                    </li>
-                    <li>
-                        <UserCard avatarUrl="" email="" name="" />
-                    </li>
-                    <li>
-                        <UserCard avatarUrl="" email="" name="" />
-                    </li>
+                    {ruta.map((data: any, key: any) => (rutas(data.link)))}
+
                 </ul>
                 <ul className={Styles["ul"]}>
-                    <li>
-                        <UserCard avatarUrl="" email="" name="" />
-                    </li>
-                    <li>
-                        <UserCard avatarUrl="" email="" name="" />
-                    </li>
-                    <li>
-                        <UserCard avatarUrl="" email="" name="" />
-                    </li>
-                    <li>
-                        <UserCard avatarUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDB4JLjNoNbV3cFRQ7OYalFLZPb6-rPcsXKA&s" email="" name="" />
-                    </li>
+                    {ruta2.map((data: any, key: any) => (rutas(data.link)))}
                 </ul>
             </nav>
 
@@ -49,7 +49,7 @@ const Offers = () => {
                         <h1 style={{ color: "purple", fontFamily: "'Lobster', cursive", fontSize: "3rem", margin: 0 }}>
                             Nuestras Ofertas
                         </h1>
-                        <BookOpenCheck color="purple" size={80}  />
+                        <BookOpenCheck color="purple" size={80} />
                     </IonLabel>
                 </IonButton>
             </div>

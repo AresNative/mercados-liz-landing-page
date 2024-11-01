@@ -5,9 +5,11 @@ interface Inputprops {
     label: string;
     type: 'text' | 'password' | 'email' | 'number' | 'date' | undefined;
     placheolder: string;
+    props?: any;
+    defaultValue?: any
 
 }
-export function Input({ label, type, placheolder }: Inputprops) {
+export function Input({ label, type, placheolder, props, defaultValue }: Inputprops) {
     return (
         <IonInput
             type={type}
@@ -15,6 +17,8 @@ export function Input({ label, type, placheolder }: Inputprops) {
             labelPlacement="floating"
             placeholder={placheolder}
             className={styles["use-input"]}
+            value={defaultValue}
+            {...props}
         />
     )
 }

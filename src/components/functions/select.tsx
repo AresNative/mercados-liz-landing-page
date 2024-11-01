@@ -7,9 +7,11 @@ interface SelectProps {
     message: string;
     onChange?: any;
     multiple?: boolean;
+    props?: any;
+    defaultValue?: any
 }
 
-export function Select({ values, message, onChange ,multiple}: SelectProps) {
+export function Select({ values, message, onChange, multiple, props, defaultValue }: SelectProps) {
     return (
         <IonSelect
             className={styles["select"]}
@@ -17,6 +19,8 @@ export function Select({ values, message, onChange ,multiple}: SelectProps) {
             placeholder={message}
             onIonChange={(e: any) => onChange(`${e.detail.value}`)}
             multiple={multiple}
+            value={defaultValue}
+            {...props}
         >
             {values.length &&
                 values.map((data: any, index: number) => {

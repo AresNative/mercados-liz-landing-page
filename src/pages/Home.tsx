@@ -3,7 +3,7 @@ import { MainForm } from '@/components/form/main-form';
 import { Input } from '@/components/functions/input';
 import { MyMap } from '@/components/plugins/map';
 import Page from '@/template/page';
-import { IonButton, IonFab, IonFabButton, IonIcon } from '@ionic/react';
+import { IonButton, IonFab, IonFabButton, IonIcon, IonItem } from '@ionic/react';
 import {
   chevronDown,
   logoFacebook,
@@ -28,14 +28,28 @@ const Home: React.FC = () => {
 
     GetUserInfo().then((info: any) => {
       console.log(info);
-
-
-
     })
 
   }, [])
 
+
+  function rutas(link: string) {
+    return (
+      <OffertCard avatarUrl={link} />)
+  }
+  const ruta: any = [
+    { link: "https://www.cocacolaep.com/assets/Uploads/resources/Coca-Cola-1210.jpg" },
+    { link: "https://cdn.shopify.com/s/files/1/1547/6619/files/logo.png?v=1698644298" },
+    { link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSgEuX0hSXHfBeGvSHwOyoXcd-sJOh96GvQQ&s" },
+    { link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7Ub0t4Q4nI1ec4QiDNyMYDTIhYDkKfpgEdg&s" },
+    { link: "https://www.lala.com.mx/storage/app/media/LogotipoEvolucion/2016.png" },
+    { link: "https://storage.googleapis.com/www-paredro-com/uploads/2018/11/%C2%BFPor-que%CC%81-el-logo-de-Sabritas-tiene-una-carita-feliz.jpg" },
+    { link: "https://upload.wikimedia.org/wikipedia/commons/6/68/Pepsi_2023.svg" },
+    { link: "https://purina.com.mx/sites/default/files/styles/webp/public/2024-02/Gatina_C_0.png.webp?itok=bkyb6mPj" },
+  ]
+
   return (
+
     <Page /* titulo='Mercados Liz' */>
       <section className='section-1'>
         <div className='overlay'>
@@ -82,7 +96,6 @@ const Home: React.FC = () => {
         <h2 className="titulos">Nuestras características</h2>
         <ul className='product'>
           <IconCard title='Selección Local' text='Productos auténticos del Valle de Guadalupe' >
-
             <ShoppingCart color='var(--primary)' size={40} />
           </IconCard>
 
@@ -100,38 +113,13 @@ const Home: React.FC = () => {
         </ul>
       </section>
 
-      <section style={{ marginTop: "5rem" }} >
+      <section style={{ marginTop: "5rem", borderTop: "1px solid #b4b4b4e0" }} >
 
         <nav  >
           <h2 className="titulos">Marcas que nos acompañan </h2>
           <ul className={Styles["ul"]}>
-            <li>
-              <OffertCard avatarUrl="https://www.cocacolaep.com/assets/Uploads/resources/Coca-Cola-1210.jpg" email="" name="" />
-            </li>
-            <li>
-              <OffertCard avatarUrl="https://cdn.shopify.com/s/files/1/1547/6619/files/logo.png?v=1698644298" email="" name="" />
-            </li>
-            <li>
-              <OffertCard avatarUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSgEuX0hSXHfBeGvSHwOyoXcd-sJOh96GvQQ&s" email="" name="" />
-            </li>
-            <li>
-              <OffertCard avatarUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDB4JLjNoNbV3cFRQ7OYalFLZPb6-rPcsXKA&s" email="" name="" />
-            </li>
-            <li>
-              <OffertCard avatarUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7Ub0t4Q4nI1ec4QiDNyMYDTIhYDkKfpgEdg&s" email="" name="" />
-            </li>
-            <li>
-              <OffertCard avatarUrl="https://www.lala.com.mx/storage/app/media/LogotipoEvolucion/2016.png" email="" name="" />
-            </li>
-            <li>
-              <OffertCard avatarUrl="https://storage.googleapis.com/www-paredro-com/uploads/2018/11/%C2%BFPor-que%CC%81-el-logo-de-Sabritas-tiene-una-carita-feliz.jpg" email="" name="" />
-            </li>
-            <li>
-              <OffertCard avatarUrl="https://upload.wikimedia.org/wikipedia/commons/6/68/Pepsi_2023.svg" email="" name="" />
-            </li>
-            <li>
-              <OffertCard avatarUrl="https://purina.com.mx/sites/default/files/styles/webp/public/2024-02/Gatina_C_0.png.webp?itok=bkyb6mPj" email="" name="" />
-            </li>
+            {ruta.map((data: any, key: any) => (rutas(data.link)))}
+           
           </ul>
         </nav>
       </section>

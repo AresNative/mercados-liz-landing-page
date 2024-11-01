@@ -273,50 +273,66 @@ const Reclutamiento = () => {
             <form onSubmit={onSubmit} className="margen-pagina">
                 <h2 className="titulos" style={{ marginBottom: "3rem", marginTop: "6rem", marginRight: "2rem", }}>Si estás interesado en unirte de nuestra familia, llena el siguiente formulario </h2>
                 <div className={styles["reclutamiento"]} >
-                    {preguntaActual.opciones.map((data: Opcion, index: number) => (
-                        <div className={styles["reclutamiento-columnas"]} key={index}>
-                            {data.subopciones ? (
-                                <>
-                                    {data.subopciones.map((subdata, subIndex) => {
-                                        return subdata.tipo === "select" ? (
-                                            <Select
-                                                key={subIndex}
-                                                multiple={subdata.multiple}
-                                                values={subdata.values || []}
-                                                message={subdata.texto}
-                                            />
-                                        ) : (
-                                            <Input
-                                                key={subIndex}
-                                                label={subdata.texto}
-                                                type={subdata.tipo}
-                                                placheolder=""
-                                                props={register(subdata.props ?? "")}
-                                                defaultValue={obtenerDefaultValue(subdata.props || "")}
-                                            />
-                                        );
-                                    })}
-                                </>
-                            ) : data.tipo === "select" ? (
-                                <Select
-                                    multiple={data.multiple}
-                                    values={data.values || []}
-                                    message={data.texto}
-                                />
-                            ) : data.tipo === "h1" ? (
-                                <h1>{data.texto}</h1>
-                            ) : (
-                                <Input
-                                    key={index}
-                                    label={data.texto}
-                                    type={data.tipo}
-                                    props={register(data.props ?? "")}
-                                    placheolder=""
-                                    defaultValue={obtenerDefaultValue(data.props || "")}
-                                />
-                            )}
-                        </div>
-                    ))}
+                    {preguntaActual.opciones.map((data: Opcion, index: number) => {
+                        return (
+                            <div className={styles["reclutamiento-columnas"]} key={index}>
+
+                                {data.subopciones ? (
+                                    // Si hay subopciones, mostrar los inputs o selects dentro de subopciones
+                                    <>
+                                        {data.subopciones.map((subdata, subIndex) => {
+
+                                            return subdata.tipo === "select" ? (
+                                                <Select
+                                                    key={subIndex}
+                                                    multiple={subdata.multiple}
+                                                    values={subdata.values || []} // Usamos las opciones de select en las subopciones
+                                                    message={subdata.texto}
+                                                    props={register(subdata.props ?? "")}
+                                                    defaultValue={obtenerDefaultValue(subdata.props || "")}// Usamos el texto como mensaje o label
+                                                />
+                                            ) : (
+                                                <Input
+                                                    key={subIndex}
+                                                    label={subdata.texto}
+                                                    type={subdata.tipo}
+                                                    placheolder=""
+                                                    props={register(subdata.props ?? "")}
+                                                    defaultValue={obtenerDefaultValue(subdata.props || "")}
+                                                />
+                                            );
+                                        })}
+                                    </>
+                                ) : (
+                                    // Verificar si el tipo es "select" en las opciones principales
+                                    data.tipo === "select" ? (
+                                        <Select
+                                            multiple={data.multiple}
+                                            values={data.values || []}  // Usamos las opciones del select desde data.values
+                                            message={data.texto}        // Usamos el texto como mensaje o label
+                                        />
+                                    ) : data.tipo === "h1" ? (
+                                        <h1>{data.texto}</h1>
+                                    ) : (
+                                        // Si no es "select", renderizar Input normal
+                                        (() => {
+
+                                            return (
+                                                <Input
+                                                    label={data.texto}
+                                                    type={data.tipo}
+                                                    props={register(data.props ?? "")}
+                                                    placheolder=""
+                                                    defaultValue={obtenerDefaultValue(data.props || "")}
+                                                />
+                                            );
+                                        })()
+                                    )
+                                )}
+                            </div>
+                        );
+                    })}
+
                     {esUltimaPagina && (<input type="file" data-multiple-caption="{count} archivos seleccionados" accept=".pdf" multiple />)}
                     {esUltimaPagina && (<CheckBox label={"Acepto los terminos y condiones de la aplicación."} />)}
 

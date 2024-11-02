@@ -9,6 +9,7 @@ const HistoriaPage = () => {
             <h1 className="titulos" z-index="100%" style={{ marginTop: "6rem" }}>Conoce nuestra Historia </h1>
             {/* Línea de tiempo */}
             <div className="timeline ">
+                
                 <div className="timeline-event ">
                     <div className="timeline-icon" style={{ backgroundColor: '#FF5656' }}>
                         <div className="container">

@@ -1,8 +1,8 @@
 import './card.css';
 
 interface UserCardProps {
-    name: string;
-    email: string;
+    name?: string;
+    email?: string;
     avatarUrl: string;
 }
 export function UserCard({ name, email, avatarUrl }: UserCardProps) {
@@ -20,7 +20,7 @@ export function UserCard({ name, email, avatarUrl }: UserCardProps) {
 export function OffertCard({ avatarUrl }: UserCardProps) {
     return (
         <div className="offert-card">
-            <img src={avatarUrl}  className="offert-card__avatar" />
+            <img src={avatarUrl} className="offert-card__avatar" />
         </div>
     );
 };

@@ -1,7 +1,17 @@
 import { Menu } from "@/pages/menu";
-import { IonButtons, IonContent, IonFooter, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from "@ionic/react";
+import {
+    IonButtons,
+    IonContent,
+    IonFooter,
+    IonHeader,
+    IonMenuButton,
+    IonPage,
+    IonTitle,
+    IonToolbar,
+} from "@ionic/react";
 import { useEffect, useRef, useState } from "react";
 import style from "@/components/displays/header.module.css";
+import { useLocation } from "react-router-dom"; // Importamos useLocation
 
 interface ContainerProps {
     children: React.ReactNode;
@@ -10,47 +20,62 @@ interface ContainerProps {
 const Page: React.FC<ContainerProps> = ({ children }) => {
     const fecha = new Date().getFullYear();
     const contentRef = useRef<HTMLIonContentElement>(null);
-    const [headerColor, setHeaderColor] = useState('transparent');
-    const [blurEffect, setBlurEffect] = useState('none'); // Nuevo estado para el efecto de blur
-    const [tooltipColor, setTooltipColor] = useState("#000");
+    const location = useLocation(); // Obtenemos la ubicación actual
+    const isHomePage = location.pathname === "/home"; // Verificamos si estamos en la ruta raíz
+
+    // Establecemos los estados iniciales basados en la ruta actual
+    const [headerColor, setHeaderColor] = useState(
+        isHomePage ? "transparent" : "#5409cd4f"
+    );
+    const [blurEffect, setBlurEffect] = useState(isHomePage ? "none" : "blur(4px)");
+    const [tooltipColor, setTooltipColor] = useState(isHomePage ? "#000" : "#fff");
 
     const handleScroll = (scrollTop: number) => {
         if (scrollTop > 50) {
-            setHeaderColor('#270f4e41'); // Cambiar color del header //#7600c096
-            setBlurEffect('blur(10px)');  // Aplicar el efecto de desenfoque
+
+            setHeaderColor('#d1d1d196'); // Cambiar color del header //#7600c096
+            setBlurEffect('blur(10px)');// Aplicar el efecto de desenfoque
             setTooltipColor("#000");
+
         } else {
-            setHeaderColor('transparent'); // Cambiar a transparente cuando el scroll es menor a 50px
-            setBlurEffect('none');  // Eliminar el desenfoque
+            setHeaderColor("transparent");
+            setBlurEffect("none");
             setTooltipColor("#000");
         }
     };
 
     useEffect(() => {
+        if (!isHomePage) return; // Solo aplicamos el efecto si estamos en la ruta raíz
+
         const contentElement = contentRef.current;
 
-        if (!contentElement) return; // Si la referencia no está disponible, salir del efecto
+        if (!contentElement) return;
 
-        // Evento de scroll
         const onScroll = (event: CustomEvent) => {
             const scrollTop = (event.detail as any).scrollTop;
             handleScroll(scrollTop);
         };
 
-        contentElement.addEventListener('ionScroll', onScroll);
+        contentElement.addEventListener("ionScroll", onScroll);
 
-        // Limpiar el evento al desmontar el componente
         return () => {
-            contentElement.removeEventListener('ionScroll', onScroll);
+            contentElement.removeEventListener("ionScroll", onScroll);
         };
-    }, []);
+    }, [isHomePage]);
 
     return (
         <>
             <Menu />
             <IonPage id="main-content">
-                <IonHeader className={`ion-no-border ${style["headers"]}`} > {/* Cambiamos a uso de variable CSS */}
-                    <IonToolbar className={style["toolbar"]} style={{ '--background': headerColor, color: tooltipColor, backdropFilter: blurEffect }}>
+                <IonHeader className={`ion-no-border ${style["headers"]}`}>
+                    <IonToolbar
+                        className={style["toolbar"]}
+                        style={{
+                            "--background": headerColor,
+                            color: tooltipColor,
+                            backdropFilter: blurEffect,
+                        }}
+                    >
                         <IonTitle size="large" className={style["titulos"]}>
                             Liz
                         </IonTitle>
@@ -63,16 +88,21 @@ const Page: React.FC<ContainerProps> = ({ children }) => {
                     <main>{children}</main>
                     <IonFooter>
                         <IonToolbar>
-                            <ul style={{
-                                display: "flex",
-                                flexDirection: "column",
-                                listStyle: "none",
-                                gap: "1rem",
-                                width: "100%",
-                                alignItems: "center",
-                                justifyContent: "center"
-                            }}>
-                                <li>©{fecha} SUPERMERCADOS MEJIA S. DE R.L. DE C.V. Todos los derechos reservados.</li>
+                            <ul
+                                style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    listStyle: "none",
+                                    gap: "1rem",
+                                    width: "100%",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                }}
+                            >
+                                <li>
+                                    ©{fecha} SUPERMERCADOS MEJIA S. DE R.L. DE C.V. Todos los
+                                    derechos reservados.
+                                </li>
                                 <li style={{ display: "flex", gap: "2rem" }}>
                                     <a style={{ color: "var(--primary)" }}>Términos y Condiciones</a>
                                     <a style={{ color: "var(--primary)" }}>Política de Privacidad</a>
@@ -87,4 +117,4 @@ const Page: React.FC<ContainerProps> = ({ children }) => {
     );
 };
 
-export default Page
+export default Page;

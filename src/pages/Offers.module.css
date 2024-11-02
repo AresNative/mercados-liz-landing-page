@@ -1,40 +1,52 @@
 .nav {
- /*    background:#f2f2f7; */
+    /* background:#f2f2f7; */
+    margin: 0.5rem;
     background: #ffffff;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     width: 100%;
     padding: 10px 0;
-    margin: auto;   
+    margin: auto;
 }
+
+.marquee-container {
+    overflow: hidden;
+    width: 100%;
+}
+
 .ul {
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 141%;
-    animation: marquee 15s linear infinite !important; 
+    width: calc(130%);
+    animation: marquee 10s linear infinite !important;
 }
+
 .ul li {
+    flex: 0 0 auto;
     padding: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .ul li:hover {
     transform: translateY(-10px);
 }
+
 .ul:hover {
-    animation-play-state: paused !important;
+    animation-play-state: paused !important ;
 }
+
 @keyframes marquee {
-    0% {
+    from {
         transform: translateX(100%);
     }
 
-    100% {
+    to {
         transform: translateX(-100%);
     }
 }
 .content{
+    margin: 0.5rem;
     margin-top: 4rem;
     margin-bottom: 2rem;
     min-height: 40vh;
@@ -46,6 +58,7 @@
     padding: 2rem;
 }
 .marca{
+    margin:0.5rem;
     width: 90%;
     height: 10rem;
     background: var(--secondary);
@@ -61,13 +74,14 @@
     font-variant: small-caps;
 }
 .productos {
+    
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     gap: 2rem;
     width: 90%;
-    margin: auto;
+
 }
 .productos li {
     flex: 1 1 calc(50% - 2rem);
@@ -150,26 +164,35 @@
     font-size: 4rem;   
     color: #0000001a;
 }
-.icons {
+.icons{
+
     stroke-width: 50%;
-    margin: 1rem;
-    padding: 15px;
+    margin: 1.5rem;
+    size: 2px;
 }
 .div{
-   padding: auto;
-    width: 46rem ;
+    width: 49rem ;
     height: 5rem ;
 }
-
+.cont{
+        padding-left: 1px;
+        margin-left: 1px;
+        width: 46rem;
+        height: 5rem;
+}
 @media (max-width: 340px) {
     .div {
-        align-items: center;
-        max-inline-size: 20rem;
-        width:19rem;
-        height: 8rem;
+        gap: 2rem;
+        width: 90%;
+        margin: auto;
     }
 }
-
+@media (max-width: 340px) {
+.icons {
+        stroke-width: 50%;
+        size: 1px;
+    }
+}
 .contentcom {
     margin-top: 4rem;
     margin-bottom: 0rem;
@@ -183,7 +206,7 @@
 }
 @media (max-width: 340px) {
     .nav {
-            /*    background:#f2f2f7; */
+            /*background:#f2f2f7; */
             background: #ffffff;
             overflow: hidden;
             display: flex;

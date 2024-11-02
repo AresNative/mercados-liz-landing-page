@@ -54,6 +54,11 @@ h1,h2,h3,h4{
 h3 {
     color: var(--primary);
 }
+.swal2-shown:not(.swal2-no-backdrop, .swal2-toast-shown),
+.swal2-height-auto,
+.swal2-height-auto.specific-class {
+    height: 100% !important;
+}
 .overlay {
     width: 80%;
     padding: 5rem;
@@ -158,7 +163,7 @@ h2.titulos2 {
 }
 .section-2 {
     position: relative;
-    border-bottom: 1px solid #880febe0;
+    border-bottom: 1px solid #b4b4b4e0;
     padding-top: 3rem;
     padding-bottom: 3rem;
     display: flex;

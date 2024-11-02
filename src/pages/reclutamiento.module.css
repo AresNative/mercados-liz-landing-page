@@ -12,6 +12,7 @@
     box-shadow: 0 4px 6px #0000001a;
     min-height: 4rem;
 }
+/*ajuste*/
 .reclutamiento-columnas{
     display: flex;
     gap: 2rem;

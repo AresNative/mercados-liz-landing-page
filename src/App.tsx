@@ -31,7 +31,6 @@ import NuevoProvePage from './pages/nuevosprovedores';
 import ProveePage from './pages/portalprov';
 
 
-
 setupIonicReact({
   mode: 'ios'
 });
@@ -41,6 +40,7 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonRouterOutlet>
         {/*  */}
+        
         <Route exact path="/home">
           <Home />
         </Route>
@@ -73,9 +73,21 @@ const App: React.FC = () => (
           <ProveePage />
         </Route>
 
-        <Route exact path="/Sesion/RecursosHumanos">
+        <Route exact path="/RecursosHumanos">
           <RHPage />
         </Route>
+
+
+
+
+
+
+
+
+
+
+
+
         {/*  */}
         <Route exact path="/">
           <Redirect to="/home" />

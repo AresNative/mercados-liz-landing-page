@@ -1,7 +1,7 @@
 export async function PostUser(data: any) {
   const apiUrl = process.env.REACT_APP_API_URL;
 
-  fetch(`${apiUrl}users/login`, {
+  return fetch(`${apiUrl}users/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -9,8 +9,9 @@ export async function PostUser(data: any) {
     // signal: controller.signal = tiempo real
     body: JSON.stringify(data),
   })
-    .then((response) => response.json())
-    .then((response) => console.log(response))
+    .then((response) => {
+      return response.json();
+    })
     .catch((err) => console.error(err));
 }
 

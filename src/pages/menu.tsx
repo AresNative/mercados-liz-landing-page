@@ -22,21 +22,25 @@ import { useForm, useWatch, Control } from "react-hook-form";
 import { GetUserInfo } from "@/services/web_site_gets";
 import { PostUser, PostUserReg } from "@/services/web_site_post";
 import Swal from 'sweetalert2';
+import { getLocalStorageItem, setLocalStorageItem } from "@/services/localstorage";
 
 interface RutasProps {
     link: string;
     icon: React.ReactNode;
     text: string;
+    view?: boolean;
 }
 
-const Rutas: React.FC<RutasProps> = ({ link, icon, text }) => {
+const Rutas: React.FC<RutasProps> = ({ link, icon, text, view }) => {
     return (
-        <IonItem routerLink={link}>
-            <IonLabel style={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
-                {icon}
-                {text}
-            </IonLabel>
-        </IonItem>
+        <>
+            {view === true && (<IonItem routerLink={link}>
+                <IonLabel style={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
+                    {icon}
+                    {text}
+                </IonLabel>
+            </IonItem>)}
+        </>
     );
 };
 export function Menu() {
@@ -62,10 +66,13 @@ export function Menu() {
 
     //  Login o Sign up
     const { register, control, handleSubmit } = useForm();
-    const onSubmit = handleSubmit((data) => {
+    const onSubmit = handleSubmit(async (data) => {
         //GetUserInfo();
         if (name === "Login") {
-            PostUser(data).then((r: any) => {
+            await PostUser(data).then((response: any) => {
+                if (response.token) setLocalStorageItem("token", response);
+                //if (response.typeUser) setLocalStorageItem("typeUser", response.typeUser); --tipo de usuario para que en menu se muestren 
+                // ** almacen
                 mostrarAlerta();
             });
         } else {
@@ -166,18 +173,19 @@ export function Menu() {
             );
         }
     }
+
     //marcas que nos acompañan
     const ruta: any = [{
-        link: "/", icon: <Home color='var(--primary)' size={20} />, text: "Inicio"
+        link: "/", icon: <Home color='var(--primary)' size={20} />, text: "Inicio", view: true
     },
-    { link: "/Ofertas", icon: <BadgeDollarSign color='green' size={20} />, text: "Ofertas" },
-    { link: "/billing", icon: <FilePlus2 color='var(--primary)' size={20} />, text: "Facturación" },
-    { link: "/Contact", icon: <Info color='#6cb2ff' size={20} />, text: "Más información" },//
-    { link: "/Reclutamiento", icon: <BriefcaseBusiness color='var(--primary)' size={20} />, text: "Únete a la familia" },
-    { link: "/Historia", icon: <BookOpenText color='purple' size={20} />, text: "Nuestra Historia" },
-    { link: "/Servicio", icon: <Star color='blue' size={20} />, text: "Valoranos" },//
-    { link: "/ProveedoresNuev", icon: <ShoppingBagIcon color='pink' size={20} />, text: "Nuevos Proveedores" },
-    { link: "/Proveedores", icon: <FileBadge color='pink' size={20} />, text: "Proveedores" }
+        { link: "/Ofertas", icon: <BadgeDollarSign color='green' size={20} />, text: "Ofertas", view: true /* view: getLocalStorageItem("token") ? true : false  */},
+        { link: "/billing", icon: <FilePlus2 color='var(--primary)' size={20} />, text: "Facturación", view: true /* view: getLocalStorageItem("typeUser") === "alamcen" ? true : false  */ },
+        { link: "/Contact", icon: <Info color='#6cb2ff' size={20} />, text: "Más información", view: true },//
+        { link: "/Reclutamiento", icon: <BriefcaseBusiness color='var(--primary)' size={20} />, text: "Únete a la familia", view: true },
+        { link: "/Historia", icon: <BookOpenText color='purple' size={20} />, text: "Nuestra Historia", view: true },
+        { link: "/Servicio", icon: <Star color='blue' size={20} />, text: "Valoranos", view: true },//
+        { link: "/ProveedoresNuev", icon: <ShoppingBagIcon color='pink' size={20} />, text: "Nuevos Proveedores", view: true },
+        { link: "/Proveedores", icon: <FileBadge color='pink' size={20} />, text: "Proveedores", view: true }
     ]
 
     return (
@@ -190,7 +198,7 @@ export function Menu() {
                 </IonHeader>
                 <IonContent className="ion-padding">
                     <IonList style={{ borderRadius: "5px" }}>
-                        {ruta.map((data: any, key: any) => (<Rutas key={key} link={data.link} icon={data.icon} text={data.text} />))}
+                        {ruta.map((data: any, key: any) => (<Rutas key={key} link={data.link} icon={data.icon} text={data.text} view={data.view} />))}
                     </IonList>
                 </IonContent>
                 <IonFooter>

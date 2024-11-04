@@ -9,7 +9,8 @@ import styles from "./reclutamiento.module.css"
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { PostUserPost } from "@/services/web_site_post";
-
+import formReclutamiento from "@/models/form-reclutamiento.json"
+import { MainForm } from "@/components/form/form2";
 interface Opcion {
     texto: string;
     tipo: 'text' | 'password' | 'email' | 'number' | "select" | 'date' | "h1" | undefined; // Tipo del input (text, email, number, etc.)
@@ -19,237 +20,41 @@ interface Opcion {
     props?: string;
 }
 
-interface Pregunta {
-    id: number;
-    texto: string;
-    props?: string;
-    opciones: Opcion[];
-}
-
-interface Respuesta {
-    preguntaId: number;
-    respuesta: string;
-}
-
-
-const preguntas: Pregunta[] = [
-    {
-        id: 1,
-        texto: "Datos Generales",
-        opciones: [
-            { texto: "Información general", tipo: "h1" },
-            {
-                texto: "Nombre", tipo: "text",
-                props: "nombre"
-            },
-            {
-                texto: "Apellidos", tipo: "text", subopciones: [
-                    {
-                        texto: "Apellido Paterno", tipo: "text",
-                        props: "apellido_paterno"
-                    },
-                    { texto: "Apellido Materno", tipo: "text", props: "apellido_materno" }
-                ]
-            },
-            {
-                texto: "Edad", tipo: "text", subopciones: [
-                    { texto: "Edad", tipo: "number", props: "edad" },
-                    { texto: "Fecha de nacimiento", tipo: "date", props: "fecha_nacimiento" }
-                ]
-            },
-            {
-                texto: "contacto", tipo: "email", subopciones: [
-                    { texto: "Correo electronico", tipo: "email", props: "correo_electronico" },
-                    { texto: "Numero de telefono", tipo: "number", props: "numero_telefono" }
-                ]
-            },
-            {
-                texto: "Dirección Actual", tipo: "text", subopciones: [
-                    { texto: "Dirección actual", tipo: "text", props: "direccion_actual" },
-                    { texto: "Desde cuando radica en la ciudad", tipo: "text", props: "fecha_radica_ciudad" }
-                ]
-            },
-
-            {
-                texto: "Transporte", tipo: "text", subopciones: [
-                    { texto: "Medio de transporte", tipo: "email", props: "medio_transporte" },
-                    { texto: "Tiempo de traslado", tipo: "number", props: "tiempo_traslado" }
-                ]
-            },
-        ]
-    },
-    {
-        id: 2,
-        texto: "Datos Personales",
-        opciones: [
-            { texto: "Estado Civil", tipo: "h1" },
-            { texto: "Estado civil", tipo: "text", props: "estado_civil" },
-            {
-                texto: "matrimonio", tipo: "text", subopciones: [
-                    { texto: "En caso de ser casado o unión libre cuanto tiempo tiene ", tipo: "text", props: "tiempo_casado" },
-                    { texto: "Matrimonio ¿bienes mancomunados o separados?", tipo: "text", props: "bienes_mancomunados" },
-                ]
-            },
-            {
-                texto: "Hijos", tipo: "text", subopciones: [
-                    { texto: "¿Tienes hijos? ", tipo: "text", props: "tienes_hijos" },
-                    { texto: "¿Planeas tener más hijos?", tipo: "text", props: "planeas_mas_hijos" },
-                ]
-            },
-            { texto: "¿Tienes disponibilidad de horario? ", tipo: "text", props: "disponibilidad_horario" }
-        ]
-    },
-    {
-        id: 3,
-        texto: "Datos Escolares",
-        opciones: [
-            { texto: "Información Academica", tipo: "h1" },
-            {
-                texto: "Escolares", tipo: "text", subopciones: [
-                    { texto: "Último grado de estudios ", tipo: "text", props: "ultimo_grado_estudios" },
-                    { texto: "¿Tienes certificado?", tipo: "text", props: "tienes_certificado" },
-                ]
-            },
-            {
-                texto: "Estudios", tipo: "text", subopciones: [
-                    { texto: "¿Estudias actualmente?", tipo: "text", props: "estudias_actualmente" },
-                    { texto: "En caso que si que días y en que horario", tipo: "text", props: "dias_horario_estudio" },
-                ]
-            },
-        ]
-    },
-    {
-        id: 4,
-        texto: "Datos Laborales ",
-        opciones: [
-            { texto: "Último trabajo", tipo: "h1" },
-            {
-                texto: "empleo", tipo: "text", subopciones: [
-                    { texto: "Último lugar de trabajo ", tipo: "text", props: "ultimo_lugar_trabajo" },
-                    { texto: "Puesto que desempeñaba", tipo: "text", props: "puesto_ultimo_trabajo" },
-                ]
-            },
-            {
-                texto: "tiempo", tipo: "text", subopciones: [
-                    { texto: "¿Cuánto tiempo trabajo ahi?", tipo: "text", props: "tiempo_trabajo" },
-                    { texto: "Salario semanal que tenia", tipo: "text", props: "salario_semanal" },
-                ]
-            },
-            {
-                texto: "Horario", tipo: "text", subopciones: [
-                    { texto: "Horario", tipo: "text", props: "horario_trabajo" },
-                    { texto: "Día de descanso", tipo: "text", props: "dia_descanso" },
-                ]
-            },
-            { texto: "Motivo de salida ", tipo: "text", props: "motivo_salida" },
-
-            { texto: "Penúltimo trabajo", tipo: "h1" },
-            {
-                texto: "empleo", tipo: "text", subopciones: [
-                    { texto: "Penultimo lugar de trabajo ", tipo: "text", props: "penultimo_lugar_trabajo" },
-                    { texto: "Puesto que desempeñaba", tipo: "text", props: "puesto_penultimo_trabajo" },
-                ]
-            },
-            {
-                texto: "tiempo", tipo: "text", subopciones: [
-                    { texto: "¿Cuánto tiempo trabajo ahi?", tipo: "text", props: "tiempo_penultimo_trabajo" },
-                    { texto: "Salario Semanal que tenia", tipo: "text", props: "salario_semanal_penultimo" },
-                ]
-            },
-            {
-                texto: "Horario", tipo: "text", subopciones: [
-                    { texto: "Horario", tipo: "text", props: "horario_penultimo_trabajo" },
-                    { texto: "Día de descanso", tipo: "text", props: "dia_descanso_penultimo" },
-                ]
-            },
-            { texto: "Motivo de salida ", tipo: "text", props: "motivo_salida_penultimo" }
-        ]
-    },
-    {
-        id: 5,
-        texto: "Vacante",
-        opciones: [
-            { texto: "Puesto string actual", tipo: "h1" },
-            { texto: "¿Como se entero de la string? ", tipo: "text", props: "string" },
-            {
-                texto: "Conocidos", tipo: "text", subopciones: [
-                    { texto: "¿Conoce a alguien que trabaje aqui?", tipo: "text", props: "string" },
-                    { texto: "¿A quién?", tipo: "text", props: "string" },
-                ]
-            },
-            { texto: "¿Que tipo de relacion tiene con usted parentesco ó amistad?", tipo: "text", props: "string" },
-            {
-                texto: "Puesto", tipo: "select", subopciones: [
-                    {
-                        texto: "Sucursal", tipo: "select", multiple: true, props: " string", values: [
-                            { nombre: "Mayoreo" },
-                            { nombre: "Valle de guadalupe" },
-                            { nombre: "Testerazo" },
-                            { nombre: "Valle de las palmas" }
-                        ]
-                    },
-                    {
-                        texto: "Vacantes", tipo: "select", multiple: true, props: "string", values: [
-                            { nombre: "Guardia" },
-                            { nombre: "Cajas" },
-                            { nombre: "Abarrotes" },
-                            { nombre: "Cocina" }
-                        ]
-                    }
-                ]
-            },
-
-        ]
-    },
-];
+const preguntas: any[] = formReclutamiento;
 
 
 const Reclutamiento = () => {
 
-    const { register, handleSubmit } = useForm();
+    const { register, reset, handleSubmit } = useForm();
 
     // Almacena los datos iniciales en un estado para re-renderización
     const [allData, setAllData] = useState<{ nombre: string; valor: any }[]>([]);
 
-    const onSubmit = handleSubmit((data) => {
-        console.log("Data enviada:", data);
+    const onSubmit = async (data: any) => {
+        // Usa `obtenerDefaultValue` para llenar datos faltantes de `allData`
+        const dataWithDefaults = Object.keys(data).reduce((acc: any, key) => {
+            acc[key] = data[key] || obtenerDefaultValue(key);
+            return acc;
+        }, {});
 
-        // Obtén los nombres de los campos de la página actual basados en `props`
-        const camposPaginaActual = preguntaActual.opciones.flatMap(opcion =>
-            opcion.subopciones ? opcion.subopciones.map(subopcion => subopcion.props) : opcion.props
-        ).filter(Boolean); // Filtra `undefined` en caso de que alguna opción no tenga `props`
-
-        // Filtra `data` para incluir solo los campos correspondientes a la página actual
-        const dataFiltrada = Object.entries(data)
-            .filter(([key]) => camposPaginaActual.includes(key))
-            .reduce((obj: any, [key, value]) => {
-                // Convertir valores específicos según el tipo requerido en el JSON final
-                if (key === 'edad') {
-                    obj[key] = Number(value); // Convierte edad a número
-                } else if (key === 'fecha_nacimiento') {
-                    obj[key] = '2024-10-31T23:24:12.169Z';
-                } else {
-                    obj[key] = value; // Resto de campos sin cambios
-                }
-                return obj;
-            }, {});
-
-        // Actualiza `allData` solo con los datos de la página actual
-        setAllData(prevData => ({
-            ...prevData,
-            ...dataFiltrada
-        }));
+        console.log("Data enviada:", dataWithDefaults);
 
         // Avanza a la siguiente página si es necesario
         if (paginaActual < preguntas.length - 1) {
+            // Actualiza `allData` solo con los datos de la página actual
+            setAllData(prevData => ({
+                ...prevData,
+                ...dataWithDefaults
+            }));
+            reset();
             setPaginaActual(paginaActual + 1);
         } else {
-            PostUserPost(allData).then((data: any) => {
-                console.log(data);
-
-            })
+            // Envía `allData` al servidor
+            PostUserPost(allData).then((res) => {
+                console.log("Respuesta del servidor:", res);
+            });
         }
-    });
+    };
 
     const obtenerDefaultValue = (propName: any) => {
         return allData[propName] || "";
@@ -269,11 +74,16 @@ const Reclutamiento = () => {
     return (
         <Page>
             <img src="/uvas.png" className="img-uva5" />
-
-            <form onSubmit={onSubmit} className="margen-pagina">
+            <MainForm
+                dataForm={formReclutamiento}
+                message="test"
+            />
+            <form onSubmit={handleSubmit(onSubmit)} className="margen-pagina">
                 <h2 className="titulos" style={{ marginBottom: "3rem", marginTop: "6rem", marginRight: "2rem", }}>Si estás interesado en unirte de nuestra familia, llena el siguiente formulario </h2>
                 <div className={styles["reclutamiento"]} >
-                    {preguntaActual.opciones.map((data: Opcion, index: number) => {
+
+
+                    {/* {preguntaActual.opciones.map((data: Opcion, index: any) => {
                         return (
                             <div className={styles["reclutamiento-columnas"]} key={index}>
 
@@ -288,8 +98,8 @@ const Reclutamiento = () => {
                                                     multiple={subdata.multiple}
                                                     values={subdata.values || []} // Usamos las opciones de select en las subopciones
                                                     message={subdata.texto}
-                                                    props={register(subdata.props ?? "")}
-                                                    defaultValue={obtenerDefaultValue(subdata.props || "")}// Usamos el texto como mensaje o label
+                                                    props={register(subdata.props)}
+                                                    defaultValue={obtenerDefaultValue(subdata.props || "")}
                                                 />
                                             ) : (
                                                 <Input
@@ -297,7 +107,7 @@ const Reclutamiento = () => {
                                                     label={subdata.texto}
                                                     type={subdata.tipo}
                                                     placheolder=""
-                                                    props={register(subdata.props ?? "")}
+                                                    props={register(subdata.props)}
                                                     defaultValue={obtenerDefaultValue(subdata.props || "")}
                                                 />
                                             );
@@ -307,9 +117,12 @@ const Reclutamiento = () => {
                                     // Verificar si el tipo es "select" en las opciones principales
                                     data.tipo === "select" ? (
                                         <Select
+                                            key={index}
                                             multiple={data.multiple}
                                             values={data.values || []}  // Usamos las opciones del select desde data.values
                                             message={data.texto}        // Usamos el texto como mensaje o label
+                                            props={register(data.props ?? "")}
+                                            defaultValue={obtenerDefaultValue(data.props || "")}
                                         />
                                     ) : data.tipo === "h1" ? (
                                         <h1>{data.texto}</h1>
@@ -319,6 +132,7 @@ const Reclutamiento = () => {
 
                                             return (
                                                 <Input
+                                                    key={index}
                                                     label={data.texto}
                                                     type={data.tipo}
                                                     props={register(data.props ?? "")}
@@ -331,7 +145,7 @@ const Reclutamiento = () => {
                                 )}
                             </div>
                         );
-                    })}
+                    })} */}
 
                     {esUltimaPagina && (<input type="file" data-multiple-caption="{count} archivos seleccionados" accept=".pdf" multiple />)}
                     {esUltimaPagina && (<CheckBox label={"Acepto los terminos y condiones de la aplicación."} />)}

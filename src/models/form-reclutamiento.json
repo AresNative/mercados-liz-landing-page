@@ -1,0 +1,380 @@
+[
+   {
+      "id": 1,
+      "type": "HEADER",
+      "name": "Datos Generales",
+      "require": false
+   },
+   {
+      "id": 2,
+      "type": "HEADER",
+      "name": "Información general",
+      "require": false
+   },
+   {
+      "id": 3,
+      "type": "INPUT",
+      "name": "Nombre",
+      "placeholder": "Nombre",
+      "require": false,
+      "props": "nombre"
+   },
+   {
+      "id": 4,
+      "type": "INPUT",
+      "name": "Apellidos",
+      "placeholder": "Apellido Paterno",
+      "require": false,
+      "props": "apellido_paterno"
+   },
+   {
+      "id": 5,
+      "type": "INPUT",
+      "name": "Apellidos",
+      "placeholder": "Apellido Materno",
+      "require": false,
+      "props": "apellido_materno"
+   },
+   {
+      "id": 6,
+      "type": "NUMBER",
+      "name": "Edad",
+      "placeholder": "Edad",
+      "require": false,
+      "props": "edad"
+   },
+   {
+      "id": 7,
+      "type": "DATE",
+      "name": "Fecha de nacimiento",
+      "placeholder": "Fecha de nacimiento",
+      "require": false,
+      "props": "fecha_nacimiento"
+   },
+   {
+      "id": 8,
+      "type": "EMAIL",
+      "name": "Correo electrónico",
+      "placeholder": "Correo electrónico",
+      "require": false,
+      "props": "correo_electronico"
+   },
+   {
+      "id": 9,
+      "type": "NUMBER",
+      "name": "Número de teléfono",
+      "placeholder": "Número de teléfono",
+      "require": false,
+      "props": "numero_telefono"
+   },
+   {
+      "id": 10,
+      "type": "TEXT",
+      "name": "Dirección actual",
+      "placeholder": "Dirección actual",
+      "require": false,
+      "props": "direccion_actual"
+   },
+   {
+      "id": 11,
+      "type": "TEXT",
+      "name": "Desde cuándo radica en la ciudad",
+      "placeholder": "Fecha",
+      "require": false,
+      "props": "fecha_radica_ciudad"
+   },
+   {
+      "id": 12,
+      "type": "TEXT",
+      "name": "Medio de transporte",
+      "placeholder": "Medio de transporte",
+      "require": false,
+      "props": "medio_transporte"
+   },
+   {
+      "id": 13,
+      "type": "NUMBER",
+      "name": "Tiempo de traslado",
+      "placeholder": "Tiempo de traslado",
+      "require": false,
+      "props": "tiempo_traslado"
+   },
+   {
+      "id": 14,
+      "type": "HEADER",
+      "name": "Datos Personales",
+      "require": false
+   },
+   {
+      "id": 15,
+      "type": "TEXT",
+      "name": "Estado civil",
+      "placeholder": "Estado civil",
+      "require": false,
+      "props": "estado_civil"
+   },
+   {
+      "id": 16,
+      "type": "TEXT",
+      "name": "Tiempo de casado/Unión libre",
+      "placeholder": "Tiempo de casado",
+      "require": false,
+      "props": "tiempo_casado"
+   },
+   {
+      "id": 17,
+      "type": "TEXT",
+      "name": "Matrimonio",
+      "placeholder": "Bienes mancomunados o separados",
+      "require": false,
+      "props": "bienes_mancomunados"
+   },
+   {
+      "id": 18,
+      "type": "TEXT",
+      "name": "¿Tienes hijos?",
+      "placeholder": "Sí/No",
+      "require": false,
+      "props": "tienes_hijos"
+   },
+   {
+      "id": 19,
+      "type": "TEXT",
+      "name": "¿Planeas tener más hijos?",
+      "placeholder": "Sí/No",
+      "require": false,
+      "props": "planeas_mas_hijos"
+   },
+   {
+      "id": 20,
+      "type": "TEXT",
+      "name": "¿Tienes disponibilidad de horario?",
+      "placeholder": "Sí/No",
+      "require": false,
+      "props": "disponibilidad_horario"
+   },
+   {
+      "id": 21,
+      "type": "HEADER",
+      "name": "Datos Escolares",
+      "require": false
+   },
+   {
+      "id": 22,
+      "type": "TEXT",
+      "name": "Último grado de estudios",
+      "placeholder": "Grado de estudios",
+      "require": false,
+      "props": "ultimo_grado_estudios"
+   },
+   {
+      "id": 23,
+      "type": "TEXT",
+      "name": "¿Tienes certificado?",
+      "placeholder": "Sí/No",
+      "require": false,
+      "props": "tienes_certificado"
+   },
+   {
+      "id": 24,
+      "type": "TEXT",
+      "name": "¿Estudias actualmente?",
+      "placeholder": "Sí/No",
+      "require": false,
+      "props": "estudias_actualmente"
+   },
+   {
+      "id": 25,
+      "type": "TEXT",
+      "name": "Días y horario de estudio",
+      "placeholder": "Detalles",
+      "require": false,
+      "props": "dias_horario_estudio"
+   },
+   {
+      "id": 26,
+      "type": "HEADER",
+      "name": "Datos Laborales",
+      "require": false
+   },
+   {
+      "id": 27,
+      "type": "TEXT",
+      "name": "Último lugar de trabajo",
+      "placeholder": "Nombre de la empresa",
+      "require": false,
+      "props": "ultimo_lugar_trabajo"
+   },
+   {
+      "id": 28,
+      "type": "TEXT",
+      "name": "Puesto que desempeñaba",
+      "placeholder": "Puesto",
+      "require": false,
+      "props": "puesto_ultimo_trabajo"
+   },
+   {
+      "id": 29,
+      "type": "TEXT",
+      "name": "¿Cuánto tiempo trabajó ahí?",
+      "placeholder": "Tiempo",
+      "require": false,
+      "props": "tiempo_trabajo"
+   },
+   {
+      "id": 30,
+      "type": "TEXT",
+      "name": "Salario semanal",
+      "placeholder": "Salario",
+      "require": false,
+      "props": "salario_semanal"
+   },
+   {
+      "id": 31,
+      "type": "TEXT",
+      "name": "Horario de trabajo",
+      "placeholder": "Horario",
+      "require": false,
+      "props": "horario_trabajo"
+   },
+   {
+      "id": 32,
+      "type": "TEXT",
+      "name": "Día de descanso",
+      "placeholder": "Día",
+      "require": false,
+      "props": "dia_descanso"
+   },
+   {
+      "id": 33,
+      "type": "TEXT",
+      "name": "Motivo de salida",
+      "placeholder": "Motivo",
+      "require": false,
+      "props": "motivo_salida"
+   },
+   {
+      "id": 34,
+      "type": "TEXT",
+      "name": "Penúltimo lugar de trabajo",
+      "placeholder": "Nombre de la empresa",
+      "require": false,
+      "props": "penultimo_lugar_trabajo"
+   },
+   {
+      "id": 35,
+      "type": "TEXT",
+      "name": "Puesto que desempeñaba",
+      "placeholder": "Puesto",
+      "require": false,
+      "props": "puesto_penultimo_trabajo"
+   },
+   {
+      "id": 36,
+      "type": "TEXT",
+      "name": "¿Cuánto tiempo trabajó ahí?",
+      "placeholder": "Tiempo",
+      "require": false,
+      "props": "tiempo_penultimo_trabajo"
+   },
+   {
+      "id": 37,
+      "type": "TEXT",
+      "name": "Salario semanal",
+      "placeholder": "Salario",
+      "require": false,
+      "props": "salario_semanal_penultimo"
+   },
+   {
+      "id": 38,
+      "type": "TEXT",
+      "name": "Horario de trabajo",
+      "placeholder": "Horario",
+      "require": false,
+      "props": "horario_penultimo_trabajo"
+   },
+   {
+      "id": 39,
+      "type": "TEXT",
+      "name": "Día de descanso",
+      "placeholder": "Día",
+      "require": false,
+      "props": "dia_descanso_penultimo"
+   },
+   {
+      "id": 40,
+      "type": "TEXT",
+      "name": "Motivo de salida",
+      "placeholder": "Motivo",
+      "require": false,
+      "props": "motivo_salida_penultimo"
+   },
+   {
+      "id": 41,
+      "type": "HEADER",
+      "name": "Vacante",
+      "require": false
+   },
+   {
+      "id": 42,
+      "type": "TEXT",
+      "name": "¿Cómo se enteró de la vacante?",
+      "placeholder": "Detalles",
+      "require": false,
+      "props": "como_se_entero_vacante"
+   },
+   {
+      "id": 43,
+      "type": "TEXT",
+      "name": "¿Conoce a alguien que trabaje aquí?",
+      "placeholder": "Sí/No",
+      "require": false,
+      "props": "conoce_trabajador"
+   },
+   {
+      "id": 44,
+      "type": "TEXT",
+      "name": "¿A quién?",
+      "placeholder": "Nombre",
+      "require": false,
+      "props": "a_quien_conoce"
+   },
+   {
+      "id": 45,
+      "type": "TEXT",
+      "name": "Tipo de relación (parentesco/amigo)",
+      "placeholder": "Relación",
+      "require": false,
+      "props": "tipo_relacion"
+   },
+   {
+      "id": 46,
+      "type": "SELECT",
+      "name": "Sucursal",
+      "placeholder": "Seleccione una o más opciones",
+      "require": false,
+      "props": "sucursal",
+      "multiple": false,
+      "values": [
+         { "nombre": "Mayoreo" },
+         { "nombre": "Valle de Guadalupe" },
+         { "nombre": "Testerazo" },
+         { "nombre": "Valle de las Palmas" }
+      ]
+   },
+   {
+      "id": 47,
+      "type": "SELECT",
+      "name": "Vacantes",
+      "placeholder": "Seleccione una o más opciones",
+      "require": false,
+      "props": "vacante",
+      "multiple": false,
+      "values": [
+         { "nombre": "Guardia" },
+         { "nombre": "Cajas" },
+         { "nombre": "Abarrotes" },
+         { "nombre": "Cocina" }
+      ]
+   }
+]

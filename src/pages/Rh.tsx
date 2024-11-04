@@ -51,6 +51,60 @@ const RHPage = () => {
 export default RHPage;
 
 
+const RhPostulaciones = () => {
+    return (
+        //Tabla de postulacion que mostrara la informacion de las personas de las vacantes
+        <Tabla />
+
+    )
+
+}
+
+
+const RhVacantes = () => {
+    return (
+        //Formulario para vacantes 
+        <form className={styles["form"]}>
+            <Input label="Puesto" type="text" placheolder="Ingrese tipo de puesto" />
+            <Input label="Horario" type="number" placheolder="Ingresa el Horario" />
+
+            <Select values={
+                [
+                    {
+                        name: "Mayoreo"//
+                    }, {
+                        name: "Valle de guadalupe"//
+                    }, {
+                        name: "Valle de las palmas"//
+                    }, {
+                        name: "Testerazo"//
+                    }
+                ]
+            }
+                message='Selecciona Sucursal'
+            />
+            < div>
+                <Input label="Requisito 1" type="text" placheolder="Ingrese tipo de puesto" />
+                <Input label="Requisito 2" type="text" placheolder="Ingrese tipo de puesto" />
+            </div>
+            <IonTextarea className="textarea2 " placeholder="Mas información sobre el puesto solicitado"> </IonTextarea>
+            <Button type="button" color="default" label="Publicar Vacante" onClick={{}} />
+        </form>
+    )
+}
+
+const Rh = () => {
+    return (
+        //Tabla de postulacion que mostrara la informacion de las personas de las vacantes
+        <Tabla />
+
+    )
+
+}
+
+
+
+
 /*
  <Button type="submit" color="default" label="Agregar Vacante"/>
    <Button type="submit" color="default" label="Postulaciones" /> 

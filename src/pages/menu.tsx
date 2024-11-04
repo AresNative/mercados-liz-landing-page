@@ -92,100 +92,130 @@ export function Menu() {
         });
     };
     function renderForm() {
-        if (name === "Login") {
-            return (
+        const isLogin = name === "Login";
 
-                <div className={styles["modal-container"]}>
-                    <div className={styles["tab-container"]}>
-                        <button className={`${styles["tab-button"]} ${name === "Login" ? styles["active"] : ""}`} onClick={() => setname("Login")}>
-                            Iniciar Sesión
-                        </button>
-                        <button className={styles["tab-button"]} onClick={() => setname("Sign up")}>
-                            Registrate
-                        </button>
-                    </div>
-                    <form onSubmit={onSubmit} className={styles["modal"]}>
-                        <div>
-                            <X color="red" onClick={closeModal} style={{
-                                position: "absolute",
-                                top: "30px",
-                                right: "110px",
-                                cursor: 'pointer'
-                            }}
-                            />
-                        </div>
-                        <Input props={register("email")} label="Usuario" type="email" placheolder="Ingresa tu usario" />
-                        <Input props={register("password")} label="Contraseña" type="password" placheolder="Ingresa tu contraseña" />
-                        <p className={styles["switch-text"]}>¿No tienes cuenta?
-                            <span onClick={() => setname("Sign up")} className={styles["switch-link"]}> Registrate aquí</span>
-                        </p>
-                        <Button type="submit" color="default" label="Iniciar Sesión"/*  onClick={handleClickLogin} */ />
-                    </form>
+        return (
+            <div key={name} className={styles["modal-container"]}>
+                <div className={styles["tab-container"]}>
+                    <button
+                        className={`${styles["tab-button"]} ${isLogin ? styles["active"] : ""}`}
+                        onClick={() => setname("Login")}
+                    >
+                        Iniciar Sesión
+                    </button>
+                    <button
+                        className={`${styles["tab-button"]} ${!isLogin ? styles["active"] : ""}`}
+                        onClick={() => setname("Sign up")}
+                    >
+                        Registrate
+                    </button>
                 </div>
-            );
-        } else if (name === "Sign up") {
-            return (
-                <div className={styles["modal-container"]}>
-                    <div className={styles["tab-container"]}>
-                        <button className={styles["tab-button"]} onClick={() => setname("Login")}>
-                            Iniciar Sesión
-                        </button>
-                        <button className={`${styles["tab-button"]} ${name === "Sign up" ? styles["active"] : ""}`} onClick={() => setname("Sign up")}>
-                            Registrate
-                        </button>
-                    </div>
-                    <form onSubmit={onSubmit} className={styles["modal"]}>
-                        <div>
-                            <X color="red" onClick={closeModal} style={{
+                <form onSubmit={onSubmit} className={styles["modal"]}>
+                    <div>
+                        <X
+                            color="red"
+                            onClick={closeModal}
+                            style={{
                                 position: "absolute",
                                 top: "30px",
                                 right: "110px",
-                                cursor: 'pointer'
+                                cursor: "pointer",
                             }}
-                            />
-                        </div>
-                        <Input props={register("name")} label="Nombre(s)" type="text" placheolder="Ingresa tu mombre(s)" />
-                        <Input props={register("apellido")} label="Apellidos" type="text" placheolder="Ingresa tus apellidos" />
-                        <Input props={register("email")} label="Correo" type="email" placheolder="Usuario@mercadosliz.com" />
-                        <Input props={register("password")} label="Contraseña" type="password" placheolder="Ingresa una contraseña" />
-                        <Select values={
-                            [
-                                {
-                                    name: "Administración"//
-                                }, {
-                                    name: "Recursos Humanos"//
-                                }, {
-                                    name: "Contabilidad"//
-                                }, {
-                                    name: "Recibo"//
-                                },
-
-                            ]
-                        }
-                            message='Áreas'
                         />
-                        <p className={styles["switch-text"]}>¿Ya tienes una cuenta?
-                            <span onClick={() => setname("Login")} className={styles["switch-link"]}> Inicia Sesión</span>
-                        </p>
-                        <Button type="submit" color="default" label="Registrate" /* onClick={handleClickSignup} */ />
-                    </form>
-                </div>
-            );
-        }
+                    </div>
+
+                    {/* Renderizado condicional de campos de entrada */}
+                    {isLogin ? (
+                        <>
+                            <Input
+                                props={register("email")}
+                                label="Usuario"
+                                type="email"
+                                placheolder="Ingresa tu usario"
+                            />
+                            <Input
+                                props={register("password")}
+                                label="Contraseña"
+                                type="password"
+                                placheolder="Ingresa tu contraseña"
+                            />
+                            <p className={styles["switch-text"]}>
+                                ¿No tienes cuenta?
+                                <span
+                                    onClick={() => setname("Sign up")}
+                                    className={styles["switch-link"]}
+                                >
+                                    {" "}
+                                    Registrate aquí
+                                </span>
+                            </p>
+                            <Button type="submit" color="default" label="Iniciar Sesión" />
+                        </>
+                    ) : (
+                        <>
+                            <Input
+                                props={register("name")}
+                                label="Nombre(s)"
+                                type="text"
+                                placheolder="Ingresa tu nombre(s)"
+                            />
+                            <Input
+                                props={register("apellido")}
+                                label="Apellidos"
+                                type="text"
+                                placheolder="Ingresa tus apellidos"
+                            />
+                            <Input
+                                props={register("email")}
+                                label="Usuario"
+                                type="email"
+                                placheolder="Ingresa tu usario"
+                            />
+                            <Input
+                                props={register("password")}
+                                label="Contraseña"
+                                type="password"
+                                placheolder="Ingresa tu contraseña"
+                            />
+                            <Select
+                                values={[
+                                    { name: "Administración" },
+                                    { name: "Recursos Humanos" },
+                                    { name: "Contabilidad" },
+                                    { name: "Recibo" },
+                                ]}
+                                message="Áreas"
+                            />
+                            <p className={styles["switch-text"]}>
+                                ¿Ya tienes una cuenta?
+                                <span
+                                    onClick={() => setname("Login")}
+                                    className={styles["switch-link"]}
+                                >
+                                    {" "}
+                                    Inicia Sesión
+                                </span>
+                            </p>
+                            <Button type="submit" color="default" label="Registrate" />
+                        </>
+                    )}
+                </form>
+            </div>
+        );
     }
 
     //marcas que nos acompañan
     const ruta: any = [{
         link: "/", icon: <Home color='var(--primary)' size={20} />, text: "Inicio", view: true
     },
-        { link: "/Ofertas", icon: <BadgeDollarSign color='green' size={20} />, text: "Ofertas", view: true /* view: getLocalStorageItem("token") ? true : false  */},
-        { link: "/billing", icon: <FilePlus2 color='var(--primary)' size={20} />, text: "Facturación", view: true /* view: getLocalStorageItem("typeUser") === "alamcen" ? true : false  */ },
-        { link: "/Contact", icon: <Info color='#6cb2ff' size={20} />, text: "Más información", view: true },//
-        { link: "/Reclutamiento", icon: <BriefcaseBusiness color='var(--primary)' size={20} />, text: "Únete a la familia", view: true },
-        { link: "/Historia", icon: <BookOpenText color='purple' size={20} />, text: "Nuestra Historia", view: true },
-        { link: "/Servicio", icon: <Star color='blue' size={20} />, text: "Valoranos", view: true },//
-        { link: "/ProveedoresNuev", icon: <ShoppingBagIcon color='pink' size={20} />, text: "Nuevos Proveedores", view: true },
-        { link: "/Proveedores", icon: <FileBadge color='pink' size={20} />, text: "Proveedores", view: true }
+    { link: "/Ofertas", icon: <BadgeDollarSign color='green' size={20} />, text: "Ofertas", view: true /* view: getLocalStorageItem("token") ? true : false  */ },
+    { link: "/billing", icon: <FilePlus2 color='var(--primary)' size={20} />, text: "Facturación", view: true /* view: getLocalStorageItem("typeUser") === "alamcen" ? true : false  */ },
+    { link: "/Contact", icon: <Info color='#6cb2ff' size={20} />, text: "Más información", view: true },//
+    { link: "/Reclutamiento", icon: <BriefcaseBusiness color='var(--primary)' size={20} />, text: "Únete a la familia", view: true },
+    { link: "/Historia", icon: <BookOpenText color='purple' size={20} />, text: "Nuestra Historia", view: true },
+    { link: "/Servicio", icon: <Star color='blue' size={20} />, text: "Valoranos", view: true },//
+    { link: "/ProveedoresNuev", icon: <ShoppingBagIcon color='pink' size={20} />, text: "Nuevos Proveedores", view: true },
+    { link: "/Proveedores", icon: <FileBadge color='pink' size={20} />, text: "Proveedores", view: true }
     ]
 
     return (

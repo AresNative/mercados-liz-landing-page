@@ -1,7 +1,9 @@
 "use client";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Button } from "@nextui-org/react";
+import { IonButton } from "@ionic/react";
+import { PostUserPost } from "@/services/web_site_post";
+import { InputDynamic } from "../form-dynamic/input-main";
 
 export const MainForm = ({ message_button, dataForm, functionForm }: any) => {
     const [loading, setLoading] = useState(false);
@@ -39,12 +41,7 @@ export const MainForm = ({ message_button, dataForm, functionForm }: any) => {
                     setValue={setValue}
                 />
             ))}
-            <section >
-                <IonButton
-                    type="submit"
-                    disabled={loading}
-                >{loading ? "Loading..." : message_button}</IonButton>
-            </section>
+            
         </form>
     );
 };
@@ -53,71 +50,18 @@ export function SwitchTypeInputRender(props: any) {
     const { type } = props.cuestion;
     switch (type) {
         case "INPUT":
-            return <Input {...props} />;
+            return <InputDynamic {...props} />;
         case "TEXT":
-            return <Input {...props} />;
+            return <InputDynamic {...props} />;
         case "EMAIL":
-            return <Input {...props} />;
+            return <InputDynamic {...props} />;
         case "DATE":
-            return <Input {...props} />;
+            return <InputDynamic {...props} />;
         case "NUMBER":
-            return <Input {...props} />;
+            return <InputDynamic {...props} />;
         case "SELECT":
-            return <Input {...props} />;
+            return <InputDynamic {...props} />;
         default:
             return <h1>{type}</h1>;
     }
-}
-
-import { useEffect } from "react";
-import { IonButton } from "@ionic/react";
-import { PostUserPost } from "@/services/web_site_post";
-
-interface InputProps {
-    cuestion: {
-        name: string;
-        placeholder: string;
-        require: boolean;
-        valueDefined?: string;
-        props: any
-    };
-    register: (name: string, options: { required: string | boolean }) => any;
-    setValue: (name: string, value: string) => void;
-    setError: (name: string, error: {}) => void;
-    errors: Record<string, { message?: string }>;
-}
-
-function Input(props: InputProps) {
-    const { cuestion } = props;
-
-    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const { value } = event.target;
-        props.setError(cuestion.name, {});
-        props.setValue(cuestion.name, value);
-    };
-
-    useEffect(() => {
-        if (cuestion.valueDefined) {
-            props.setValue(cuestion.name, cuestion.valueDefined);
-        }
-    }, [cuestion.valueDefined, props, cuestion.name]);
-
-    return (
-        <div>
-            <input
-                required={cuestion.require}
-                type="text"
-                onChange={handleInputChange}
-                {...props.register(cuestion.props, {
-                    required: cuestion.require ? "The field is required." : false,
-                })}
-            />
-            <label>{cuestion.placeholder}</label>
-            {props.errors[cuestion.name]?.message && (
-                <div>
-                    <span>{props.errors[cuestion.name].message}</span>
-                </div>
-            )}
-        </div>
-    );
 }

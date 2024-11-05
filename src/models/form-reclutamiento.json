@@ -1,13 +1,13 @@
 [
    {
       "id": 1,
-      "type": "HEADER",
+      "type": "dats",
       "name": "Datos Generales",
       "require": false
    },
    {
       "id": 2,
-      "type": "HEADER",
+      "type": "Información general",
       "name": "Información general",
       "require": false
    },
@@ -99,9 +99,10 @@
       "require": false,
       "props": "tiempo_traslado"
    },
+  
    {
       "id": 14,
-      "type": "HEADER",
+      "type": "Estado Civil",
       "name": "Datos Personales",
       "require": false
    },
@@ -155,7 +156,7 @@
    },
    {
       "id": 21,
-      "type": "HEADER",
+      "type": "Datos Escolares",
       "name": "Datos Escolares",
       "require": false
    },
@@ -193,7 +194,7 @@
    },
    {
       "id": 26,
-      "type": "HEADER",
+      "type": "Datos Laborales Ultimo Lugar de empleo",
       "name": "Datos Laborales",
       "require": false
    },
@@ -311,7 +312,7 @@
    },
    {
       "id": 41,
-      "type": "HEADER",
+      "type": "Solicitud de vacante",
       "name": "Vacante",
       "require": false
    },
@@ -319,7 +320,7 @@
       "id": 42,
       "type": "TEXT",
       "name": "¿Cómo se enteró de la vacante?",
-      "placeholder": "Detalles",
+      "placeholder": "¿Cómo se enteró de la vacante?",
       "require": false,
       "props": "como_se_entero_vacante"
    },
@@ -327,7 +328,7 @@
       "id": 43,
       "type": "TEXT",
       "name": "¿Conoce a alguien que trabaje aquí?",
-      "placeholder": "Sí/No",
+      "placeholder": "¿Conoce a alguien que trabaje aquí?",
       "require": false,
       "props": "conoce_trabajador"
    },
@@ -335,15 +336,15 @@
       "id": 44,
       "type": "TEXT",
       "name": "¿A quién?",
-      "placeholder": "Nombre",
+      "placeholder": "¿A quién?",
       "require": false,
       "props": "a_quien_conoce"
    },
    {
       "id": 45,
       "type": "TEXT",
-      "name": "Tipo de relación (parentesco/amigo)",
-      "placeholder": "Relación",
+      "name": "",
+      "placeholder": "Tipo de relación (parentesco/amigo)",
       "require": false,
       "props": "tipo_relacion"
    },

@@ -1,16 +1,22 @@
-import { IonInput, IonInputPasswordToggle } from "@ionic/react";
-import styles from "./input.module.css";
+import { IonInput } from "@ionic/react";
+import styles from "@/components/functions/input.module.css";
 import { useEffect } from "react";
 
 interface InputProps {
-    label: string;
-    type: 'text' | 'password' | 'email' | 'number' | 'date' | undefined;
-    placheolder: string;
-    props?: any;
-    defaultValue?: any;
+    cuestion: {
+        name: string;
+        placeholder: string;
+        require: boolean;
+        valueDefined?: string;
+        props: any
+    };
+    register: (name: string, options: { required: string | boolean }) => any;
+    setValue: (name: string, value: string) => void;
+    setError: (name: string, error: {}) => void;
+    errors: Record<string, { message?: string }>;
 }
 
-export function Input({ label, type, placheolder, defaultValue, props }: InputProps) {
+export function InputDynamic(props: InputProps) {
     const { cuestion } = props;
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,21 +33,23 @@ export function Input({ label, type, placheolder, defaultValue, props }: InputPr
     return (
         <div className={styles["input-container"]}>
             <IonInput
-                type={type}
-                label={label}
+                type="text"
+                label={cuestion.placeholder}
                 onChange={handleInputChange}
                 labelPlacement="floating"
-                placeholder={placheolder}
                 className={styles["use-input"]}
-                value={defaultValue ?? ""}
                 {...props.register(cuestion.props, {
                     required: cuestion.require ? "The field is required." : false,
                 })}  // Spread de propiedades adicionales aquí
             >
                 { }
-                {type === "password" && (<IonInputPasswordToggle slot="end" />)}
+                {/*  {type === "password" && (<IonInputPasswordToggle slot="end" />)} */}
             </IonInput>
-
+            {props.errors[cuestion.name]?.message && (
+                <div>
+                    <span>{props.errors[cuestion.name].message}</span>
+                </div>
+            )}
         </div>
     );
 }

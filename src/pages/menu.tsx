@@ -63,7 +63,6 @@ export function Menu() {
     function closeModal() {
         modalRef.current?.dismiss();
     }
-
     //  Login o Sign up
     const { register, control, handleSubmit } = useForm();
     const onSubmit = handleSubmit(async (data) => {
@@ -85,14 +84,19 @@ export function Menu() {
     });
     const mostrarAlerta = () => {
         Swal.fire({
-            title: 'Error',
-            text: 'Usuario no encontrado, por favor verifique los datos ingresados',
-            icon: 'warning', // Puedes cambiar el icono a 'success', 'error', etc.
-            confirmButtonText: 'Aceptar',
+            position: "top-end",
+            icon: "error",
+            title: "Your work has been saved",
+            showConfirmButton: false,
+            timer: 1500
         });
     };
     function renderForm() {
         const isLogin = name === "Login";
+
+        function setPassword(arg0: any) {
+            throw new Error("Function not implemented.");
+        }
 
         return (
             <div key={name} className={styles["modal-container"]}>
@@ -113,14 +117,8 @@ export function Menu() {
                 <form onSubmit={onSubmit} className={styles["modal"]}>
                     <div>
                         <X
-                            color="red"
+                            className={styles["iconX"]}
                             onClick={closeModal}
-                            style={{
-                                position: "absolute",
-                                top: "30px",
-                                right: "110px",
-                                cursor: "pointer",
-                            }}
                         />
                     </div>
 
@@ -149,8 +147,18 @@ export function Menu() {
                                     Registrate aquí
                                 </span>
                             </p>
+                            <p className={styles["switch-text"]}>
+                                <span
+                                    onClick={() => setname("Sign up")}
+                                    className={styles["switch-link"]}
+                                >
+                                    {" "}
+                                    ¿Olvidaste tu contraseña?
+                                </span>
+                            </p>
                             <Button type="submit" color="default" label="Iniciar Sesión" />
                         </>
+                        /*se agrego el espacio de que si se olvido la contraseña*/
                     ) : (
                         <>
                             <Input
@@ -198,7 +206,28 @@ export function Menu() {
                             </p>
                             <Button type="submit" color="default" label="Registrate" />
                         </>
-                    )}
+                    )
+                        /*
+                        :(
+                        
+                        <>
+                            <Input  
+                                props={register("email")}
+                                label="Usuario"
+                                type="email"
+                                placheolder="Ingresa tu usario"
+                            />
+                            <Input
+                                props={register("password")}
+                                label="Ingrese nueva contraseña"
+                                type="password"
+                                placheolder="Ingresa tu nueva contraseña"
+                            />
+                            <Button type="submit" color="default" label="Cambiar contraseña" />
+                        </>
+                        )
+                        */
+                    }
                 </form>
             </div>
         );

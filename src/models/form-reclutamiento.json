@@ -1,18 +1,10 @@
 [
    {
+      "type": "H1",
+      "name": "Datos Generales"
+   },
+   {
       "id": 1,
-      "type": "dats",
-      "name": "Datos Generales",
-      "require": false
-   },
-   {
-      "id": 2,
-      "type": "Información general",
-      "name": "Información general",
-      "require": false
-   },
-   {
-      "id": 3,
       "type": "INPUT",
       "name": "Nombre",
       "placeholder": "Nombre",
@@ -20,7 +12,7 @@
       "props": "nombre"
    },
    {
-      "id": 4,
+      "id": 2,
       "type": "INPUT",
       "name": "Apellidos",
       "placeholder": "Apellido Paterno",
@@ -28,7 +20,7 @@
       "props": "apellido_paterno"
    },
    {
-      "id": 5,
+      "id": 3,
       "type": "INPUT",
       "name": "Apellidos",
       "placeholder": "Apellido Materno",
@@ -36,7 +28,7 @@
       "props": "apellido_materno"
    },
    {
-      "id": 6,
+      "id": 4,
       "type": "NUMBER",
       "name": "Edad",
       "placeholder": "Edad",
@@ -44,7 +36,7 @@
       "props": "edad"
    },
    {
-      "id": 7,
+      "id": 5,
       "type": "DATE",
       "name": "Fecha de nacimiento",
       "placeholder": "Fecha de nacimiento",
@@ -52,7 +44,7 @@
       "props": "fecha_nacimiento"
    },
    {
-      "id": 8,
+      "id": 6,
       "type": "EMAIL",
       "name": "Correo electrónico",
       "placeholder": "Correo electrónico",
@@ -60,7 +52,7 @@
       "props": "correo_electronico"
    },
    {
-      "id": 9,
+      "id": 7,
       "type": "NUMBER",
       "name": "Número de teléfono",
       "placeholder": "Número de teléfono",
@@ -68,7 +60,7 @@
       "props": "numero_telefono"
    },
    {
-      "id": 10,
+      "id": 8,
       "type": "TEXT",
       "name": "Dirección actual",
       "placeholder": "Dirección actual",
@@ -76,7 +68,7 @@
       "props": "direccion_actual"
    },
    {
-      "id": 11,
+      "id": 9,
       "type": "TEXT",
       "name": "Desde cuándo radica en la ciudad",
       "placeholder": "Fecha",
@@ -84,7 +76,7 @@
       "props": "fecha_radica_ciudad"
    },
    {
-      "id": 12,
+      "id": 10,
       "type": "TEXT",
       "name": "Medio de transporte",
       "placeholder": "Medio de transporte",
@@ -92,22 +84,19 @@
       "props": "medio_transporte"
    },
    {
-      "id": 13,
+      "id": 11,
       "type": "NUMBER",
       "name": "Tiempo de traslado",
       "placeholder": "Tiempo de traslado",
       "require": false,
       "props": "tiempo_traslado"
    },
-  
    {
-      "id": 14,
-      "type": "Estado Civil",
-      "name": "Datos Personales",
-      "require": false
+      "type": "H1",
+      "name": "Estado Civil"
    },
    {
-      "id": 15,
+      "id": 12,
       "type": "TEXT",
       "name": "Estado civil",
       "placeholder": "Estado civil",
@@ -115,7 +104,7 @@
       "props": "estado_civil"
    },
    {
-      "id": 16,
+      "id": 13,
       "type": "TEXT",
       "name": "Tiempo de casado/Unión libre",
       "placeholder": "Tiempo de casado",
@@ -123,7 +112,7 @@
       "props": "tiempo_casado"
    },
    {
-      "id": 17,
+      "id": 14,
       "type": "TEXT",
       "name": "Matrimonio",
       "placeholder": "Bienes mancomunados o separados",
@@ -131,193 +120,191 @@
       "props": "bienes_mancomunados"
    },
    {
-      "id": 18,
+      "id": 15,
       "type": "TEXT",
       "name": "¿Tienes hijos?",
-      "placeholder": "Sí/No",
+      "placeholder": "¿Tienes hijos?",
       "require": false,
       "props": "tienes_hijos"
    },
    {
-      "id": 19,
+      "id": 16,
       "type": "TEXT",
       "name": "¿Planeas tener más hijos?",
-      "placeholder": "Sí/No",
+      "placeholder": "¿Planeas tener más hijos?",
       "require": false,
       "props": "planeas_mas_hijos"
    },
    {
-      "id": 20,
+      "id": 17,
       "type": "TEXT",
       "name": "¿Tienes disponibilidad de horario?",
-      "placeholder": "Sí/No",
+      "placeholder": "¿Tienes disponibilidad de horario?",
       "require": false,
       "props": "disponibilidad_horario"
    },
    {
-      "id": 21,
-      "type": "Datos Escolares",
-      "name": "Datos Escolares",
-      "require": false
+      "type": "H1",
+      "name": "Datos Escolares"
    },
    {
-      "id": 22,
+      "id": 18,
       "type": "TEXT",
       "name": "Último grado de estudios",
-      "placeholder": "Grado de estudios",
+      "placeholder": "Último grado de estudios",
       "require": false,
       "props": "ultimo_grado_estudios"
    },
    {
-      "id": 23,
+      "id": 19,
       "type": "TEXT",
       "name": "¿Tienes certificado?",
-      "placeholder": "Sí/No",
+      "placeholder": "¿Tienes certificado?",
       "require": false,
       "props": "tienes_certificado"
    },
    {
-      "id": 24,
+      "id": 20,
       "type": "TEXT",
       "name": "¿Estudias actualmente?",
-      "placeholder": "Sí/No",
+      "placeholder": "¿Estudias actualmente?",
       "require": false,
       "props": "estudias_actualmente"
    },
    {
-      "id": 25,
+      "id": 21,
       "type": "TEXT",
       "name": "Días y horario de estudio",
-      "placeholder": "Detalles",
+      "placeholder": "Días y horario de estudio",
       "require": false,
       "props": "dias_horario_estudio"
    },
    {
-      "id": 26,
-      "type": "Datos Laborales Ultimo Lugar de empleo",
-      "name": "Datos Laborales",
-      "require": false
+      "type": "H1",
+      "name": "Datos Laborales"
    },
    {
-      "id": 27,
+      "id": 22,
       "type": "TEXT",
       "name": "Último lugar de trabajo",
-      "placeholder": "Nombre de la empresa",
+      "placeholder": "Último lugar de trabajo",
       "require": false,
       "props": "ultimo_lugar_trabajo"
    },
    {
-      "id": 28,
+      "id": 23,
       "type": "TEXT",
       "name": "Puesto que desempeñaba",
-      "placeholder": "Puesto",
+      "placeholder": "Puesto que desempeñaba",
       "require": false,
       "props": "puesto_ultimo_trabajo"
    },
    {
-      "id": 29,
+      "id": 24,
       "type": "TEXT",
       "name": "¿Cuánto tiempo trabajó ahí?",
-      "placeholder": "Tiempo",
+      "placeholder": "¿Cuánto tiempo trabajó ahí?",
       "require": false,
       "props": "tiempo_trabajo"
    },
    {
-      "id": 30,
+      "id": 25,
       "type": "TEXT",
       "name": "Salario semanal",
-      "placeholder": "Salario",
+      "placeholder": "Salario semanal",
       "require": false,
       "props": "salario_semanal"
    },
    {
-      "id": 31,
+      "id": 26,
       "type": "TEXT",
       "name": "Horario de trabajo",
-      "placeholder": "Horario",
+      "placeholder": "Horario de trabajo",
       "require": false,
       "props": "horario_trabajo"
    },
    {
-      "id": 32,
+      "id": 27,
       "type": "TEXT",
       "name": "Día de descanso",
-      "placeholder": "Día",
+      "placeholder": "Día de descanso",
       "require": false,
       "props": "dia_descanso"
    },
    {
-      "id": 33,
+      "id": 28,
       "type": "TEXT",
       "name": "Motivo de salida",
-      "placeholder": "Motivo",
+      "placeholder": "Motivo de salida",
       "require": false,
       "props": "motivo_salida"
    },
    {
-      "id": 34,
+      "type": "H1",
+      "name": "Datos penúltimo trabajo"
+   },
+   {
+      "id": 29,
       "type": "TEXT",
       "name": "Penúltimo lugar de trabajo",
-      "placeholder": "Nombre de la empresa",
+      "placeholder": "Penúltimo lugar de trabajo",
       "require": false,
       "props": "penultimo_lugar_trabajo"
    },
    {
-      "id": 35,
+      "id": 30,
       "type": "TEXT",
       "name": "Puesto que desempeñaba",
-      "placeholder": "Puesto",
+      "placeholder": "Puesto que desempeñaba",
       "require": false,
       "props": "puesto_penultimo_trabajo"
    },
    {
-      "id": 36,
+      "id": 31,
       "type": "TEXT",
       "name": "¿Cuánto tiempo trabajó ahí?",
-      "placeholder": "Tiempo",
+      "placeholder": "¿Cuánto tiempo trabajó ahí?",
       "require": false,
       "props": "tiempo_penultimo_trabajo"
    },
    {
-      "id": 37,
+      "id": 32,
       "type": "TEXT",
       "name": "Salario semanal",
-      "placeholder": "Salario",
+      "placeholder": "Salario semanal",
       "require": false,
       "props": "salario_semanal_penultimo"
    },
    {
-      "id": 38,
+      "id": 33,
       "type": "TEXT",
       "name": "Horario de trabajo",
-      "placeholder": "Horario",
+      "placeholder": "Horario de trabajo",
       "require": false,
       "props": "horario_penultimo_trabajo"
    },
    {
-      "id": 39,
+      "id": 34,
       "type": "TEXT",
       "name": "Día de descanso",
-      "placeholder": "Día",
+      "placeholder": "Día de descanso",
       "require": false,
       "props": "dia_descanso_penultimo"
    },
    {
-      "id": 40,
+      "id": 35,
       "type": "TEXT",
       "name": "Motivo de salida",
-      "placeholder": "Motivo",
+      "placeholder": "Motivo de salida",
       "require": false,
       "props": "motivo_salida_penultimo"
    },
    {
-      "id": 41,
-      "type": "Solicitud de vacante",
-      "name": "Vacante",
-      "require": false
+      "type": "H1",
+      "name": "Vacante"
    },
    {
-      "id": 42,
+      "id": 36,
       "type": "TEXT",
       "name": "¿Cómo se enteró de la vacante?",
       "placeholder": "¿Cómo se enteró de la vacante?",
@@ -325,7 +312,7 @@
       "props": "como_se_entero_vacante"
    },
    {
-      "id": 43,
+      "id": 37,
       "type": "TEXT",
       "name": "¿Conoce a alguien que trabaje aquí?",
       "placeholder": "¿Conoce a alguien que trabaje aquí?",
@@ -333,7 +320,7 @@
       "props": "conoce_trabajador"
    },
    {
-      "id": 44,
+      "id": 38,
       "type": "TEXT",
       "name": "¿A quién?",
       "placeholder": "¿A quién?",
@@ -341,21 +328,21 @@
       "props": "a_quien_conoce"
    },
    {
-      "id": 45,
+      "id": 39,
       "type": "TEXT",
-      "name": "",
+      "name": "Tipo de relación (parentesco/amigo)",
       "placeholder": "Tipo de relación (parentesco/amigo)",
       "require": false,
       "props": "tipo_relacion"
    },
    {
-      "id": 46,
+      "id": 40,
       "type": "SELECT",
       "name": "Sucursal",
-      "placeholder": "Seleccione una o más opciones",
+      "placeholder": "Sucursal",
       "require": false,
       "props": "sucursal",
-      "multiple": false,
+      "multiple": true,
       "values": [
          { "nombre": "Mayoreo" },
          { "nombre": "Valle de Guadalupe" },
@@ -364,13 +351,13 @@
       ]
    },
    {
-      "id": 47,
+      "id": 41,
       "type": "SELECT",
       "name": "Vacantes",
-      "placeholder": "Seleccione una o más opciones",
+      "placeholder": "Vacantes",
       "require": false,
       "props": "vacante",
-      "multiple": false,
+      "multiple": true,
       "values": [
          { "nombre": "Guardia" },
          { "nombre": "Cajas" },

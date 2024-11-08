@@ -58,6 +58,7 @@ h3 {
 .swal2-height-auto,
 .swal2-height-auto.specific-class {
     height: 100% !important;
+    
 }
 .overlay {
     width: 80%;

@@ -1,18 +1,23 @@
-import { IonButton } from "@ionic/react"
-import styles from "./button.module.css"
+import { IonButton } from "@ionic/react";
+import styles from "./button.module.css";
 
 interface buttonAction {
     onClick?: any;
     label: string;
-    type: "submit" | "button";
-    color: "default" | "dark" | "light"
+    type?: "button" | "submit" | "reset";
+    color: "default" | "dark" | "light";
+    disabled?: boolean; // Ensure `disabled` is defined here
 }
 
-export const Button: React.FC<buttonAction> = ({ onClick, type, color, label }) => {
+export const Button: React.FC<buttonAction> = ({ onClick, type, color, label, disabled }) => {
     return (
-        <IonButton onClick={onClick} className={`${styles["use-button"]} ${styles[color]}`} type={type} >
+        <IonButton
+            onClick={onClick}
+            className={`${styles["use-button"]} ${styles[color]}`}
+            type={type}
+            disabled={disabled} // Pass `disabled` here
+        >
             {label}
         </IonButton>
-
-    )
-}
+    );
+};

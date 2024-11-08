@@ -20,18 +20,18 @@ export const MainForm = ({ message_button, dataForm, functionForm }: any) => {
     async function onSubmit(submitData: any) {
         console.log(submitData);
 
-        const { data } = submitData
+        const { data } = submitData;
         PostUserPost(submitData).then((res) => {
             console.log("Respuesta del servidor:", res);
         });
-        //functionForm(data)
+        // functionForm(data);
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} >
-            {dataForm.map((field: any, key: any) => (
+        <form onSubmit={handleSubmit(onSubmit)}>
+            {dataForm.map((field: any, index: number) => (
                 <SwitchTypeInputRender
-                    key={key}
+                    key={field.id ? field.id : `title-${index}`} // Usar ID si existe, sino generar uno para H1
                     cuestion={field}
                     register={register}
                     watch={watch}
@@ -41,27 +41,25 @@ export const MainForm = ({ message_button, dataForm, functionForm }: any) => {
                     setValue={setValue}
                 />
             ))}
-            
         </form>
     );
 };
 
 export function SwitchTypeInputRender(props: any) {
     const { type } = props.cuestion;
+
     switch (type) {
         case "INPUT":
-            return <InputDynamic {...props} />;
         case "TEXT":
-            return <InputDynamic {...props} />;
         case "EMAIL":
-            return <InputDynamic {...props} />;
         case "DATE":
-            return <InputDynamic {...props} />;
         case "NUMBER":
-            return <InputDynamic {...props} />;
         case "SELECT":
             return <InputDynamic {...props} />;
+        case "H1":
+            // Renderizar H1 sin usar el ID
+            return <h1 key={`title-${props.cuestion.name}`}>{props.cuestion.name}</h1>; // Usar nombre como parte de la key
         default:
-            return <h1>{type}</h1>;
+            return null; // Opcional: manejar tipos desconocidos
     }
 }

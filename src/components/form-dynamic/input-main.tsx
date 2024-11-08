@@ -33,7 +33,7 @@ export function InputDynamic(props: InputProps) {
     return (
         <div className={styles["input-container"]}>
             <IonInput
-                type="text"
+                type={"text"}
                 label={cuestion.placeholder}
                 onChange={handleInputChange}
                 labelPlacement="floating"

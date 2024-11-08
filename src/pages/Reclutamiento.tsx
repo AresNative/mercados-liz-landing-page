@@ -1,103 +1,101 @@
 import Page from "@/template/page";
-import "@/pages/margen-pagina.css"
-import { Input } from "@/components/functions/input";
-import { Select } from "@/components/functions/select";
+import "@/pages/margen-pagina.css";
 import { Button } from "@/components/functions/button";
-import { CheckBox } from "@/components/functions/checkbox";
-import '@/components/displays/textarea.css'
-import styles from "./reclutamiento.module.css"
+import '@/components/displays/textarea.css';
+import styles from "./reclutamiento.module.css";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { PostUserPost } from "@/services/web_site_post";
-import formReclutamiento from "@/models/form-reclutamiento.json"
 import { MainForm } from "@/components/form/form2";
-interface Opcion {
-    texto: string;
-    tipo: 'text' | 'password' | 'email' | 'number' | "select" | 'date' | "h1" | undefined; // Tipo del input (text, email, number, etc.)
-    subopciones?: { props: string, texto: string, tipo: 'text' | 'password' | 'email' | 'number' | 'date' | "select" | undefined; multiple?: boolean; values?: any[]; }[]; // Subopciones opcionales con sus tipos
-    values?: any[];
-    multiple?: boolean;
-    props?: string;
-}
-
-const preguntas: any[] = formReclutamiento;
-
+import formReclutamiento from "@/models/form-reclutamiento.json";
 
 const Reclutamiento = () => {
-
     const { register, reset, handleSubmit } = useForm();
+    const [paginaActual, setPaginaActual] = useState(0);
 
-    // Almacena los datos iniciales en un estado para re-renderización
-    const [allData, setAllData] = useState<{ nombre: string; valor: any }[]>([]);
+    // Número de elementos por página (incluye preguntas y títulos)
+    const elementosPorPagina = 6;
 
-    const onSubmit = async (data: any) => {
-        // Usa `obtenerDefaultValue` para llenar datos faltantes de `allData`
-        const dataWithDefaults = Object.keys(data).reduce((acc: any, key) => {
-            acc[key] = data[key] || obtenerDefaultValue(key);
-            return acc;
-        }, {});
+    // Filtra para obtener todos los elementos (preguntas y H1)
+    const elementosFiltrados = formReclutamiento;
 
-        console.log("Data enviada:", dataWithDefaults);
+    // Calcula cuántas páginas hay
+    const totalPaginas = Math.ceil(elementosFiltrados.length / elementosPorPagina);
 
-        // Avanza a la siguiente página si es necesario
-        if (paginaActual < preguntas.length - 1) {
-            // Actualiza `allData` solo con los datos de la página actual
-            setAllData(prevData => ({
-                ...prevData,
-                ...dataWithDefaults
-            }));
-            reset();
+    // Obtiene los elementos de la página actual
+    const elementosPaginaActual = elementosFiltrados.slice(
+        paginaActual * elementosPorPagina,
+        (paginaActual + 1) * elementosPorPagina
+    );
+
+    const handleSiguiente = () => {
+        if (paginaActual < totalPaginas - 1) {
             setPaginaActual(paginaActual + 1);
-        } else {
-            // Envía `allData` al servidor
-            PostUserPost(allData).then((res) => {
-                console.log("Respuesta del servidor:", res);
-            });
         }
     };
-
-    const obtenerDefaultValue = (propName: any) => {
-        return allData[propName] || "";
-    };
-
-    const [paginaActual, setPaginaActual] = useState(0)
-
-    const preguntaActual = preguntas[paginaActual]
-    const esUltimaPagina = paginaActual === preguntas.length - 1
 
     const handleAnterior = () => {
         if (paginaActual > 0) {
-            setPaginaActual(paginaActual - 1)
+            setPaginaActual(paginaActual - 1);
         }
-    }
+    };
+
+    const esUltimaPagina = paginaActual === totalPaginas - 1;
+
+    const onSubmit = async (data: any) => {
+        console.log("Data enviada:", data);
+        if (esUltimaPagina) {
+            // Aquí puedes enviar los datos al servidor o realizar otra acción
+            console.log("Formulario completo:", data);
+        } else {
+            handleSiguiente();
+        }
+    };
 
     return (
         <Page>
-            <img src="/uvas.png" className="img-uva5" />
-            <div  className={styles["reclutamiento" ]} >
-                <div className={styles["reclutamiento-columnas"]}> 
+            <h2 className="titulos" style={{ marginBottom: "3rem", marginTop: "6rem", marginRight: "2rem" }}>
+                Si estás interesado en unirte de nuestra familia, llena el siguiente formulario
+            </h2>
+            <div className="margen-pagina">
+                <img src="/uvas.png" className="img-uva5" />
+                <div className={styles["reclutamiento"]}>
+                    <div>
+                        <div>
+                            {/* Renderiza los elementos de la página actual */}
+                            {elementosPaginaActual.map((field, index) => {
+                                // Renderizar H1 como título
+                                if (field.type === "H1") {
+                                    return <h1 key={index}>{field.name}</h1>; // Muestra el H1 como título
+                                }
 
-                <MainForm
-                dataForm={formReclutamiento}
-                message="test"
-                    />
-                </div>
-                {esUltimaPagina && (<input type="file" data-multiple-caption="{count} archivos seleccionados" accept=".pdf" multiple />)}
-                {esUltimaPagina && (<CheckBox label={"Acepto los terminos y condiones de la aplicación."} />)}
-                
-                <div style={{ display: "flex" }}>
-
-                    <Button label={"Volver"} onClick={handleAnterior
-                    } type={"button"} color={"default"} />
-
-
-                    <Button label={esUltimaPagina ? "Enviar" : "Siguiente"} type={"submit"} color={"default"} />
+                                // Renderizar solo preguntas
+                                return (
+                                    <MainForm
+                                        key={field.id} // Usar id como key
+                                        dataForm={[field]} // Pasar solo el campo actual
+                                        message_button="Enviar"
+                                        className={styles["reclutamiento-columnas"]}
+                                    />
+                                );
+                            })}
+                        </div>
                     </div>
-                
+                    {esUltimaPagina && (
+                        <>
+                            <input type="file" data-multiple-caption="{count} archivos seleccionados" accept=".pdf" multiple />
+                            <label>
+                                <input type="checkbox" />Acepto los términos y condiciones de la aplicación.
+                            </label>
+                        </>
+                    )}
+                    <div style={{ display: "flex" }}>
+                        <Button label={"Volver"} onClick={handleAnterior} type={"button"} color={"default"} disabled={paginaActual === 0} />
+                        <Button label={esUltimaPagina ? "Enviar" : "Siguiente"} type={"button"} color={"default"} onClick={handleSubmit(onSubmit)} />
+                    </div>
+                </div>
             </div>
+        </Page>
+    );
+};
 
-
-        </Page >
-    )
-}
 export default Reclutamiento;

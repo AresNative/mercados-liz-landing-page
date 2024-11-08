@@ -77,6 +77,19 @@
 .button {
     margin-top: 20px;
 }
+.iconX{
+    color:red;
+    position: absolute;
+    top: 2rem;
+    right: 7rem;
+}
 
+@media (max-width:430px) {
+.iconX {
+        color: red;
+        top: 2rem;
+        right: 2rem;
+    }
+}
     
 

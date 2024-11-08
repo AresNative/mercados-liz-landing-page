@@ -63,7 +63,6 @@ export function Menu() {
     function closeModal() {
         modalRef.current?.dismiss();
     }
-
     //  Login o Sign up
     const { register, control, handleSubmit } = useForm();
     const onSubmit = handleSubmit(async (data) => {
@@ -85,107 +84,167 @@ export function Menu() {
     });
     const mostrarAlerta = () => {
         Swal.fire({
-            title: 'Error',
-            text: 'Usuario no encontrado, por favor verifique los datos ingresados',
-            icon: 'warning', // Puedes cambiar el icono a 'success', 'error', etc.
-            confirmButtonText: 'Aceptar',
+            position: "top-end",
+            icon: "error",
+            title: "Your work has been saved",
+            showConfirmButton: false,
+            timer: 1500
         });
     };
     function renderForm() {
-        if (name === "Login") {
-            return (
+        const isLogin = name === "Login";
 
-                <div className={styles["modal-container"]}>
-                    <div className={styles["tab-container"]}>
-                        <button className={`${styles["tab-button"]} ${name === "Login" ? styles["active"] : ""}`} onClick={() => setname("Login")}>
-                            Iniciar Sesión
-                        </button>
-                        <button className={styles["tab-button"]} onClick={() => setname("Sign up")}>
-                            Registrate
-                        </button>
-                    </div>
-                    <form onSubmit={onSubmit} className={styles["modal"]}>
-                        <div>
-                            <X color="red" onClick={closeModal} style={{
-                                position: "absolute",
-                                top: "30px",
-                                right: "110px",
-                                cursor: 'pointer'
-                            }}
-                            />
-                        </div>
-                        <Input props={register("email")} label="Usuario" type="email" placheolder="Ingresa tu usario" />
-                        <Input props={register("password")} label="Contraseña" type="password" placheolder="Ingresa tu contraseña" />
-                        <p className={styles["switch-text"]}>¿No tienes cuenta?
-                            <span onClick={() => setname("Sign up")} className={styles["switch-link"]}> Registrate aquí</span>
-                        </p>
-                        <Button type="submit" color="default" label="Iniciar Sesión"/*  onClick={handleClickLogin} */ />
-                    </form>
-                </div>
-            );
-        } else if (name === "Sign up") {
-            return (
-                <div className={styles["modal-container"]}>
-                    <div className={styles["tab-container"]}>
-                        <button className={styles["tab-button"]} onClick={() => setname("Login")}>
-                            Iniciar Sesión
-                        </button>
-                        <button className={`${styles["tab-button"]} ${name === "Sign up" ? styles["active"] : ""}`} onClick={() => setname("Sign up")}>
-                            Registrate
-                        </button>
-                    </div>
-                    <form onSubmit={onSubmit} className={styles["modal"]}>
-                        <div>
-                            <X color="red" onClick={closeModal} style={{
-                                position: "absolute",
-                                top: "30px",
-                                right: "110px",
-                                cursor: 'pointer'
-                            }}
-                            />
-                        </div>
-                        <Input props={register("name")} label="Nombre(s)" type="text" placheolder="Ingresa tu mombre(s)" />
-                        <Input props={register("apellido")} label="Apellidos" type="text" placheolder="Ingresa tus apellidos" />
-                        <Input props={register("email")} label="Correo" type="email" placheolder="Usuario@mercadosliz.com" />
-                        <Input props={register("password")} label="Contraseña" type="password" placheolder="Ingresa una contraseña" />
-                        <Select values={
-                            [
-                                {
-                                    name: "Administración"//
-                                }, {
-                                    name: "Recursos Humanos"//
-                                }, {
-                                    name: "Contabilidad"//
-                                }, {
-                                    name: "Recibo"//
-                                },
-
-                            ]
-                        }
-                            message='Áreas'
-                        />
-                        <p className={styles["switch-text"]}>¿Ya tienes una cuenta?
-                            <span onClick={() => setname("Login")} className={styles["switch-link"]}> Inicia Sesión</span>
-                        </p>
-                        <Button type="submit" color="default" label="Registrate" /* onClick={handleClickSignup} */ />
-                    </form>
-                </div>
-            );
+        function setPassword(arg0: any) {
+            throw new Error("Function not implemented.");
         }
+
+        return (
+            <div key={name} className={styles["modal-container"]}>
+                <div className={styles["tab-container"]}>
+                    <button
+                        className={`${styles["tab-button"]} ${isLogin ? styles["active"] : ""}`}
+                        onClick={() => setname("Login")}
+                    >
+                        Iniciar Sesión
+                    </button>
+                    <button
+                        className={`${styles["tab-button"]} ${!isLogin ? styles["active"] : ""}`}
+                        onClick={() => setname("Sign up")}
+                    >
+                        Registrate
+                    </button>
+                </div>
+                <form onSubmit={onSubmit} className={styles["modal"]}>
+                    <div>
+                        <X
+                            className={styles["iconX"]}
+                            onClick={closeModal}
+                        />
+                    </div>
+
+                    {/* Renderizado condicional de campos de entrada */}
+                    {isLogin ? (
+                        <>
+                            <Input
+                                props={register("email")}
+                                label="Usuario"
+                                type="email"
+                                placheolder="Ingresa tu usario"
+                            />
+                            <Input
+                                props={register("password")}
+                                label="Contraseña"
+                                type="password"
+                                placheolder="Ingresa tu contraseña"
+                            />
+                            <p className={styles["switch-text"]}>
+                                ¿No tienes cuenta?
+                                <span
+                                    onClick={() => setname("Sign up")}
+                                    className={styles["switch-link"]}
+                                >
+                                    {" "}
+                                    Registrate aquí
+                                </span>
+                            </p>
+                            <p className={styles["switch-text"]}>
+                                <span
+                                    onClick={() => setname("Sign up")}
+                                    className={styles["switch-link"]}
+                                >
+                                    {" "}
+                                    ¿Olvidaste tu contraseña?
+                                </span>
+                            </p>
+                            <Button type="submit" color="default" label="Iniciar Sesión" />
+                        </>
+                        /*se agrego el espacio de que si se olvido la contraseña*/
+                    ) : (
+                        <>
+                            <Input
+                                props={register("name")}
+                                label="Nombre(s)"
+                                type="text"
+                                placheolder="Ingresa tu nombre(s)"
+                            />
+                            <Input
+                                props={register("apellido")}
+                                label="Apellidos"
+                                type="text"
+                                placheolder="Ingresa tus apellidos"
+                            />
+                            <Input
+                                props={register("email")}
+                                label="Usuario"
+                                type="email"
+                                placheolder="Ingresa tu usario"
+                            />
+                            <Input
+                                props={register("password")}
+                                label="Contraseña"
+                                type="password"
+                                placheolder="Ingresa tu contraseña"
+                            />
+                            <Select
+                                values={[
+                                    { name: "Administración" },
+                                    { name: "Recursos Humanos" },
+                                    { name: "Contabilidad" },
+                                    { name: "Recibo" },
+                                ]}
+                                message="Áreas"
+                            />
+                            <p className={styles["switch-text"]}>
+                                ¿Ya tienes una cuenta?
+                                <span
+                                    onClick={() => setname("Login")}
+                                    className={styles["switch-link"]}
+                                >
+                                    {" "}
+                                    Inicia Sesión
+                                </span>
+                            </p>
+                            <Button type="submit" color="default" label="Registrate" />
+                        </>
+                    )
+                        /*
+                        :(
+                        
+                        <>
+                            <Input  
+                                props={register("email")}
+                                label="Usuario"
+                                type="email"
+                                placheolder="Ingresa tu usario"
+                            />
+                            <Input
+                                props={register("password")}
+                                label="Ingrese nueva contraseña"
+                                type="password"
+                                placheolder="Ingresa tu nueva contraseña"
+                            />
+                            <Button type="submit" color="default" label="Cambiar contraseña" />
+                        </>
+                        )
+                        */
+                    }
+                </form>
+            </div>
+        );
     }
 
     //marcas que nos acompañan
     const ruta: any = [{
         link: "/", icon: <Home color='var(--primary)' size={20} />, text: "Inicio", view: true
     },
-        { link: "/Ofertas", icon: <BadgeDollarSign color='green' size={20} />, text: "Ofertas", view: true /* view: getLocalStorageItem("token") ? true : false  */},
-        { link: "/billing", icon: <FilePlus2 color='var(--primary)' size={20} />, text: "Facturación", view: true /* view: getLocalStorageItem("typeUser") === "alamcen" ? true : false  */ },
-        { link: "/Contact", icon: <Info color='#6cb2ff' size={20} />, text: "Más información", view: true },//
-        { link: "/Reclutamiento", icon: <BriefcaseBusiness color='var(--primary)' size={20} />, text: "Únete a la familia", view: true },
-        { link: "/Historia", icon: <BookOpenText color='purple' size={20} />, text: "Nuestra Historia", view: true },
-        { link: "/Servicio", icon: <Star color='blue' size={20} />, text: "Valoranos", view: true },//
-        { link: "/ProveedoresNuev", icon: <ShoppingBagIcon color='pink' size={20} />, text: "Nuevos Proveedores", view: true },
-        { link: "/Proveedores", icon: <FileBadge color='pink' size={20} />, text: "Proveedores", view: true }
+    { link: "/Ofertas", icon: <BadgeDollarSign color='green' size={20} />, text: "Ofertas", view: true /* view: getLocalStorageItem("token") ? true : false  */ },
+    { link: "/billing", icon: <FilePlus2 color='var(--primary)' size={20} />, text: "Facturación", view: true /* view: getLocalStorageItem("typeUser") === "alamcen" ? true : false  */ },
+    { link: "/Contact", icon: <Info color='#6cb2ff' size={20} />, text: "Más información", view: true },//
+    { link: "/Reclutamiento", icon: <BriefcaseBusiness color='var(--primary)' size={20} />, text: "Únete a la familia", view: true },
+    { link: "/Historia", icon: <BookOpenText color='purple' size={20} />, text: "Nuestra Historia", view: true },
+    { link: "/Servicio", icon: <Star color='blue' size={20} />, text: "Valoranos", view: true },//
+    { link: "/ProveedoresNuev", icon: <ShoppingBagIcon color='pink' size={20} />, text: "Nuevos Proveedores", view: true },
+    { link: "/Proveedores", icon: <FileBadge color='pink' size={20} />, text: "Proveedores", view: true }
     ]
 
     return (

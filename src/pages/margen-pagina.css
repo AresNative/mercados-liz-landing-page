@@ -2,7 +2,7 @@
 margin: 1rem auto;
 
 }
-@media (max-width:443px) {
+@media (max-width:20vh) {
     .margen-pagina {
         margin-top: 1rem;
         margin-left: -25px;
@@ -10,7 +10,7 @@ margin: 1rem auto;
    
     }
 }
-@media (max-width:443px) {
+@media (max-width:20vh) {
     .margen-pagina {
         margin-top: 1rem;
         margin-left: -45px;

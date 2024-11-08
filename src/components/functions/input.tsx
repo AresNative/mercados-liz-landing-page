@@ -6,8 +6,7 @@ interface Inputprops {
     type: 'text' | 'password' | 'email' | 'number' | 'date' | undefined;
     placheolder: string;
     props?: any;
-    defaultValue?: any
-
+    defaultValue?: any;
 }
 export function Input({ label, type, placheolder, props, defaultValue }: Inputprops) {
     return (
@@ -19,8 +18,10 @@ export function Input({ label, type, placheolder, props, defaultValue }: Inputpr
             className={styles["use-input"]}
             value={defaultValue}
             {...props}
-        />
+        >
+            {type === "password" && (<IonInputPasswordToggle slot="end" color="dark" />)}
+        </IonInput>
     )
 }
 
-
+/**/

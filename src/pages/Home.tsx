@@ -119,7 +119,7 @@ const Home: React.FC = () => {
           <h2 className="titulos">Marcas que nos acompañan </h2>
           <ul className={Styles["ul"]}>
             {ruta.map((data: any, key: any) => (rutas(data.link)))}
-           
+
           </ul>
         </nav>
       </section>
@@ -166,6 +166,7 @@ const Home: React.FC = () => {
           style={{
             marginTop: "4rem"
           }}>
+
           Donde encontrarnos
         </h2>
 

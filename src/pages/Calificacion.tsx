@@ -21,7 +21,7 @@ export default function ServicioPage() {
     };
 
     const handleSubmit = () => {
-        console.log('Rating:', rating);
+       
         // Aquí puedes agregar la lógica para enviar la calificación y el comentario a tu backend
         alert('Mercados Liz agradece tu opinión ');
         setRating(0);

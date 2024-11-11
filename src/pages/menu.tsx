@@ -23,6 +23,8 @@ import { GetUserInfo } from "@/services/web_site_gets";
 import { PostUser, PostUserReg } from "@/services/web_site_post";
 import Swal from 'sweetalert2';
 import { getLocalStorageItem, setLocalStorageItem } from "@/services/localstorage";
+import { useDispatch } from "react-redux";
+import { assignUsers } from "@/store/reducerUser";
 
 interface RutasProps {
     link: string;
@@ -44,6 +46,8 @@ const Rutas: React.FC<RutasProps> = ({ link, icon, text, view }) => {
     );
 };
 export function Menu() {
+    const dispatch = useDispatch();
+
     const router = useHistory();
     const handleClickLogin = () => {  // Redireccion de pagina despues del login
         router.push('/Sesion');
@@ -66,29 +70,55 @@ export function Menu() {
     //  Login o Sign up
     const { register, control, handleSubmit } = useForm();
     const onSubmit = handleSubmit(async (data) => {
+
+
         //GetUserInfo();
         if (name === "Login") {
             await PostUser(data).then((response: any) => {
-                if (response.token) setLocalStorageItem("token", response);
+                if (response.token) {
+                    setLocalStorageItem("token", response);
+                    mostrarAlerta("inicio correcto");
+                } else {
+                    mostrarAlerta("Datos Incorrectos intente otra vez ");
+
+                }
                 //if (response.typeUser) setLocalStorageItem("typeUser", response.typeUser); --tipo de usuario para que en menu se muestren 
                 // ** almacen
-                mostrarAlerta();
+
+                dispatch(
+                    assignUsers({
+                        id: response.userId,
+                        token: response.token,
+                        permisos: []
+                    }) // Asignación del usuario en el store
+                );
+
             });
         } else {
             const { name, apellido, ...otros } = data;
             const dataForm = { name: `${name} ${apellido}`, date: new Date(), ...otros };
             PostUserReg(dataForm).then((r: any) => {
-                mostrarAlerta();
+                mostrarAlerta("registro realizado");
             });
         }
     });
-    const mostrarAlerta = () => {
+    const mostrarAlerta = (message: string) => {
         Swal.fire({
-            position: "top-end",
-            icon: "error",
-            title: "Your work has been saved",
-            showConfirmButton: false,
-            timer: 1500
+            title: message,
+            showClass: {
+                popup: `
+                        animate__animated
+                        animate__fadeInUp
+                        animate__faster
+                       `
+            },
+            hideClass: {
+                popup: `
+                        animate__animated
+                        animate__fadeOutDown
+                        animate__faster
+                       `
+            }
         });
     };
     function renderForm() {
@@ -138,6 +168,15 @@ export function Menu() {
                                 placheolder="Ingresa tu contraseña"
                             />
                             <p className={styles["switch-text"]}>
+                                <span
+                                    onClick={() => setname("Sign up")}
+                                    className={styles["switch-link"]}
+                                >
+                                    {" "}
+                                    ¿Olvidaste tu contraseña?
+                                </span>
+                            </p>
+                            <p className={styles["switch-text"]}>
                                 ¿No tienes cuenta?
                                 <span
                                     onClick={() => setname("Sign up")}
@@ -147,15 +186,7 @@ export function Menu() {
                                     Registrate aquí
                                 </span>
                             </p>
-                            <p className={styles["switch-text"]}>
-                                <span
-                                    onClick={() => setname("Sign up")}
-                                    className={styles["switch-link"]}
-                                >
-                                    {" "}
-                                    ¿Olvidaste tu contraseña?
-                                </span>
-                            </p>
+
                             <Button type="submit" color="default" label="Iniciar Sesión" />
                         </>
                         /*se agrego el espacio de que si se olvido la contraseña*/
@@ -234,17 +265,16 @@ export function Menu() {
     }
 
     //marcas que nos acompañan
-    const ruta: any = [{
-        link: "/", icon: <Home color='var(--primary)' size={20} />, text: "Inicio", view: true
-    },
-    { link: "/Ofertas", icon: <BadgeDollarSign color='green' size={20} />, text: "Ofertas", view: true /* view: getLocalStorageItem("token") ? true : false  */ },
-    { link: "/billing", icon: <FilePlus2 color='var(--primary)' size={20} />, text: "Facturación", view: true /* view: getLocalStorageItem("typeUser") === "alamcen" ? true : false  */ },
-    { link: "/Contact", icon: <Info color='#6cb2ff' size={20} />, text: "Más información", view: true },//
-    { link: "/Reclutamiento", icon: <BriefcaseBusiness color='var(--primary)' size={20} />, text: "Únete a la familia", view: true },
-    { link: "/Historia", icon: <BookOpenText color='purple' size={20} />, text: "Nuestra Historia", view: true },
-    { link: "/Servicio", icon: <Star color='blue' size={20} />, text: "Valoranos", view: true },//
-    { link: "/ProveedoresNuev", icon: <ShoppingBagIcon color='pink' size={20} />, text: "Nuevos Proveedores", view: true },
-    { link: "/Proveedores", icon: <FileBadge color='pink' size={20} />, text: "Proveedores", view: true }
+    const ruta: any = [
+        { link: "/", icon: <Home color='var(--primary)' size={20} />, text: "Inicio", view: true },
+        { link: "/Ofertas", icon: <BadgeDollarSign color='green' size={20} />, text: "Ofertas", view: true /* view: getLocalStorageItem("token") ? true : false  */ },
+        { link: "/billing", icon: <FilePlus2 color='var(--primary)' size={20} />, text: "Facturación", view: true /* view: getLocalStorageItem("typeUser") === "alamcen" ? true : false  */ },
+        { link: "/Contact", icon: <Info color='#6cb2ff' size={20} />, text: "Más información", view: true },//
+        { link: "/Reclutamiento", icon: <BriefcaseBusiness color='var(--primary)' size={20} />, text: "Únete a la familia", view: true },
+        { link: "/Historia", icon: <BookOpenText color='purple' size={20} />, text: "Nuestra Historia", view: true },
+        { link: "/Servicio", icon: <Star color='blue' size={20} />, text: "Valoranos", view: true },//
+        { link: "/ProveedoresNuev", icon: <ShoppingBagIcon color='pink' size={20} />, text: "Nuevos Proveedores", view: true },
+        { link: "/Proveedores", icon: <FileBadge color='pink' size={20} />, text: "Proveedores", view: true }
     ]
 
     return (

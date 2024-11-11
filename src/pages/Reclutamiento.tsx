@@ -42,11 +42,8 @@ const Reclutamiento = () => {
     const esUltimaPagina = paginaActual === totalPaginas - 1;
 
     const onSubmit = async (data: any) => {
-        console.log("Data enviada:", data);
-        if (esUltimaPagina) {
-            // Aquí puedes enviar los datos al servidor o realizar otra acción
-            console.log("Formulario completo:", data);
-        } else {
+      
+        if (!esUltimaPagina) {
             handleSiguiente();
         }
     };
@@ -67,7 +64,6 @@ const Reclutamiento = () => {
                                 if (field.type === "H1") {
                                     return <h1 key={index}>{field.name}</h1>; // Muestra el H1 como título
                                 }
-
                                 // Renderizar solo preguntas
                                 return (
                                     <MainForm
@@ -90,7 +86,7 @@ const Reclutamiento = () => {
                     )}
                     <div style={{ display: "flex" }}>
                         <Button label={"Volver"} onClick={handleAnterior} type={"button"} color={"default"} disabled={paginaActual === 0} />
-                        <Button label={esUltimaPagina ? "Enviar" : "Siguiente"} type={"button"} color={"default"} onClick={handleSubmit(onSubmit)} />
+                        <Button label={esUltimaPagina ? "Enviar " : "Siguiente"} type={"button"} color={"default"} onClick={handleSubmit(onSubmit)} />
                     </div>
                 </div>
             </div>

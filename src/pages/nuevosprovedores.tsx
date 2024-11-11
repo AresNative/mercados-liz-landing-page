@@ -79,7 +79,7 @@ const NuevoProvePage = () => {
     }
 
     const handleEnviar = () => {
-        console.log("Respuestas enviadas:", respuestas)
+
         // Aquí puedes implementar la lógica para enviar las respuestas a un servidor
         alert("¡Gracias, nos pondremos en contacto con ustedes!")
     }
@@ -139,7 +139,7 @@ const NuevoProvePage = () => {
                     })}
 
                     <p className="sub-titulos5">En caso de tener un catalogo con sus productos favor de agregarlo </p>
-                        <input type="file" accept=".pdf,.xlsx"  />
+                    <input type="file" accept=".pdf,.xlsx" />
                     <div style={{ display: "flex" }}>
                         <Button label="Enviar" type={"button"} color={"default"} onClick={handleEnviar} />
                     </div>

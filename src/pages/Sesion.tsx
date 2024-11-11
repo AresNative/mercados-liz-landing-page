@@ -17,7 +17,6 @@ const SesionPage = () => {
                     <div className={Styles["content"]}> AAAAAAAA</div>
                     <img src="/uvas.png"  />
                 </div>
-
              {/* Pueba boton oferta  */ }
                 <div style={{ display: "flex", justifyContent: "center", margin: "1rem" }}>
                     <IonButton shape="round" fill="clear" onClick={AbrirPDF}>
@@ -29,9 +28,6 @@ const SesionPage = () => {
                         </IonLabel>
                     </IonButton>
                 </div>
-
-
-
             </>
         </Page>
     )

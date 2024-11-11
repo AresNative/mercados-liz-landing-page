@@ -29,72 +29,89 @@ import ServicioPage from './pages/Calificacion';
 import HistoriaPage from './pages/History';
 import NuevoProvePage from './pages/nuevosprovedores';
 import ProveePage from './pages/portalprov';
-
+import 'animate.css';
+import { useSelector } from 'react-redux';
+import { RootState } from './store/store';
 
 setupIonicReact({
   mode: 'ios'
 });
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        {/*  */}
-        
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/Reclutamiento">
-          <Reclutamiento />
-        </Route>
-        <Route exact path="/Ofertas">
-          <Offers />
-        </Route>
-        <Route exact path="/billing">
-          <Billing />
-        </Route>
-        <Route exact path="/Contact">
-          <ContactPage />
-        </Route>
-        <Route exact path="/Historia">
-          <HistoriaPage />
-        </Route>
+const App: React.FC = () => {
+  const selector = useSelector((state: RootState) => state.users);
 
-        <Route exact path="/Sesion">
-          <SesionPage />
-        </Route>
-        <Route exact path="/Servicio">
-          <ServicioPage />
-        </Route>
-        <Route exact path="/ProveedoresNuev">
-          <NuevoProvePage />
-        </Route>
-        <Route exact path="/Proveedores">
-          <ProveePage />
-        </Route>
+  /*  if (selector.id === 2) {
+ 
+     return <IonApp>
+       <IonReactRouter>
+         <IonRouterOutlet>
+           {/*  *\/}
+           <Route exact path="/">
+             <Redirect to="/home" />
+           </Route>
+           <Route exact path="/home">
+             <Home />
+           </Route>
+           <Route exact path="/Reclutamiento">
+             <Reclutamiento />
+           </Route>
+ 
+         </IonRouterOutlet>
+       </IonReactRouter >
+     </IonApp>
+ 
+   } 
+   */
 
-        <Route exact path="/RecursosHumanos">
-          <RHPage />
-        </Route>
+  return (
+    <IonApp>
+      <IonReactRouter>
+        <IonRouterOutlet>
+          {/*  */}
 
+          <Route exact path="/home">
+            <Home />
+          </Route>
+          <Route exact path="/Reclutamiento">
+            <Reclutamiento />
+          </Route>
+          <Route exact path="/Ofertas">
+            <Offers />
+          </Route>
+          <Route exact path="/billing">
+            <Billing />
+          </Route>
+          <Route exact path="/Contact">
+            <ContactPage />
+          </Route>
+          <Route exact path="/Historia">
+            <HistoriaPage />
+          </Route>
+          <Route exact path="/Sesion">
+            <SesionPage />
+          </Route>
+          <Route exact path="/Servicio">
+            <ServicioPage />
+          </Route>
+          <Route exact path="/ProveedoresNuev">
+            <NuevoProvePage />
+          </Route>
+          <Route exact path="/Proveedores">
+            <ProveePage />
+          </Route>
+          <Route exact path="/RecursosHumanos">
+            <RHPage />
+          </Route>
 
-
-
-
-
-
-
-
-
-
-
-        {/*  */}
-        <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
-);
+          {/*  */}
+          <Route exact path="/">
+            <Redirect to="/home" />
+          </Route>
+        </IonRouterOutlet>
+      </IonReactRouter>
+    </IonApp>
+  )
+};
 
 export default App;
+

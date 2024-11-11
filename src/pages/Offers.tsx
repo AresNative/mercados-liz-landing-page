@@ -31,7 +31,6 @@ const Offers = () => {
     ]
     return (
         <Page /* titulo="Ofertas" */>
-
             <nav className={Styles["nav"]}>
                 <ul className={Styles["ul"]}>
                     {ruta.map((data: any, key: any) => (rutas(data.link)))}
@@ -63,22 +62,18 @@ const Offers = () => {
                     <li></li>
                     <li></li>
                     <li></li>
-
                 </ul>
             </section>
 
             <section className={Styles["contentcom"]}>
                 <div className={Styles["marcacom"]}>
-                    <h2 className="titulos">Nuestros Combos</h2>
+                    <h2 className="titulos">Nuestros Combos </h2>
                     <p style={{ display: "flex", alignItems: "center", gap: "2px" }}>Conoce nuestros combos especiales para ti </p>
                 </div>
                 <ul className={Styles["productoscom"]}>
                     <li>Combo1</li>
-
                     <li> combo2 </li>
-
                     <li>combo 3</li>
-
                 </ul>
             </section>
         </Page>

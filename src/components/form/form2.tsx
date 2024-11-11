@@ -16,15 +16,11 @@ export const MainForm = ({ message_button, dataForm, functionForm }: any) => {
         setValue,
         formState: { errors },
     } = useForm();
-
     async function onSubmit(submitData: any) {
-        console.log(submitData);
-
+       
         const { data } = submitData;
-        PostUserPost(submitData).then((res) => {
-            console.log("Respuesta del servidor:", res);
-        });
-        // functionForm(data);
+        const respuesta = await PostUserPost(submitData)  // functionForm(data);
+        return respuesta
     }
 
     return (
@@ -47,7 +43,6 @@ export const MainForm = ({ message_button, dataForm, functionForm }: any) => {
 
 export function SwitchTypeInputRender(props: any) {
     const { type } = props.cuestion;
-
     switch (type) {
         case "INPUT":
         case "TEXT":
@@ -63,3 +58,4 @@ export function SwitchTypeInputRender(props: any) {
             return null; // Opcional: manejar tipos desconocidos
     }
 }
+

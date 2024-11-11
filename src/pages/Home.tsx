@@ -10,13 +10,14 @@ import {
   logoWhatsapp
 } from 'ionicons/icons';
 import { CreditCard, Mail, MapPin, Package, Phone, Plane, ShoppingCart, Truck } from 'lucide-react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { asingn } from "@/store/reducers";
 import { useEffect } from 'react';
 import { GetUserInfo } from '@/services/web_site_gets';
 import { List } from '@/components/displays/list';
 import { OffertCard } from '@/components/displays/card';
 import Styles from "./Offers.module.css";
+import { RootState } from '@/store/store';
 
 const Home: React.FC = () => {
   const dispatch = useDispatch();
@@ -25,13 +26,10 @@ const Home: React.FC = () => {
     dispatch(asingn({ sucursal: suc }))
   }
   useEffect(() => {
-
     GetUserInfo().then((info: any) => {
       console.log(info);
     })
-
   }, [])
-
 
   function rutas(link: string) {
     return (

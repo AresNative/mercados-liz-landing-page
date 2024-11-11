@@ -80,7 +80,7 @@ const ProveePage = () => {
     };
 
     const handleEnviar = () => {
-        console.log("Respuestas enviadas:", respuestas)
+        
         // Aquí puedes implementar la lógica para enviar las respuestas a un servidor
         alert("¡Cuestionario enviado con éxito!")
     }

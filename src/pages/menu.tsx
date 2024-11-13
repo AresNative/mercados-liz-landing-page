@@ -71,7 +71,6 @@ export function Menu() {
     const { register, control, handleSubmit } = useForm();
     const onSubmit = handleSubmit(async (data) => {
 
-
         //GetUserInfo();
         if (name === "Login") {
             await PostUser(data).then((response: any) => {
@@ -79,7 +78,7 @@ export function Menu() {
                     setLocalStorageItem("token", response);
                     mostrarAlerta("inicio correcto");
                 } else {
-                    mostrarAlerta("Datos Incorrectos intente otra vez ");
+                    mostrarAlerta("Datos incorrectos intente otra vez ");
 
                 }
                 //if (response.typeUser) setLocalStorageItem("typeUser", response.typeUser); --tipo de usuario para que en menu se muestren 
@@ -238,26 +237,6 @@ export function Menu() {
                             <Button type="submit" color="default" label="Registrate" />
                         </>
                     )
-                        /*
-                        :(
-                        
-                        <>
-                            <Input  
-                                props={register("email")}
-                                label="Usuario"
-                                type="email"
-                                placheolder="Ingresa tu usario"
-                            />
-                            <Input
-                                props={register("password")}
-                                label="Ingrese nueva contraseña"
-                                type="password"
-                                placheolder="Ingresa tu nueva contraseña"
-                            />
-                            <Button type="submit" color="default" label="Cambiar contraseña" />
-                        </>
-                        )
-                        */
                     }
                 </form>
             </div>

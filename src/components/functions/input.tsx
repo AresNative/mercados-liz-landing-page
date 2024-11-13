@@ -24,4 +24,3 @@ export function Input({ label, type, placheolder, props, defaultValue }: Inputpr
     )
 }
 
-/**/

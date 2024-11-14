@@ -21,7 +21,6 @@ export default function ServicioPage() {
     };
 
     const handleSubmit = () => {
-       
         // Aquí puedes agregar la lógica para enviar la calificación y el comentario a tu backend
         alert('Mercados Liz agradece tu opinión ');
         setRating(0);
@@ -30,35 +29,35 @@ export default function ServicioPage() {
     return (
         <Page /*  titulo={"Servicio"} */>
             {/* <img src="/uvas.png" className="img-uva" />*/}
-            <form> 
-            <IonCard className={styles["form"]}>
-                <IonCardHeader>
-                    <IonCardTitle className="titulos ">Califica nuestro servicio</IonCardTitle>
-                </IonCardHeader>
-                <IonCardContent className={styles["content-card"]}>
-                    <div className={styles["content"]} >
-                        {calif.values.map((star: any) => (
-                            <Star
-                                key={star}
-                                className={` ${rating + 1 <= star ? `${styles.estrellas}` : `${styles.estrella2}`}`}
-                                onClick={() => handleRating(star)}
-                                onMouseEnter={() => setHoverRating(star)}
-                                onMouseLeave={() => setHoverRating(0)}
-                                size={35}
-                            />
-                        ))}
-                    </div>
-                    <IonTextarea className={styles["textarea2"]} placeholder="Deja tu opinión , para nosotros es muy importante escucharte" />
-                    <IonButton
-                        onClick={handleSubmit}
-                        disabled={rating === 0}
-                        fill="outline"
-                        slot="center"
-                        color="liz"
-                    >
-                        Enviar <SendIcon color="purple" />
-                    </IonButton>
-                </IonCardContent>
+            <form>
+                <IonCard className={styles["form"]}>
+                    <IonCardHeader>
+                        <IonCardTitle className="titulos ">Califica nuestro servicio</IonCardTitle>
+                    </IonCardHeader>
+                    <IonCardContent className={styles["content-card"]}>
+                        <div className={styles["content"]} >
+                            {calif.values.map((star: any) => (
+                                <Star
+                                    key={star}
+                                    className={` ${rating + 1 <= star ? `${styles.estrellas}` : `${styles.estrella2}`}`}
+                                    onClick={() => handleRating(star)}
+                                    onMouseEnter={() => setHoverRating(star)}
+                                    onMouseLeave={() => setHoverRating(0)}
+                                    size={35}
+                                />
+                            ))}
+                        </div>
+                        <IonTextarea className={styles["textarea2"]} placeholder="Deja tu opinión , para nosotros es muy importante escucharte" />
+                        <IonButton
+                            onClick={handleSubmit}
+                            disabled={rating === 0}
+                            fill="outline"
+                            slot="center"
+                            color="liz"
+                        >
+                            Enviar <SendIcon color="purple" />
+                        </IonButton>
+                    </IonCardContent>
                 </IonCard>
             </form>
         </Page>

@@ -42,7 +42,6 @@ const Reclutamiento = () => {
     const esUltimaPagina = paginaActual === totalPaginas - 1;
 
     const onSubmit = async (data: any) => {
-      
         if (!esUltimaPagina) {
             handleSiguiente();
         }

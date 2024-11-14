@@ -17,7 +17,7 @@ export const MainForm = ({ message_button, dataForm, functionForm }: any) => {
         formState: { errors },
     } = useForm();
     async function onSubmit(submitData: any) {
-       
+
         const { data } = submitData;
         const respuesta = await PostUserPost(submitData)  // functionForm(data);
         return respuesta

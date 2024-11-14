@@ -6,13 +6,15 @@ import { Button } from "@/components/functions/button";
 import '@/components/displays/textarea.css'
 import styles from "./reclutamiento.module.css"
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 interface Opcion {
     texto: string;
     tipo: 'text' | 'password' | 'email' | 'number' | "select" | 'date' | "h1" | undefined; // Tipo del input (text, email, number, etc.)
-    subopciones?: { texto: string, tipo: 'text' | 'password' | 'email' | 'number' | 'date' | "select" | undefined; multiple?: boolean; values?: any[]; }[]; // Subopciones opcionales con sus tipos
+    subopciones?: { props?: any, texto: string, tipo: 'text' | 'password' | 'email' | 'number' | 'date' | "select" | undefined; multiple?: boolean; values?: any[]; }[]; // Subopciones opcionales con sus tipos
     values?: any[];
     multiple?: boolean;
+    props?: any;
 }
 
 interface Pregunta {
@@ -33,28 +35,26 @@ const preguntas: Pregunta[] = [
             { texto: "Información general proveedor", tipo: "h1" },
             {
                 texto: "Informacion", tipo: "text", subopciones: [
-                    { texto: "Nombre", tipo: "text" },
-                    { texto: "Correo electronico", tipo: "email" }
+                    { texto: "Nombre", tipo: "text", props: "name" },
+                    { texto: "Correo electronico", tipo: "email", props: "email" }
                 ]
             },
             {
                 texto: "Compañia", tipo: "text", subopciones: [
-                    { texto: "Compañia", tipo: "text" },
-                    { texto: "Tipo de productos", tipo: "text" }
+                    { texto: "Compañia", tipo: "text", props: "company" },
+                    { texto: "Tipo de productos", tipo: "text", props: "type_prod" }
                 ]
             },
             {
-                texto: "Departamento al que va dirigido", tipo: "select", values: [
+                texto: "Departamento al que va dirigido", tipo: "select", props: "department", values: [
                     { nombre: "A" },
                     { nombre: "C" },
                     { nombre: "A" },
                     { nombre: "C" }
                 ]
             },
-
         ]
     },
-
 ];
 
 const NuevoProvePage = () => {
@@ -79,15 +79,29 @@ const NuevoProvePage = () => {
     }
 
     const handleEnviar = () => {
-
         // Aquí puedes implementar la lógica para enviar las respuestas a un servidor
-        alert("¡Gracias, nos pondremos en contacto con ustedes!")
+        Swal.fire({
+            title: "Gracias nos pondremos en contacto",
+            showClass: {
+                popup: `
+                        animate__animated
+                        animate__fadeInUp
+                        animate__faster
+                       `
+            },
+            hideClass: {
+                popup: `
+                        animate__animated
+                        animate__fadeOutDown
+                        animate__faster
+                       `
+            }
+        });
     }
 
     const respuestaActual = respuestas.find(r => r.preguntaId === preguntaActual.id)?.respuesta || ""
 
     return (
-
         <Page /* titulo="NuevoProvePage" */ >
             {/*  <img src="/uvas.png" className="img-uva" /> */}
             <form >
@@ -97,7 +111,6 @@ const NuevoProvePage = () => {
                     {preguntaActual.opciones.map((data: Opcion, index: number) => {
                         return (
                             <div className={styles["reclutamiento-columnas"]} key={index}>
-
                                 {data.subopciones ? (
                                     // Si hay subopciones, mostrar los inputs o selects dentro de subopciones
                                     <>
@@ -137,7 +150,6 @@ const NuevoProvePage = () => {
                             </div>
                         );
                     })}
-
                     <p className="sub-titulos5">En caso de tener un catalogo con sus productos favor de agregarlo </p>
                     <input type="file" accept=".pdf,.xlsx" />
                     <div style={{ display: "flex" }}>

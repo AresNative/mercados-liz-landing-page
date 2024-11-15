@@ -54,7 +54,7 @@ export async function PostUserPost(data: any) {
 export async function PostProveedor(data: any) {
   const apiUrl = process.env.REACT_APP_API_URL;
 
-  fetch(`${apiUrl}users/postulacion`, {
+  fetch(`${apiUrl}proveedores`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json-patch+json",

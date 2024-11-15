@@ -2,6 +2,8 @@ import Page from "@/template/page"
 import  Styles  from "./sesion.module.css";
 import { IonButton, IonLabel } from "@ionic/react";
 import { BookOpenCheck } from "lucide-react";
+import { useEffect, useState } from "react";
+import { GetUserInfo } from "@/services/web_site_gets";
 
 const AbrirPDF = () => {
     const urlPDF = ''; // Ruta al archivo pdf
@@ -9,25 +11,32 @@ const AbrirPDF = () => {
 };
 
 const SesionPage = () => {
+    useEffect(() => {
+        GetUserInfo().then((info: any) => {
+            setdata(info.data);
+        })
+    }, [])
 
+    const [data, setdata] = useState([])
     return (
         <Page /* titulo="Sesion" */>
             <>
-                <div className={Styles["container"] }>
-                    <div className={Styles["content"]}> AAAAAAAA</div>
-                    <img src="/uvas.png"  />
-                </div>
-             {/* Pueba boton oferta  */ }
-                <div style={{ display: "flex", justifyContent: "center", margin: "1rem" }}>
-                    <IonButton shape="round" fill="clear" onClick={AbrirPDF}>
-                        <IonLabel style={{ color: "purple", display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                            <h1 style={{ color: "purple", fontFamily: "'Lobster', cursive", fontSize: "3rem", margin: 0 }}>
-                                Nuestras Ofertas
-                            </h1>
-                            <BookOpenCheck color="purple" size={80} />
-                        </IonLabel>
-                    </IonButton>
-                </div>
+                {data.map((info: any, index) => (
+                    <section key={index}>
+                        {/* 
+                            // ! Object.entries es el que identifica las propiedades de un array
+                        */}
+                        {Object.entries(info).map(([key, value]:any, id) => (
+                            <div key={id}>
+                                <strong>{key}:</strong> {value}
+                                {/*
+                                    // ? [key] es la propiedad que se esta mostrando
+                                    //** ya solo falta cambiar el formato a tabla o ajustar estilos
+                                */}
+                            </div>
+                        ))}
+                    </section>
+                ))}
             </>
         </Page>
     )

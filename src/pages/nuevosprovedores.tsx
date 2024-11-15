@@ -7,6 +7,8 @@ import '@/components/displays/textarea.css'
 import styles from "./reclutamiento.module.css"
 import { useState } from "react";
 import Swal from "sweetalert2";
+import { useForm } from "react-hook-form";
+import { PostProveedor } from "@/services/web_site_post";
 
 interface Opcion {
     texto: string;
@@ -78,6 +80,12 @@ const NuevoProvePage = () => {
         })
     }
 
+    const { register, control, handleSubmit } = useForm();
+    const onSubmit = handleSubmit(async (data) => {
+        await PostProveedor(data)
+
+    })
+
     const handleEnviar = () => {
         // Aquí puedes implementar la lógica para enviar las respuestas a un servidor
         Swal.fire({
@@ -104,7 +112,7 @@ const NuevoProvePage = () => {
     return (
         <Page /* titulo="NuevoProvePage" */ >
             {/*  <img src="/uvas.png" className="img-uva" /> */}
-            <form >
+            <form onSubmit={onSubmit}>
                 <h2 className="titulos" style={{ marginTop: "6rem" }}>Si quieres ser nuestro proveedor llena el siguiente formulario </h2>
                 <div className={styles["reclutamiento"]} >
                     <p></p>
@@ -128,6 +136,7 @@ const NuevoProvePage = () => {
                                                     label={subdata.texto}
                                                     type={subdata.tipo}
                                                     placheolder=""
+                                                    props={register(subdata.props)}
                                                 />
                                             )
                                         ))}
@@ -144,7 +153,9 @@ const NuevoProvePage = () => {
                                         <h1>{data.texto}</h1>
                                     ) : (
                                         // Si no es "select", renderizar Input normal
-                                        <Input label={data.texto} type={data.tipo} placheolder="" />
+                                        <Input label={data.texto} type={data.tipo} placheolder=""
+
+                                        />
                                     )
                                 )}
                             </div>
@@ -153,7 +164,7 @@ const NuevoProvePage = () => {
                     <p className="sub-titulos5">En caso de tener un catalogo con sus productos favor de agregarlo </p>
                     <input type="file" accept=".pdf,.xlsx" />
                     <div style={{ display: "flex" }}>
-                        <Button label="Enviar" type={"button"} color={"default"} onClick={handleEnviar} />
+                        <Button label="Enviar" type={"submit"} color={"default"} />
                     </div>
                 </div>
             </form>

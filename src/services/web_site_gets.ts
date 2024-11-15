@@ -3,8 +3,6 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export async function GetUserInfo() {
   const apiUrl = process.env.REACT_APP_API_URL;
 
-  console.log(apiUrl);
-
   const response = fetch(`${apiUrl}reporteria/almacen`, {
     method: "GET",
   })

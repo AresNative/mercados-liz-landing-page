@@ -73,9 +73,10 @@ const Home: React.FC = () => {
               </IonButton>
             </a>
           </li>
+          {/*Preguntar que link iria si compras servicio a domicilio o quejas*/}
           <li>
             <a href="https://www.facebook.com/share/1WZv93NVER/" target="_blank" >
-              <IonButton color="success" shape='round' fill="clear">
+              <IonButton color="success" shape='round' fill="clear"> 
                 <IonIcon size='large' icon={logoWhatsapp} />
               </IonButton>
             </a>

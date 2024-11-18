@@ -80,10 +80,8 @@ export function Menu() {
                 } else {
                     mostrarAlerta("Datos incorrectos intente otra vez ");
 
-                }
-                //if (response.typeUser) setLocalStorageItem("typeUser", response.typeUser); --tipo de usuario para que en menu se muestren 
+                }//if (response.typeUser) setLocalStorageItem("typeUser", response.typeUser); --tipo de usuario para que en menu se muestren 
                 // ** almacen
-
                 dispatch(
                     assignUsers({
                         id: response.userId,

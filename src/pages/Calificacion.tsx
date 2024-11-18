@@ -54,6 +54,7 @@ export default function ServicioPage() {
                             fill="outline"
                             slot="center"
                             color="liz"
+                        //type={"submit"}
                         >
                             Enviar <SendIcon color="purple" />
                         </IonButton>
@@ -63,3 +64,5 @@ export default function ServicioPage() {
         </Page>
     );
 }
+
+//cambiar alerta de notificacion que se manda al terminar

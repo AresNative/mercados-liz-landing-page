@@ -13,12 +13,13 @@
 .marquee-container {
     overflow: hidden;
     width: 100%;
+    position: relative;
 }
 
 .ul {
     display: flex;
     align-items: center;
-    width: calc(130%);
+    width: fit-content;
     animation: marquee 10s linear infinite !important;
 }
 
@@ -215,4 +216,180 @@
         
           
         }
+}
+/*-------------------------------------------------------------------------------------------*/
+/*Carrusel*/
+
+.swiper {
+    margin-top: 6.5rem;
+    height: 30vh !important;
+    width: 80vh;
+    border-radius: 1rem;
+    background: #ad00fd;
+    /* Ajustar según lo necesario */
+    overflow: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0);
+}
+
+@media (max-width:430px) {
+    .swiper {
+        margin-top: 6rem !important;
+        height: 60vh;
+        width: 40vh;
+        margin: 1rem;
+    }
+}
+.div{
+    position: relative;
+    width: 90vh;
+    height: 90vh;  
+}
+
+.img {
+    border-radius: 1rem;
+    width: 80vh; /*--*/
+    height: 70vh; /* |*/
+    object-fit: fill;
+}
+.fondo {
+    position: absolute;
+    inset: 0;
+    /* Equivale a top: 0; right: 0; bottom: 0; left: 0; */
+    background-color: #00000000;
+}
+.contenido {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    background-color: #00000000;
+    color: rgb(0, 59, 253);
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+@media (max-width:430px) {
+    .contenido {
+        padding: 1.5rem;  
+    }
+}
+.spancont {
+    display: inline-block;
+    /* padding: 0.25rem 0.75rem; */
+    /* px-3 py-1 */
+    background-color: #22c55e;
+    font-size: 0.75rem;
+    /* text-xs */
+    font-weight: 600;
+    /* font-semibold */
+    border-radius: 9999px;
+    /* rounded-full */
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+@media (max-width:430px) {
+    .spancont {
+        font-size: 0.875rem; 
+    }
+}
+.h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+@media (max-width:430px) {
+    .h3 {
+        font-size: 1.5rem;
+        /* text-2xl */
+    }
+}
+
+.parf {
+    font-size: 0.875rem;
+    /* text-sm */
+}
+
+@media (max-width:430px)  {
+    .parf {
+        font-size: 1rem;
+        /* text-base */
+    }
+}
+
+/*------------------------------------------------------------------------------------------*/
+/*PDF*/
+.pdfdiv {
+    background: #7c2bbe10;
+    /* Gradiente de morado claro */
+    border-radius: 0.5rem;
+    /* rounded-xl */
+    padding: 2rem;
+    margin: 0.5rem;
+    /* p-8 */
+}
+
+.div2 {
+    display: flex;
+    /* flex */
+    flex-direction: column;
+    /* flex-col */
+    align-items: center;
+    /* items-center */
+    text-align: center;
+    /* text-center */
+   /*  max-width: 42rem; */
+    /* max-w-2xl (672px) */
+    margin-left: auto;
+    /* mx-auto */
+    margin-right: auto;
+    /* mx-auto */
+}
+.h3 {
+    font-family: "Lobster";
+    font-size: 3rem;
+    /* text-2xl */
+    font-weight: 100;
+    /* font-bold */
+    color: #ad00fd;
+    /* text-gray-800 */
+    margin: 0.75rem;
+    /* mb-3 */
+}
+@media (max-width:430px)  {
+    .h3 {
+        font-family: "Lobster";
+        font-size: 2rem;
+        /* text-2xl */
+        font-weight: 100;
+        /* font-bold */
+        color: #ad00fd;
+        
+    }
+}
+.parfo {
+    color: #66be2b;
+    /* text-gray-600 */
+    margin-bottom: 1rem;
+    /* mb-6 */
+}
+.divbo {
+    display: flex;
+    /* flex */
+    gap: 1rem;
+    /* gap-4 (16px) */
+}
+.botton {
+    width: 10rem;
+    font-size: 1.3rem;
+    /* w-40 (160px) */
+}
+@media (max-width:430px) {
+    .botton {
+        font-size: smaller;
+        width: 20vh;
+        height: 5vh;;
+       margin-bottom: 0.5rem;
+    }
 }

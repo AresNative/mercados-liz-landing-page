@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Custom Swiper Styles */
+.swiper-pagination-bullet {
+    /* width: 8px !important;
+    height: 8px !important; */
+    background: white !important;
+    opacity: 0.6 !important;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1 !important;
+    background: white !important;
+}
+
+/* Ionic Card Styles */
+ion-card {
+    margin: 0 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05) !important;
+}
+
+ion-button {
+    --border-radius: 10px;
+    font-weight: 600;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+   /*  width: 6px;
+    height: 6px; */
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+.carousel-item img {
+    border-radius: 16px;
+    object-fit: cover;
+}

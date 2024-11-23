@@ -32,7 +32,7 @@ import ProveePage from './pages/portalprov';
 import 'animate.css';
 import { useSelector } from 'react-redux';
 import { RootState } from './store/store';
-
+import './index.css';
 setupIonicReact({
   mode: 'ios'
 });

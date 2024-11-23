@@ -22,7 +22,7 @@ export default function ServicioPage() {
 
     const handleSubmit = () => {
         // Aquí puedes agregar la lógica para enviar la calificación y el comentario a tu backend
-        alert('Mercados Liz agradece tu opinión ');
+        alert('Mercados Liz agradece tu opinión');
         setRating(0);
     };
 
@@ -47,14 +47,14 @@ export default function ServicioPage() {
                                 />
                             ))}
                         </div>
-                        <IonTextarea className={styles["textarea2"]} placeholder="Deja tu opinión , para nosotros es muy importante escucharte" />
+                        <IonTextarea className={styles["textarea2"]} placeholder="Deja tu opinión, para nosotros es muy importante escucharte" />
                         <IonButton
                             onClick={handleSubmit}
                             disabled={rating === 0}
                             fill="outline"
-                            slot="center"
+                            slot="center "
                             color="liz"
-                        //type={"submit"}
+                            //type={"submit"}
                         >
                             Enviar <SendIcon color="purple" />
                         </IonButton>

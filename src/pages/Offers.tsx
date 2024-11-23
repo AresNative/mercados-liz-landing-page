@@ -3,6 +3,25 @@ import Styles from "./Offers.module.css";
 import { UserCard } from "@/components/displays/card";
 import { IonButton, IonLabel } from "@ionic/react";
 import { BookOpenCheck } from "lucide-react";
+import PdfViewer from "./PdfViewer";
+import OffersCarousel from "./OffersCarousel";
+
+/* Core CSS required for Ionic components to work properly */
+import '@ionic/react/css/core.css';
+
+/* Basic CSS for apps built with Ionic */
+import '@ionic/react/css/normalize.css';
+import '@ionic/react/css/structure.css';
+import '@ionic/react/css/typography.css';
+
+/* Optional CSS utils that can be commented out */
+import '@ionic/react/css/padding.css';
+import '@ionic/react/css/float-elements.css';
+import '@ionic/react/css/text-alignment.css';
+import '@ionic/react/css/text-transformation.css';
+import '@ionic/react/css/flex-utils.css';
+import '@ionic/react/css/display.css';
+
 
 
 const AbrirPDF = () => {
@@ -31,27 +50,16 @@ const Offers = () => {
     ]
     return (
         <Page /* titulo="Ofertas" */>
-            <nav className={Styles["nav"]}>
-                <ul className={Styles["ul"]}>
-                    {ruta.map((data: any, key: any) => (rutas(data.link)))}
-
-                </ul>
-                <ul className={Styles["ul"]}>
-                    {ruta2.map((data: any, key: any) => (rutas(data.link)))}
-                </ul>
-            </nav>
+            <section>
+                <OffersCarousel />
+            </section>
 
             {/* Pueba boton oferta  */}
-            <div style={{ display: "flex", justifyContent: "center", marginTop: "2rem" }}>
-                <IonButton shape="round" fill="clear" onClick={AbrirPDF}>
-                    <IonLabel style={{ color: "purple", display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                        <h1 style={{ color: "purple", fontFamily: "'Lobster', cursive", fontSize: "3rem", margin: 0 }}>
-                            Nuestras Ofertas
-                        </h1>
-                        <BookOpenCheck color="purple" size={80} />
-                    </IonLabel>
-                </IonButton>
-            </div>
+
+            {/* PDF Catalog Section */}
+            <section className="mb-8">
+                <PdfViewer pdfUrl="https://example.com/market-catalog.pdf" />
+            </section>
 
             <section className={Styles["content"]}>
                 <div className={Styles["marca"]}>
@@ -80,3 +88,10 @@ const Offers = () => {
     )
 }
 export default Offers;
+
+
+
+{/* PDF Catalog Section */ }
+{/* <section className="mb-8">
+    <PdfViewer pdfUrl="https://example.com/market-catalog.pdf" />
+</section> */}

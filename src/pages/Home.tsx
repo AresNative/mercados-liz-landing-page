@@ -35,6 +35,7 @@ const Home: React.FC = () => {
     return (
       <OffertCard avatarUrl={link} />)
   }
+  
   const ruta: any = [
     { link: "https://www.cocacolaep.com/assets/Uploads/resources/Coca-Cola-1210.jpg" },
     { link: "https://cdn.shopify.com/s/files/1/1547/6619/files/logo.png?v=1698644298" },

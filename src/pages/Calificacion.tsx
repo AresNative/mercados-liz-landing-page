@@ -32,7 +32,7 @@ export default function ServicioPage() {
             <form>
                 <IonCard className={styles["form"]}>
                     <IonCardHeader>
-                        <IonCardTitle className="titulos ">Califica nuestro servicio</IonCardTitle>
+                        <IonCardTitle className={styles["p"]}>Califica nuestro servicio</IonCardTitle>
                     </IonCardHeader>
                     <IonCardContent className={styles["content-card"]}>
                         <div className={styles["content"]} >

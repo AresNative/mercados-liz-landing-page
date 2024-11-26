@@ -21,6 +21,7 @@ import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
+import ComboSection from "./CombosSection";
 
 
 
@@ -73,16 +74,8 @@ const Offers = () => {
                 </ul>
             </section>
 
-            <section className={Styles["contentcom"]}>
-                <div className={Styles["marcacom"]}>
-                    <h2 className="titulos">Nuestros Combos </h2>
-                    <p style={{ display: "flex", alignItems: "center", gap: "2px" }}>Conoce nuestros combos especiales para ti </p>
-                </div>
-                <ul className={Styles["productoscom"]}>
-                    <li>Combo1</li>
-                    <li> combo2 </li>
-                    <li>combo 3</li>
-                </ul>
+            <section className="mb-8">
+                <ComboSection  />
             </section>
         </Page>
     )

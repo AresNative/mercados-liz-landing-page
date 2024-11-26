@@ -16,13 +16,6 @@
     background: white !important;
 }
 
-/* Ionic Card Styles */
-ion-card {
-    margin: 0 !important;
-    border-radius: 16px !important;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05) !important;
-}
-
 ion-button {
     --border-radius: 10px;
     font-weight: 600;

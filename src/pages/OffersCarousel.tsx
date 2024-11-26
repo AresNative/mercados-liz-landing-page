@@ -24,6 +24,13 @@ const offers = [
         title: "Bulk Buy Savings",
         description: "25% off when you buy in bulk",
     },
+  /*   {
+        id: 4,
+        image: "https://images.unsplash.com/photo-1607349913338-fca6f7fc42d0?w=800&auto=format&fit=crop",
+        title: "Bulk Buy Savings",
+        description: "25% off when you buy in bulk",
+    }, */
+
 
 ];
 
@@ -31,7 +38,7 @@ const OffersCarousel: React.FC = () => {
     return (
         <Swiper
             modules={[Autoplay, Pagination]}
-            spaceBetween={0} 
+            spaceBetween={0}
             slidesPerView={1}
             pagination={{ clickable: true }}
             autoplay={{ delay: 3000 }}

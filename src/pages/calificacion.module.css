@@ -1,50 +1,63 @@
-.estrellas{
+.estrellas {
     cursor: pointer;
-        gap: 1px;
-        align-content: center;
-        border-radius: 1%;
-        stroke-width: 1%;    
+    gap: 5px;
+    align-content: center;
+    border-radius: 1%;
+    stroke-width: 2%;
 }
+
 .estrella2 {
     fill: var(--violet-6) !important;
     border-radius: 1%;
-    stroke-width: 1%;
+    stroke-width: 2%;
 }
+
 .estrellas:hover {
     stroke-width: 1%;
 }
+
 .form {
     z-index: 200 !important;
     display: flex;
     gap: 5px;
     flex-direction: column;
-    align-items: center;
+    align-items: center ;
     justify-content: center;
     width: 50%;
     height: 10%;
-    margin: 10rem auto;
     background: #ffffff;
     padding: 1rem;
     border-radius: 15px;
     box-shadow: 0 4px 6px #0000001a;
-    margin-bottom: 2rem;
+    margin: 8rem  auto 0rem auto;
     font-size: large;
 }
 @media (max-width:430px) {
     .form {
-        width: 70%;
-        height: 20%;
+        z-index: 200 !important;
+        display: flex;
+        gap: 2px;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+        height: 10%;
+        background: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 4px 6px #0000001a;
+        margin: 8rem auto 0rem auto;
+        
     }
 }
-.content-card{
+
+.content-card {
     z-index: 200 !important;
     width: 90%;
-    display:flex;
+    display: flex;
     flex-direction: column;
-    margin: auto;
 }
-.content-card ion-button{
+
+.content-card ion-button {
     z-index: 200 !important;
     width: 8rem;
     margin: auto;
@@ -52,19 +65,41 @@
     gap: 2rem;
     margin-top: 1rem;
 }
-.content{
+
+.content {
     z-index: 200 !important;
-     width: 12rem;
+    width: 12rem;
     margin: auto;
 }
+
 .textarea2 {
     z-index: 200 !important;
-    background: transparent;
-    border: 1px solid #8888881c;
-    resize: none;
-    width: 90%;
-    height: 10rem auto ;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 1rem;
+        background: transparent;
+        border: 1px solid rgba(136, 136, 136, 0.11);
+        resize: none;
+        width: 90%;
+        height: 10rem auto;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 1rem;
+}
+
+.p {
+    margin: 1rem;
+    text-align: center;
+    font-family: "Lobster";
+    font-size: 3rem;
+    font-weight: 100;
+    color: #110f11;
+}
+
+@media (max-width:430px) {
+    .p {
+        margin-top: 4px;
+        font-family: "Lobster";
+        font-size: 2rem;
+        font-weight: 200;
+        color: #000000;
+
+    }
 }

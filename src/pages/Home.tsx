@@ -35,6 +35,7 @@ const Home: React.FC = () => {
     return (
       <OffertCard avatarUrl={link} />)
   }
+  
   const ruta: any = [
     { link: "https://www.cocacolaep.com/assets/Uploads/resources/Coca-Cola-1210.jpg" },
     { link: "https://cdn.shopify.com/s/files/1/1547/6619/files/logo.png?v=1698644298" },
@@ -73,9 +74,10 @@ const Home: React.FC = () => {
               </IonButton>
             </a>
           </li>
+          {/*Preguntar que link iria si compras servicio a domicilio o quejas*/}
           <li>
             <a href="https://www.facebook.com/share/1WZv93NVER/" target="_blank" >
-              <IonButton color="success" shape='round' fill="clear">
+              <IonButton color="success" shape='round' fill="clear"> 
                 <IonIcon size='large' icon={logoWhatsapp} />
               </IonButton>
             </a>

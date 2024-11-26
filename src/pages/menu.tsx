@@ -80,10 +80,8 @@ export function Menu() {
                 } else {
                     mostrarAlerta("Datos incorrectos intente otra vez ");
 
-                }
-                //if (response.typeUser) setLocalStorageItem("typeUser", response.typeUser); --tipo de usuario para que en menu se muestren 
+                }//if (response.typeUser) setLocalStorageItem("typeUser", response.typeUser); --tipo de usuario para que en menu se muestren 
                 // ** almacen
-
                 dispatch(
                     assignUsers({
                         id: response.userId,
@@ -256,6 +254,23 @@ export function Menu() {
         { link: "/Proveedores", icon: <FileBadge color='pink' size={20} />, text: "Proveedores", view: true }
     ]
 
+    // Estado para mostrar la alerta de cerrar sesión
+    const [showLogoutAlert, setShowLogoutAlert] = useState(false);
+
+    // Función para manejar el cierre de sesión
+    const handleLogout = () => {
+
+        // Limpia el almacenamiento local
+        localStorage.removeItem("token");
+        localStorage.removeItem("typeUser");
+
+        // Limpia el estado global si es necesario
+        /*  dispatch(assignUsers({ id: null, token: null, permisos: [] })); */
+
+        // Redirige al inicio
+        router.push("/home");
+    };
+
     return (
         <>
             <IonMenu side="end" contentId="main-content"  >
@@ -284,7 +299,7 @@ export function Menu() {
                             {/* Ícono de log out para  el modal */}
                             <IonCol style={{ display: "flex", alignItems: "center", gap: "0.5rem", cursor: "pointer", justifyContent: "center" }}>
 
-                                <IonButton color="liz" size="small" shape='round' fill="clear" id="present-alert" onClick={() => { ("Logout") }}>
+                                <IonButton color="liz" size="small" shape='round' fill="clear" id="present-alert" onClick={() => setShowLogoutAlert(true)}>
                                     <Tooltip content="Cerrar sesión">
                                         <span className="text-lg text-default-100 cursor-pointer active:opacity-80">
                                             <IonIcon icon="logout.svg" size="small" content="fuera" />
@@ -303,16 +318,19 @@ export function Menu() {
             </ModalBase>
 
             {/* Alerta de cerrar sesión */}
-            <IonAlert trigger="present-alert"
+            <IonAlert
+                isOpen={showLogoutAlert}
+                onDidDismiss={() => setShowLogoutAlert(false)}
                 header="¿Desea Cerrar Sesión?"
-                className="custom-alert" buttons={[
+                buttons={[
                     {
-                        text: 'No',
-                        cssClass: 'alert-button-cancel ',
+                        text: "No",
+                        cssClass: "alert-button-cancel",
                     },
                     {
-                        text: 'Si',
-                        cssClass: 'alert-button-confirm',
+                        text: "Sí",
+                        cssClass: "alert-button-confirm",
+                        handler: handleLogout,
                     },
                 ]}
             ></IonAlert>

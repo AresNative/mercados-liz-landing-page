@@ -87,13 +87,13 @@ const Page: React.FC<ContainerProps> = ({ children }) => {
                 <IonContent fullscreen ref={contentRef} scrollEvents={true}>
                     <main>{children}</main>
                     <IonFooter>
-                        <IonToolbar>
+                        <IonToolbar className={style["toolbar"]}>
                             <ul
                                 style={{
                                     display: "flex",
                                     flexDirection: "column",
                                     listStyle: "none",
-                                    gap: "1rem",
+                                    gap: ".5rem",
                                     width: "100%",
                                     alignItems: "center",
                                     justifyContent: "center",
@@ -103,10 +103,11 @@ const Page: React.FC<ContainerProps> = ({ children }) => {
                                     ©{fecha} SUPERMERCADOS MEJIA S. DE R.L. DE C.V. Todos los
                                     derechos reservados.
                                 </li>
-                                <li style={{ display: "flex", gap: "2rem" }}>
+                                <li style={{ display: "flex", gap: "1rem", marginLeft: "1rem", marginRight: "1rem" }}>
                                     <a style={{ color: "var(--primary)" }}>Términos y Condiciones</a>
                                     <a style={{ color: "var(--primary)" }}>Política de Privacidad</a>
                                     <a style={{ color: "var(--primary)" }}>Contacto</a>
+                                    <a style={{ color: "var(--primary)" }}>Certificaciones</a>
                                 </li>
                             </ul>
                         </IonToolbar>

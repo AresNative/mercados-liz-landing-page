@@ -85,7 +85,7 @@ const Reclutamiento = () => {
                     )}
                     <div style={{ display: "flex" }}>
                         <Button label={"Volver"} onClick={handleAnterior} type={"button"} color={"default"} disabled={paginaActual === 0} />
-                        <Button label={esUltimaPagina ? "Enviar " : "Siguiente"} type={"button"} color={"default"} onClick={handleSubmit(onSubmit)} />
+                        <Button label={esUltimaPagina ? "Enviar" : "Siguiente"} type={"button"} color={"default"} onClick={handleSubmit(onSubmit)} />
                     </div>
                 </div>
             </div>

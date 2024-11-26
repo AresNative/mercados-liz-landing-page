@@ -5,10 +5,10 @@ import { BookOpenCheck } from "lucide-react";
 import { useEffect, useState } from "react";
 import { GetUserInfo } from "@/services/web_site_gets";
 
-const AbrirPDF = () => {
+/* const AbrirPDF = () => {
     const urlPDF = ''; // Ruta al archivo pdf
     window.open(urlPDF, '_blank'); // Abre el pdf en una nueva pestaña
-};
+}; */
 
 const SesionPage = () => {
     useEffect(() => {
@@ -24,7 +24,7 @@ const SesionPage = () => {
                 {data.map((info: any, index) => (
                     <section key={index}>
                         {/* 
-                            // ! Object.entries es el que identifica las propiedades de un array
+                             ! Object.entries es el que identifica las propiedades de un array
                         */}
                         {Object.entries(info).map(([key, value]:any, id) => (
                             <div key={id}>

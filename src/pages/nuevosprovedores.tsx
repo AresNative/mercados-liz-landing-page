@@ -49,10 +49,16 @@ const preguntas: Pregunta[] = [
             },
             {
                 texto: "Departamento al que va dirigido", tipo: "select", props: "department", values: [
-                    { nombre: "A" },
-                    { nombre: "C" },
-                    { nombre: "A" },
-                    { nombre: "C" }
+                    { nombre: "Abarrotes Comestibles" },
+                    { nombre: "Frutas y Verduras" },
+                    { nombre: "Cuidado Personal" },
+                    { nombre: "Carnes" },
+                    { nombre: "Mercancia Generales" },
+                    { nombre: "Bebidas y Locores" },
+                    { nombre: "Lacteos" },
+                    { nombre: "Dulceria" },
+                    { nombre: "Especies y Condimentos" },
+                    { nombre: "Materia Prima" }
                 ]
             },
         ]
@@ -81,13 +87,25 @@ const NuevoProvePage = () => {
     }
 
     const { register, control, handleSubmit } = useForm();
+    /*  const onSubmit = handleSubmit(async (data) => {
+         /*  await PostProveedor(data)  }*/
+    //) 
     const onSubmit = handleSubmit(async (data) => {
-        await PostProveedor(data)
-
-    })
+        try {
+            await PostProveedor(data);
+            handleEnviar(); // Llamar la alerta después de enviar los datos
+        } catch (error) {
+            Swal.fire({
+                title: "Error al enviar el formulario",
+                text: "Por favor, intente nuevamente.",
+                icon: "error",
+                confirmButtonText: "Aceptar",
+            });
+        }
+    });
 
     const handleEnviar = () => {
-        // Aquí puedes implementar la lógica para enviar las respuestas a un servidor
+        // Aquí puedes implementar la lógica para enviar las respuestas al servidor
         Swal.fire({
             title: "Gracias nos pondremos en contacto",
             showClass: {
@@ -164,7 +182,7 @@ const NuevoProvePage = () => {
                     <p className="sub-titulos5">En caso de tener un catalogo con sus productos favor de agregarlo </p>
                     <input type="file" accept=".pdf,.xlsx" />
                     <div style={{ display: "flex" }}>
-                        <Button label="Enviar" type={"submit"} color={"default"} />
+                        <Button label="Enviar" type={"submit"} color={"default"} /* disabled={rating === 0} */ />
                     </div>
                 </div>
             </form>
@@ -172,3 +190,6 @@ const NuevoProvePage = () => {
     )
 }
 export default NuevoProvePage;
+
+//Hacer que se limpie al mandar la informacion
+// como en calificación

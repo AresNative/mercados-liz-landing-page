@@ -4,8 +4,8 @@
     flex-direction: column;
     align-content: center;
     justify-content: center;
-    width: 75%;
-    margin: auto;
+    width: 79%;
+    margin: auto auto 1rem auto;
     background: #ffffff;
     padding: 1rem;
     border-radius: 15px;
@@ -16,15 +16,15 @@
 /*ajuste*/
 .reclutamiento-columnas {
     display: flex;
-    gap: 2rem;
+    gap: 2rem !important;
 }
 
 @media (max-width: 25vh) {
     .reclutamiento-columnas {
         flex-direction: column;
-        
+
     }
-    
+
 
 }
 
@@ -50,16 +50,17 @@
 
 @media (max-width: 345px) {
     .reclutamiento {
+        margin: auto auto 1rem auto;
         display: flex;
         flex-direction: column;
         align-content: center;
         justify-content: center;
-        width: 90% !important;
-        height: 90% !important;
+        width: 95% !important;
+        height: 95% !important;
         background: #ffffff;
         border-radius: 15px;
-        padding: 1rem;
+        padding: 1rem !important;
         box-shadow: 0 4px 6px #0000001a;
-        
+
     }
 }

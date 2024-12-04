@@ -33,6 +33,7 @@ import 'animate.css';
 import { useSelector } from 'react-redux';
 import { RootState } from './store/store';
 import './index.css';
+import CertificacionPage from './pages/certificaciones/certificacionpage';
 setupIonicReact({
   mode: 'ios'
 });
@@ -102,7 +103,11 @@ const App: React.FC = () => {
           <Route exact path="/RecursosHumanos">
             <RHPage />
           </Route>
-
+         {/* prueba*/ }
+          <Route exact path="/CertificacionPage">
+            <CertificacionPage />
+          </Route>
+          {/* ------------ */}
           {/*  */}
           <Route exact path="/">
             <Redirect to="/home" />

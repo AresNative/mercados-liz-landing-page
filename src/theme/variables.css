@@ -112,12 +112,19 @@ h2.titulos2 {
         max-inline-size: 20rem;
         margin-left: 3.5rem;
         margin-right: 1.5rem;
-        
+     
     }
+    h2.titulos2 {
+     margin-top: .5rem;
+     margin-bottom: 0.5rem;
+     font-size: 2.5rem;
+     font-family: "Lobster";
+     font-weight: 300;
+     text-align: center;
+        }
 }
 
 .sub-titulos {
-    
     font-size: 2.5rem;
     font-weight: 300;
     text-align: center;
@@ -186,8 +193,8 @@ h2.titulos2 {
     gap: 2rem;
     width: 90%;
     margin: auto;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     align-items: center;
     justify-content: center;
 }
@@ -200,6 +207,7 @@ h2.titulos2 {
 @media (max-width: 510px) {
     .card-mail {
         width: 90%;
+        margin: 0.5px;
     }
 }
 .contact-item {
@@ -222,16 +230,30 @@ h2.titulos2 {
     width: 80%;
     margin: auto;
 }
+@media (max-width: 510px) {
+.section-3 {
+        width: 90%;
+        margin: 1rem 1rem 1rem 1rem;
+    }
+}
 
 .mail{
     min-height: 20rem;
     background: #fff;
     margin-bottom: 2rem;
-    margin-top: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+@media (max-width: 345px) {
+.mail {
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 .img-center img {

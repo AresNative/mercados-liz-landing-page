@@ -38,13 +38,14 @@
 }
 @media (max-width:430px) {
     .responsive-table {
-        width: 36rem;
+        width: 35rem;
         overflow: scroll !important;
         font-size: x-large !important;
         }
 }
 @media (max-width:430px) {
     .form {
+       
         width: 23.5rem;  
         overflow: scroll !important;
     }
@@ -63,7 +64,7 @@
     flex-direction: column;
     align-content: center;
     justify-content: center;
-    width: 80%;
+    width: 85%;
     margin: auto;
     background: #ffffff;
     padding: 1rem;
@@ -92,7 +93,7 @@
         flex-direction: column;
         align-content: center;
         justify-content: center;
-        width: 75%;
+        width: 90%;
         margin: auto;
         background: #ffffff;
         padding: 1rem;
@@ -103,17 +104,35 @@
 }
 @media (max-width: 345px) {
     .form {
+        margin: 1rem 3rem 1rem 1rem;
         display: flex;
             gap: 5px;
             flex-direction: column;
             align-content: center;
             justify-content: center;
-            width: 95%;
+            width: 90%;
             margin: auto;
             background: #ffffff;
             padding: 1rem;
             border-radius: 15px;
             box-shadow: 0 4px 6px #0000001a;
             margin-bottom: 2rem;
+    }
+}
+@media (max-width: 375px) {
+    .form {
+        margin: 1rem 3rem 1rem 1rem;
+        display: flex;
+        gap: 5px;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        width: 90%;
+        margin: auto;
+        background: #ffffff;
+        padding: 1rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 6px #0000001a;
+        margin-bottom: 2rem;
     }
 }

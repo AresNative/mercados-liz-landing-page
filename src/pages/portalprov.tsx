@@ -81,7 +81,7 @@ const ProveePage = () => {
 
     const handleEnviar = () => {
         // Aquí puedes implementar la lógica para enviar las respuestas a un servidor
-        alert("¡Cuestionario enviado con éxito!")
+        alert("¡Cuestionario enviado con éxito!123")
     }
 
     const respuestaActual = respuestas.find(r => r.preguntaId === preguntaActual.id)?.respuesta || ""
@@ -133,10 +133,8 @@ const ProveePage = () => {
                                 </div>
                             );
                         })}
-
-                        <div className="container-input">
                             <input type="file" data-multiple-caption="{count} archivos seleccionados" accept=".xml,.pdf" multiple />
-                        </div>
+                       
                         <div>
                             <textarea className="textarea" placeholder="Comentario"></textarea>
                         </div>

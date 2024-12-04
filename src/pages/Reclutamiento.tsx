@@ -1,16 +1,23 @@
 import Page from "@/template/page";
 import "@/pages/margen-pagina.css";
 import { Button } from "@/components/functions/button";
-import '@/components/displays/textarea.css';
+import "@/components/displays/textarea.css";
 import styles from "./reclutamiento.module.css";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { MainForm } from "@/components/form/form2";
 import formReclutamiento from "@/models/form-reclutamiento.json";
+import Carga from "./carga";
+
+interface CargaProps {
+    isOpen: boolean;
+    onClose?: () => void;
+}
 
 const Reclutamiento = () => {
     const { register, reset, handleSubmit } = useForm();
     const [paginaActual, setPaginaActual] = useState(0);
+    const [isLoading, setIsLoading] = useState(false);
 
     // Número de elementos por página (incluye preguntas y títulos)
     const elementosPorPagina = 6;
@@ -44,6 +51,31 @@ const Reclutamiento = () => {
     const onSubmit = async (data: any) => {
         if (!esUltimaPagina) {
             handleSiguiente();
+        } else {
+            // Muestra el modal de carga
+            setIsLoading(true);
+
+            try {
+                // Simula un tiempo de procesamiento
+                await new Promise((resolve) => setTimeout(resolve, 3000));
+
+                // Aquí puedes enviar los datos al servidor
+                console.log("Datos enviados:", data);
+
+                // Restablece la página a la inicial
+                setPaginaActual(0); // Vuelve a la primera página
+
+                // También puedes resetear los campos del formulario si es necesario
+                reset();
+
+                alert("¡Formulario enviado con éxito!");
+
+            } catch (error) {
+                console.error("Error durante el envío:", error);
+            } finally {
+                // Oculta el modal de carga
+                setIsLoading(false);
+            }
         }
     };
 
@@ -79,16 +111,19 @@ const Reclutamiento = () => {
                         <>
                             <input type="file" data-multiple-caption="{count} archivos seleccionados" accept=".pdf" multiple />
                             <label>
-                                <input type="checkbox" />Acepto los términos y condiciones de la aplicación.
+                                <input type="checkbox" /> Acepto los términos y condiciones de la aplicación.
                             </label>
                         </>
                     )}
-                    <div style={{ display: "flex" }}>
+                    <div className={styles["boton"]} style={{ display: "flex" }}>
                         <Button label={"Volver"} onClick={handleAnterior} type={"button"} color={"default"} disabled={paginaActual === 0} />
                         <Button label={esUltimaPagina ? "Enviar" : "Siguiente"} type={"button"} color={"default"} onClick={handleSubmit(onSubmit)} />
                     </div>
                 </div>
             </div>
+
+            {/* Componente de carga */}
+            <Carga isOpen={isLoading} />
         </Page>
     );
 };

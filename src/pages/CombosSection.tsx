@@ -111,7 +111,7 @@ const ComboSection: React.FC = () => {
 
                             <div className={Styles["divcomb2"]}>
                                 <div className={Styles["divcombo2"]}>
-                                    <Timer className="w-4 h-4" />
+                                    <Timer /* className="w-4 h-4" */ />
                                     <span>{combo.validUntil}</span>
                                 </div>
                                 <div className={Styles["divcombo2"]}>

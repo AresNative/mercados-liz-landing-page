@@ -4,7 +4,7 @@ import { Input } from "@/components/functions/input";
 import { Select } from "@/components/functions/select";
 import { Button } from "@/components/functions/button";
 import '@/components/displays/textarea.css'
-import styles from "./reclutamiento.module.css"
+import styles from "./nuevosprov.module.css"
 import { useState } from "react";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
@@ -130,10 +130,10 @@ const NuevoProvePage = () => {
     return (
         <Page /* titulo="NuevoProvePage" */ >
             {/*  <img src="/uvas.png" className="img-uva" /> */}
-            <form onSubmit={onSubmit}>
+            <form onSubmit={onSubmit} >
                 <h2 className="titulos" style={{ marginTop: "6rem" }}>Si quieres ser nuestro proveedor llena el siguiente formulario </h2>
                 <div className={styles["reclutamiento"]} >
-                    <p></p>
+              
                     {preguntaActual.opciones.map((data: Opcion, index: number) => {
                         return (
                             <div className={styles["reclutamiento-columnas"]} key={index}>

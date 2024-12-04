@@ -113,7 +113,7 @@ const Home: React.FC = () => {
         </ul>
       </section>
 
-      <section style={{ marginTop: "5rem", borderTop: "1px solid #b4b4b4e0" }} >
+      <section style={{ marginTop: "5rem", borderTop: "1px solid #b4b4b4e0" ,marginBottom: "1rem" }} >
 
         <nav  >
           <h2 className="titulos">Marcas que nos acompañan </h2>
@@ -126,16 +126,18 @@ const Home: React.FC = () => {
 
       <section className='mail'>
         <h2 className="titulos">Contacto directo</h2>
+        
         <ul className='product'>
+         {/*  <h3 >Información de Contacto</h3> */}
           <li>
             <MainForm message='Enviar'>
               <Input label="Nombre(s)" type="text" placheolder="Ingrese sus nombres" />
               <Input label="Mensaje" type="text" placheolder="Exprese sus dudas..." />
             </MainForm>
+            
           </li>
           <li className="card-mail">
-            <h3>Información de Contacto</h3>
-
+            
             <div className="contact-item">
               <MapPin color="var(--primary)" size={24} />
               <span>Calle Principal 216, 22750 Francisco Zarco, B.C.</span>
@@ -164,31 +166,34 @@ const Home: React.FC = () => {
         <h2
           className="titulos"
           style={{
-            marginTop: "4rem"
+            marginTop: "3rem"
           }}>
 
           Donde encontrarnos
         </h2>
 
-        <div style={{ margin: "2rem auto ", width: "90% " }}>
+        <div style={{ margin: "1rem" }}>
+         
+          <List>
+            <div >
 
-          <List >
-            <IonButton style={{ textDecoration: "underline" }} color="liz" shape='round' fill="clear" onClick={() => incrementTes("Matriz")}>
-              <MapPin color="var(--primary)" size={24} /> Mayoreo
+            
+            <IonButton style={{ textDecoration: "underline"}} color="liz" shape="round" fill="clear" onClick={() => incrementTes("Matriz")}>
+              <MapPin color="var(--primary)" size={24}  /> Mayoreo
             </IonButton>
 
-            <IonButton style={{ textDecoration: "underline" }} color="liz" shape='round' fill="clear" onClick={() => incrementTes("Valle de guadalupe")}>
+            <IonButton style={{ textDecoration: "underline" }} color="liz" shape="round" fill="clear" onClick={() => incrementTes("Valle de guadalupe")}>
               <MapPin color="var(--primary)" size={24} /> Valle de Guadalupe
             </IonButton>
 
-            <IonButton style={{ textDecoration: "underline" }} color="liz" shape='round' fill="clear" onClick={() => incrementTes("Valle de las palmas")}>
+            <IonButton style={{ textDecoration: "underline" }} color="liz" shape="round" fill="clear" onClick={() => incrementTes("Valle de las palmas")}>
               <MapPin color="var(--primary)" size={24} /> Valle de las Palmas
             </IonButton>
 
-            <IonButton style={{ textDecoration: "underline" }} color="liz" shape='round' fill="clear" onClick={() => incrementTes("Testerazo")}>
+            <IonButton style={{ textDecoration: "underline" }} color="liz" shape="round" fill="clear" onClick={() => incrementTes("Testerazo")}>
               <MapPin color="var(--primary)" size={24} /> Testerazo
-            </IonButton>
-
+              </IonButton>
+            </div>
           </List>
 
           <MyMap />

@@ -4,7 +4,7 @@ import { SendIcon, Star } from "lucide-react";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import styles from "@/pages/calificacion.module.css";
-
+ 
 
 interface Estrellas {
     values: number[];
@@ -37,6 +37,7 @@ export default function ServicioPage() {
             timer: 3000,
             timerProgressBar: true,
             didOpen: () => {
+                Swal.showLoading();
                 const timer = Swal.getHtmlContainer()?.querySelector("b");
                 timerInterval = setInterval(() => {
                     if (timer) {

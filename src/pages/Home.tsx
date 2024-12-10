@@ -35,7 +35,7 @@ const Home: React.FC = () => {
     return (
       <OffertCard avatarUrl={link} />)
   }
-  
+
   const ruta: any = [
     { link: "https://www.cocacolaep.com/assets/Uploads/resources/Coca-Cola-1210.jpg" },
     { link: "https://cdn.shopify.com/s/files/1/1547/6619/files/logo.png?v=1698644298" },
@@ -76,14 +76,14 @@ const Home: React.FC = () => {
           </li>
           {/*Preguntar que link iria si compras servicio a domicilio o quejas*/}
           <li>
-            <a href="https://www.facebook.com/share/1WZv93NVER/" target="_blank" >
-              <IonButton color="success" shape='round' fill="clear"> 
+            <a href="https://wa.me/52NUMERO" target="_blank"  >
+              <IonButton color="success" shape='round' fill="clear">
                 <IonIcon size='large' icon={logoWhatsapp} />
               </IonButton>
             </a>
           </li>
           <li>
-            <a href="https://www.facebook.com/share/1WZv93NVER/" target="_blank" >
+            <a href="https://mail.google.com/mail/?view=cm&to=atncliente@mercadosliz.com&su=Consulta%20sobre%20servicio%20y%20más%20información&body=Hola,%20quisiera%20saber%20más%20sobre%20sus%20productos%20y%20servicios%20que%20ofrecen.%0AGracias" target="_blank" >
               <IonButton color="liz" shape='round' fill="clear">
                 <Mail color="var(--primary)" size={24} />
               </IonButton>
@@ -113,7 +113,7 @@ const Home: React.FC = () => {
         </ul>
       </section>
 
-      <section style={{ marginTop: "5rem", borderTop: "1px solid #b4b4b4e0" ,marginBottom: "1rem" }} >
+      <section style={{ marginTop: "5rem", borderTop: "1px solid #b4b4b4e0", marginBottom: "1rem" }} >
 
         <nav  >
           <h2 className="titulos">Marcas que nos acompañan </h2>
@@ -126,18 +126,18 @@ const Home: React.FC = () => {
 
       <section className='mail'>
         <h2 className="titulos">Contacto directo</h2>
-        
+
         <ul className='product'>
-         {/*  <h3 >Información de Contacto</h3> */}
+          {/*  <h3 >Información de Contacto</h3> */}
           <li>
             <MainForm message='Enviar'>
               <Input label="Nombre(s)" type="text" placheolder="Ingrese sus nombres" />
               <Input label="Mensaje" type="text" placheolder="Exprese sus dudas..." />
             </MainForm>
-            
+
           </li>
           <li className="card-mail">
-            
+
             <div className="contact-item">
               <MapPin color="var(--primary)" size={24} />
               <span>Calle Principal 216, 22750 Francisco Zarco, B.C.</span>
@@ -173,25 +173,25 @@ const Home: React.FC = () => {
         </h2>
 
         <div style={{ margin: "1rem" }}>
-         
+
           <List>
             <div >
 
-            
-            <IonButton style={{ textDecoration: "underline"}} color="liz" shape="round" fill="clear" onClick={() => incrementTes("Matriz")}>
-              <MapPin color="var(--primary)" size={24}  /> Mayoreo
-            </IonButton>
 
-            <IonButton style={{ textDecoration: "underline" }} color="liz" shape="round" fill="clear" onClick={() => incrementTes("Valle de guadalupe")}>
-              <MapPin color="var(--primary)" size={24} /> Valle de Guadalupe
-            </IonButton>
+              <IonButton style={{ textDecoration: "underline" }} color="liz" shape="round" fill="clear" onClick={() => incrementTes("Matriz")}>
+                <MapPin color="var(--primary)" size={24} /> Mayoreo
+              </IonButton>
 
-            <IonButton style={{ textDecoration: "underline" }} color="liz" shape="round" fill="clear" onClick={() => incrementTes("Valle de las palmas")}>
-              <MapPin color="var(--primary)" size={24} /> Valle de las Palmas
-            </IonButton>
+              <IonButton style={{ textDecoration: "underline" }} color="liz" shape="round" fill="clear" onClick={() => incrementTes("Valle de guadalupe")}>
+                <MapPin color="var(--primary)" size={24} /> Valle de Guadalupe
+              </IonButton>
 
-            <IonButton style={{ textDecoration: "underline" }} color="liz" shape="round" fill="clear" onClick={() => incrementTes("Testerazo")}>
-              <MapPin color="var(--primary)" size={24} /> Testerazo
+              <IonButton style={{ textDecoration: "underline" }} color="liz" shape="round" fill="clear" onClick={() => incrementTes("Valle de las palmas")}>
+                <MapPin color="var(--primary)" size={24} /> Valle de las Palmas
+              </IonButton>
+
+              <IonButton style={{ textDecoration: "underline" }} color="liz" shape="round" fill="clear" onClick={() => incrementTes("Testerazo")}>
+                <MapPin color="var(--primary)" size={24} /> Testerazo
               </IonButton>
             </div>
           </List>

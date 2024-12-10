@@ -13,7 +13,6 @@ import { useEffect, useRef, useState } from "react";
 import style from "@/components/displays/header.module.css";
 import { useLocation } from "react-router-dom"; // Importamos useLocation
 
-
 interface ContainerProps {
     children: React.ReactNode;
 }
@@ -25,28 +24,32 @@ const Page: React.FC<ContainerProps> = ({ children }) => {
     const isHomePage = location.pathname === "/home"; // Verificamos si estamos en la ruta raíz
 
     // Establecemos los estados iniciales basados en la ruta actual
-    const [headerColor, setHeaderColor] = useState(
-        isHomePage ? "transparent" : "#5409cd4f"
-    );
-    const [blurEffect, setBlurEffect] = useState(isHomePage ? "none" : "blur(4px)");
-    const [tooltipColor, setTooltipColor] = useState(isHomePage ? "#000" : "#fff");
+    const [headerStyle, setHeaderStyle] = useState({
+        background: isHomePage ? "transparent" : "linear-gradient(to right, #790596, #37065f)",
+        color: isHomePage ? "#000" : "#fff",
+        backdropFilter: isHomePage ? "none" : "blur(0px)",
+    });
 
     const handleScroll = (scrollTop: number) => {
-        if (scrollTop > 50) {
-
-            setHeaderColor('#d1d1d196'); // Cambiar color del header //#7600c096
-            setBlurEffect('blur(10px)');// Aplicar el efecto de desenfoque
-            setTooltipColor("#000");
-
-        } else {
-            setHeaderColor("transparent");
-            setBlurEffect("none");
-            setTooltipColor("#000");
+        if (isHomePage) {
+            if (scrollTop > 50) {
+                setHeaderStyle({
+                    background: "#d1d1d196", // Color cuando se hace scroll
+                    color: "#000",
+                    backdropFilter: "blur(10px)",
+                });
+            } else {
+                setHeaderStyle({
+                    background: "transparent", // Color inicial
+                    color: "#000",
+                    backdropFilter: "none",
+                });
+            }
         }
     };
 
     useEffect(() => {
-        if (!isHomePage) return; // Solo aplicamos el efecto si estamos en la ruta raíz
+        if (!isHomePage) return; // Solo aplicamos el efecto si estamos en la pantalla de inicio
 
         const contentElement = contentRef.current;
 
@@ -72,9 +75,9 @@ const Page: React.FC<ContainerProps> = ({ children }) => {
                     <IonToolbar
                         className={style["toolbar"]}
                         style={{
-                            "--background": headerColor,
-                            color: tooltipColor,
-                            backdropFilter: blurEffect,
+                            "--background": headerStyle.background,
+                            color: headerStyle.color,
+                            backdropFilter: headerStyle.backdropFilter,
                         }}
                     >
                         <IonTitle size="large" className={style["titulos"]}>
@@ -108,7 +111,6 @@ const Page: React.FC<ContainerProps> = ({ children }) => {
                                     <a style={{ color: "var(--primary)" }}>Términos y Condiciones</a>
                                     <a style={{ color: "var(--primary)" }}>Política de Privacidad</a>
                                     <a style={{ color: "var(--primary)" }}>Contacto</a>
-                                   
                                 </li>
                             </ul>
                         </IonToolbar>
@@ -120,3 +122,4 @@ const Page: React.FC<ContainerProps> = ({ children }) => {
 };
 
 export default Page;
+

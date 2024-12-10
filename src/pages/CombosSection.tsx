@@ -5,7 +5,7 @@ import Styles from "./Offers.module.css";
 
 const combos = [
     {
-        id: 1,
+        id: 1, 
         name: 'Weekly Essentials Pack',
         price: '$79.99',
         originalPrice: '$120',

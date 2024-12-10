@@ -64,7 +64,7 @@
     flex-direction: column;
     align-content: center;
     justify-content: center;
-    width: 85%;
+    width: 80%;
     margin: auto;
     background: #ffffff;
     padding: 1rem;
@@ -91,15 +91,31 @@
         display: flex;
         gap: 5px;
         flex-direction: column;
+        align-content: center; 
+        justify-content: center;
+        width: 90%;
+       /*  margin: auto; */
+        background: #ffffff;
+      /*   padding: 1rem; */
+        border-radius: 15px;
+        box-shadow: 0 4px 6px #0000001a;
+        /* min-height: 4rem; */
+    }
+}
+@media (max-width: 375px) {
+    .reclutamiento {
+        display: flex;
+        gap: 5px;
+        flex-direction: column;
         align-content: center;
         justify-content: center;
         width: 90%;
-        margin: auto;
+        /*  margin: auto; */
         background: #ffffff;
-        padding: 1rem;
+        /*   padding: 1rem; */
         border-radius: 15px;
         box-shadow: 0 4px 6px #0000001a;
-        min-height: 4rem;
+        /* min-height: 4rem; */
     }
 }
 @media (max-width: 345px) {

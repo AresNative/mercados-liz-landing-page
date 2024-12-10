@@ -163,7 +163,7 @@ export function Menu() {
                                 label="Contraseña"
                                 type="password"
                                 placheolder="Ingresa tu contraseña"
-                                /* autocomplete="off" */
+                            /* autocomplete="off" */
                             />
                             <p className={styles["switch-text"]}>
                                 <span

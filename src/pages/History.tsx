@@ -13,7 +13,7 @@ const HistoriaPage = () => {
                 <div className="timeline-event ">
                     <div className="timeline-icon" style={{ backgroundColor: '#FF5656' }}>
                         <div className="container">
-                            <img src="/uvas.png" />
+                            <img src="/merc3.jpg" />
                         </div>
                         <ShoppingBasket size={40} />
 

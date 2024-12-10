@@ -9,7 +9,7 @@ const ContactPage = () => {
             <section style={{ marginBottom: "3rem" }}>
                 <h1 className="titulos" style={{ marginTop: "6rem" }}>Nuestras sucursales</h1>
                 <ul className='product'>
-                    <li>
+                     <li>
                         <MainForm message='Enviar'>
                             <Input label="Nombre(s)" type="text" placheolder="Ingrese sus nombres" />
                             <Input label="Mensaje" type="text" placheolder="Exprese sus dudas..." />

@@ -4,7 +4,7 @@ import styles from "@/pages/carga.module.css";
 interface CargaProps {
     isOpen: boolean;
     onClose?: () => void;
-}
+} 
 
 const Carga: React.FC<CargaProps> = ({ isOpen, onClose }) => {
     return (

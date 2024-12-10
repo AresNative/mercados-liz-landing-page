@@ -20,7 +20,7 @@ const Billing = () => {
                 </MainForm>
             </div>
 
-            <div style={{ width: "90%", margin: "auto", marginTop: "2rem", background: "#fff", border: "1px solid #e9e9e9e0", borderRadius: "15px", padding: "15px" , marginBottom: "1rem" }}>
+            <div style={{ width: "90%", margin: "auto", marginTop: "2rem", background: "#fff", border: "1px solid #e9e9e9e0", borderRadius: "15px", padding: "15px", marginBottom: "1rem" }}>
                 <h2 style={{ display: "flex", fontWeight: "600", width: "100%" }}>Mis facturas
                     <IonButton style={{ float: "right", width: "5rem" }} color={"danger"} shape="round" size="small" fill="clear">
                         <BookText size={20} />

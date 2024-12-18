@@ -1,6 +1,7 @@
 import { IonInput } from "@ionic/react";
 import styles from "@/components/functions/input.module.css";
 import { useEffect } from "react";
+import { PostUserReg } from "@/services/web_site_post";
 
 interface InputProps {
     cuestion: {
@@ -40,7 +41,7 @@ export function InputDynamic(props: InputProps) {
                 className={styles["use-input"]}
                 {...props.register(cuestion.props, {
                     required: cuestion.require ? "The field is required." : false,
-                })}  // Spread de propiedades adicionales aquí
+                })}  // Spread de propiedades adicionales aqui
             >
                 { }
                 {/*  {type === "password" && (<IonInputPasswordToggle slot="end" />)} */}
@@ -53,3 +54,5 @@ export function InputDynamic(props: InputProps) {
         </div>
     );
 }
+
+

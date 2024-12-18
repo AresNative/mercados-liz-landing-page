@@ -105,7 +105,6 @@ const NuevoProvePage = () => {
     });
 
     const handleEnviar = () => {
-        // Aquí puedes implementar la lógica para enviar las respuestas al servidor
         Swal.fire({
             title: "Gracias nos pondremos en contacto",
             showClass: {

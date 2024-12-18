@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { MainForm } from "@/components/form/form2";
 import formReclutamiento from "@/models/form-reclutamiento.json";
 import Carga from "./carga";
+import { PostUserReg } from "@/services/web_site_post";
 
 interface CargaProps {
     isOpen: boolean;
@@ -15,7 +16,6 @@ interface CargaProps {
 }
 
 const Reclutamiento = () => {
-    const { register, reset, handleSubmit } = useForm();
     const [paginaActual, setPaginaActual] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -48,38 +48,10 @@ const Reclutamiento = () => {
 
     const esUltimaPagina = paginaActual === totalPaginas - 1;
 
-    const onSubmit = async (data: any) => {
-        if (!esUltimaPagina) {
-            handleSiguiente();
-        } else {
-            // Muestra el modal de carga
-            setIsLoading(true);
 
-            try {
-                // Simula un tiempo de procesamiento
-                await new Promise((resolve) => setTimeout(resolve, 3000));
-
-                // Aquí puedes enviar los datos al servidor
-                console.log("Datos enviados:", data);
-
-                // Restablece la página a la inicial
-                setPaginaActual(0); // Vuelve a la primera página
-
-                // También puedes resetear los campos del formulario si es necesario
-                reset();
-
-                alert("¡Formulario enviado con éxito!");
-
-            } catch (error) {
-                console.error("Error durante el envío:", error);
-            } finally {
-                // Oculta el modal de carga
-                setIsLoading(false);
-            }
-        }
-    };
 
     return (
+
         <Page>
             <h2 className="titulos" style={{ marginBottom: "3rem", marginTop: "6rem", marginRight: "2rem" }}>
                 Si estás interesado en unirte de nuestra familia, llena el siguiente formulario
@@ -90,26 +62,18 @@ const Reclutamiento = () => {
                     <div>
                         <div>
                             {/* Renderiza los elementos de la página actual */}
-                            {elementosPaginaActual.map((field, index) => {
-                                // Renderizar H1 como título
-                                if (field.type === "H1") {
-                                    return <h1 key={index}>{field.name}</h1>; // Muestra el H1 como título
-                                }
-                                // Renderizar solo preguntas
-                                return (
-                                    <MainForm
-                                        key={field.id} // Usar id como key
-                                        dataForm={[field]} // Pasar solo el campo actual
-                                        message_button="Enviar"
-                                        className={styles["reclutamiento-columnas"]}
-                                    />
-                                );
-                            })}
+                            <MainForm
+                                
+                                dataForm={elementosPaginaActual} // Pasar solo el campo actual
+                                message_button="Enviar"
+                                className={styles["reclutamiento-columnas"]}
+                            />
                         </div>
                     </div>
                     {esUltimaPagina && (
                         <>
                             <input type="file" data-multiple-caption="{count} archivos seleccionados" accept=".pdf" multiple />
+
                             <label>
                                 <input type="checkbox" /> Acepto los términos y condiciones de la aplicación.
                             </label>
@@ -117,7 +81,7 @@ const Reclutamiento = () => {
                     )}
                     <div className={styles["boton"]} style={{ display: "flex" }}>
                         <Button label={"Volver"} onClick={handleAnterior} type={"button"} color={"default"} disabled={paginaActual === 0} />
-                        <Button label={esUltimaPagina ? "Enviar" : "Siguiente"} type={"button"} color={"default"} onClick={handleSubmit(onSubmit)} />
+                        <Button label={esUltimaPagina ? "Enviar" : "Siguiente"} type={"button"} color={"default"} onClick={handleSiguiente} />
                     </div>
                 </div>
             </div>

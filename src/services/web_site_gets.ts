@@ -13,3 +13,19 @@ export async function GetUserInfo() {
     .catch((err) => console.error(err));
   return response;
 }
+
+
+
+export async function GetProvInfo() {
+  const apiUrl = process.env.REACT_APP_API_URL;
+
+  const response = fetch(`${apiUrl}proveedores`, {
+    method: "GET",
+  })
+    .then((response) => response.json())
+    .then((response) => {
+      return response;
+    })
+    .catch((err) => console.error(err));
+  return response;
+}

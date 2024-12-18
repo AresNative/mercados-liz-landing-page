@@ -18,7 +18,8 @@ export const MainForm = ({ message_button, dataForm, functionForm }: any) => {
     } = useForm();
     async function onSubmit(submitData: any) {
 
-        const { data } = submitData;
+        console.log(submitData);
+
         const respuesta = await PostUserPost(submitData)  // functionForm(data);
         return respuesta
     }
@@ -37,6 +38,7 @@ export const MainForm = ({ message_button, dataForm, functionForm }: any) => {
                     setValue={setValue}
                 />
             ))}
+            <button type="submit">enviar</button>
         </form>
     );
 };

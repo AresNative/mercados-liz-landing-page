@@ -4,7 +4,8 @@ import { SendIcon, Star } from "lucide-react";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import styles from "@/pages/calificacion.module.css";
- 
+import { PostValoracion } from "@/services/web_site_post";
+
 
 interface Estrellas {
     values: number[];

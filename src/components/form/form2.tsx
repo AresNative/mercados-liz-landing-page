@@ -4,45 +4,45 @@ import { useForm } from "react-hook-form";
 import { IonButton } from "@ionic/react";
 import { PostUserPost } from "@/services/web_site_post";
 import { InputDynamic } from "../form-dynamic/input-main";
+import { forwardRef, useImperativeHandle } from "react";
 
-export const MainForm = ({ message_button, dataForm, functionForm }: any) => {
-    const [loading, setLoading] = useState(false);
-    const {
-        handleSubmit,
-        clearErrors,
-        register,
-        setError,
-        watch,
-        setValue,
-        formState: { errors },
-    } = useForm();
-    async function onSubmit(submitData: any) {
+interface MainFormRef {
+    submitForm: () => Promise<void>;
+}
 
-        console.log(submitData);
+export const MainForm = forwardRef<MainFormRef, { message_button: string; dataForm: any; functionForm: any }>(
+    ({ message_button, dataForm, functionForm }, ref) => {
+        const { handleSubmit, register, setError, watch, clearErrors, setValue, formState: { errors } } = useForm();
+        const [loading, setLoading] = useState(false);
 
-        const respuesta = await PostUserPost(submitData)  // functionForm(data);
-        return respuesta
+        async function onSubmit(submitData: any) {
+            console.log(submitData);
+            const respuesta = await PostUserPost(submitData);
+            return respuesta;
+        }
+
+        useImperativeHandle(ref, () => ({
+            submitForm: handleSubmit(onSubmit), // Exponer `submitForm` al ref
+        }));
+
+        return (
+            <form>
+                {dataForm.map((field: any, index: number) => (
+                    <SwitchTypeInputRender
+                        key={field.id ? field.id : `title-${index}`}
+                        cuestion={field}
+                        register={register}
+                        watch={watch}
+                        clearErrors={clearErrors}
+                        setError={setError}
+                        errors={errors}
+                        setValue={setValue}
+                    />
+                ))}
+            </form>
+        );
     }
-
-    return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            {dataForm.map((field: any, index: number) => (
-                <SwitchTypeInputRender
-                    key={field.id ? field.id : `title-${index}`} // Usar ID si existe, sino generar uno para H1
-                    cuestion={field}
-                    register={register}
-                    watch={watch}
-                    clearErrors={clearErrors}
-                    setError={setError}
-                    errors={errors}
-                    setValue={setValue}
-                />
-            ))}
-            <button type="submit">enviar</button>
-        </form>
-    );
-};
-
+);
 export function SwitchTypeInputRender(props: any) {
     const { type } = props.cuestion;
     switch (type) {
@@ -60,5 +60,3 @@ export function SwitchTypeInputRender(props: any) {
             return null; // Opcional: manejar tipos desconocidos
     }
 }
-
-

@@ -545,3 +545,38 @@
         color: #000000;
     }
 }
+
+/*---------------------val--------------------------*/
+.subtitleval {
+    font-weight: 400;
+    margin: 1rem 1rem 1rem 1rem;
+    font-size: 0.9rem;
+    color: #181818a1;
+}
+.ulcomboval {
+    padding-left: 1rem;
+    margin: 1rem;
+    list-style-type: disc;
+}
+.licomboval {
+    display: flex;
+    align-items: center;
+    font-family: "Noto Sans", sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+}
+.divheaderval {
+    color: #3c006eda;
+    font-family:"Lobster";
+    font-size: xx-large;
+    font-weight: 100;
+    display: flex;
+    align-items: center;
+}
+.spancombo {
+    width: 8px;
+    height: 8px;
+    background-color: #3c006eda;
+    border-radius: 100%;
+    margin-right: 10px;
+}

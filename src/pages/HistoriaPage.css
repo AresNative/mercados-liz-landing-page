@@ -83,7 +83,6 @@
     width: 100px;
     /* Ajusta el tamaño según tus necesidades */
     height: 100px;
-    /* Color de fondo para cuando no se ve la imagen */
 }
 .container img {
     position: absolute;

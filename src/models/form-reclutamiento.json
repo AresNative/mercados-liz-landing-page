@@ -14,7 +14,7 @@
    {
       "id": 2,
       "type": "INPUT",
-      "name": "Apellidos",
+      "name": "Apellidos Paterno",
       "placeholder": "Apellido Paterno",
       "require": false,
       "props": "apellido_paterno"
@@ -22,7 +22,7 @@
    {
       "id": 3,
       "type": "INPUT",
-      "name": "Apellidos",
+      "name": "Apellidos Materno",
       "placeholder": "Apellido Materno",
       "require": false,
       "props": "apellido_materno"
@@ -71,7 +71,7 @@
       "id": 9,
       "type": "TEXT",
       "name": "Desde cuándo radica en la ciudad",
-      "placeholder": "Fecha",
+      "placeholder": "Desde cuándo radica en la ciudad",
       "require": false,
       "props": "fecha_radica_ciudad"
    },
@@ -254,7 +254,7 @@
    {
       "id": 30,
       "type": "TEXT",
-      "name": "Puesto que desempeñaba",
+      "name": "Puesto que desempeñaba Penultimo",
       "placeholder": "Puesto que desempeñaba",
       "require": false,
       "props": "puesto_penultimo_trabajo"
@@ -262,7 +262,7 @@
    {
       "id": 31,
       "type": "TEXT",
-      "name": "¿Cuánto tiempo trabajó ahí?",
+      "name": "¿Cuánto tiempo trabajó ahí Penultimo?",
       "placeholder": "¿Cuánto tiempo trabajó ahí?",
       "require": false,
       "props": "tiempo_penultimo_trabajo"
@@ -270,7 +270,7 @@
    {
       "id": 32,
       "type": "TEXT",
-      "name": "Salario semanal",
+      "name": "Salario semanal Penultimo",
       "placeholder": "Salario semanal",
       "require": false,
       "props": "salario_semanal_penultimo"
@@ -278,7 +278,7 @@
    {
       "id": 33,
       "type": "TEXT",
-      "name": "Horario de trabajo",
+      "name": "Horario de trabajo Penultimo",
       "placeholder": "Horario de trabajo",
       "require": false,
       "props": "horario_penultimo_trabajo"
@@ -286,7 +286,7 @@
    {
       "id": 34,
       "type": "TEXT",
-      "name": "Día de descanso",
+      "name": "Día de descanso Penultimo",
       "placeholder": "Día de descanso",
       "require": false,
       "props": "dia_descanso_penultimo"
@@ -294,7 +294,7 @@
    {
       "id": 35,
       "type": "TEXT",
-      "name": "Motivo de salida",
+      "name": "Motivo de salida Penultimo",
       "placeholder": "Motivo de salida",
       "require": false,
       "props": "motivo_salida_penultimo"

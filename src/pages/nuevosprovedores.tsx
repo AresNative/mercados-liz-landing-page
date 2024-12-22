@@ -132,7 +132,7 @@ const NuevoProvePage = () => {
             <form onSubmit={onSubmit} >
                 <h2 className="titulos" style={{ marginTop: "6rem" }}>Si quieres ser nuestro proveedor llena el siguiente formulario </h2>
                 <div className={styles["reclutamiento"]} >
-              
+
                     {preguntaActual.opciones.map((data: Opcion, index: number) => {
                         return (
                             <div className={styles["reclutamiento-columnas"]} key={index}>

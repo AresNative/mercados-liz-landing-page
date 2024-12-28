@@ -42,8 +42,8 @@ const HistoriaPage = () => {
                     </div>
                     <div className="timeline-content">
                         <h3>1994 - Abarrotes Liz. </h3>
-                        <p> Años despues <b>Sr. Jose</b> inauguró su primera sucursal como un 
-                             <i> abarrotes</i>, marcando el inicio de esta gran empresa.
+                        <p> Años despues <b>Sr. Jose</b> inauguró su primera sucursal como un
+                            <i> abarrotes</i>, marcando el inicio de esta gran empresa.
                         </p>
                     </div>
                 </div>

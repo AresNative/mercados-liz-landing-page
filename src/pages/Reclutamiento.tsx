@@ -8,11 +8,12 @@ import { MainForm } from "@/components/form/form2";
 import formReclutamiento from "@/models/form-reclutamiento.json";
 import Carga from "./carga";
 import { useRef } from "react";
+import { PostPostulacion } from "@/services/web_site_post";
+import Swal from "sweetalert2";
+import { useForm } from "react-hook-form";
 
-interface CargaProps {
-    isOpen: boolean;
-    onClose?: () => void;
-}
+
+
 interface MainFormRef {
     submitForm: () => Promise<void>;
 }
@@ -44,59 +45,68 @@ const Reclutamiento = () => {
     const esUltimaPagina = paginaActual === totalPaginas - 1;
 
     const handleEnviar = async () => {
-        if (formRef.current) {
-            try {
-                setIsLoading(true);
-                await formRef.current.submitForm(); // Llama a `submitForm` desde el ref
-                console.log("Formulario enviado con éxito");
-            } catch (error) {
-                console.error("Error al enviar el formulario:", error);
-            } finally {
-                setIsLoading(false);
+        Swal.fire({
+            title: "Gracias nos pondremos en contacto",
+            showClass: {
+                popup: `
+                            animate__animated
+                            animate__fadeInUp
+                            animate__faster
+                           `
+            },
+            hideClass: {
+                popup: `
+                            animate__animated
+                            animate__fadeOutDown
+                            animate__faster
+                           `
             }
-        }
+        });
     };
+
 
     return (
         <Page>
+           
+
             <h2 className="titulos" style={{ marginBottom: "3rem", marginTop: "6rem", marginRight: "2rem" }}>Si estás interesado en unirte de nuestra familia, llena el siguiente formulario</h2>
             <div className="margen-pagina">
                 <img src="/uvas.png" className="img-uva5" />
-                <div className={styles["reclutamiento"]}> 
+                <div className={styles["reclutamiento"]}>
                     <div>
                         <div>
-                        <MainForm
-                            ref={formRef} // Pasa el ref al componente MainForm
-                            dataForm={elementosPaginaActual}
-                            message_button="Enviar"
-                            functionForm={undefined} />
+                            <MainForm
+                                ref={formRef} // Pasa el ref al componente MainForm
+                                dataForm={elementosPaginaActual}
+                                message_button="Enviar"
+                                functionForm={PostPostulacion} />
                         </div>
                     </div>
-               
-                {esUltimaPagina && (
-                    <>
-                        <input type="file" accept=".pdf" multiple />
-                        <label>
-                            <input type="checkbox" /> Acepto los términos y condiciones de la aplicación.
-                        </label>
-                    </>
-                )}
+
+                    {esUltimaPagina && (
+                        <>
+                            <input type="file" accept=".pdf" multiple />
+                            <label>
+                                <input type="checkbox" /> Acepto los términos y condiciones de la aplicación.
+                            </label>
+                        </>
+                    )}
                     <div className={styles["boton"]} style={{ display: "flex" }}>
-                    <Button
-                        label={"Volver"}
-                        onClick={handleAnterior}
-                        type={"button"}
-                        disabled={paginaActual === 0} color={"default"}    />
-                    <Button
-                        label={esUltimaPagina ? "Enviar" : "Siguiente"}
-                        onClick={esUltimaPagina ? handleEnviar : handleSiguiente}
-                        type={"button"} color={"default"}                    />
+                        <Button
+                            label={"Volver"}
+                            onClick={handleAnterior}
+                            type={"button"}
+                            disabled={paginaActual === 0} color={"default"} />
+                        <Button
+                            label={esUltimaPagina ? "Enviar" : "Siguiente"}
+                            onClick={esUltimaPagina ? handleEnviar : handleSiguiente }
+                            type={esUltimaPagina ? "submit" : "button"} color={"default"} />
+                    </div>
                 </div>
-            </div>
             </div>
             {/* Componente de carga */}
             <Carga isOpen={isLoading} />
-
+          
         </Page>
     );
 };

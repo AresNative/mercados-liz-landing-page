@@ -5,7 +5,7 @@ import Styles from "./Offers.module.css";
 
 const combos = [
     {
-        id: 1, 
+        id: 1,
         name: 'Weekly Essentials Pack',
         price: '$79.99',
         originalPrice: '$120',
@@ -20,14 +20,14 @@ const combos = [
         ],
         savings: '33% OFF',
         validUntil: 'Valid until Sunday',
-        
+
     },
     {
         id: 2,
         name: 'Breakfast Bundle',
         price: '$34.99',
         originalPrice: '$50',
-       /*  description: 'Complete breakfast essentials', */
+        /*  description: 'Complete breakfast essentials', */
         items: [
             'Cereal Box',
             '2L Milk',
@@ -55,80 +55,80 @@ const combos = [
         ],
         savings: '33% OFF',
         validUntil: 'Valid until Sunday',
-       /*  imageUrl: 'https://media.istockphoto.com/id/1195743934/es/vector/lindo-dise%C3%B1o-vectorial-de-car%C3%A1cter-panda.jpg?s=612x612&w=0&k=20&c=0CS46nLvvKoLpxo6tv68IxKBR7GEHXV-hq26PnBnNuY=' */
+        /*  imageUrl: 'https://media.istockphoto.com/id/1195743934/es/vector/lindo-dise%C3%B1o-vectorial-de-car%C3%A1cter-panda.jpg?s=612x612&w=0&k=20&c=0CS46nLvvKoLpxo6tv68IxKBR7GEHXV-hq26PnBnNuY=' */
     },
 
 
-    
+
 ];
 
 const ComboSection: React.FC = () => {
     return (
         <div>
             <p className={Styles["p"]}>¿Conoces nuestros combos?</p>
-        <div className={Styles["divcom"]}>
-            {combos.map((combo) => (
-                <IonCard key={combo.id} className={Styles["cardcom"]}>
-                    <IonCardHeader>
-                        <div className={Styles["cardheader"]}>
-                            <div>
-                                <IonCardTitle className={Styles["divheader"]}>{combo.name}</IonCardTitle>
-                                <div className={Styles["divheader"]}>
-                                    <span className={Styles["spanpre"]}>{combo.price}</span>
-                                   {/*  <span className={Styles["spanofer"]}>{combo.originalPrice}</span> */}
+            <div className={Styles["divcom"]}>
+                {combos.map((combo) => (
+                    <IonCard key={combo.id} className={Styles["cardcom"]}>
+                        <IonCardHeader>
+                            <div className={Styles["cardheader"]}>
+                                <div>
+                                    <IonCardTitle className={Styles["divheader"]}>{combo.name}</IonCardTitle>
+                                    <div className={Styles["divheader"]}>
+                                        <span className={Styles["spanpre"]}>{combo.price}</span>
+                                        {/*  <span className={Styles["spanofer"]}>{combo.originalPrice}</span> */}
+                                    </div>
                                 </div>
-                            </div>
-                         {/*    <IonBadge color="liz" className={Styles["badge"]}>
+                                {/*    <IonBadge color="liz" className={Styles["badge"]}>
                                 {combo.savings}
                             </IonBadge> */}
-                        </div>
-                       {/*  <IonCardSubtitle className={Styles["subtitle"]}>{combo.description}</IonCardSubtitle> */}
-                    </IonCardHeader>
+                            </div>
+                            {/*  <IonCardSubtitle className={Styles["subtitle"]}>{combo.description}</IonCardSubtitle> */}
+                        </IonCardHeader>
 
-                    <IonCardContent>
-                        {/* <div className={Styles["divimage"]}>
+                        <IonCardContent>
+                            {/* <div className={Styles["divimage"]}>
                             <img
                                 src={combo.imageUrl}
                                 alt={combo.name}
                                 className={Styles["comboImage"]}
                             />
                         </div> */}
-                        <div className={Styles["divcard"]}>
-                            <div className={Styles["divcardcont"]}>
-                                <h4 className={Styles["h4"]}>
-                                <ShoppingBasket className={Styles["iconofers"]} />
-                                    Que contiene
-                                </h4>
-                                <ul className={Styles["ulcomb"]}>
-                                    {combo.items.map((item, index) => (
-                                        <li key={index} className={Styles["licombo"]}>
-                                            <span className={Styles["spancombo"]} />
-                                            {item}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-
-                            <div className={Styles["divcomb2"]}>
-                                <div className={Styles["divcombo2"]}>
-                                    <Timer /* className="w-4 h-4" */ />
-                                    <span>{combo.validUntil}</span>
+                            <div className={Styles["divcard"]}>
+                                <div className={Styles["divcardcont"]}>
+                                    <h4 className={Styles["h4"]}>
+                                        <ShoppingBasket className={Styles["iconofers"]} />
+                                        Que contiene
+                                    </h4>
+                                    <ul className={Styles["ulcomb"]}>
+                                        {combo.items.map((item, index) => (
+                                            <li key={index} className={Styles["licombo"]}>
+                                                <span className={Styles["spancombo"]} />
+                                                {item}
+                                            </li>
+                                        ))}
+                                    </ul>
                                 </div>
-                                <div className={Styles["divcombo2"]}>
-                                    <Percent className={Styles["percent"]} />
-                                    <span className={Styles["spancomb"]}>{combo.savings}</span>
-                                </div>
-                            </div>
 
-                           {/*  <IonButton expand="block" className={Styles["bottoncomb"]}>
+                                <div className={Styles["divcomb2"]}>
+                                    <div className={Styles["divcombo2"]}>
+                                        <Timer /* className="w-4 h-4" */ />
+                                        <span>{combo.validUntil}</span>
+                                    </div>
+                                    <div className={Styles["divcombo2"]}>
+                                        <Percent className={Styles["percent"]} />
+                                        <span className={Styles["spancomb"]}>{combo.savings}</span>
+                                    </div>
+                                </div>
+
+                                {/*  <IonButton expand="block" className={Styles["bottoncomb"]}>
                                 Add to Cart
                             </IonButton> */}
-                        </div>
-                    </IonCardContent>
-                </IonCard>
-            ))}
+                            </div>
+                        </IonCardContent>
+                    </IonCard>
+                ))}
             </div>
-            
+
         </div>
     );
 };

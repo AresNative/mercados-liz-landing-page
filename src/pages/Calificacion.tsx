@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import styles from "@/pages/calificacion.module.css";
 import { PostValoracion } from "@/services/web_site_post";
+import { useForm } from "react-hook-form";
 
 
 interface Estrellas {
@@ -18,19 +19,37 @@ export default function ServicioPage() {
         values: [1, 2, 3, 4, 5],
         rating: 2
     };
-
+    const { handleSubmit, register, setValue } = useForm();
     const [rating, setRating] = useState(0); // Calificación seleccionada
-    const [hoverRating, setHoverRating] = useState(0); // Calificación al pasar el ratón
+    const [hoverRating, setHoverRating] = useState(0); // Calificación al pasar la flechita
     const [feedback, setFeedback] = useState(""); // Estado para el contenido del textarea
 
     const handleRating = (value: number) => {
         setRating(value);
+        setValue("valor", value);
     };
 
-    const handleSubmit = () => {
-        // Lógica para enviar la calificación y el comentario al backend podría ir aquí
+    const onSubmit = handleSubmit(async (data) => {
+        console.log(data);
 
-        // Alerta con SweetAlert2
+        try {
+            await PostValoracion(data);
+            handleEnviar(); // Llamar la alerta después de enviar los datos
+        } catch (error) {
+            Swal.fire({
+                title: "Error al enviar el formulario",
+                text: "Por favor, intente nuevamente.",
+                icon: "error",
+                confirmButtonText: "Aceptar",
+            });
+        }
+        setRating(0);
+        setFeedback("");
+        setValue("comment", "")
+
+    }) // Reiniciar la calificación y el contenido del textarea
+
+    const handleEnviar = () => {
         let timerInterval: NodeJS.Timeout;
         Swal.fire({
             title: "¡Gracias por tu opinión!",
@@ -50,16 +69,12 @@ export default function ServicioPage() {
                 clearInterval(timerInterval);
             }
         });
-
-        // Reiniciar la calificación y el contenido del textarea
-        setRating(0);
-        setFeedback("");
-    };
+    }
 
     return (
 
         <Page>
-            <form>
+            <form onSubmit={onSubmit} >
                 <IonCard className={styles["form"]}>
                     <IonCardHeader>
                         <IonCardTitle className={styles["p"]}>Califica nuestro servicio</IonCardTitle>
@@ -71,20 +86,23 @@ export default function ServicioPage() {
                                     key={star}
                                     className={` ${rating + 1 <= star ? `${styles.estrellas}` : `${styles.estrella2}`}`}
                                     onClick={() => handleRating(star)}
+                                    {...register("valor", { value: rating })}
                                     onMouseEnter={() => setHoverRating(star)}
                                     onMouseLeave={() => setHoverRating(0)}
                                     size={35}
+
                                 />
                             ))}
                         </div>
                         <IonTextarea
                             className={styles["textarea2"]}
                             placeholder="Deja tu opinión, para nosotros es muy importante escucharte"
-                            value={feedback}
                             onIonChange={(e) => setFeedback(e.detail.value!)} // Actualizar el estado
+                            {...register("comment", { required: true && "Campo obligatorio" })}
                         />
+
                         <IonButton
-                            onClick={handleSubmit}
+                            type={"submit"}
                             disabled={rating === 0 || feedback.trim() === ""}
                             fill="outline"
                             slot="center"

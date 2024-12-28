@@ -190,5 +190,3 @@ const NuevoProvePage = () => {
 }
 export default NuevoProvePage;
 
-//Hacer que se limpie al mandar la informacion
-// como en calificación

@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { IonButton } from "@ionic/react";
-import { PostUserPost } from "@/services/web_site_post";
+import { PostUser } from "@/services/web_site_post";
 import { InputDynamic } from "../form-dynamic/input-main";
 import { forwardRef, useImperativeHandle } from "react";
 
@@ -16,8 +16,9 @@ export const MainForm = forwardRef<MainFormRef, { message_button: string; dataFo
         const [loading, setLoading] = useState(false);
 
         async function onSubmit(submitData: any) {
-            console.log(submitData);
-            const respuesta = await PostUserPost(submitData);
+            console.log(submitData); let respuesta: any;
+            if (functionForm) { respuesta = await functionForm(submitData) }
+            else { respuesta = await PostUser(submitData); }
             return respuesta;
         }
 
@@ -26,7 +27,7 @@ export const MainForm = forwardRef<MainFormRef, { message_button: string; dataFo
         }));
 
         return (
-            <form>
+            <form onSubmit={onSubmit} >
                 {dataForm.map((field: any, index: number) => (
                     <SwitchTypeInputRender
                         key={field.id ? field.id : `title-${index}`}
@@ -39,6 +40,7 @@ export const MainForm = forwardRef<MainFormRef, { message_button: string; dataFo
                         setValue={setValue}
                     />
                 ))}
+                <button type="submit">enviar</button>
             </form>
         );
     }

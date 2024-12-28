@@ -1,4 +1,4 @@
-import { GetUserInfo, GetProvInfo } from "@/services/web_site_gets";
+import { GetUserInfo, GetProvInfo, GetValoracion } from "@/services/web_site_gets";
 import Page from "@/template/page";
 import { useEffect, useState } from "react";
 import './tablas.css';
@@ -11,7 +11,7 @@ const InfprovPage = () => {
     const [error, setError] = useState<string | null>(null); // Estado de error ajustado
 
     useEffect(() => {
-        GetProvInfo()
+        GetValoracion()
             .then((info: any) => {
                 console.log("Datos recibidos:", info); // Verifica la estructura de los datos
                 setdata(info.data || []); // Asegúrate de manejar datos vacíos
@@ -44,21 +44,16 @@ const InfprovPage = () => {
                     <thead>
                         <tr>
                             <th>Nombre</th>
-                            <th>Email</th>
-                            <th>Compañia</th>
-                            <th>Producto</th>
-                            <th>Departamento</th>
-                            
+                            <th>Calificación</th>
                         </tr>
                     </thead>
                     <tbody>
                         {data.map((info: any, index) => (
                             <tr key={index}>
-                                <td>{info.name || "N/A"}</td>
-                                <td>{info.email || "N/A"}</td>
-                                <td>{info.company || "N/A"}</td>
-                                <td>{info.type_prod || "N/A"}</td>
-                                <td>{info.department || "N/A"}</td>
+                                <td className="limrenglones" >
+                                    {info.comment || "N/A"}</td>
+                                <td>{info.valor || "N/A"}</td>
+
                             </tr>
                         ))}
                     </tbody>

@@ -37,3 +37,16 @@ export async function GetValoracion() {
     .catch((err) => console.error(err));
   return response;
 }
+/*Muestra Información nuevas postulaciones*/
+export async function GetPostulacion() {
+  const apiUrl = process.env.REACT_APP_API_URL;
+  const response = fetch(`${apiUrl}postulacion`, {
+    method: "GET",
+  })
+    .then((response) => response.json())
+    .then((response) => {
+      return response;
+    })
+    .catch((err) => console.error(err));
+  return response;
+}

@@ -11,7 +11,7 @@
     color: #333;
     cursor: pointer;
 }
-
+ 
 .contenedor img {
     position: absolute;
     top: 0;
@@ -20,6 +20,8 @@
     height: 100%;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
+
+
 }
 
 .contenedor:hover img {

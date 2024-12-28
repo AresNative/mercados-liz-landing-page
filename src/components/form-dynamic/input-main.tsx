@@ -8,7 +8,9 @@ interface InputProps {
         placeholder: string;
         require: boolean;
         valueDefined?: string;
-        props: any
+        props: any;
+        type: string; // Tipo de entrada (e.g., text, number, date, etc.)
+        min?: number; // Nuevo campo para definir un valor mínimo
     };
     register: (name: string, options: { required: string | boolean }) => any;
     setValue: (name: string, value: string) => void;
@@ -19,8 +21,15 @@ interface InputProps {
 export function InputDynamic(props: InputProps) {
     const { cuestion } = props;
 
-    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const { value } = event.target;
+    const handleInputChange = (event: CustomEvent) => {
+        let value = event.detail.value || "";
+        // Validar el mínimo si el tipo es number
+        if (cuestion.type === "number") {
+            const numericValue = parseFloat(value);
+            if (!isNaN(numericValue) && numericValue < (cuestion.min || 0)) {
+                value = String(cuestion.min); // Reemplazar con el valor mínimo permitido
+            }
+        }
         props.setError(cuestion.name, {});
         props.setValue(cuestion.name, value);
     };
@@ -30,21 +39,19 @@ export function InputDynamic(props: InputProps) {
             props.setValue(cuestion.name, cuestion.valueDefined);
         }
     }, [cuestion.valueDefined, props, cuestion.name]);
+
     return (
         <div className={styles["input-container"]}>
             <IonInput
-                type={"text"}
+                type={cuestion.type || "text"} // Asignar dinámicamente el tipo
                 label={cuestion.placeholder}
-                onChange={handleInputChange}
+                onIonInput={handleInputChange} // Controlar el cambio de entrada
                 labelPlacement="floating"
                 className={styles["use-input"]}
-                {...props.register(cuestion.props, {
+                {...props.register(cuestion.name, {
                     required: cuestion.require ? "The field is required." : false,
-                })}  // Spread de propiedades adicionales aquí
-            >
-                { }
-                {/*  {type === "password" && (<IonInputPasswordToggle slot="end" />)} */}
-            </IonInput>
+                })}
+            />
             {props.errors[cuestion.name]?.message && (
                 <div>
                     <span>{props.errors[cuestion.name].message}</span>
@@ -53,3 +60,5 @@ export function InputDynamic(props: InputProps) {
         </div>
     );
 }
+
+

@@ -75,7 +75,7 @@ const Offers = () => {
             </section>
 
             <section className="mb-8">
-                <ComboSection  />
+                <ComboSection />
             </section>
         </Page>
     )

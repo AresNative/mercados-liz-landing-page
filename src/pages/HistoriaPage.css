@@ -83,7 +83,6 @@
     width: 100px;
     /* Ajusta el tamaño según tus necesidades */
     height: 100px;
-    /* Color de fondo para cuando no se ve la imagen */
 }
 .container img {
     position: absolute;
@@ -94,6 +93,7 @@
     object-fit: cover;
     opacity: 0;
     transition: opacity 0.5s ease;
+    border-radius: 5%;
 }
 .container .content {
     position: relative;
@@ -111,7 +111,7 @@
 }
 @media (max-width:450px) {
     .container img {
-        padding-left: 1.5rem;
+        padding-left: 1rem;
     }
 }
 @media (max-width:450px) {
@@ -120,4 +120,4 @@
         /* Ajusta el tamaño según tus necesidades */
         height: 60px;
     }
-}
+} 

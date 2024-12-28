@@ -15,7 +15,7 @@ import {
     BadgeDollarSign, BookOpenText,
     BriefcaseBusiness, FileBadge,
     FilePlus2, Home, Info, Star,
-    ShoppingBagIcon, X,
+    ShoppingBagIcon, X, Award
 } from 'lucide-react';
 import { Select } from "@/components/functions/select";
 import { useForm, useWatch, Control } from "react-hook-form";
@@ -163,6 +163,7 @@ export function Menu() {
                                 label="Contraseña"
                                 type="password"
                                 placheolder="Ingresa tu contraseña"
+                            /* autocomplete="off" */
                             />
                             <p className={styles["switch-text"]}>
                                 <span
@@ -251,7 +252,8 @@ export function Menu() {
         { link: "/Historia", icon: <BookOpenText color='purple' size={20} />, text: "Nuestra Historia", view: true },
         { link: "/Servicio", icon: <Star color='blue' size={20} />, text: "Valoranos", view: true },//
         { link: "/ProveedoresNuev", icon: <ShoppingBagIcon color='pink' size={20} />, text: "Nuevos Proveedores", view: true },
-        { link: "/Proveedores", icon: <FileBadge color='pink' size={20} />, text: "Proveedores", view: true }
+        { link: "/Proveedores", icon: <FileBadge color='pink' size={20} />, text: "Proveedores", view: true },
+        { link: "/CertificacionPage", icon: <Award color='pink' size={20} />, text: "Certificaciones", view: true }
     ]
 
     // Estado para mostrar la alerta de cerrar sesión

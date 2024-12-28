@@ -1,0 +1,153 @@
+/*CertificationList*/
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+@media (min-width: 768px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/*Certification Header*/
+.header {
+    /*Ver cual se ve mejor*/
+    background: linear-gradient(to right, #790596, #37065f);
+ /* background: linear-gradient(180deg, rgba(193, 170, 234, 1) 0%, rgba(121, 5, 150, 1) 41%, rgba(121, 5, 150, 1) 62%); */
+    color: #ffffff;
+    margin-top: 3rem;
+    padding: 2rem !important;
+}
+.containerheader {
+    max-width: 64rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.title {
+    font-size: 3rem;
+    font-family: Lobster;
+}
+@media (min-width: 319px) {
+    .title {
+    font-size: 2.5rem;
+    font-family: Lobster;
+        }
+}
+.iconowad {
+    height: 6rem;
+    width: 6rem;
+    stroke-width: 6%;
+    color: #fafafa;
+}
+@media (max-width: 320px) {
+.iconowad {
+    display: none;
+    }
+}
+.subtitle {
+    color: #ffffff;
+}
+
+/*CertificationFilter*/
+.buttonContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+.button {
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+}
+.buttonDefault {
+    background-color: #f3f4f6;
+    color: #4b5563;
+}
+.buttonDefault:hover {
+    background-color: #e5e7eb;
+}
+.buttonActive {
+    background-color: #550596;
+    color: white;
+}
+
+/*Certification Card*/
+
+.card {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px #0000001a;
+    padding: 1.5rem;
+}
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+.cardTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+.cardStatus {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+.cardBody {
+    margin-bottom: 1rem;
+}
+.cardRow {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #4b5563;
+}
+.cardDescription {
+    color: #4b5563;
+    margin-bottom: 1rem;
+}
+.cardLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #490596;
+    color: white;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+.cardLink:hover {
+    background-color: #150478;
+}
+.statusActive {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+.statusExpired {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+.statusPending {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+.pageWrapper {
+    min-height: 100vh;
+    background-color: #f3f4f6;
+}
+.contentContainer {
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+

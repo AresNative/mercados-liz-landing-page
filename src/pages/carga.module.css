@@ -1,0 +1,26 @@
+/* .carga {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5rem 5rem 5rem 25rem  
+     height: 50vh;
+    width: 50vh;
+    background-color: white;
+    text-align: center;
+ } 
+/* 
+.carga p {
+    margin-top: 6rem;
+    font-size: 1.2rem;
+    color: #333;
+} */
+
+.carga {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+}

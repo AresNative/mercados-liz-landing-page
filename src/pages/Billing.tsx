@@ -7,7 +7,7 @@ import { ResponsiveTable } from "@/components/displays/table";
 import { BookText } from "lucide-react";
 const Billing = () => {
     return (
-        <Page /* titulo="Sobre Nosotros" */>
+        <Page /* titulo="Sobre Nosotros" */ >
             <h2 className="titulos" style={{ marginBottom: "3rem", marginTop: "6rem", marginRight: "1rem", }}>Sistema de facturación</h2>
             <div style={{ width: "90%", margin: "auto", marginTop: "4rem", display: "flex", justifyContent: "center" }}>
                 <MainForm message='Continuar'>

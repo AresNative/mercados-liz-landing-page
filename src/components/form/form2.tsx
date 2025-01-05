@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { IonButton } from "@ionic/react";
 import { PostUser } from "@/services/web_site_post";
 import { InputDynamic } from "../form-dynamic/input-main";
 import { forwardRef, useImperativeHandle } from "react";
+import { SelectDynamic } from "../form-dynamic/select-main";
 
 interface MainFormRef {
     submitForm: () => Promise<void>;
@@ -16,21 +16,25 @@ export const MainForm = forwardRef<MainFormRef, { message_button: string; dataFo
         const [loading, setLoading] = useState(false);
 
         async function onSubmit(submitData: any) {
-            console.log(submitData); let respuesta: any;
-            if (functionForm) { respuesta = await functionForm(submitData) }
-            else { respuesta = await PostUser(submitData); }
+            console.log(submitData);
+            let respuesta: any;
+            if (functionForm) {
+                respuesta = await functionForm(submitData);
+            } else {
+                respuesta = await PostUser(submitData);
+            }
             return respuesta;
         }
 
         useImperativeHandle(ref, () => ({
-            submitForm: handleSubmit(onSubmit), // Exponer `submitForm` al ref
+            submitForm: handleSubmit(onSubmit),
         }));
 
         return (
-            <form onSubmit={onSubmit} >
+            <form onSubmit={handleSubmit(onSubmit)}>
                 {dataForm.map((field: any, index: number) => (
                     <SwitchTypeInputRender
-                        key={field.id ? field.id : `title-${index}`}
+                        key={field.id ? field.id : `field-${index}`}
                         cuestion={field}
                         register={register}
                         watch={watch}
@@ -40,25 +44,37 @@ export const MainForm = forwardRef<MainFormRef, { message_button: string; dataFo
                         setValue={setValue}
                     />
                 ))}
-                <button type="submit">enviar</button>
             </form>
         );
     }
 );
+
 export function SwitchTypeInputRender(props: any) {
     const { type } = props.cuestion;
+
     switch (type) {
         case "INPUT":
         case "TEXT":
         case "EMAIL":
         case "DATE":
         case "NUMBER":
+            return (
+                <InputDynamic
+                    {...props}
+                    type={type.toLowerCase()} // Convertir a minúsculas para HTML válido
+                />
+            );
         case "SELECT":
-            return <InputDynamic {...props} />;
+            return (
+                <SelectDynamic
+                    {...props}
+                    type="select"
+                    options={props.cuestion.options || []} // Pasar opciones al componente
+                />
+            );
         case "H1":
-            // Renderizar H1 sin usar el ID
-            return <h1 key={`title-${props.cuestion.name}`}>{props.cuestion.name}</h1>; // Usar nombre como parte de la key
+            return <h1 key={`title-${props.cuestion.name}`}>{props.cuestion.name}</h1>;
         default:
-            return null; // Opcional: manejar tipos desconocidos
+            return null;
     }
 }

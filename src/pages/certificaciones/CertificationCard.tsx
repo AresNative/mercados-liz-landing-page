@@ -1,5 +1,5 @@
 import React from 'react';
-import { FileText, Calendar, Building, Award } from 'lucide-react';
+import { FileText, Calendar, Building} from 'lucide-react';
 import { Certification } from './certification';
 import styles from './certificaciones.module.css';
 

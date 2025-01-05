@@ -8,7 +8,6 @@ export interface Certification {
     category: string;
     status: 'active' | 'expired' | 'pending';
 }
-
 export const certifications: Certification[] = [
     {
         id: '1',

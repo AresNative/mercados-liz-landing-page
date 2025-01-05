@@ -13,7 +13,10 @@ import { PostProveedor } from "@/services/web_site_post";
 interface Opcion {
     texto: string;
     tipo: 'text' | 'password' | 'email' | 'number' | "select" | 'date' | "h1" | undefined; // Tipo del input (text, email, number, etc.)
-    subopciones?: { props?: any, texto: string, tipo: 'text' | 'password' | 'email' | 'number' | 'date' | "select" | undefined; multiple?: boolean; values?: any[]; }[]; // Subopciones opcionales con sus tipos
+    subopciones?: {
+        props?: any, texto: string, tipo: 'text' | 'password' | 'email' | 'number' | 'date' | "select" | undefined;
+        multiple?: boolean; values?: any[];
+    }[]; // Subopciones opcionales con sus tipos
     values?: any[];
     multiple?: boolean;
     props?: any;
@@ -48,7 +51,7 @@ const preguntas: Pregunta[] = [
                 ]
             },
             {
-                texto: "Departamento al que va dirigido", tipo: "select", props: "department", values: [
+                texto: "Departamento al que va dirigido", tipo: "select", props: "type_prod", values: [
                     { nombre: "Abarrotes Comestibles" },
                     { nombre: "Frutas y Verduras" },
                     { nombre: "Cuidado Personal" },
@@ -127,7 +130,7 @@ const NuevoProvePage = () => {
     const respuestaActual = respuestas.find(r => r.preguntaId === preguntaActual.id)?.respuesta || ""
 
     return (
-        <Page /* titulo="NuevoProvePage" */ >
+        <Page  >
             {/*  <img src="/uvas.png" className="img-uva" /> */}
             <form onSubmit={onSubmit} >
                 <h2 className="titulos" style={{ marginTop: "6rem" }}>Si quieres ser nuestro proveedor llena el siguiente formulario </h2>
@@ -145,7 +148,8 @@ const NuevoProvePage = () => {
                                                     key={subIndex}
                                                     multiple={subdata.multiple}
                                                     values={subdata.values || []} // Usamos las opciones de select en las subopciones
-                                                    message={subdata.texto}       // Usamos el texto como mensaje o label
+                                                    message={subdata.texto}
+                                                    props={register(subdata.props.nombre)}// Usamos el texto como mensaje o label
                                                 />
                                             ) : (
                                                 <Input
@@ -178,7 +182,9 @@ const NuevoProvePage = () => {
                             </div>
                         );
                     })}
-                    <p className="sub-titulos5">En caso de tener un catalogo con sus productos favor de agregarlo </p>
+                    <p className="sub-titulos5">
+                        En caso de contar con algun catalogo con sus productos favor de anexarlo
+                    </p>
                     <input type="file" accept=".pdf,.xlsx" />
                     <div style={{ display: "flex" }}>
                         <Button label="Enviar" type={"submit"} color={"default"} /* disabled={rating === 0} */ />
@@ -189,4 +195,5 @@ const NuevoProvePage = () => {
     )
 }
 export default NuevoProvePage;
+
 

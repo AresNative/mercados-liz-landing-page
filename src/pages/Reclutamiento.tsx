@@ -6,13 +6,9 @@ import styles from "./reclutamiento.module.css";
 import { useState } from "react";
 import { MainForm } from "@/components/form/form2";
 import formReclutamiento from "@/models/form-reclutamiento.json";
-import Carga from "./carga";
 import { useRef } from "react";
 import { PostPostulacion } from "@/services/web_site_post";
 import Swal from "sweetalert2";
-import { useForm } from "react-hook-form";
-
-
 
 interface MainFormRef {
     submitForm: () => Promise<void>;
@@ -29,22 +25,19 @@ const Reclutamiento = () => {
     );
 
     const formRef = useRef<MainFormRef>(null); // Declara el tipo de ref
-
     const handleSiguiente = () => {
         if (paginaActual < totalPaginas - 1) {
             setPaginaActual(paginaActual + 1);
         }
     };
-
     const handleAnterior = () => {
         if (paginaActual > 0) {
             setPaginaActual(paginaActual - 1);
         }
     };
-
     const esUltimaPagina = paginaActual === totalPaginas - 1;
-
     const handleEnviar = async () => {
+        await formRef.current?.submitForm()
         Swal.fire({
             title: "Gracias nos pondremos en contacto",
             showClass: {
@@ -64,11 +57,8 @@ const Reclutamiento = () => {
         });
     };
 
-
     return (
         <Page>
-           
-
             <h2 className="titulos" style={{ marginBottom: "3rem", marginTop: "6rem", marginRight: "2rem" }}>Si estás interesado en unirte de nuestra familia, llena el siguiente formulario</h2>
             <div className="margen-pagina">
                 <img src="/uvas.png" className="img-uva5" />
@@ -99,16 +89,15 @@ const Reclutamiento = () => {
                             disabled={paginaActual === 0} color={"default"} />
                         <Button
                             label={esUltimaPagina ? "Enviar" : "Siguiente"}
-                            onClick={esUltimaPagina ? handleEnviar : handleSiguiente }
-                            type={esUltimaPagina ? "submit" : "button"} color={"default"} />
+                            onClick={esUltimaPagina ? handleEnviar : handleSiguiente}
+                            type={esUltimaPagina ? "submit" : "button"} color={"default"}
+                        />
                     </div>
                 </div>
             </div>
-            {/* Componente de carga */}
-            <Carga isOpen={isLoading} />
-          
+
         </Page>
     );
 };
 
-export default Reclutamiento;
+export default Reclutamiento

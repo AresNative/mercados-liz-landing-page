@@ -3,42 +3,34 @@ import { MainForm } from '@/components/form/main-form';
 import { Input } from '@/components/functions/input';
 import { MyMap } from '@/components/plugins/map';
 import Page from '@/template/page';
-import { IonButton, IonFab, IonFabButton, IonIcon, IonItem } from '@ionic/react';
+import { IonButton, IonFab, IonFabButton, IonIcon } from '@ionic/react';
 import {
   chevronDown,
   logoFacebook,
   logoWhatsapp
 } from 'ionicons/icons';
-import { CreditCard, Mail, MapPin, Package, Phone, Plane, ShoppingCart, Truck } from 'lucide-react';
-import { useDispatch, useSelector } from 'react-redux';
+import { CreditCard, Mail, MapPin, Package, Phone, ShoppingCart, Truck } from 'lucide-react';
+import { useDispatch } from 'react-redux';
 import { asingn } from "@/store/reducers";
 import { useEffect } from 'react';
-import { GetUserInfo } from '@/services/web_site_gets';
+
 import { List } from '@/components/displays/list';
 import { OffertCard } from '@/components/displays/card';
 import Styles from "./Offers.module.css";
-import { RootState } from '@/store/store';
 
 const Home: React.FC = () => {
   const dispatch = useDispatch();
-
   function incrementTes(suc: string) {
     dispatch(asingn({ sucursal: suc }))
   }
-  useEffect(() => {
-    GetUserInfo().then((info: any) => {
-      console.log(info);
-    })
-  }, [])
-
+ 
   function rutas(link: string) {
     return (
       <OffertCard avatarUrl={link} />)
   }
 
-
   const ruta: any = [
-    { link: "https://www.cocacolaep.com/assets/Uploads/resources/Coca-Cola-1210.jpg" },
+    { link: "https://i.pinimg.com/originals/1e/c1/d2/1ec1d2ce366d1f603b1bde70ae508063.png" },
     { link: "https://cdn.shopify.com/s/files/1/1547/6619/files/logo.png?v=1698644298" },
     { link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSgEuX0hSXHfBeGvSHwOyoXcd-sJOh96GvQQ&s" },
     { link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7Ub0t4Q4nI1ec4QiDNyMYDTIhYDkKfpgEdg&s" },
@@ -49,8 +41,7 @@ const Home: React.FC = () => {
   ]
 
   return (
-
-    <Page /* titulo='Mercados Liz' */>
+    <Page>
       <section className='section-1'>
         <div className='overlay'>
           <h1 className="titulos">Siempre Fresco Siempre Bien</h1>

@@ -1,0 +1,120 @@
+.table-container {
+    margin: 3rem ;
+    width: 100%;
+    overflow-x: auto;
+    background: #ffffff;
+    font-size: medium !important;
+}
+.responsive-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.responsive-table th,
+.responsive-table td {
+    padding: 15px;
+    text-align: left;
+}
+.responsive-table th {
+    /*Encabezado*/
+    font-weight: 600;
+    color:#6503c2;
+    border-bottom: 1px solid #c990ff18; /*linea encabezado*/
+}
+.responsive-table tbody tr:hover {
+    background-color: #8b00fd0c;
+}
+.limrenglones{
+    max-inline-size: 1rem;
+}
+.fontSize{
+    font-size: medium !important
+}
+.form {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    width: 93%;
+    margin: auto;
+    background: #ffffff;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+}
+@media (max-width:430px) {
+    .responsive-table {
+        width: 30rem;
+        overflow: scroll !important;
+        font-size: x-large !important;
+    }
+}
+@media (min-width:391px) {
+    .responsive-table {
+        width: 30rem;
+        overflow: scroll !important;
+        font-size: x-large !important;
+    }
+}
+@media (max-width:430px) {
+    .form {
+        width: 23.5rem;
+        overflow: scroll !important;
+    }
+}
+@media (max-width:430px) {
+    .responsive-table th,
+    .responsive-table td {
+        text-align: left;
+        font-size: 15px ;
+    }
+}
+@media (max-width: 345px) {
+    .form {
+        display: flex;
+        gap: 5px;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        width: 90%;
+    }
+}
+@media (max-width: 375px) {
+    .form {
+        margin: 1rem 3rem 1rem 1rem;
+        display: flex;
+        gap: 5px;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        width: 90%;
+        margin: auto;
+    }
+}
+/*Botones paginación*/
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.pagination button {
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #5c00a798;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.pagination button:disabled {
+    background-color: #6c00c43a;
+    cursor: not-allowed;
+}
+
+.pagination span {
+    margin: 1rem 1rem;
+    font-weight: lighter;
+}

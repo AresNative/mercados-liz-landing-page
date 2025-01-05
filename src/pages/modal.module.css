@@ -1,6 +1,5 @@
 .modal{
     --background:transparent;
-    
 }
 .modal-columnas {
     display: flex;
@@ -83,7 +82,6 @@
     top: 2rem;
     right: 7rem;
 }
-
 @media (max-width:430px) {
 .iconX {
         color: red;

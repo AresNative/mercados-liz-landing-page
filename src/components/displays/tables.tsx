@@ -1,5 +1,5 @@
 import styles from "@/components/displays/tables.module.css";
-import {  IonIcon } from "@ionic/react";
+import { IonIcon } from "@ionic/react";
 
 export default function Tabla() {
     return (
@@ -17,14 +17,14 @@ export default function Tabla() {
                         <td>Guardia</td>
                         <td>Fulanito1</td>
                         <td className={styles["icontabla"]}>
-                                <IonIcon icon="./file-user.svg" size="large"    />
+                            <IonIcon icon="./file-user.svg" size="large" />
                         </td>
                     </tr>
                     <tr>
                         <td>Guardia</td>
                         <td>Fulanito2</td>
                         <td className={styles["icontabla"]}>
-                        <IonIcon icon="./file-user.svg" size="large" />
+                            <IonIcon icon="./file-user.svg" size="large" />
                         </td>
                     </tr>
                 </tbody>
@@ -36,18 +36,4 @@ export default function Tabla() {
 
 }
 
-{/* <Page titulo="RecursosHumanos">
-    <h1 className="titulos"> Recursos humanos</h1>
-    <div className={styles["divbu"]}>
-        <Button type="button" color="default" label=" Agregar Vacante" onClick={{}} />
-        <Button type="button" color="default" label=" Postulaciones" onClick={{}} />
-    </div>
-
-    <Tabla ></Tabla>
-
-</Page> */}
-
-
-/*   <th></th>
-<th></th> */
 

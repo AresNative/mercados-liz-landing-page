@@ -49,11 +49,9 @@ const CertificacionPage = () => {
                         </div>
                     </div>
                 </div>
-                
                 <p>
                     Página meramente ilustrativa y no se cuentan con las certificaciones mencionadas
                 </p>
-
             </div>
         </Page>
     );

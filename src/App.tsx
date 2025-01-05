@@ -24,7 +24,6 @@ import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
-import RHPage from './pages/Rh';
 import ServicioPage from './pages/Calificacion';
 import HistoriaPage from './pages/History';
 import NuevoProvePage from './pages/nuevosprovedores';
@@ -35,6 +34,7 @@ import { RootState } from './store/store';
 import './index.css';
 import CertificacionPage from './pages/certificaciones/certificacionpage';
 import InfprovPage from './pages/vistaUser/provnuevo';
+import RHPage from './pages/PageVistas/Rh';
 setupIonicReact({
   mode: 'ios'
 });
@@ -104,14 +104,15 @@ const App: React.FC = () => {
           <Route exact path="/RecursosHumanos">
             <RHPage />
           </Route>
-         {/* prueba*/ }
+          {/* prueba*/}
           <Route exact path="/CertificacionPage">
             <CertificacionPage />
           </Route>
-
+          {/* Paginas informacion que muestran datos  */}
           <Route exact path="/provpage">
             <InfprovPage />
           </Route>
+
           {/* ------------ */}
           {/*  */}
           <Route exact path="/">

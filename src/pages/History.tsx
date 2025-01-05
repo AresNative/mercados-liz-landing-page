@@ -1,7 +1,6 @@
 import Page from "@/template/page";
 import './HistoriaPage.css';
 import { HousePlus, Loader, Pickaxe, ShoppingBasket, ShoppingCart, Store, Truck, Users } from "lucide-react";
-
 import ValoresSection from "./Valores";
 
 const HistoriaPage = () => {

@@ -94,12 +94,9 @@
         align-content: center; 
         justify-content: center;
         width: 90%;
-       /*  margin: auto; */
         background: #ffffff;
-      /*   padding: 1rem; */
         border-radius: 15px;
         box-shadow: 0 4px 6px #0000001a;
-        /* min-height: 4rem; */
     }
 }
 @media (max-width: 375px) {
@@ -110,12 +107,9 @@
         align-content: center;
         justify-content: center;
         width: 90%;
-        /*  margin: auto; */
         background: #ffffff;
-        /*   padding: 1rem; */
         border-radius: 15px;
         box-shadow: 0 4px 6px #0000001a;
-        /* min-height: 4rem; */
     }
 }
 @media (max-width: 345px) {

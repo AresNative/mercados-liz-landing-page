@@ -5,7 +5,7 @@ interface buttonAction {
     onClick?: any;
     label: string;
     type?: "button" | "submit" | "reset";
-    color: "default" | "dark" | "light";
+    color: "default" | "dark" | "light" ;
     disabled?: boolean; // Ensure `disabled` is defined here
 }
 

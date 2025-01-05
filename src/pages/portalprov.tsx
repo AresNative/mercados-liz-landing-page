@@ -35,12 +35,12 @@ const preguntas: Pregunta[] = [
         texto: "Datos Generales",
         opciones: [
             { texto: "Información general", tipo: "h1" },
-            { texto: "Proveedor", tipo: "text" ,props:""},
+            { texto: "Proveedor", tipo: "text", props: "" },
             {
                 texto: "Datos", tipo: "text", subopciones: [
                     { texto: "Fecha ", tipo: "date" },
                     {
-                        texto: "Tipo de Movimiento", tipo: "select",props:"", multiple: false, values: [
+                        texto: "Tipo de Movimiento", tipo: "select", props: "", multiple: false, values: [
                             { nombre: "Factura" },
                             { nombre: "Pago" },
                             { nombre: "Notificación" },
@@ -86,7 +86,7 @@ const ProveePage = () => {
 
     const respuestaActual = respuestas.find(r => r.preguntaId === preguntaActual.id)?.respuesta || ""
     return (
-        <Page /* titulo="Proveedor" */>
+        <Page>
             <>
                 <h2 className="titulos" style={{ marginTop: "6rem" }}> Portal proveedores Mercados Mejia </h2>
                 <form className="margen-pagina ">
@@ -133,8 +133,8 @@ const ProveePage = () => {
                                 </div>
                             );
                         })}
-                            <input type="file" data-multiple-caption="{count} archivos seleccionados" accept=".xml,.pdf" multiple />
-                       
+                        <input type="file" data-multiple-caption="{count} archivos seleccionados" accept=".xml,.pdf" multiple />
+
                         <div>
                             <textarea className="textarea" placeholder="Comentario"></textarea>
                         </div>

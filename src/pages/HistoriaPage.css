@@ -5,7 +5,6 @@
     border-radius: 1%;
     stroke-width: 2%;
     position: absolute !important;
-
 }
 /* Estructura de la línea de tiempo */
 .timeline {
@@ -19,7 +18,6 @@
 @media (max-width:450px) {
     .timeline {
         padding-left: 10px ;
-        
     }
 }
 .timeline-event {
@@ -55,13 +53,11 @@
     font-weight: bold;
     color: #333;
 }
-
 .timeline-event p {
     margin: 5px 0;
     font-size: 16px;
     color: #666;
 }
-
 .timeline::before {
     content: '';
     position: absolute;
@@ -81,7 +77,6 @@
 .container {
     position: absolute;
     width: 100px;
-    /* Ajusta el tamaño según tus necesidades */
     height: 100px;
 }
 .container img {
@@ -117,7 +112,6 @@
 @media (max-width:450px) {
     .container  {
         width: 85px;
-        /* Ajusta el tamaño según tus necesidades */
         height: 60px;
     }
 } 

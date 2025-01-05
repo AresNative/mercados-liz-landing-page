@@ -18,11 +18,10 @@ import {
     ShoppingBagIcon, X, Award
 } from 'lucide-react';
 import { Select } from "@/components/functions/select";
-import { useForm, useWatch, Control } from "react-hook-form";
-import { GetUserInfo } from "@/services/web_site_gets";
+import { useForm } from "react-hook-form";
 import { PostUser, PostUserReg } from "@/services/web_site_post";
 import Swal from 'sweetalert2';
-import { getLocalStorageItem, setLocalStorageItem } from "@/services/localstorage";
+import { setLocalStorageItem } from "@/services/localstorage";
 import { useDispatch } from "react-redux";
 import { assignUsers } from "@/store/reducerUser";
 
@@ -71,7 +70,7 @@ export function Menu() {
     const { register, control, handleSubmit } = useForm();
     const onSubmit = handleSubmit(async (data) => {
 
-        //GetUserInfo();
+
         if (name === "Login") {
             await PostUser(data).then((response: any) => {
                 if (response.token) {
@@ -188,54 +187,55 @@ export function Menu() {
                             <Button type="submit" color="default" label="Iniciar Sesión" />
                         </>
                         /*se agrego el espacio de que si se olvido la contraseña*/
-                    ) : (
-                        <>
-                            <Input
-                                props={register("name")}
-                                label="Nombre(s)"
-                                type="text"
-                                placheolder="Ingresa tu nombre(s)"
-                            />
-                            <Input
-                                props={register("apellido")}
-                                label="Apellidos"
-                                type="text"
-                                placheolder="Ingresa tus apellidos"
-                            />
-                            <Input
-                                props={register("email")}
-                                label="Usuario"
-                                type="email"
-                                placheolder="Ingresa tu usario"
-                            />
-                            <Input
-                                props={register("password")}
-                                label="Contraseña"
-                                type="password"
-                                placheolder="Ingresa tu contraseña"
-                            />
-                            <Select
-                                values={[
-                                    { name: "Administración" },
-                                    { name: "Recursos Humanos" },
-                                    { name: "Contabilidad" },
-                                    { name: "Recibo" },
-                                ]}
-                                message="Áreas"
-                            />
-                            <p className={styles["switch-text"]}>
-                                ¿Ya tienes una cuenta?
-                                <span
-                                    onClick={() => setname("Login")}
-                                    className={styles["switch-link"]}
-                                >
-                                    {" "}
-                                    Inicia Sesión
-                                </span>
-                            </p>
-                            <Button type="submit" color="default" label="Registrate" />
-                        </>
-                    )
+                    ) :
+                        (
+                            <>
+                                <Input
+                                    props={register("name")}
+                                    label="Nombre(s)"
+                                    type="text"
+                                    placheolder="Ingresa tu nombre(s)"
+                                />
+                                <Input
+                                    props={register("apellido")}
+                                    label="Apellidos"
+                                    type="text"
+                                    placheolder="Ingresa tus apellidos"
+                                />
+                                <Input
+                                    props={register("email")}
+                                    label="Usuario"
+                                    type="email"
+                                    placheolder="Ingresa tu usario"
+                                />
+                                <Input
+                                    props={register("password")}
+                                    label="Contraseña"
+                                    type="password"
+                                    placheolder="Ingresa tu contraseña"
+                                />
+                                <Select
+                                    values={[
+                                        { name: "Administración" },
+                                        { name: "Recursos Humanos" },
+                                        { name: "Contabilidad" },
+                                        { name: "Recibo" },
+                                    ]}
+                                    message="Áreas"
+                                />
+                                <p className={styles["switch-text"]}>
+                                    ¿Ya tienes una cuenta?
+                                    <span
+                                        onClick={() => setname("Login")}
+                                        className={styles["switch-link"]}
+                                    >
+                                        {" "}
+                                        Inicia Sesión
+                                    </span>
+                                </p>
+                                <Button type="submit" color="default" label="Registrate" />
+                            </>
+                        )
                     }
                 </form>
             </div>

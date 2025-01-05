@@ -1,16 +1,16 @@
-import { GetProvInfo } from "@/services/web_site_gets";
+import { GetValoracion } from "@/services/web_site_gets";
 import Page from "@/template/page";
 import { useEffect, useState } from "react";
 import './tablasrh.css';
 
-const InfprovPage = () => {
+const InfValoracionPage = () => {
 
     const [data, setdata] = useState([]);
     const [loading, setLoading] = useState(true); // Estado de carga
     const [error, setError] = useState<string | null>(null); // Estado de error ajustado
 
     useEffect(() => {
-        GetProvInfo()
+        GetValoracion()
             .then((info: any) => {
                 console.log("Datos recibidos:", info); // Verifica la estructura de los datos
                 setdata(info.data || []); // Asegúrate de manejar datos vacíos
@@ -42,20 +42,16 @@ const InfprovPage = () => {
                 <table className="responsive-table">
                     <thead>
                         <tr>
-                            <th>Nombre</th>
-                            <th>Compañia</th>
-                            <th>Tipo de producto</th>
-                            <th>Departamento al que va dirigido</th>
+                            <th>Comentirio</th>
+                            <th>Calificacion del 1 al 5</th>
                         </tr>
                     </thead>
                     <tbody>
                         {data.map((info: any, index) => (
                             <tr key={index}>
                                 <td className="limrenglones" >
-                                    {info.name || "N/A"}</td>
-                                <td>{info.email || "N/A"}</td>
-                                <td>{info.type_prod || "N/A"}</td>
-                                <td>{info.department || "N/A"}</td>
+                                    {info.comment || "N/A"}</td>
+                                <td>{info.valor || "N/A"}</td>
 
                             </tr>
                         ))}
@@ -66,4 +62,4 @@ const InfprovPage = () => {
     );
 };
 
-export default InfprovPage;
+export default InfValoracionPage;

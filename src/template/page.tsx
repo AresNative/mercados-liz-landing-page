@@ -1,22 +1,15 @@
 import { Menu } from "@/pages/menu";
 import {
-    IonButtons,
-    IonContent,
-    IonFooter,
-    IonHeader,
-    IonMenuButton,
-    IonPage,
-    IonTitle,
-    IonToolbar,
+    IonButtons, IonContent, IonFooter, IonHeader,
+    IonMenuButton, IonPage, IonTitle, IonToolbar,
 } from "@ionic/react";
 import { useEffect, useRef, useState } from "react";
 import style from "@/components/displays/header.module.css";
-import { useLocation } from "react-router-dom"; // Importamos useLocation
+import { useLocation } from "react-router-dom";
 
 interface ContainerProps {
     children: React.ReactNode;
 }
-
 const Page: React.FC<ContainerProps> = ({ children }) => {
     const fecha = new Date().getFullYear();
     const contentRef = useRef<HTMLIonContentElement>(null);
@@ -40,8 +33,8 @@ const Page: React.FC<ContainerProps> = ({ children }) => {
                 });
             } else {
                 setHeaderStyle({
-                    background: "transparent", // Color inicial
-                    color: "#000",
+                    background: "37065f", // Color inicial
+                    color: "#37065f",
                     backdropFilter: "none",
                 });
             }
@@ -50,18 +43,13 @@ const Page: React.FC<ContainerProps> = ({ children }) => {
 
     useEffect(() => {
         if (!isHomePage) return; // Solo aplicamos el efecto si estamos en la pantalla de inicio
-
         const contentElement = contentRef.current;
-
         if (!contentElement) return;
-
         const onScroll = (event: CustomEvent) => {
             const scrollTop = (event.detail as any).scrollTop;
             handleScroll(scrollTop);
         };
-
         contentElement.addEventListener("ionScroll", onScroll);
-
         return () => {
             contentElement.removeEventListener("ionScroll", onScroll);
         };

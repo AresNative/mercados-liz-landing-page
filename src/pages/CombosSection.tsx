@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonButton, IonBadge } from '@ionic/react';
+import { IonCard, IonCardHeader, IonCardTitle, IonCardContent } from '@ionic/react';
 import { ShoppingBasket, Timer, Percent } from 'lucide-react';
 import Styles from "./Offers.module.css";
 

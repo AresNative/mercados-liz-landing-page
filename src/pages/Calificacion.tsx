@@ -1,12 +1,11 @@
 import Page from "@/template/page";
-import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonSpinner, IonTextarea } from "@ionic/react";
+import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonTextarea } from "@ionic/react";
 import { SendIcon, Star } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Swal from "sweetalert2";
 import styles from "@/pages/calificacion.module.css";
 import { PostValoracion } from "@/services/web_site_post";
 import { useForm } from "react-hook-form";
-
 
 interface Estrellas {
     values: number[];
@@ -14,7 +13,6 @@ interface Estrellas {
 }
 
 export default function ServicioPage() {
-
     const calif: Estrellas = {
         values: [1, 2, 3, 4, 5],
         rating: 2
@@ -28,7 +26,6 @@ export default function ServicioPage() {
         setRating(value);
         setValue("valor", value);
     };
-
     const onSubmit = handleSubmit(async (data) => {
         console.log(data);
 
@@ -48,7 +45,6 @@ export default function ServicioPage() {
         setValue("comment", "")
 
     }) // Reiniciar la calificación y el contenido del textarea
-
     const handleEnviar = () => {
         let timerInterval: NodeJS.Timeout;
         Swal.fire({
@@ -72,7 +68,6 @@ export default function ServicioPage() {
     }
 
     return (
-
         <Page>
             <form onSubmit={onSubmit} >
                 <IonCard className={styles["form"]}>
@@ -100,7 +95,6 @@ export default function ServicioPage() {
                             onIonChange={(e) => setFeedback(e.detail.value!)} // Actualizar el estado
                             {...register("comment", { required: true && "Campo obligatorio" })}
                         />
-
                         <IonButton
                             type={"submit"}
                             disabled={rating === 0 || feedback.trim() === ""}

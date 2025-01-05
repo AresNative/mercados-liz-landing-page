@@ -12,42 +12,31 @@
     box-shadow: 0 4px 6px #0000001a;
     min-height: 4rem;
 }
-
 /*ajuste*/
 .reclutamiento-columnas {
     display: flex;
     gap: 2rem;
 }
-
 @media (max-width: 25vh) {
     .reclutamiento-columnas {
         flex-direction: column;
-        
     }
-    
-
 }
-
 .boton {
     position: flex !important;
     padding: 1px;
     margin: 1px;
 }
-
 .text {
     margin-bottom: "3rem";
     margin-top: "4.5rem";
     margin-right: "1rem";
-
 }
-
 @media (max-width: 20vh) {
     .text {
         max-inline-size: 2.3rem;
     }
 }
-
-
 @media (max-width: 345px) {
     .reclutamiento {
         display: flex;
@@ -60,6 +49,5 @@
         border-radius: 15px;
         padding: 1rem;
         box-shadow: 0 4px 6px #0000001a;
-        
     }
 }

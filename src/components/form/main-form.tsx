@@ -1,10 +1,10 @@
-import { IonButton, IonItem } from "@ionic/react";
+import { IonButton} from "@ionic/react";
 import styles from "./main-form.module.css"
 import { Send } from "lucide-react";
 import { PostPostulacion } from "@/services/web_site_post";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
-import { useRef } from "react";
+
 
 interface FromProps {
     children?: React.ReactNode;
@@ -12,9 +12,6 @@ interface FromProps {
     functionFrom?: string;
     message: string;
 }
-/*  const onSubmit = handleSubmit(async (data) => {
-     /*  await PostProveedor(data)  }*/
-//) 
 const handleEnviar = async () => {
     Swal.fire({
         title: "Gracias nos pondremos en contacto",

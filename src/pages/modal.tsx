@@ -6,7 +6,6 @@ interface ModalProps {
     modalRef: React.RefObject<HTMLIonModalElement>;
     closeModal: () => void;
 }
-
 export function ModalBase({ children, modalRef, closeModal }: ModalProps) {
     return (
         <>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { IonButton, IonIcon } from '@ionic/react';
-import { bagHandleOutline, documentOutline, downloadOutline, pricetagsOutline } from 'ionicons/icons';
+import { pricetagsOutline } from 'ionicons/icons';
 import Styles from "./Offers.module.css";
 
 
@@ -21,9 +21,6 @@ const PdfViewer: React.FC<PdfViewerProps> = ({ pdfUrl }) => {
                     Conoce todas nuestras ofertas para ti
                 </h3>
 
-                <p className={Styles["parfo"]}>
-                    {/*  Dale un vistazo a nuestras ofertas */}
-                </p>
 
                 <div className={Styles["divbo"]}>
                     <IonButton
@@ -32,7 +29,6 @@ const PdfViewer: React.FC<PdfViewerProps> = ({ pdfUrl }) => {
                         className={Styles["botton"]}
                     >
                         <IonIcon icon={pricetagsOutline} slot="start" />
-
                         {/*  <ion-icon name="pricetagsoutline"></ion-icon> */}
                         Ofertas
                     </IonButton>
@@ -44,7 +40,7 @@ const PdfViewer: React.FC<PdfViewerProps> = ({ pdfUrl }) => {
                         className={Styles["botton"]}
                     >
                         <IonIcon icon={pricetagsOutline} slot="start" />
-                        Download PDF
+                        Descargar Ofertas
                     </IonButton>
                 </div>
             </div>

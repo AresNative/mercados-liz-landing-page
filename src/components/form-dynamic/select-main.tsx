@@ -1,4 +1,4 @@
-import { IonInput} from "@ionic/react";
+import { IonSelect, IonSelectOption } from "@ionic/react";
 import styles from "@/components/functions/input.module.css";
 import { useEffect } from "react";
 
@@ -20,7 +20,7 @@ interface InputProps {
     errors: Record<string, { message?: string }>;
 }
 
-export function InputDynamic(props: InputProps) {
+export function SelectDynamic(props: InputProps) {
     const { cuestion } = props;
     const handleInputChange = (event: CustomEvent) => {
         const value = event.detail.value || "";
@@ -43,16 +43,21 @@ export function InputDynamic(props: InputProps) {
             className={`${styles["input-container"]} ${props.errors[cuestion.name] ? styles["input-error"] : ""
                 }`}
         >
-            <IonInput
-                type={cuestion.type.toLowerCase() || "text"}
-                label={cuestion.placeholder}
-                onIonInput={handleInputChange}
-                labelPlacement="floating"
-                className={styles["use-input"]}
+            <IonSelect
+                placeholder={cuestion.placeholder}
+                multiple={cuestion.multiple} // Habilitar selects múltiples
+                onIonChange={handleSelectChange}
                 {...props.register(cuestion.name, {
                     required: cuestion.require ? "The field is required." : false,
                 })}
-            />
+            >
+                {cuestion.values && cuestion.values.map((option, index) => (
+                    <IonSelectOption key={index} value={option.nombre}>
+                        {option.nombre}
+                    </IonSelectOption>
+                ))}
+            </IonSelect>
+
             {props.errors[cuestion.name]?.message && (
                 <div className={styles["error-message"]}>
                     <span>{props.errors[cuestion.name].message}</span>

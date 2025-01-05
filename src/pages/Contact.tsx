@@ -4,12 +4,11 @@ import Page from "@/template/page";
 import { Mail, MapPin, Phone } from "lucide-react";
 const ContactPage = () => {
     return (
-        <Page /* titulo="Contactanos en" */>
-
+        <Page>
             <section style={{ marginBottom: "3rem" }}>
                 <h1 className="titulos" style={{ marginTop: "6rem" }}>Nuestras sucursales</h1>
                 <ul className='product'>
-                     <li>
+                    <li>
                         <MainForm message='Enviar'>
                             <Input label="Nombre(s)" type="text" placheolder="Ingrese sus nombres" />
                             <Input label="Mensaje" type="text" placheolder="Exprese sus dudas..." />

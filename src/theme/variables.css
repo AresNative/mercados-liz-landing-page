@@ -79,7 +79,8 @@ h1.titulos{
     text-align: center;
 }
 h2.titulos {
-    margin-top: .5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem ;
     font-size: 2.5rem;
     font-family: "Lobster";
     font-weight: 300;
@@ -102,6 +103,7 @@ h2.titulos {
 }
 h2.titulos2 {
     margin-top: .5rem;
+    margin-bottom: 1rem;
     font-size: 2.5rem;
     font-family: "Lobster";
     font-weight: 300;
@@ -112,11 +114,11 @@ h2.titulos2 {
         max-inline-size: 20rem;
         margin-left: 3.5rem;
         margin-right: 1.5rem;
-     
     }
+
     h2.titulos2 {
      margin-top: .5rem;
-     margin-bottom: 0.5rem;
+     margin-bottom: 1rem;
      font-size: 2.5rem;
      font-family: "Lobster";
      font-weight: 300;
@@ -182,7 +184,7 @@ h2.titulos2 {
 
 .section-2 ul {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
     list-style: none;
 }
 
@@ -190,11 +192,9 @@ h2.titulos2 {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap-reverse;
-    gap: 2rem;
+    gap: 1rem;
     width: 90%;
     margin: auto;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
     align-items: center;
     justify-content: center;
 }
@@ -240,7 +240,7 @@ h2.titulos2 {
 .mail{
     min-height: 20rem;
     background: #fff;
-    margin-bottom: 2rem;
+    margin-bottom: 0rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -358,7 +358,7 @@ h2.titulos2 {
 
 :root {
     --primary: #7700c0;
-    --secondary: #DDF26D;
+    --secondary: #8001cfe8;
     --shadow: 11px 10px 1px 0px var(--primary);
 
     --ion-color-liz: #7700c0;

@@ -2,6 +2,8 @@ import { GetPostulacion } from "@/services/web_site_gets";
 import { useEffect, useState } from "react";
 import './tablasrh.css';
 
+/*Vista Postulaciones tabla y contenido */
+
 const PostulacionesRHPage = () => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);

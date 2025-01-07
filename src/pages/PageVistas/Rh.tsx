@@ -6,10 +6,11 @@ import { IonTextarea } from "@ionic/react";
 import styles from "@/components/displays/tables.module.css";
 import { useState } from "react";
 import PostulacionesRHPage from "../vistaUser/postulacionesrh";
+import { UserPlus, Users } from "lucide-react";
 
 const RHPage = () => {
-    const [activeSection, setActiveSection] = useState<"Agregar" | "Postulaciones">("Agregar");
-    const handleSectionChange = (section: "Agregar" | "Postulaciones") => {
+    const [activeSection, setActiveSection] = useState<"Agregar" | "Postulaciones" | "Perfil" >("Agregar");
+    const handleSectionChange = (section: "Agregar" | "Postulaciones" | "Perfil") => {
         setActiveSection(section);
     };
 
@@ -22,21 +23,31 @@ const RHPage = () => {
                     <Button
                         type="button"
                         color={activeSection === "Agregar" ? "dark" : "default"}
-                        label="Agregar Vacante"
+                        label={
+                            <>
+                                <UserPlus style = {{ margin: "3px" }}/> {"Agregar Vacante"}
+                            </>
+                        } 
                         onClick={() => handleSectionChange("Agregar")}
+                       
                     />
-                    <Button
+                        <Button 
                         type="button"
                         color={activeSection === "Postulaciones" ? "dark" : "default"}
-                        label="Postulaciones"
+                        label={
+                            <>
+                                <Users style={{ margin: "3px" }} /> {"Postulaciones"}
+                            </>
+                        } 
                         onClick={() => handleSectionChange("Postulaciones")}
-                    />
+                    />   
                 </div>
 
                 {/* Renderizado condicional */}
                 {activeSection === "Agregar" ? (
                     <form className={styles["form"]} /* style={{ marginBottom: "4rem" }} */>
                         <h2 className="subtitulos" style={{ marginBottom: "1rem", marginRight: "2rem", marginLeft: "2rem" }}>
+                          
                             Agregar Nueva Postulación
                         </h2>
                         <Input label="Puesto" type="text" placheolder="Ingrese tipo de puesto" />
@@ -61,7 +72,10 @@ const RHPage = () => {
                     </form>
                 ) : (
                     <PostulacionesRHPage />
-                )}
+                )
+                }
+                
+                
             </div>
         </Page>
     );

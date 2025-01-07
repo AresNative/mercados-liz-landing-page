@@ -6,10 +6,10 @@ import { RootState } from "@/store/store";
 
 // Mapeo de sucursales a coordenadas
 const sucursalCoordenadas: { [key: string]: [number, number] } = {
-    "Matriz": [32.0998035, -116.5654255],
-    "Valle de guadalupe": [32.0945219, -116.576508],
-    "Valle de las palmas": [32.3622361, -116.6245621],
-    "Testerazo": [32.2943975, -116.5420665],
+    "Matriz": [32.099733119103604, -116.5656031728404],
+    "Valle de guadalupe": [32.0947939, -116.5735554],
+    "Valle de las palmas": [32.36670812592066, -116.61484440041006],
+    "Testerazo": [32.295697914465485, -116.53331677806355],
 };
 
 export function MyMap() {

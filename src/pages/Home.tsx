@@ -12,8 +12,6 @@ import {
 import { CreditCard, Mail, MapPin, Package, Phone, ShoppingCart, Truck } from 'lucide-react';
 import { useDispatch } from 'react-redux';
 import { asingn } from "@/store/reducers";
-import { useEffect } from 'react';
-
 import { List } from '@/components/displays/list';
 import { OffertCard } from '@/components/displays/card';
 import Styles from "./Offers.module.css";
@@ -37,7 +35,7 @@ const Home: React.FC = () => {
     { link: "https://www.lala.com.mx/storage/app/media/LogotipoEvolucion/2016.png" },
     { link: "https://storage.googleapis.com/www-paredro-com/uploads/2018/11/%C2%BFPor-que%CC%81-el-logo-de-Sabritas-tiene-una-carita-feliz.jpg" },
     { link: "https://upload.wikimedia.org/wikipedia/commons/6/68/Pepsi_2023.svg" },
-    { link: "https://purina.com.mx/sites/default/files/styles/webp/public/2024-02/Gatina_C_0.png.webp?itok=bkyb6mPj" },
+    { link: "https://impulsoregio.wordpress.com/wp-content/uploads/2015/01/barcel-1.png" },
   ]
 
   return (
@@ -88,19 +86,19 @@ const Home: React.FC = () => {
         <h2 className="titulos">Nuestras características</h2>
         <ul className='product'>
           <IconCard title='Selección Local' text='Productos auténticos del Valle de Guadalupe' >
-            <ShoppingCart color='var(--primary)' size={40} />
+            <ShoppingCart color='var(--secondary)' size={50} />
           </IconCard>
 
           <IconCard title='Entrega a Domicilio' text='Rápida en todo el Valle y alrededores' >
-            <Truck color='var(--primary)' size={40} />
+            <Truck color='var(--secondary)' size={50} />
           </IconCard>
 
           <IconCard title='Mayoreo' text='Productos a mayoreo y menudeo' >
-            <Package color='var(--primary)' size={40} />
+            <Package color='var(--secondary)' size={50} />
           </IconCard>
 
           <IconCard title='Pagos Seguros' text='Múltiples opciones disponibles' >
-            <CreditCard color='var(--primary)' size={40} />
+            <CreditCard color='var(--secondary)' size={50} />
           </IconCard>
         </ul>
       </section>
@@ -120,8 +118,7 @@ const Home: React.FC = () => {
         <h2 className="titulos">Contacto directo</h2>
 
         <ul className='product'>
-          {/*  <h3 >Información de Contacto</h3> */}
-          <li>
+          <li style={{ marginBottom: "16px" }}>
             <MainForm message='Enviar'>
               <Input label="Nombre(s)" type="text" placheolder="Ingrese sus nombres" />
               <Input label="Mensaje" type="text" placheolder="Exprese sus dudas..." />
@@ -137,7 +134,7 @@ const Home: React.FC = () => {
 
             <div className="contact-item">
               <Phone color="var(--primary)" size={24} />
-              <span>+52 646 596 9489</span>
+              <span>+52 646 155 2022</span>
             </div>
 
             <div className="contact-item">
@@ -146,8 +143,8 @@ const Home: React.FC = () => {
             </div>
 
             <div className="contact-item">
-              <span><strong>Horario de Atención:{" "}</strong></span>
-              <span>7:00 AM - 11:00 PM</span>
+              <span ><strong >Horario de Atención:</strong></span>
+              <span style={{ paddingLeft: "5px" }}> 08:00 AM - 09:00 PM</span>
             </div>
           </li>
 
@@ -158,7 +155,7 @@ const Home: React.FC = () => {
         <h2
           className="titulos"
           style={{
-            marginTop: "3rem"
+            marginTop: "4rem"
           }}>
 
           Donde encontrarnos
@@ -168,7 +165,6 @@ const Home: React.FC = () => {
 
           <List>
             <div >
-
 
               <IonButton style={{ textDecoration: "underline" }} color="liz" shape="round" fill="clear" onClick={() => incrementTes("Matriz")}>
                 <MapPin color="var(--primary)" size={24} /> Mayoreo

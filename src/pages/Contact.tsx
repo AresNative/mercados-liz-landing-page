@@ -21,7 +21,7 @@ const ContactPage = () => {
                                 <h2>MAYOREO</h2>
                                 <div className="contact-item">
                                     <MapPin color="var(--primary)" size={24} />
-                                    <span>84 Calle Principal, Ensenada, Baja California, 22750.</span>
+                                    <span>11 6, Francisco Zarco, 22750 Francisco Zarco, B.C.</span>
                                 </div>
 
                                 <div className="contact-item">
@@ -36,7 +36,7 @@ const ContactPage = () => {
 
                                 <div className="contact-item">
                                     <span><strong>Horario de Atención:{" "}</strong></span>
-                                    <span>7:00 AM - 11:00 PM</span>
+                                    <span style={{ paddingLeft: "5px" }}>7:00 AM - 09:00 PM</span>
                                 </div>
                             </li>
                             {/* ----------------------------------------------------------- */}
@@ -44,7 +44,7 @@ const ContactPage = () => {
                                 <h2>VALLE DE GUADALUPE</h2>
                                 <div className="contact-item">
                                     <MapPin color="var(--primary)" size={24} />
-                                    <span>218 Calle Principal, Ensenada, Baja California, 22750.</span>
+                                    <span>Calle Principal 216, Francisco Zarco, 22750 Francisco Zarco, B.C.</span>
                                 </div>
 
                                 <div className="contact-item">
@@ -59,7 +59,7 @@ const ContactPage = () => {
 
                                 <div className="contact-item">
                                     <span><strong>Horario de Atención:{" "}</strong></span>
-                                    <span>7:00 AM - 11:00 PM</span>
+                                    <span style={{ paddingLeft: "5px" }}>6:00 AM - 11:00 PM</span>
                                 </div>
                             </li>
                             {/* ----------------------------------------------------------- */}
@@ -82,7 +82,7 @@ const ContactPage = () => {
 
                                 <div className="contact-item">
                                     <span><strong>Horario de Atención:{" "}</strong></span>
-                                    <span>7:00 AM - 11:00 PM</span>
+                                    <span style={{ paddingLeft: "5px" }}>7:00 AM - 10:00 PM</span>
                                 </div>
                             </li>
                             {/* ----------------------------------------------------------- */}
@@ -105,7 +105,7 @@ const ContactPage = () => {
 
                                 <div className="contact-item">
                                     <span><strong>Horario de Atención:{" "}</strong></span>
-                                    <span>7:00 AM - 11:00 PM</span>
+                                    <span style={{ paddingLeft: "5px" }}>7:00 AM - 10:00 PM</span>
                                 </div>
                             </li>
                             {/* ----------------------------------------------------------- */}

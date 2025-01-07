@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 2rem;
+    gap: 1rem;
     padding: 16px;
     border: 1px solid var(--gray-1);
     border-radius: 1rem;
@@ -22,11 +22,11 @@
 .icon-card__title {
     font-size: 1.2rem;
     margin: 0 0 8px;
-    color: #333;
+    color: #000000;
 }
 .icon-card__text {
     font-size: 0.9rem;
-    font-weight: lighter;
+    font-weight: 400;
     width: 80%;
     margin: auto;
     color: var(--gray-a10);

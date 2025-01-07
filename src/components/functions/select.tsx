@@ -5,10 +5,10 @@ interface SelectProps {
     values: any[];
     color?: string;
     message: string;
-    onChange?: any;
+    onChange?: (value: any) => void;
     multiple?: boolean;
     props?: any;
-    defaultValue?: any
+    defaultValue?: any;
 }
 
 export function Select({ values, message, onChange, multiple, props, defaultValue }: SelectProps) {
@@ -17,12 +17,16 @@ export function Select({ values, message, onChange, multiple, props, defaultValu
             className={styles["select"]}
             interface="popover"
             placeholder={message}
-            onIonChange={(e: any) => onChange(`${e.detail.value}`)}
+            onIonChange={(e: any) => {
+                if (onChange) {
+                    onChange(e.detail.value); // Pasamos el valor seleccionado al manejador
+                }
+            }}
             multiple={multiple}
             value={defaultValue}
             {...props}
         >
-            {values.length &&
+            {values.length > 0 &&
                 values.map((data: any, index: number) => {
                     const optionValue = data.name || data.nombre || Object.values(data)[0];
                     return (
@@ -31,12 +35,12 @@ export function Select({ values, message, onChange, multiple, props, defaultValu
                             key={index}
                             value={optionValue}
                         >
-
                             {optionValue}
-
                         </IonSelectOption>
                     );
                 })}
         </IonSelect>
     );
 }
+
+

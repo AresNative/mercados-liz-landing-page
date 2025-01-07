@@ -98,7 +98,7 @@ const Page: React.FC<ContainerProps> = ({ children }) => {
                                 <li style={{ display: "flex", gap: "1rem", marginLeft: "1rem", marginRight: "1rem" }}>
                                     <a style={{ color: "var(--primary)" }}>Términos y Condiciones</a>
                                     <a style={{ color: "var(--primary)" }}>Política de Privacidad</a>
-                                    <a style={{ color: "var(--primary)" }}>Contacto</a>
+                                    <a  style={{ color: "var(--primary)" }}>Contacto</a>
                                 </li>
                             </ul>
                         </IonToolbar>

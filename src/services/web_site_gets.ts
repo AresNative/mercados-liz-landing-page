@@ -1,4 +1,3 @@
-
 /*Muestra Informacion Nuevos Proveedores */
 export async function GetProvInfo() {
   const apiUrl = process.env.REACT_APP_API_URL;

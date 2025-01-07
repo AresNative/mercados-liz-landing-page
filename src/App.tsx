@@ -35,6 +35,7 @@ import './index.css';
 import CertificacionPage from './pages/certificaciones/certificacionpage';
 import InfprovPage from './pages/vistaUser/provnuevo';
 import RHPage from './pages/PageVistas/Rh';
+import InfValoracionPage from './pages/vistaUser/valoracion';
 setupIonicReact({
   mode: 'ios'
 });
@@ -111,6 +112,9 @@ const App: React.FC = () => {
           {/* Paginas informacion que muestran datos  */}
           <Route exact path="/provpage">
             <InfprovPage />
+          </Route>
+          <Route exact path="/InfValoracionPage">
+            <InfValoracionPage />
           </Route>
 
           {/* ------------ */}

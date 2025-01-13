@@ -1,7 +1,6 @@
 import { Menu } from "@/pages/menu";
-import {
-    IonButtons, IonContent, IonFooter, IonHeader,
-    IonMenuButton, IonPage, IonTitle, IonToolbar,
+import {IonButtons, IonContent, IonFooter, IonHeader,
+        IonMenuButton, IonPage, IonTitle, IonToolbar,
 } from "@ionic/react";
 import { useEffect, useRef, useState } from "react";
 import style from "@/components/displays/header.module.css";
@@ -58,7 +57,7 @@ const Page: React.FC<ContainerProps> = ({ children }) => {
     return (
         <>
             <Menu />
-            <IonPage id="main-content">
+            <IonPage id="main-content" >
                 <IonHeader className={`ion-no-border ${style["headers"]}`}>
                     <IonToolbar
                         className={style["toolbar"]}
@@ -68,16 +67,19 @@ const Page: React.FC<ContainerProps> = ({ children }) => {
                             backdropFilter: headerStyle.backdropFilter,
                         }}
                     >
+                        
                         <IonTitle size="large" className={style["titulos"]}>
                             Liz
                         </IonTitle>
                         <IonButtons slot="end" className={style["centerButton"]}>
                             <IonMenuButton color="light" />
+                          
                         </IonButtons>
                     </IonToolbar>
                 </IonHeader>
                 <IonContent fullscreen ref={contentRef} scrollEvents={true}>
                     <main>{children}</main>
+                
                     <IonFooter>
                         <IonToolbar className={style["toolbar"]}>
                             <ul
@@ -98,7 +100,7 @@ const Page: React.FC<ContainerProps> = ({ children }) => {
                                 <li style={{ display: "flex", gap: "1rem", marginLeft: "1rem", marginRight: "1rem" }}>
                                     <a style={{ color: "var(--primary)" }}>Términos y Condiciones</a>
                                     <a style={{ color: "var(--primary)" }}>Política de Privacidad</a>
-                                    <a  style={{ color: "var(--primary)" }}>Contacto</a>
+                                    <a style={{ color: "var(--primary)" }}>Contacto</a>
                                 </li>
                             </ul>
                         </IonToolbar>

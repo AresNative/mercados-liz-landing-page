@@ -1,4 +1,4 @@
-import Page from "@/template/page";
+
 import "@/pages/margen-pagina.css";
 import { Button } from "@/components/functions/button";
 import "@/components/displays/textarea.css";
@@ -9,6 +9,7 @@ import formReclutamiento from "@/models/form-reclutamiento.json";
 import { useRef } from "react";
 import { PostPostulacion } from "@/services/web_site_post";
 import Swal from "sweetalert2";
+import Page from "@/template/page";
 
 interface MainFormRef {
     submitForm: () => Promise<void>;

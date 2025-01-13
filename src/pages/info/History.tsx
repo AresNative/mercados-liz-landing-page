@@ -3,6 +3,7 @@ import './HistoriaPage.css';
 import { HousePlus, Loader, Pickaxe, ShoppingBasket, ShoppingCart, Store, Truck, Users } from "lucide-react";
 import ValoresSection from "./Valores";
 
+
 const HistoriaPage = () => {
     return (
         <Page/*  titulo="Historia" */>
@@ -10,7 +11,6 @@ const HistoriaPage = () => {
                 <ValoresSection></ValoresSection>
             </section>
             <section style={{ marginTop: "1rem", borderTop: "1px solid rgba(180, 180, 180, 0.43)" }}> </section>
-
             {/* Icono de página en construcción */}
             <h2 className="titulos" z-index="100%" style={{ marginTop: "2rem" }}>Nuestra historia. </h2>
             {/* Línea de tiempo */}

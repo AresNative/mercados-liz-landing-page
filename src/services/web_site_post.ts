@@ -88,3 +88,17 @@ export async function PostPostulacion(data: any) {
     .then((response) => console.log("Respuesta del servidor:", response))
     .catch((err) => console.error("Error en la solicitud:", err));
 }
+
+export async function PostArchivos(data: any) {
+  const apiUrl = process.env.REACT_APP_API_URL;
+  const response = fetch(`${apiUrl}imagenes/upload`, {
+    method: "POST",
+    body: data,
+  })
+    .then((response) => response.json())
+    .then((response) => {
+      return response;
+    })
+    .catch((err) => console.error(err));
+  return response;
+}

@@ -8,15 +8,15 @@ import styles from "./nuevosprov.module.css";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
-import { PostProveedor } from "@/services/web_site_post";
+import { PostArchivos, PostProveedor } from "@/services/web_site_post";
 
 interface Opcion {
     texto: string;
-    tipo: "text" | "password" | "email" | "number" | "select" | "date" | "h1" | undefined;
+    tipo: "text" | "password" | "email" | "number" | "select" | "date" | "h1" | "tel" | undefined;
     subopciones?: {
         props?: any;
         texto: string;
-        tipo: "text" | "password" | "email" | "number" | "date" | "select" | undefined;
+        tipo: "text" | "password" | "email" | "number" | "date" | "select" | "tel" | undefined;
         multiple?: boolean;
         values?: any[];
     }[];
@@ -45,6 +45,7 @@ const preguntas: Pregunta[] = [
                     { texto: "Correo electrónico", tipo: "email", props: "email" },
                 ],
             },
+
             {
                 texto: "Compañía",
                 tipo: "text",
@@ -78,14 +79,20 @@ const NuevoProvePage = () => {
     const [paginaActual, setPaginaActual] = useState(0);
     const { register, handleSubmit, setValue } = useForm();
 
+
     const preguntaActual = preguntas[paginaActual];
     const esUltimaPagina = paginaActual === preguntas.length - 1;
 
     const onSubmit = handleSubmit(async (data) => {
+        /*  const formData = new FormData();
+         formData.append("File", data.archivos[0]); */
         try {
             await PostProveedor(data);
+            /*   const response = await PostArchivos(formData)
+              console.log(response, formData); */
+
             Swal.fire({
-                title: "Gracias, nos pondremos en contacto",
+                title: "Gracias, nos pondremos en contacto",//response.messagge
                 icon: "success",
                 confirmButtonText: "Aceptar",
             });
@@ -151,7 +158,7 @@ const NuevoProvePage = () => {
                     <p className="sub-titulos5">
                         En caso de contar con algún catálogo con sus productos favor de anexarlo
                     </p>
-                    <input type="file" accept=".pdf,.xlsx" />
+                    <input type="file" accept=".pdf,.xlsx" {...register("archivos")} />
                     <div style={{ display: "flex" }}>
                         <Button label="Enviar" type="submit" color="default" />
                     </div>
@@ -162,5 +169,3 @@ const NuevoProvePage = () => {
 };
 
 export default NuevoProvePage;
-
-

@@ -1,7 +1,7 @@
 import React from 'react';
 import { IonCard, IonCardHeader, IonCardTitle, IonCardContent } from '@ionic/react';
 import { ShoppingBasket, Timer, Percent } from 'lucide-react';
-import Styles from "./Offers.module.css";
+import Styles from "@/pages/ofertas/Offers.module.css";
 
 const combos = [
     {

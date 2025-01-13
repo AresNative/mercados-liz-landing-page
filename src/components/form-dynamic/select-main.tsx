@@ -50,6 +50,7 @@ export function SelectDynamic(props: InputProps) {
                 {...props.register(cuestion.name, {
                     required: cuestion.require ? "The field is required." : false,
                 })}
+               
             >
                 {cuestion.values && cuestion.values.map((option, index) => (
                     <IonSelectOption key={index} value={option.nombre}>

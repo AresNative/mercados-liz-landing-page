@@ -52,6 +52,7 @@ export function InputDynamic(props: InputProps) {
                 {...props.register(cuestion.name, {
                     required: cuestion.require ? "The field is required." : false,
                 })}
+               
             />
             {props.errors[cuestion.name]?.message && (
                 <div className={styles["error-message"]}>

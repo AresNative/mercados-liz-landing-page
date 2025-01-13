@@ -35,9 +35,19 @@ const ContactPage = () => {
                                 </div>
 
                                 <div className="contact-item">
-                                    <span><strong>Horario de Atención:{" "}</strong></span>
-                                    <span style={{ paddingLeft: "5px" }}>7:00 AM - 09:00 PM</span>
+                                    <span> <strong>Horario de Atención:{" "} </strong>
+                                        <div>
+                                             <span style={{ paddingLeft: "5px" }}>Domingo a jueves 7:00 AM - 09:00 PM </span>
+                                        </div>
+                                        <div>
+                                              <span style={{ paddingLeft: "5px" }}>Viernes a sabado 7:00 AM - 10:00 PM </span>
+                                        </div>
+                                      
+                                    </span>
+                                  
+                                   
                                 </div>
+                                
                             </li>
                             {/* ----------------------------------------------------------- */}
                             <li style={{ background: "#fff", padding: "15px", borderRadius: "5px" }}>
@@ -67,7 +77,7 @@ const ContactPage = () => {
                                 <h2>VALLE DE LAS PALMAS</h2>
                                 <div className="contact-item">
                                     <MapPin color="var(--primary)" size={24} />
-                                    <span> Kilometro 29 S/N, tecate, Baja California, 21500.</span>
+                                    <span> México 3, Ampliación Valle de las Palmas, 21500 Espuela, B.C.  </span>
                                 </div>
 
                                 <div className="contact-item">
@@ -95,7 +105,7 @@ const ContactPage = () => {
 
                                 <div className="contact-item">
                                     <Phone color="var(--primary)" size={24} />
-                                    <span>+52 646 135 0745</span>
+                                    <span>+52 665 521 7602</span>
                                 </div>
 
                                 <div className="contact-item">

@@ -12,10 +12,10 @@ import { Input } from "@/components/functions/input";
 import { useHistory } from "react-router-dom";
 import { Tooltip } from "@nextui-org/react";
 import {
-    BadgeDollarSign, BookOpenText,
-    BriefcaseBusiness, FileBadge,
-    FilePlus2, Home, Info, Star,
-    ShoppingBagIcon, X, Award
+    BadgeDollarSign, BookOpenText, X,
+    FileBadge, Home, Info, Star,
+    Forklift, ShieldCheck,
+    BaggageClaim
 } from 'lucide-react';
 import { Select } from "@/components/functions/select";
 import { useForm } from "react-hook-form";
@@ -56,6 +56,7 @@ export function Menu() {
         setname(modalName);
         modalRef.current?.present();
     }
+
     // Cierra el modal
     function closeModal() {
         modalRef.current?.dismiss();
@@ -235,15 +236,15 @@ export function Menu() {
     //marcas que nos acompañan
     const ruta: any = [
         { link: "/", icon: <Home color='var(--primary)' size={20} />, text: "Inicio", view: true },
-        { link: "/Ofertas", icon: <BadgeDollarSign color='green' size={20} />, text: "Ofertas", view: true /* view: getLocalStorageItem("token") ? true : false  */ },
-        { link: "/billing", icon: <FilePlus2 color='var(--primary)' size={20} />, text: "Facturación", view: true /* view: getLocalStorageItem("typeUser") === "alamcen" ? true : false  */ },
+        { link: "/ofertas", icon: <BadgeDollarSign color='green' size={20} />, text: "Ofertas", view: true /* view: getLocalStorageItem("token") ? true : false  */ },
+        /*  { link: "/billing", icon: <FilePlus2 color='var(--primary)' size={20} />, text: "Facturación", view: true /* view: getLocalStorageItem("typeUser") === "alamcen" ? true : false   }, */
         { link: "/Contact", icon: <Info color='#6cb2ff' size={20} />, text: "Más información", view: true },//
-        { link: "/Reclutamiento", icon: <BriefcaseBusiness color='var(--primary)' size={20} />, text: "Únete a la familia", view: true },
-        { link: "/Historia", icon: <BookOpenText color='purple' size={20} />, text: "Nuestra Historia", view: true },
-        { link: "/Servicio", icon: <Star color='blue' size={20} />, text: "Valoranos", view: true },//
-        { link: "/ProveedoresNuev", icon: <ShoppingBagIcon color='pink' size={20} />, text: "Nuevos Proveedores", view: true },
+        { link: "/Reclutamiento", icon: <BaggageClaim /* BriefcaseBusiness */ color='var(--primary)' size={20} />, text: "Únete a la familia", view: true },
+        { link: "/Historia", icon: <BookOpenText color='#9f80ff' size={20} />, text: "Nuestra Historia", view: true },
+        { link: "/Servicio", icon: <Star color='#cfa8f8'/*#cfa8f8*/ size={20} />, text: "Valoranos", view: true },//
+        { link: "/ProveedoresNuev", icon: <Forklift color='var(--primary)' size={20} />, text: "Nuevos Proveedores", view: true },
         { link: "/Proveedores", icon: <FileBadge color='pink' size={20} />, text: "Proveedores", view: true },
-        { link: "/CertificacionPage", icon: <Award color='pink' size={20} />, text: "Certificaciones", view: true }
+        { link: "/CertificacionPage", icon: <ShieldCheck color='var(--primary)' size={20} />, text: "Certificaciones", view: true }
     ]
 
     // Estado para mostrar la alerta de cerrar sesión
@@ -280,14 +281,14 @@ export function Menu() {
                         <IonTitle>Menú</IonTitle>
                     </IonToolbar>
                 </IonHeader>
-                <IonContent className="ion-padding">
+                <IonContent className="ion-padding" >
                     <IonList style={{ borderRadius: "5px" }}>
                         {ruta.map((data: any, key: any) => (<Rutas key={key} link={data.link} icon={data.icon} text={data.text} view={data.view} />))}
                     </IonList>
                 </IonContent>
-                <IonFooter>
-                    <IonGrid>
-                        <IonRow style={{ padding: "5px" }}>
+                <IonFooter >
+                    <IonGrid >
+                        <IonRow style={{ padding: "5px" }} >
                             {/* Ícono de Login para abrir el modal */}
                             <IonCol style={{ display: "flex", alignItems: "center", gap: "1rem", cursor: "pointer", justifyContent: "center", color: "var(--)" }}>
                                 <Tooltip content="Iniciar sesión">
@@ -301,7 +302,7 @@ export function Menu() {
                             <IonCol style={{ display: "flex", alignItems: "center", gap: "0.5rem", cursor: "pointer", justifyContent: "center" }}>
 
                                 <IonButton color="liz" size="small" shape='round' fill="clear" id="present-alert" onClick={() => setShowLogoutAlert(true)}>
-                                    <Tooltip content="Cerrar sesión">
+                                    <Tooltip content="Cerrar sesión" >
                                         <span className="text-lg text-default-100 cursor-pointer active:opacity-80">
                                             <IonIcon icon="logout.svg" size="small" content="fuera" />
                                         </span>
@@ -320,6 +321,7 @@ export function Menu() {
 
             {/* Alerta de cerrar sesión */}
             <IonAlert
+
                 isOpen={showLogoutAlert}
                 onDidDismiss={() => setShowLogoutAlert(false)
                 }

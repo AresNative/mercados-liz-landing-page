@@ -3,7 +3,7 @@ import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonTex
 import { SendIcon, Star } from "lucide-react";
 import { useState } from "react";
 import Swal from "sweetalert2";
-import styles from "@/pages/calificacion.module.css";
+import styles from "@/pages/usuario/calificacion.module.css";
 import { PostValoracion } from "@/services/web_site_post";
 import { useForm } from "react-hook-form";
 

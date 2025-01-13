@@ -14,20 +14,15 @@ import { useDispatch } from 'react-redux';
 import { asingn } from "@/store/reducers";
 import { List } from '@/components/displays/list';
 import { OffertCard } from '@/components/displays/card';
-import Styles from "./Offers.module.css";
+import Styles from "./ofertas/Offers.module.css";
 
 const Home: React.FC = () => {
   const dispatch = useDispatch();
   function incrementTes(suc: string) {
     dispatch(asingn({ sucursal: suc }))
   }
- 
-  function rutas(link: string) {
-    return (
-      <OffertCard avatarUrl={link} />)
-  }
 
-  const ruta: any = [
+  const ruta = [
     { link: "https://i.pinimg.com/originals/1e/c1/d2/1ec1d2ce366d1f603b1bde70ae508063.png" },
     { link: "https://cdn.shopify.com/s/files/1/1547/6619/files/logo.png?v=1698644298" },
     { link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSgEuX0hSXHfBeGvSHwOyoXcd-sJOh96GvQQ&s" },
@@ -36,7 +31,7 @@ const Home: React.FC = () => {
     { link: "https://storage.googleapis.com/www-paredro-com/uploads/2018/11/%C2%BFPor-que%CC%81-el-logo-de-Sabritas-tiene-una-carita-feliz.jpg" },
     { link: "https://upload.wikimedia.org/wikipedia/commons/6/68/Pepsi_2023.svg" },
     { link: "https://impulsoregio.wordpress.com/wp-content/uploads/2015/01/barcel-1.png" },
-  ]
+  ];
 
   return (
     <Page>
@@ -50,16 +45,19 @@ const Home: React.FC = () => {
       </section>
 
       <nav className='section-2'>
-        <IonFab style={{ bottom: '-4rem', left: '50%', transform: 'translate(-50%, -50%)' }}>
-          <IonFabButton color="liz">
-            <IonIcon icon={chevronDown} ></IonIcon>
-          </IonFabButton >
+        <IonFab
+          style={{ bottom: '-4rem', left: '50%', transform: 'translate(-50%, -50%)' }}
+           // Cambia aria-hidden por esto
+        >
+          <IonFabButton aria-hidden="false" color="liz">
+            <IonIcon icon={chevronDown} />
+          </IonFabButton>
         </IonFab>
 
         <ul>
           <li>
             <a href="https://www.facebook.com/share/1WZv93NVER/" target="_blank" >
-              <IonButton shape='round' fill="clear">
+              <IonButton shape='round' fill="clear" >
                 <IonIcon size='large' icon={logoFacebook} />
               </IonButton>
             </a>
@@ -67,15 +65,15 @@ const Home: React.FC = () => {
           {/*Preguntar que link iria si compras servicio a domicilio o quejas*/}
           <li>
             <a href="https://wa.me/52NUMERO" target="_blank"  >
-              <IonButton color="success" shape='round' fill="clear">
-                <IonIcon size='large' icon={logoWhatsapp} />
+              <IonButton color="success" shape='round' fill="clear" >
+                <IonIcon size='large' icon={logoWhatsapp}  />
               </IonButton>
             </a>
           </li>
           <li>
             <a href="https://mail.google.com/mail/?view=cm&to=atncliente@mercadosliz.com&su=Consulta%20sobre%20servicio%20y%20más%20información&body=Hola,%20quisiera%20saber%20más%20sobre%20sus%20productos%20y%20servicios%20que%20ofrecen.%0AGracias" target="_blank" >
-              <IonButton color="liz" shape='round' fill="clear">
-                <Mail color="var(--primary)" size={24} />
+              <IonButton color="liz" shape='round' fill="clear" >
+                <Mail color="var(--primary)" size={24}  />
               </IonButton>
             </a>
           </li>
@@ -103,13 +101,19 @@ const Home: React.FC = () => {
         </ul>
       </section>
 
-      <section style={{ marginTop: "5rem", borderTop: "1px solid #b4b4b4e0", marginBottom: "1rem" }} >
-
-        <nav  >
-          <h2 className="titulos">Marcas que nos acompañan </h2>
+      <section
+        style={{
+          marginTop: "5rem",
+          borderTop: "1px solid #b4b4b4e0",
+          marginBottom: "1rem",
+        }}
+      >
+        <nav>
+          <h2 className="titulos">Marcas que nos acompañan</h2>
           <ul className={Styles["ul"]}>
-            {ruta.map((data: any, key: any) => (rutas(data.link)))}
-
+            {ruta.map((data, key) => (
+              <OffertCard key={key} avatarUrl={data.link} />
+            ))}
           </ul>
         </nav>
       </section>
@@ -119,7 +123,7 @@ const Home: React.FC = () => {
 
         <ul className='product'>
           <li style={{ marginBottom: "16px" }}>
-            <MainForm message='Enviar'>
+            <MainForm message='Enviar' >
               <Input label="Nombre(s)" type="text" placheolder="Ingrese sus nombres" />
               <Input label="Mensaje" type="text" placheolder="Exprese sus dudas..." />
             </MainForm>

@@ -6,11 +6,12 @@ import { IonTextarea } from "@ionic/react";
 import styles from "@/components/displays/tables.module.css";
 import { useState } from "react";
 import PostulacionesRHPage from "../vistaUser/postulacionesrh";
-import { UserPlus, Users } from "lucide-react";
+import { UserPlus, Users} from "lucide-react"; // Asegúrate de que este ícono existe
 
 const RHPage = () => {
-    const [activeSection, setActiveSection] = useState<"Agregar" | "Postulaciones" | "Perfil" >("Agregar");
-    const handleSectionChange = (section: "Agregar" | "Postulaciones" | "Perfil") => {
+    const [activeSection, setActiveSection] = useState<"Agregar" | "Postulaciones" | "NuevaSeccion">("Agregar");
+
+    const handleSectionChange = (section: "Agregar" | "Postulaciones" | "NuevaSeccion") => {
         setActiveSection(section);
     };
 
@@ -25,35 +26,33 @@ const RHPage = () => {
                         color={activeSection === "Agregar" ? "dark" : "default"}
                         label={
                             <>
-                                <UserPlus style = {{ margin: "3px" }}/> {"Agregar Vacante"}
+                                <UserPlus style={{ margin: "3px" }} /> {"Agregar Vacante"}
                             </>
-                        } 
+                        }
                         onClick={() => handleSectionChange("Agregar")}
-                       
                     />
-                        <Button 
+                    <Button
                         type="button"
                         color={activeSection === "Postulaciones" ? "dark" : "default"}
                         label={
                             <>
                                 <Users style={{ margin: "3px" }} /> {"Postulaciones"}
                             </>
-                        } 
+                        }
                         onClick={() => handleSectionChange("Postulaciones")}
-                    />   
+                    />
+
                 </div>
 
                 {/* Renderizado condicional */}
-                {activeSection === "Agregar" ? (
-                    <form className={styles["form"]} /* style={{ marginBottom: "4rem" }} */>
+                {activeSection === "Agregar" && (
+                    <form className={styles["form"]}>
                         <h2 className="subtitulos" style={{ marginBottom: "1rem", marginRight: "2rem", marginLeft: "2rem" }}>
-                          
                             Agregar Nueva Postulación
                         </h2>
                         <Input label="Puesto" type="text" placheolder="Ingrese tipo de puesto" />
                         <Input label="Horario entrada" type="time" placheolder="Ingresa el Horario" />
                         <Input label="Horario salida" type="time" placheolder="Ingresa el Horario" />
-
                         <Select
                             values={[
                                 { name: "Mayoreo" },
@@ -70,12 +69,11 @@ const RHPage = () => {
                         <IonTextarea className="textarea2" placeholder="Más información sobre el puesto solicitado" />
                         <Button type="button" color="default" label="Publicar Vacante" onClick={() => { }} />
                     </form>
-                ) : (
+                )}
+                {activeSection === "Postulaciones" && (
                     <PostulacionesRHPage />
-                )
-                }
-                
-                
+                )}
+
             </div>
         </Page>
     );

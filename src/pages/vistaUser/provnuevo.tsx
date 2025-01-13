@@ -1,5 +1,4 @@
-import { GetProvInfo } from "@/services/web_site_gets";
-import Page from "@/template/page";
+import { GetProvInfo, GetArchivos } from "@/services/web_site_gets";
 import { useEffect, useState } from "react";
 import './tablasrh.css';
 
@@ -27,6 +26,7 @@ const InfprovPage = () => {
                 setLoading(false);
             });
     }, []);
+
 
     const handleDepartmentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFilterDepartment(e.target.value);
@@ -65,74 +65,74 @@ const InfprovPage = () => {
     }
 
     return (
-        <Page>
-            <div style={{ marginTop: "6rem" }}>
-                <div className="provtablecontainer">
-                    <h2 className="subtitulos" style={{ padding: "20px" }}>
-                        Información nuevos proveedores
-                    </h2>
 
-                    {/* Campo de entrada para el filtro por Departamento */}
-                    <div style={{ margin: "0.5rem" }}>
-                        <label htmlFor="departmentFilter" style={{
-                            fontSize: "1rem",
-                        }}>Filtrar por Departamento: </label>
-                        <input
-                            id="departmentFilter"
-                            type="text"
-                            placeholder="Departamento"
-                            value={filterDepartment}
-                            onChange={handleDepartmentChange}
-                            className="input-field"
-                            style={{
-                                fontSize: "0.9rem",
-                                padding: "0.1rem",
-                                marginBottom: "1rem",
-                                marginRight: "1rem",
-                                borderRadius: "5px",
-                                borderColor: "#e5d9f7",
-                               
-                            }}
-                        />
-                    </div>
+        <div style={{ marginTop: "1rem", marginBottom: "1rem" }}>
+            <div className="provtablecontainer">
+                <h2 className="subtitulos" style={{ padding: "20px" }}>
+                    Información nuevos proveedores
+                </h2>
+                {/* Campo de entrada para el filtro por Departamento */}
+                <div style={{ margin: "0.5rem" }}>
+                    <label htmlFor="departmentFilter" style={{
+                        fontSize: "1rem",
+                    }}>Filtrar por Departamento: </label>
+                    <input
+                        id="departmentFilter"
+                        type="text"
+                        placeholder="Departamento"
+                        value={filterDepartment}
+                        onChange={handleDepartmentChange}
+                        className="input-field"
+                        style={{
+                            fontSize: "0.9rem",
+                            padding: "0.1rem",
+                            marginBottom: "1rem",
+                            marginRight: "1rem",
+                            borderRadius: "5px",
+                            borderColor: "#e5d9f7",
 
-                    <table className="provresponsivetable">
-                        <thead>
-                            <tr className="provfontSize">
-                                <th>Nombre</th>
-                                <th>Correo</th>
-                                <th>Compañía</th>
-                                <th>Tipo de producto</th>
-                                <th>Departamento al que va dirigido</th>
+                        }}
+                    />
+                </div>
+
+                <table className="provresponsivetable">
+                    <thead>
+                        <tr className="provfontSize">
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Compañía</th>
+                            <th>Tipo de producto</th>
+                            <th>Departamento al que va dirigido</th>
+                            <th>Archivo</th>
+                        </tr>
+                    </thead>
+                    <tbody className="provfontSize">
+                        {currentData.map((info: any, index) => (
+                            <tr key={index}>
+                                <td>{info.name || "N/A"}</td>
+                                <td>{info.email || "N/A"}</td>
+                                <td>{info.company || "N/A"}</td>
+                                <td>{info.type_prod || "N/A"}</td>
+                                <td>{info.department || "N/A"}</td>
                             </tr>
-                        </thead>
-                        <tbody className="provfontSize">
-                            {currentData.map((info: any, index) => (
-                                <tr key={index}>
-                                    <td>{info.name || "N/A"}</td>
-                                    <td>{info.email || "N/A"}</td>
-                                    <td>{info.company || "N/A"}</td>
-                                    <td>{info.type_prod || "N/A"}</td>
-                                    <td>{info.department || "N/A"}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                        ))}
+                    </tbody>
+                </table>
 
-                    <div className="pagination">
-                        <button onClick={handlePreviousPage} disabled={currentPage === 1}>
-                            Anterior
-                        </button>
-                        <span>
-                            Página {currentPage} de {totalPages}
-                        </span>
-                        <button onClick={handleNextPage} disabled={currentPage === totalPages}>
-                            Siguiente
-                        </button>
-                    </div>
+                <div className="pagination">
+                    <button onClick={handlePreviousPage} disabled={currentPage === 1}>
+                        Anterior
+                    </button>
+                    <span>
+                        Página {currentPage} de {totalPages}
+                    </span>
+                    <button onClick={handleNextPage} disabled={currentPage === totalPages}>
+                        Siguiente
+                    </button>
                 </div>
             </div>
-        </Page>
+        </div>
+
     );
 };
 

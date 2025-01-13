@@ -133,7 +133,6 @@ h2.titulos2 {
      text-align: center;
         }
 }
-
 .sub-titulos {
     font-size: 2.5rem;
     font-weight: 300;
@@ -189,13 +188,11 @@ h2.titulos2 {
     justify-content: center;
     align-items: center;
 }
-
 .section-2 ul {
     display: flex;
     gap: 1rem;
     list-style: none;
 }
-
 .product {
     display: flex;
     flex-direction: row;
@@ -206,7 +203,6 @@ h2.titulos2 {
     align-items: center;
     justify-content: center;
 }
-
 .card-mail {
     list-style: none;
     padding: 16px;
@@ -223,17 +219,14 @@ h2.titulos2 {
     align-items: center;
     margin-bottom: 12px;
 }
-
 .contact-item svg {
     margin-right: 12px;
     min-width: 24px;
 }
-
 .contact-item span {
     font-size: 16px;
     color: #333;
 }
-
 .section-3 {
     width: 80%;
     margin: auto;
@@ -244,7 +237,6 @@ h2.titulos2 {
         margin: 1rem 1rem 1rem 1rem;
     }
 }
-
 .mail{
     min-height: 20rem;
     background: #fff;
@@ -263,36 +255,6 @@ h2.titulos2 {
         align-items: center;
     }
 }
-
-.img-center img {
-    display: block;
-    object-fit: cover;
-    height: 25rem;
-    width: 25rem;
-    margin: 2rem auto;
-    border: 3px solid var(--violet-a9);
-    border-radius: 5px;
-    box-shadow: var(--shadow);
-}
-.logo-img {
-    align-self:center;
-    display: block;
-    height: 20rem;
-    width: 20rem;
-    border-radius: 5px;
-    opacity: 0.1;
-}
-
-.img-uva{
-    opacity: 0.6;
-    position: absolute !important;
-    left: 84%;
-    top: 10%;
-    height: 100px;
-    width: 100px;
-    transform: rotate(105deg);
-    z-index: 100;
-}
 .img-uva5 {
     opacity: 0.6;
     position: absolute;
@@ -303,61 +265,7 @@ h2.titulos2 {
     transform: rotate(105deg);
     z-index: 100;
 }
-.img-uva1 {
-    opacity: 0.6;
-    position: absolute;
-    left: 8%;
-    top: 10%;
-    height: 200px;
-    width: 200px;
-    transform: rotate(10deg);
-    z-index: 100;
-}
-.img-uva2 {
-    opacity: 0.6;
-    position: absolute;
-    left: 40%;
-    top: 50%;
-    height: 200px;
-    width: 200px;
-    transform: rotate(10deg);
-    z-index: 100;
-}
-.img-uva4 {
-    opacity: 0.6;
-    position: absolute;
-    left: 7%;
-    top: 4%;
-    height: 60px;
-    width: 60px;
-    transform: rotate(10deg);
-   
-}
-.img-logo {
-    opacity: 0.6;
-    position: absolute;
-    left: 80%;
-    top: 40%;
-    height: 300px;
-    width: 300px;
-    transform: rotate(10deg);
-    z-index: 100;
-}
-@media (max-width:450px) {
-    .img-uva {
-        display: none;
-    }
-}
-@media (max-width:450px) {
-    .img-uva2 {
-        display: none;
-    }
-}
-@media (max-width:450px) {
-    .img-uva4 {
-        display: none;
-    }
-}
+
 @media (max-width:450px) {
     .img-uva5 {
         display: none;

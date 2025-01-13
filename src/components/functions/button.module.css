@@ -31,3 +31,12 @@
     --color: var(--violet-a12);
     --color-activated: var(--violet-a12);
 }
+@media (max-width:344px) {
+    .use-button {
+        margin-top: 1rem;
+        font-size: smaller;
+        width: 15vh;
+        height: 5vh;
+        margin-bottom: 0.5rem;
+    }
+}

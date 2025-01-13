@@ -15,9 +15,9 @@ const ComprasVentasPage = () => {
 
     return (
         <Page>
-            <h2 className="titulos" style={{ marginBottom: "1rem", marginTop: "6rem" }}>Compras y Ventas  </h2>   
+            <h2 className="titulos" style={{ marginBottom: "1rem", marginTop: "6rem" }}>Compras y Ventas  </h2>
             <div style={{ marginBottom: "1rem" }}>
-                
+
                 {/* Botones para alternar vistas */}
                 <div className={styles["divbu"]} style={{ marginBottom: "0.5rem", marginTop: "0.5rem" }}>
                     <div>

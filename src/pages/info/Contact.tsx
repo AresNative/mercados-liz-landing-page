@@ -37,17 +37,16 @@ const ContactPage = () => {
                                 <div className="contact-item">
                                     <span> <strong>Horario de Atención:{" "} </strong>
                                         <div>
-                                             <span style={{ paddingLeft: "5px" }}>Domingo a jueves 7:00 AM - 09:00 PM </span>
+                                            <span style={{ paddingLeft: "5px" }}>Domingo a jueves 7:00 AM - 09:00 PM </span>
                                         </div>
                                         <div>
-                                              <span style={{ paddingLeft: "5px" }}>Viernes a sabado 7:00 AM - 10:00 PM </span>
+                                            <span style={{ paddingLeft: "5px" }}>Viernes a sabado 7:00 AM - 10:00 PM </span>
                                         </div>
-                                      
+
                                     </span>
-                                  
-                                   
+
                                 </div>
-                                
+
                             </li>
                             {/* ----------------------------------------------------------- */}
                             <li style={{ background: "#fff", padding: "15px", borderRadius: "5px" }}>

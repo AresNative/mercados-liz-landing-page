@@ -79,7 +79,6 @@ const NuevoProvePage = () => {
     const [paginaActual, setPaginaActual] = useState(0);
     const { register, handleSubmit, setValue } = useForm();
 
-
     const preguntaActual = preguntas[paginaActual];
     const esUltimaPagina = paginaActual === preguntas.length - 1;
 

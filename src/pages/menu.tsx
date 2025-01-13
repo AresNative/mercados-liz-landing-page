@@ -274,9 +274,18 @@ export function Menu() {
         router.push("/home");
     };
 
+
+    const [menuOpen, setMenuOpen] = useState(false);
+
+
     return (
         <>
-            <IonMenu side="end" contentId="main-content"  >
+            <IonMenu
+                side="end"
+                contentId="main-content"
+                inert={!menuOpen}
+                onIonWillOpen={() => setMenuOpen(true)} // Actualiza el estado al abrir el menú
+                onIonWillClose={() => setMenuOpen(false)} > {/* // Actualiza el estado al cerrar el menú */}
                 <IonHeader >
                     <IonToolbar color="liz">
                         <IonTitle>Menú</IonTitle>

@@ -68,6 +68,14 @@ h3 {
     color: var(--ion-color-liz-tint);
     text-shadow: #2b2b2ba2 2px 2px 5px;
 }
+.inert {
+    pointer-events: none;
+    /* Desactiva interacciones con el mouse */
+    user-select: none;
+    /* Evita que el contenido sea seleccionable */
+    opacity: 0.5;
+    /* Opcional: reduce la opacidad para indicar que está deshabilitado */
+}
 .overlay .titulos{
     color: var(--primary);
 }

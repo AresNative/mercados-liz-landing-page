@@ -54,7 +54,7 @@ h1,h2,h3,h4{
 h3 {
     color: var(--primary);
 }
-.swal2-shown:not(.swal2-no-backdrop, .swal2-toast-shown),
+.swal2-shown:not(/* .swal2-no-backdrop, . */swal2-toast-shown),
 .swal2-height-auto,
 .swal2-height-auto.specific-class {
     height: 100% !important;

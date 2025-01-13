@@ -1,6 +1,7 @@
 import { Menu } from "@/pages/menu";
-import {IonButtons, IonContent, IonFooter, IonHeader,
-        IonMenuButton, IonPage, IonTitle, IonToolbar,
+import {
+    IonButtons, IonContent, IonFooter, IonHeader,
+    IonMenuButton, IonPage, IonTitle, IonToolbar,
 } from "@ionic/react";
 import { useEffect, useRef, useState } from "react";
 import style from "@/components/displays/header.module.css";
@@ -64,22 +65,22 @@ const Page: React.FC<ContainerProps> = ({ children }) => {
                         style={{
                             "--background": headerStyle.background,
                             color: headerStyle.color,
-                            backdropFilter: headerStyle.backdropFilter,
+                            /* backdropFilter: headerStyle.backdropFilter, */
                         }}
                     >
-                        
+
                         <IonTitle size="large" className={style["titulos"]}>
                             Liz
                         </IonTitle>
                         <IonButtons slot="end" className={style["centerButton"]}>
                             <IonMenuButton color="light" />
-                          
+
                         </IonButtons>
                     </IonToolbar>
                 </IonHeader>
                 <IonContent fullscreen ref={contentRef} scrollEvents={true}>
                     <main>{children}</main>
-                
+
                     <IonFooter>
                         <IonToolbar className={style["toolbar"]}>
                             <ul

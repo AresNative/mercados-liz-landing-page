@@ -3,7 +3,7 @@ import styles from "./input.module.css"
 
 interface Inputprops {
     label: string;
-    type: 'text' | 'password' | 'email' | 'number' | 'date' | 'time' | undefined;
+    type: 'text' | 'password' | 'email' | 'number' | 'date' | 'time' | 'tel' | undefined;
     placheolder: string;
     props?: any;
     defaultValue?: any;
@@ -18,6 +18,7 @@ export function Input({ label, type, placheolder, props, defaultValue }: Inputpr
             className={styles["use-input"]}
             value={defaultValue}
             {...props}
+          
         >
             {type === "password" && (<IonInputPasswordToggle slot="end" color="dark" />)}
         </IonInput>

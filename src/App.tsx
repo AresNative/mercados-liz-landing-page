@@ -2,11 +2,11 @@ import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from '@/pages/Home';
-import Reclutamiento from '@/pages/Reclutamiento';
-import Offers from '@/pages/Offers';
-import ContactPage from '@/pages/Contact';
+import Reclutamiento from '@/pages/usuario/Reclutamiento';
+
+import ContactPage from '@/pages/info/Contact';
 import SesionPage from '@/pages/Sesion';
-import Billing from '@/pages/Billing';
+import Billing from '@/pages/usuario/Billing';
 
 import '@/theme/variables.css';
 /* Core CSS required for Ionic components to work properly */
@@ -24,18 +24,23 @@ import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
-import ServicioPage from './pages/Calificacion';
-import HistoriaPage from './pages/History';
-import NuevoProvePage from './pages/nuevosprovedores';
-import ProveePage from './pages/portalprov';
+import ServicioPage from './pages/usuario/Calificacion';
 import 'animate.css';
 import { useSelector } from 'react-redux';
 import { RootState } from './store/store';
 import './index.css';
 import CertificacionPage from './pages/certificaciones/certificacionpage';
-import InfprovPage from './pages/vistaUser/provnuevo';
 import RHPage from './pages/PageVistas/Rh';
 import InfValoracionPage from './pages/vistaUser/valoracion';
+import AdministracionPage from './pages/PageVistas/administracion';
+import ComprasVentasPage from './pages/PageVistas/comprasVentas';
+import Offers from './pages/ofertas/Offers';
+import NuevoProvePage from './pages/proveedores/nuevosprovedores';
+import InfprovPage from './pages/vistaUser/provnuevo';
+import ProveePage from './pages/proveedores/portalprov';
+import HistoriaPage from './pages/info/History';
+import OfertasPage from './pages/ofertas/oferta';
+import PromocionesPage from './pages/ofertas/oferta';
 setupIonicReact({
   mode: 'ios'
 });
@@ -102,21 +107,33 @@ const App: React.FC = () => {
           <Route exact path="/Proveedores">
             <ProveePage />
           </Route>
-          <Route exact path="/RecursosHumanos">
-            <RHPage />
-          </Route>
+
           {/* prueba*/}
           <Route exact path="/CertificacionPage">
             <CertificacionPage />
           </Route>
+
           {/* Paginas informacion que muestran datos  */}
           <Route exact path="/provpage">
             <InfprovPage />
           </Route>
           <Route exact path="/InfValoracionPage">
             <InfValoracionPage />
-          </Route>
 
+            {/* Vistas Interaccion Usuarios */}
+          </Route>
+          <Route exact path="/AdministracionPage">
+            <AdministracionPage />
+          </Route>
+          <Route exact path="/RecursosHumanos">
+            <RHPage />
+          </Route>
+          <Route exact path="/ComprasVentasPage">
+            <ComprasVentasPage />
+          </Route>
+          <Route exact path="/PromocionesPage">
+            <PromocionesPage />
+          </Route>
           {/* ------------ */}
           {/*  */}
           <Route exact path="/">

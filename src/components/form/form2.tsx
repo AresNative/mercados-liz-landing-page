@@ -1,4 +1,3 @@
-"use client";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { PostUser } from "@/services/web_site_post";

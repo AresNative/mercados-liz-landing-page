@@ -1,6 +1,6 @@
 import React from 'react';
 import { IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle } from '@ionic/react';
-import Styles from "./Offers.module.css";
+import Styles from "@/pages/ofertas/Offers.module.css";
 
 const valores = [
     {
@@ -38,7 +38,7 @@ const valores = [
 const ValoresSection: React.FC = () => {
     return (
         <div>
-            <p className={Styles["p"]}>Nosotros y nuestros Valores</p>
+            <h2 className="titulos" z-index="100%" style={{ marginTop: "6rem" }}>Nosotros y nuestros Valores</h2>
             <div className={Styles["divcom"]}>
                 {valores.map((val) => (
                     <IonCard key={val.id} className={Styles["cardcom"]}>
@@ -64,7 +64,6 @@ const ValoresSection: React.FC = () => {
                                 </li>
                             ))}
                         </ul>
-
                     </IonCard>
                 ))}
             </div>

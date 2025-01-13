@@ -1,7 +1,7 @@
 import React from 'react';
 import { IonButton, IonIcon } from '@ionic/react';
 import { pricetagsOutline } from 'ionicons/icons';
-import Styles from "./Offers.module.css";
+import Styles from "@/pages/ofertas/Offers.module.css";
 
 
 interface PdfViewerProps {

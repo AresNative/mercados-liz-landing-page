@@ -44,6 +44,8 @@ table-cell * {
     align-content: center !important;
     justify-content: center;
     display: flex;
+    margin: 0.1rem !important;
+    padding: 2px !important;
 }
 .icontabla {
     stroke: #8605f0;

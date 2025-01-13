@@ -1,5 +1,4 @@
 import { GetValoracion } from "@/services/web_site_gets";
-import Page from "@/template/page";
 import { useEffect, useState } from "react";
 import './tablasrh.css';
 
@@ -62,66 +61,66 @@ const InfValoracionPage = () => {
     }
 
     return (
-        <Page>
-            <div style={{ marginTop: "6rem", marginBottom: "6rem" }}>
-                <div className="valtable-container">
-                    <h2 className="subtitulos" style={{ marginBottom: "1rem", marginTop: "2rem", marginLeft: "1rem" }}>
-                        Información nuevas valoraciones
-                    </h2>
 
-                    {/* Campo de entrada para el filtro por calificación */}
-                    <div style={{ margin: "0.5rem" }}>
-                        <label htmlFor="ratingFilter" style={{ padding: "1rem", fontSize: "1rem" }}>Filtrar por Calificación: </label>
-                        <input
-                            id="ratingFilter"
-                            type="text"
-                            placeholder="Calificación (1-5)"
-                            value={filterRating}
-                            onChange={handleRatingChange}
-                            className="input-field"
-                            style={{
-                                fontSize: "0.9rem",
-                                padding: "0.1rem",
-                                marginBottom: "1rem",
-                                marginRight: "1rem",
-                                borderRadius: "5px",
-                                borderColor: "#e5d9f7",
-                            }}
-                        />
-                    </div>
+        <div style={{ marginTop: "1rem", marginBottom: "1rem" }}>
+            <div className="valtable-container">
+                <h2 className="subtitulos" style={{ marginBottom: "1rem", marginTop: "2rem", marginLeft: "1rem" }}>
+                    Información nuevas valoraciones
+                </h2>
 
-                    <table className="valresponsive-table">
-                        <thead>
-                            <tr className="valfontSize">
-                                <th>Comentario</th>
-                                <th >Calificación del 1 al 5 </th>
+                {/* Campo de entrada para el filtro por calificación */}
+                <div style={{ margin: "0.5rem" }}>
+                    <label htmlFor="ratingFilter" style={{ padding: "1rem", fontSize: "1rem" }}>Filtrar por Calificación: </label>
+                    <input
+                        id="ratingFilter"
+                        type="text"
+                        placeholder="Calificación (1-5)"
+                        value={filterRating}
+                        onChange={handleRatingChange}
+                        className="input-field"
+                        style={{
+                            fontSize: "0.9rem",
+                            padding: "0.1rem",
+                            marginBottom: "1rem",
+                            marginRight: "1rem",
+                            borderRadius: "5px",
+                            borderColor: "#e5d9f7",
+                        }}
+                    />
+                </div>
+
+                <table className="valresponsive-table">
+                    <thead>
+                        <tr className="valfontSize">
+                            <th>Comentario</th>
+                            <th >Calificación del 1 al 5 </th>
+                        </tr>
+                    </thead>
+                    <tbody className="valfontSize">
+                        {currentData.map((info: any, index) => (
+                            <tr key={index}>
+                                <td className="vallimrenglones">{info.comment || "N/A"}</td>
+                                <td>{info.valor || "N/A"}</td>
                             </tr>
-                        </thead>
-                        <tbody className="valfontSize">
-                            {currentData.map((info: any, index) => (
-                                <tr key={index}>
-                                    <td className="vallimrenglones">{info.comment || "N/A" }</td>
-                                    <td>{info.valor || "N/A"}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                        ))}
+                    </tbody>
+                </table>
 
-                    {/* Paginado */}
-                    <div className="pagination">
-                        <button onClick={handlePreviousPage} disabled={currentPage === 1}>
-                            Anterior
-                        </button>
-                        <span>
-                            Página {currentPage} de {totalPages}
-                        </span>
-                        <button onClick={handleNextPage} disabled={currentPage === totalPages}>
-                            Siguiente
-                        </button>
-                    </div>
+                {/* Paginado */}
+                <div className="pagination">
+                    <button onClick={handlePreviousPage} disabled={currentPage === 1}>
+                        Anterior
+                    </button>
+                    <span>
+                        Página {currentPage} de {totalPages}
+                    </span>
+                    <button onClick={handleNextPage} disabled={currentPage === totalPages}>
+                        Siguiente
+                    </button>
                 </div>
             </div>
-        </Page>
+        </div>
+
     );
 };
 

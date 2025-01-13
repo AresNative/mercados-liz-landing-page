@@ -6,7 +6,7 @@ interface Listprops {
 }
 export function List({ children }: Listprops) {
     return (
-        <IonList className={styles["list-columnas"]}>
+        <IonList className={styles["list-columnas"]} >
             {children}
         </IonList>
     );

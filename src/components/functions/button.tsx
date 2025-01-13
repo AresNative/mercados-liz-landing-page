@@ -12,7 +12,7 @@ interface buttonAction {
 export const Button: React.FC<buttonAction> = ({ onClick, type, color, label, disabled }) => {
     return (
         <IonButton
-           
+          
             onClick={onClick}
             className={`${styles["use-button"]} ${styles[color]}`}
             type={type}

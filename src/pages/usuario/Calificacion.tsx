@@ -85,13 +85,12 @@ export default function ServicioPage() {
                                     onMouseEnter={() => setHoverRating(star)}
                                     onMouseLeave={() => setHoverRating(0)}
                                     size={35}
-
                                 />
                             ))}
                         </div>
                         <IonTextarea
                             className={styles["textarea2"]}
-                            placeholder="Deja tu opinión, para nosotros es muy importante escucharte"
+                            placeholder="Deja tu opinión, para nosotros es muy importante escucharte*"
                             onIonChange={(e) => setFeedback(e.detail.value!)} // Actualizar el estado
                             {...register("comment", { required: true && "Campo obligatorio" })}
                         />

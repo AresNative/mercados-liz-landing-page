@@ -233,8 +233,7 @@
  /* Tablas Valoracion*/
 .valtable-container {
     margin: 1rem auto;
-    width: 96%;
-    max-width: none;
+    width: 90%;
     overflow-x: auto;
     background: #ffffff;
     font-size: medium !important;
@@ -246,7 +245,7 @@
 }
 .valresponsive-table th,
 .valresponsive-table td {
-    padding: 15px;
+    padding: 10px;
 }
 .valresponsive-table th {
     /*Encabezado*/
@@ -255,25 +254,26 @@
     border-bottom: 1px solid #c990ff18;
 }
 .valresponsive-table tbody tr:hover {
-    background-color: #8b00fd0c;
+    background-color: #8b00fd07;
 }
 .vallimrenglones {
+    margin: 19rem !important;
     max-inline-size: 100rem !important;
-    white-space: normal;
+    /* white-space: none; */
 }
 .valfontSize {
     font-size: medium !important;
 }
 @media (max-width: 430px) {
     .valresponsive-table {
-        width: 30rem;
+        width: 50rem;
         overflow: scroll !important;
         font-size: x-large !important;
     }
 }
 @media (min-width: 391px) {
     .valresponsive-table {
-        width: 30rem;
+        width: 50rem;
         overflow: scroll !important;
         font-size: x-large !important;
     }
@@ -288,7 +288,7 @@
 }
 @media (max-width: 430px) {
 .vallimrenglones {
-        max-inline-size: 10rem !important;
+        max-inline-size: 25rem !important;
         white-space: normal;
     }
 }
@@ -299,6 +299,7 @@
     height: 2vh;
     font-size: 1rem;
 }
+
 @media (max-width:344px) {
     .botton {
         margin-top: 1rem;
@@ -306,5 +307,22 @@
         width: 15vh;
         height: 5vh;
         margin-bottom: 0.5rem;
+    }
+}
+
+.reclutamiento-columnas2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.reclutamiento-columnas {
+    display: flex;
+    gap: 1rem !important;
+}
+
+@media (max-width:430px) {
+    .reclutamiento-columnas {
+        flex-direction: column;
+        padding: 0.2rem;
     }
 }

@@ -26,7 +26,7 @@ const ComprasVentasPage = () => {
                             color={activeSection === "NuevosProvs" ? "dark" : "default"}
                             label={
                                 <>
-                                    <Forklift style={{ margin: "3px" }} /> {"Nuevos Provs."}
+                                    <Forklift  /> {"Nuevos Provs."}
                                 </>
                             }
                             onClick={() => handleSectionChange("NuevosProvs")}
@@ -36,7 +36,7 @@ const ComprasVentasPage = () => {
                             color={activeSection === "Promociones" ? "dark" : "default"}
                             label={
                                 <>
-                                    <BadgeDollarSign style={{ margin: "3px" }} /> {"Promociones"}
+                                    <BadgeDollarSign  /> {"Promociones"}
                                 </>
                             }
                             onClick={() => handleSectionChange("Promociones")}

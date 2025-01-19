@@ -39,8 +39,8 @@ import NuevoProvePage from './pages/proveedores/nuevosprovedores';
 import InfprovPage from './pages/vistaUser/provnuevo';
 import ProveePage from './pages/proveedores/portalprov';
 import HistoriaPage from './pages/info/History';
-import OfertasPage from './pages/ofertas/oferta';
 import PromocionesPage from './pages/ofertas/oferta';
+import ValoracionEmpleadosPage from './pages/PageVistas/valoracionesEmpleados';
 setupIonicReact({
   mode: 'ios'
 });
@@ -48,13 +48,13 @@ setupIonicReact({
 const App: React.FC = () => {
   const selector = useSelector((state: RootState) => state.users);
 
-  /*  if (selector.id === 2) {
+  /*  if (selector.id === 6) {
  
      return <IonApp>
        <IonReactRouter>
          <IonRouterOutlet>
-           {/*  *\/}
-           <Route exact path="/">
+           
+            <Route exact path="/">
              <Redirect to="/home" />
            </Route>
            <Route exact path="/home">
@@ -66,10 +66,10 @@ const App: React.FC = () => {
  
          </IonRouterOutlet>
        </IonReactRouter >
-     </IonApp>
+     </IonApp> 
  
-   } 
-   */
+   } */ 
+  
 
   return (
     <IonApp>
@@ -134,6 +134,10 @@ const App: React.FC = () => {
           <Route exact path="/PromocionesPage">
             <PromocionesPage />
           </Route>
+          <Route exact path="/ValoracionEmpleadosPage">
+            <ValoracionEmpleadosPage />
+          </Route>
+
           {/* ------------ */}
           {/*  */}
           <Route exact path="/">

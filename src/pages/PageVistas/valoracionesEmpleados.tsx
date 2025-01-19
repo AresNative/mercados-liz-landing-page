@@ -3,12 +3,11 @@ import "@/pages/margen-pagina.css";
 import { Input } from "@/components/functions/input";
 import { Select } from "@/components/functions/select";
 import { Button } from "@/components/functions/button";
-import "@/components/displays/textarea.css";
-import styles from "./nuevosprov.module.css";
+import styles from "@/pages/PageVistas/valoracionempleados.module.css";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
-import { PostProveedor } from "@/services/web_site_post";
+import {Star } from "lucide-react"; // Asegúrate de tener instalado lucide-react para las estrellas
 
 interface Opcion {
     texto: string;
@@ -31,72 +30,65 @@ interface Pregunta {
     opciones: Opcion[];
 }
 
+interface Estrellas {
+    values: number[];
+    rating: number;
+}
+
 const preguntas: Pregunta[] = [
     {
         id: 1,
         texto: "Datos Generales",
         opciones: [
-            { texto: "Información general proveedor", tipo: "h1" },
+            { texto: "Evaluacion personal", tipo: "h1" },
             {
                 texto: "Información",
                 tipo: "text",
                 subopciones: [
-                    { texto: "Nombre", tipo: "text", props: "name" },
-                    { texto: "Correo electrónico", tipo: "email", props: "email" },
+                    { texto: "Nombre del empleado", tipo: "text", props: "mm" },
+                    { texto: "Departamento/Area", tipo: "text", props: "mm" },
                 ],
             },
             {
-                texto: "Compañía",
+                texto: "Datos Fecha",
                 tipo: "text",
                 subopciones: [
-                    { texto: "Telefono", tipo: "text", props: "telefono" },
-                    { texto: "Compañía", tipo: "text", props: "company" },
+                    { texto: "Fecha de Evaluacion", tipo: "date", props: "mm" },
+                    { texto: "Nombre de quien evalua ", tipo: "text", props: "mm" },
                 ],
-            },
-            { texto: "Tipo de productos", tipo: "text", props: "type_prod" },
-            {
-                texto: "Departamento al que va dirigido",
-                tipo: "text",
-                subopciones: [
-                    {
-                        texto: "Departamento al que va dirigido",
-                        tipo: "select",
-                        props: "department",
-                        values: [
-                            { nombre: "Abarrotes Comestibles" },
-                            { nombre: "Frutas y Verduras" },
-                            { nombre: "Cuidado Personal" },
-                            { nombre: "Carnes" },
-                            { nombre: "Mercancías Generales" },
-                            { nombre: "Bebidas y Licores" },
-                            { nombre: "Lácteos" },
-                            { nombre: "Dulcería" },
-                            { nombre: "Especies y Condimentos" },
-                            { nombre: "Materia Prima" },
-                        ]
-                    }
-
-                ]
-
             },
         ],
     },
 ];
 
-const NuevoProvePage = () => {
+const ValoracionEmpleadosPage = () => {
+    const calif: Estrellas = {
+        values: [1, 2, 3, 4, 5],
+        rating: 2
+    };
     const [paginaActual, setPaginaActual] = useState(0);
+    const [ratingProductividad, setRatingProductividad] = useState(0);
+    const [hoverProductividad, setHoverProductividad] = useState(0);
+    const [ratingCalidad, setRatingCalidad] = useState(0);
+    const [hoverCalidad, setHoverCalidad] = useState(0);
     const { register, handleSubmit, setValue, reset } = useForm();
 
     const preguntaActual = preguntas[paginaActual];
-    const esUltimaPagina = paginaActual === preguntas.length - 1;
+
+    const handleRatingProductividad = (value: number) => {
+        setRatingProductividad(value);
+        setValue("productividad", value);
+    };
+
+    const handleRatingCalidad = (value: number) => {
+        setRatingCalidad(value);
+        setValue("calidad", value);
+    };
 
     const onSubmit = handleSubmit(async (data) => {
         try {
-            await PostProveedor(data);
-
-            // Mostrar mensaje de éxito
             Swal.fire({
-                title: "Gracias, nos pondremos en contacto", //response.message
+                title: "Evaluación Enviada", // response.message
                 icon: "success",
                 confirmButtonText: "Aceptar",
             });
@@ -105,7 +97,7 @@ const NuevoProvePage = () => {
             reset();
         } catch (error) {
             Swal.fire({
-                title: "Error al enviar el formulario",
+                title: "Error al enviar  Evaluación",
                 text: "Por favor, intente nuevamente.",
                 icon: "error",
                 confirmButtonText: "Aceptar",
@@ -117,7 +109,7 @@ const NuevoProvePage = () => {
         <Page>
             <form onSubmit={onSubmit}>
                 <h2 className="titulos" style={{ marginTop: "6rem" }}>
-                    Si quieres ser nuestro proveedor llena el siguiente formulario
+                    Evaluacion de personal Mercado Liz
                 </h2>
                 <div className={styles["reclutamiento"]}>
                     {preguntaActual.opciones.map((data: Opcion, index: number) => (
@@ -164,17 +156,64 @@ const NuevoProvePage = () => {
                             )}
                         </div>
                     ))}
-                    <p className="sub-titulos5">
-                        En caso de contar con algún catálogo con sus productos favor de anexarlo
-                    </p>
-                    <input type="file" accept=".pdf,.xlsx" {...register("archivos")} />
-                    <div style={{ display: "flex" }}>
+
+                    {/* Sección de calificación con estrellas: Productividad */}
+                    <div className={styles["reclutamiento-columnas2"]} style={{ display: "flex", alignItems: "center" }}>
+                        <div style={{ display: "flex", alignItems: "center", marginTop: "1rem" }}>
+                            <label>Productividad: </label>
+                            <div style={{ display: "flex" }}>
+                                {calif.values.map((star) => (
+                                    <Star
+                                        key={star}
+                                        className={
+                                            star <= (hoverProductividad || ratingProductividad)
+                                                ? styles.estrella2
+                                                : styles.estrellas
+                                        }
+                                        onMouseEnter={() => setHoverProductividad(star)}
+                                        onMouseLeave={() => setHoverProductividad(0)}
+                                        onClick={() => handleRatingProductividad(star)}
+                                        size={35}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Sección de calificación con estrellas: Calidad */}
+                        <div style={{ display: "flex", alignItems: "center", marginTop: "1rem" }}>
+                            <label>Calidad de trabajo: </label>
+                            <div style={{ display: "flex" }}>
+                                {calif.values.map((star) => (
+                                    <Star
+                                        key={star}
+                                        className={
+                                            star <= (hoverCalidad || ratingCalidad)
+                                                ? styles.estrella2
+                                                : styles.estrellas
+                                        }
+                                        onMouseEnter={() => setHoverCalidad(star)}
+                                        onMouseLeave={() => setHoverCalidad(0)}
+                                        onClick={() => handleRatingCalidad(star)}
+                                        size={35}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div style={{ display: "flex", alignContent: "center" }}>
                         <Button label="Enviar" type="submit" color="default" />
                     </div>
                 </div>
             </form>
+            {/*<Angry></Angry>
+            <Annoyed></Annoyed>
+            <Smile></Smile> */}
         </Page>
     );
 };
 
-export default NuevoProvePage;
+export default ValoracionEmpleadosPage;
+
+

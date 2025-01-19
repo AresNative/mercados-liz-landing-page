@@ -100,6 +100,7 @@ const InfprovPage = () => {
                         <tr className="provfontSize">
                             <th>Nombre</th>
                             <th>Correo</th>
+                            <th>Tel</th>
                             <th>Compañía</th>
                             <th>Tipo de producto</th>
                             <th>Departamento al que va dirigido</th>
@@ -111,6 +112,7 @@ const InfprovPage = () => {
                             <tr key={index}>
                                 <td>{info.name || "N/A"}</td>
                                 <td>{info.email || "N/A"}</td>
+                                <td>{info.telefono || "N/A"}</td>
                                 <td>{info.company || "N/A"}</td>
                                 <td>{info.type_prod || "N/A"}</td>
                                 <td>{info.department || "N/A"}</td>

@@ -4,7 +4,7 @@
     flex-direction: column;
     align-content: center;
     justify-content: center;
-    width: 79%;
+    width: 89%;
     margin: auto auto 1rem auto;
     background: #ffffff;
     padding: 1rem;
@@ -12,17 +12,16 @@
     box-shadow: 0 4px 6px #0000001a;
     min-height: 4rem;
 }
-
 /*ajuste*/
 .reclutamiento-columnas {
     display: flex;
-    gap: 2rem !important;
+    gap: 1rem !important;
 }
-@media (max-height: 400px) {
+@media (max-width: 600px) {
     .reclutamiento-columnas {
         flex-direction: column;
     }
-} 
+}
 .boton {
     position: flex !important;
     padding: 1px;
@@ -38,6 +37,7 @@
         max-inline-size: 2.3rem;
     }
 }
+
 @media (max-width: 345px) {
     .reclutamiento {
         margin: auto auto 1rem auto;
@@ -51,5 +51,39 @@
         border-radius: 15px;
         padding: 1rem !important;
         box-shadow: 0 4px 6px #0000001a;
+    }
+}
+
+ .estrellas {
+     cursor: pointer;
+     stroke-width: 2%;
+     stroke: #9c9999;
+     fill: none;
+     transition: fill 0.2s ease, stroke 0.2s ease;
+ }
+ .estrella2 {
+     cursor: pointer;
+     stroke-width: 2%;
+     stroke: var(--violet-10);
+     fill: var(--violet-6);
+     transition: fill 0.2s ease, stroke 0.2s ease;
+ }
+ .estrella2:hover {
+     transform: scale(1.1);
+ }
+
+.reclutamiento-columnas2 {
+    display: flex;
+    gap: 1rem;
+    align-content: center;
+    justify-content: center;
+    /* Centrar horizontalmente */
+    align-items: center;
+}
+@media (max-width: 700px) {
+    .reclutamiento-columnas2 {
+        flex-direction: column;
+        padding: 0.5rem auto;
+        margin: auto 0.5rem;
     }
 }

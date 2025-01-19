@@ -1,6 +1,6 @@
 .select{
     --box-shadow: 0 4px 6px #0000001a !important ;
-    --placeholder-color:var(--violet-12);
+    --placeholder-color:var(--violet-10);
     margin: 1%;
     border-radius: 5px;
     width: 100%;

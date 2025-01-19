@@ -92,7 +92,7 @@ const InfValoracionPage = () => {
                 <table className="valresponsive-table">
                     <thead>
                         <tr className="valfontSize">
-                            <th>Comentario</th>
+                            <th className="vallimrenglones" >Comentario</th>
                             <th >Calificación del 1 al 5 </th>
                         </tr>
                     </thead>

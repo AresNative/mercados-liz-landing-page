@@ -50,3 +50,20 @@ table-cell * {
 .icontabla {
     stroke: #8605f0;
 }
+
+.reclutamiento-columnas2 {
+    display: flex;
+    gap: 1rem;
+    align-content: center;
+    justify-content: center;
+    /* Centrar horizontalmente */
+    align-items: center;
+}
+
+@media (max-width: 700px) {
+    .reclutamiento-columnas2 {
+        flex-direction: column;
+        padding: 0.5rem auto;
+        margin: auto 0.5rem;
+    }
+}

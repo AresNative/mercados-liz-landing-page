@@ -29,25 +29,6 @@ export async function PostUserReg(data: any) {
     .then((response) => console.log(response))
     .catch((err) => console.error(err));
 }
-/* Manda Informacion Nuevos Proveedores*/
-export async function PostProveedor(data: any) {
-  const apiUrl = process.env.REACT_APP_API_URL;
-  fetch(`${apiUrl}proveedores`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json-patch+json",
-    },
-    body: JSON.stringify(data), // JSON.stringify se encarga de agregar comillas dobles en nombres de propiedades
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`Error: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then((response) => console.log("Respuesta del servidor:", response))
-    .catch((err) => console.error("Error en la solicitud:", err));
-}
 /* Manda Calificacion y comentarios */
 export async function PostValoracion(data: any) {
   console.log(data);
@@ -89,6 +70,27 @@ export async function PostPostulacion(data: any) {
     .catch((err) => console.error("Error en la solicitud:", err));
 }
 
+/* Manda Informacion Nuevos Proveedores*/
+export async function PostProveedor(data: any) {
+  const apiUrl = process.env.REACT_APP_API_URL;
+  fetch(`${apiUrl}proveedores`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json-patch+json",
+    },
+    body: JSON.stringify(data), // JSON.stringify se encarga de agregar comillas dobles en nombres de propiedades
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((response) => console.log("Respuesta del servidor:", response))
+    .catch((err) => console.error("Error en la solicitud:", err));
+}
+
+/* Manda Informacion Nuevos archivos*/
 export async function PostArchivos(data: any) {
   const apiUrl = process.env.REACT_APP_API_URL;
   const response = fetch(`${apiUrl}imagenes/upload`, {

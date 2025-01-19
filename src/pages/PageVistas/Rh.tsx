@@ -6,12 +6,13 @@ import { IonTextarea } from "@ionic/react";
 import styles from "@/components/displays/tables.module.css";
 import { useState } from "react";
 import PostulacionesRHPage from "../vistaUser/postulacionesrh";
-import { UserPlus, Users} from "lucide-react"; // Asegúrate de que este ícono existe
+import { UserPen, UserPlus, Users } from "lucide-react"; // Asegúrate de que este ícono existe
+import ValoracionPersonalTable from "../vistaUser/ValoracionPersonalTable";
 
 const RHPage = () => {
-    const [activeSection, setActiveSection] = useState<"Agregar" | "Postulaciones" | "NuevaSeccion">("Agregar");
+    const [activeSection, setActiveSection] = useState<"Agregar" | "Postulaciones" | "Personal">("Agregar");
 
-    const handleSectionChange = (section: "Agregar" | "Postulaciones" | "NuevaSeccion") => {
+    const handleSectionChange = (section: "Agregar" | "Postulaciones" | "Personal") => {
         setActiveSection(section);
     };
 
@@ -21,7 +22,8 @@ const RHPage = () => {
             <div>
                 {/* Botones para alternar vistas */}
                 <div className={styles["divbu"]} style={{ marginBottom: "1rem", marginTop: "2rem" }}>
-                    <Button
+                    <div>
+                         <Button
                         type="button"
                         color={activeSection === "Agregar" ? "dark" : "default"}
                         label={
@@ -36,11 +38,23 @@ const RHPage = () => {
                         color={activeSection === "Postulaciones" ? "dark" : "default"}
                         label={
                             <>
-                                <Users style={{ margin: "3px" }} /> {"Postulaciones"}
+                                <Users  /> {"Postulaciones"}
                             </>
                         }
                         onClick={() => handleSectionChange("Postulaciones")}
                     />
+                    <Button
+                        type="button"
+                        color={activeSection === "Personal" ? "dark" : "default"}
+                        label={
+                            <>
+                                <UserPen style={{ margin: "3px" }} /> {"Personal"}
+                            </>
+                        }
+                        onClick={() => handleSectionChange("Personal")}
+                    />
+                    </div>
+                   
 
                 </div>
 
@@ -50,19 +64,25 @@ const RHPage = () => {
                         <h2 className="subtitulos" style={{ marginBottom: "1rem", marginRight: "2rem", marginLeft: "2rem" }}>
                             Agregar Nueva Postulación
                         </h2>
-                        <Input label="Puesto" type="text" placheolder="Ingrese tipo de puesto" />
-                        <Input label="Horario entrada" type="time" placheolder="Ingresa el Horario" />
-                        <Input label="Horario salida" type="time" placheolder="Ingresa el Horario" />
-                        <Select
+                        <div className={styles["reclutamiento-columnas2"]}>
+                            <Input label="Puesto" type="text" placheolder="Ingrese tipo de puesto" />
+                            <Select
                             values={[
                                 { name: "Mayoreo" },
                                 { name: "Valle de guadalupe" },
                                 { name: "Valle de las palmas" },
                                 { name: "Testerazo" },
                             ]}
-                            message="Selecciona Sucursal"
+                            message="Seleccionar Sucursal"
                         />
-                        <div>
+                        </div>
+                       
+                        <div className={styles["reclutamiento-columnas2"]}>
+                        <Input label="Horario entrada" type="time" placheolder="Ingresa el Horario" />
+                        <Input label="Horario salida" type="time" placheolder="Ingresa el Horario" />
+                        </div>
+                      
+                        <div className={styles["reclutamiento-columnas2"]}>
                             <Input label="Requisito 1" type="text" placheolder="Ingrese el primer requisito" />
                             <Input label="Requisito 2" type="text" placheolder="Ingrese el segundo requisito" />
                         </div>
@@ -72,6 +92,9 @@ const RHPage = () => {
                 )}
                 {activeSection === "Postulaciones" && (
                     <PostulacionesRHPage />
+                )}
+                {activeSection === "Personal" && (
+                    <ValoracionPersonalTable />
                 )}
 
             </div>

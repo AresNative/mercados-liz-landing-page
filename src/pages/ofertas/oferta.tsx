@@ -4,10 +4,21 @@ import { Input } from "@/components/functions/input";
 import { Select } from "@/components/functions/select";
 import { Button } from "@/components/functions/button";
 
+
 const PromocionesPage = () => {
     return (
-      <>
-                <form className={styles["form"]}>
+        <>
+            <form className={styles["form"]}>
+                <h1 style={{ padding: "1px" }}> Subir PDF de promociones.</h1>
+                <div className={styles["reclutamiento-columnas2"]}>
+                    <input type="file" placeholder="Subir" style={{ padding: "1px" }} />
+                </div>
+                <Button label={"Publicar Oferta"} color={"default"} />
+            </form>
+
+            {/* */}
+
+            <form className={styles["form"]}>
                 <h1 style={{ padding: "5px" }}> Publicación de promociones página web supermercados Mejía.</h1>
                 <div style={{ padding: "5px" }}>
 

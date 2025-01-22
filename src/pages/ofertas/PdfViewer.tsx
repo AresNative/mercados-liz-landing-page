@@ -6,11 +6,18 @@ import Styles from "@/pages/ofertas/Offers.module.css";
 
 interface PdfViewerProps {
     pdfUrl: string;
+    fileName?: string;
 }
 
-const PdfViewer: React.FC<PdfViewerProps> = ({ pdfUrl }) => {
+const PdfViewer: React.FC<PdfViewerProps> = ({ pdfUrl, fileName = "document.pdf" }) => {
     const handleViewPdf = () => {
-        window.open(pdfUrl, '_blank');
+        window.open(pdfUrl, '');
+    };
+    const handleDownloadPdf = () => {
+        const link = document.createElement('a'); // Crear un elemento <a>
+        link.href = pdfUrl; // Establecer la URL del PDF
+        link.download = fileName; // Establecer el nombre del archivo descargado
+        link.click(); // Simular un clic en el enlace
     };
 
     return (
@@ -36,7 +43,7 @@ const PdfViewer: React.FC<PdfViewerProps> = ({ pdfUrl }) => {
                     <IonButton
                         fill="outline"
                         color={"liz"}
-                        onClick={handleViewPdf}
+                        onClick={ /* handleDownloadPdf */  handleViewPdf}
                         className={Styles["botton"]}
                     >
                         <IonIcon icon={pricetagsOutline} slot="start" />

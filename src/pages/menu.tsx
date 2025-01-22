@@ -62,7 +62,6 @@ export function Menu() {
         setname(modalName);
         modalRef.current?.present();
     }
-
     // Cierra el modal
     function closeModal() {
         modalRef.current?.dismiss();
@@ -71,12 +70,12 @@ export function Menu() {
     const { register, control, handleSubmit } = useForm();
     const onSubmit = handleSubmit(async (data) => {
 
-
         if (name === "Login") {
             await PostUser(data).then((response: any) => {
                 if (response.token) {
                     setLocalStorageItem("token", response);
                     mostrarAlerta("inicio correcto");
+
                 } else {
                     mostrarAlerta("Datos incorrectos intente otra vez ");
 
@@ -165,7 +164,7 @@ export function Menu() {
                                 placheolder="Ingresa tu contraseña"
                             /* autocomplete="off" */
                             />
-                            <p className={styles["switch-text"]}>
+                            {/*  <p className={styles["switch-text"]}>
                                 <span
                                     onClick={() => setname("Sign up")}
                                     className={styles["switch-link"]}
@@ -173,7 +172,7 @@ export function Menu() {
                                     {" "}
                                     ¿Olvidaste tu contraseña?
                                 </span>
-                            </p>
+                            </p> */}
                             <p className={styles["switch-text"]}>
                                 ¿No tienes cuenta?
                                 <span
@@ -219,8 +218,7 @@ export function Menu() {
                                     values={[
                                         { name: "Administración" },
                                         { name: "Recursos Humanos" },
-                                        { name: "Contabilidad" },
-                                        { name: "Recibo" },
+                                        { name: "Compras y ventas" }
                                     ]}
                                     message="Áreas"
                                 />
@@ -251,7 +249,7 @@ export function Menu() {
         { link: "/Contact", icon: <Info color='#6cb2ff' size={20} />, text: "Más información", view: true },//
         { link: "/Reclutamiento", icon: <BaggageClaim /* BriefcaseBusiness */ color='var(--primary)' size={20} />, text: "Únete a la familia", view: true },
         { link: "/Historia", icon: <BookOpenText color='#9f80ff' size={20} />, text: "Nuestra Historia", view: true },
-        { link: "/Servicio", icon: <Star color='#cfa8f8'/*#cfa8f8*/ size={20} />, text: "Valoranos", view: true },//
+        { link: "/Servicio", icon: <Star color='#cfa8f8' size={20} />, text: "Valoranos", view: true },//
         { link: "/ProveedoresNuev", icon: <Forklift color='var(--primary)' size={20} />, text: "Nuevos Proveedores", view: true },
         { link: "/Proveedores", icon: <FileBadge color='pink' size={20} />, text: "Proveedores", view: true },
         { link: "/CertificacionPage", icon: <ShieldCheck color='var(--primary)' size={20} />, text: "Certificaciones", view: true }
@@ -273,27 +271,18 @@ export function Menu() {
         // Redirige al inicio
         router.push("/home");
     };
-
-
-    const [menuOpen, setMenuOpen] = useState(false);
-
-
     return (
         <>
-            <IonMenu
-                side="end"
-                contentId="main-content"
-                inert={!menuOpen}
-                onIonWillOpen={() => setMenuOpen(true)} // Actualiza el estado al abrir el menú
-                onIonWillClose={() => setMenuOpen(false)} > {/* // Actualiza el estado al cerrar el menú */}
-                <IonHeader >
+            <IonMenu side="end" contentId="main-content">
+                <IonHeader>
                     <IonToolbar color="liz">
                         <IonTitle>Menú</IonTitle>
                     </IonToolbar>
                 </IonHeader>
                 <IonContent className="ion-padding" >
                     <IonList style={{ borderRadius: "5px" }}>
-                        {ruta.map((data: any, key: any) => (<Rutas key={key} link={data.link} icon={data.icon} text={data.text} view={data.view} />))}
+                        {ruta.map((data: any, key: any) => (
+                            <Rutas key={key} link={data.link} icon={data.icon} text={data.text} view={data.view} />))}
                     </IonList>
                 </IonContent>
                 <IonFooter >
@@ -310,7 +299,6 @@ export function Menu() {
 
                             {/* Ícono de log out para  el modal */}
                             <IonCol style={{ display: "flex", alignItems: "center", gap: "0.5rem", cursor: "pointer", justifyContent: "center" }}>
-
                                 <IonButton color="liz" size="small" shape='round' fill="clear" id="present-alert" onClick={() => setShowLogoutAlert(true)}>
                                     <Tooltip content="Cerrar sesión" >
                                         <span className="text-lg text-default-100 cursor-pointer active:opacity-80">

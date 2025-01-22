@@ -28,7 +28,7 @@ import ServicioPage from './pages/usuario/Calificacion';
 import 'animate.css';
 import { useSelector } from 'react-redux';
 import { RootState } from './store/store';
-import './index.css';
+/* import './index.css'; */
 import CertificacionPage from './pages/certificaciones/certificacionpage';
 import RHPage from './pages/PageVistas/Rh';
 import InfValoracionPage from './pages/vistaUser/valoracion';
@@ -48,7 +48,9 @@ setupIonicReact({
 const App: React.FC = () => {
   const selector = useSelector((state: RootState) => state.users);
 
-  /*  if (selector.id === 6) {
+  /*  
+      useEfecct(()=>{ 
+  if (selector.id === 6) {
  
      return <IonApp>
        <IonReactRouter>
@@ -68,8 +70,8 @@ const App: React.FC = () => {
        </IonReactRouter >
      </IonApp> 
  
-   } */ 
-  
+   } */
+
 
   return (
     <IonApp>

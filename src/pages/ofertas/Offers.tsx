@@ -12,7 +12,7 @@ const Offers = () => {
             </section>
             {/* PDF Catalog Section */}
             <section className="mb-8">
-                <PdfViewer pdfUrl="https://example.com/market-catalog.pdf" />
+                <PdfViewer pdfUrl="https://www.google.com/imghp?hl=es-419&ogbl" />
             </section>
 
             <section className={Styles["content"]}>

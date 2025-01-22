@@ -53,7 +53,7 @@
 
 .marca {
     margin: 0.5rem;
-    width: 90%;
+    width: 95%;
     height: 10rem;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background: var(--secondary);
@@ -245,7 +245,7 @@
 }
 
 /* Estilos para pantallas pequeñas (teléfonos) */
-@media (max-width: 450px) {
+@media (max-width: 376px) {
     .swiper {
         margin-top: 6rem !important;
         height: 30vh !important;
@@ -256,15 +256,24 @@
         /* Margen en vista pequeña */
     }
 }
-@media (max-width: 950px) {
+@media (min-width: 500px) {
+    .swiper {
+            margin-top: 6rem !important;
+            height: 30vh !important;
+            /* Altura en vista pequeña */
+            width: 90vh !important;
+            /* Ancho en vista pequeña */
+            margin: 1rem;
+            /* Margen en vista pequeña */
+        }
+}
+@media (max-width: 920px) {
     .swiper {
         margin-top: 6rem !important;
         height: 50vh;
         /* Altura en vista pequeña */
         width: 35vh;
         /* Ancho en vista pequeña */
-        margin: 2rem;
-        /* Margen en vista pequeña */
     }
 }
 .div {
@@ -273,13 +282,13 @@
     height: 90vh;
 }
 .img {
-    border-radius: 1rem;
-    width: 80vh;
+    border-radius: .5rem;
+    width: 95vh;
     /*--*/
-    height: 70vh;
-    /* |*/
-    object-fit: fill;
-}
+     height: 70vh;
+        /* |*/
+    /*  object-fit: fill;  */
+} 
 .fondo {
     position: absolute;
     inset: 0;
@@ -300,12 +309,12 @@
 
 @media (max-width:430px) {
     .contenido {
-        padding: 1.5rem !important;
+        padding: 1rem !important;
     }
 }
 .spancont {
     display: inline-block;
-    background-color: #22c55e;
+    background-color: #22c55e00;
     font-size: 0.75rem;
     font-weight: 600;
     border-radius: 9999px;
@@ -347,7 +356,7 @@
     background: #7c2bbe17;
     border-radius: 0.5rem;
     padding: 1rem;
-    margin: 1rem;
+    margin: 1rem auto auto auto;
 }
 .div2 {
     display: flex;
@@ -447,11 +456,15 @@
         color: #e22424;
 }
 .badge {
-    font-size: 0.875rem;
+ /*    size: 2rem; */
+    height: 1rem;
+    width: 10rem;
+    font-size: 0.75rem;
 }
 
 .subtitle {
-    margin: 1rem;
+    padding: .5rem ;
+    margin:0 0 0 1rem;
     font-size: 0.875rem;
     color: #4b5563;
 }
@@ -519,7 +532,7 @@
     margin-top: 1rem;
 }
 .p {
-    margin: 1rem;
+    margin: 0.5rem;
     text-align: center;
     font-family: "Lobster";
     font-size: 3rem;
@@ -572,7 +585,6 @@
     margin-right: 10px;
 }
 
-
 /*Promociones*/
 .form {
     z-index: 200 !important;
@@ -590,7 +602,6 @@
     margin: 1rem auto 2rem auto;
     font-size: large;
 }
-
 @media (max-width:430px) {
     .form {
         z-index: 200 !important;
@@ -612,32 +623,27 @@
     display: flex;
     gap: 1rem !important;
 }
-
 @media (max-width:430px) {
     .reclutamiento-columnas {
         flex-direction: column;
         padding: 0.2rem;
         }
     }
-
 .boton {
     position: flex !important;
     padding: 1px;
     margin: 1px;
 }
-
 .text {
     margin-bottom: "3rem";
     margin-top: "4.5rem";
     margin-right: "1rem";
 }
-
 @media (max-width: 20vh) {
     .text {
         max-inline-size: 2.3rem;
     }
 }
-
 .reclutamiento-columnas2 {
     display: flex;
     flex-direction: column;
@@ -663,7 +669,6 @@ button:hover {
             background-color: #b08ad1;
         }
 }
-
 @media (max-width: 350px) {
     .reclutamiento-columnas2 {
         display: flex;
@@ -677,4 +682,29 @@ button:hover {
     button:hover {
         background-color: #b08ad1;
     }
+}
+
+.p2 {
+    margin: 0.5rem;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+    font-weight: 10;
+    color: #110f11;
+}
+
+@media (max-width:430px) {
+    .p2 {
+        margin-top: 4px;
+        font-family: 'Times New Roman', Times, serif;/*  */
+        font-size: 1.2rem;
+        font-weight: 200;
+        color: #000000;
+    }
+}
+.spanpreOri {
+    font-size: 1.2rem;
+    text-decoration: line-through;
+    font-weight: 500;
+    color: #ce0000;
 }

@@ -8,21 +8,27 @@ import Styles from "./Offers.module.css";
 const offers = [
     {
         id: 1,
-        image: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&auto=format&fit=crop",
-        title: "Fresh Produce Week",
-        description: "Up to 40% off on fresh fruits and vegetables",
+        image: "/merc1.jpg",
+        title: "",
+        description: "",
     },
     {
         id: 2,
         image: "https://images.unsplash.com/photo-1608686207856-001b95cf60ca?w=800&auto=format&fit=crop",
-        title: "Dairy & Eggs Special",
-        description: "Buy 2 Get 1 Free on all dairy products",
+        title: "",
+        description: "",
     },
     {
         id: 3,
         image: "https://images.unsplash.com/photo-1607349913338-fca6f7fc42d0?w=800&auto=format&fit=crop",
-        title: "Bulk Buy Savings",
-        description: "25% off when you buy in bulk",
+        title: "",
+        description: "",
+    },
+    {
+        id: 3,
+        image: "/merc1.jpg",
+        title: "",
+        description: "",
     }
 ];
 
@@ -41,7 +47,6 @@ const OffersCarousel: React.FC = () => {
                     <div className={Styles["div"]}>
                         <img
                             src={offer.image}
-                            alt={offer.title}
                             className={Styles["img"]}
                         />
                         {/* Fondo semitransparente */}
@@ -49,7 +54,6 @@ const OffersCarousel: React.FC = () => {
                         {/* Contenido */}
                         <div className={Styles["contenido"]}>
                             <span className={Styles["spancont"]}>
-                                Limited Time Offer
                             </span>
                             <h3 className={Styles["h3"]}>{offer.title}</h3>
                             <p className={Styles["parf"]}>{offer.description}</p>

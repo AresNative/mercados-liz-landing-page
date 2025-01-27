@@ -54,7 +54,7 @@ h1,h2,h3,h4{
 h3 {
     color: var(--primary);
 }
-.swal2-shown:not(.swal2-no-backdrop, .swal2-toast-shown),
+.swal2-shown:not(/* .swal2-no-backdrop, . */swal2-toast-shown),
 .swal2-height-auto,
 .swal2-height-auto.specific-class {
     height: 100% !important;
@@ -67,6 +67,14 @@ h3 {
     margin: auto;
     color: var(--ion-color-liz-tint);
     text-shadow: #2b2b2ba2 2px 2px 5px;
+}
+.inert {
+    pointer-events: none;
+    /* Desactiva interacciones con el mouse */
+    user-select: none;
+    /* Evita que el contenido sea seleccionable */
+    opacity: 0.5;
+    /* Opcional: reduce la opacidad para indicar que está deshabilitado */
 }
 .overlay .titulos{
     color: var(--primary);

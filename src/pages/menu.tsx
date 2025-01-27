@@ -48,12 +48,6 @@ export function Menu() {
     const dispatch = useDispatch();
 
     const router = useHistory();
-    const handleClickLogin = () => {  // Redireccion de pagina despues del login
-        router.push('/Sesion');
-    };
-    const handleClickSignup = () => {  // Redireccion de pagina despues del registro
-        router.push('/Login');
-    };
     const [name, setname] = useState("Login");  // Inicializa en  Login
     const modalRef = useRef<HTMLIonModalElement>(null);
 
@@ -69,7 +63,7 @@ export function Menu() {
         removeFromLocalStorage("typeUser")
     }
     //  Login o Sign up
-    const { register, control, handleSubmit } = useForm();
+    const { register, handleSubmit } = useForm();
     const onSubmit = handleSubmit(async (data) => {
         if (name === "Login") {
             try {
@@ -137,10 +131,6 @@ export function Menu() {
     };
     function renderForm() {
         const isLogin = name === "Login";
-
-        function setPassword(arg0: any) {
-            throw new Error("Function not implemented.");
-        }
 
         return (
             <div key={name} className={styles["modal-container"]}>
@@ -287,10 +277,27 @@ export function Menu() {
         dispatch(assignUsers({ id: 0, token: "", typeUser: "" }));
 
     };
+
     return (
         <>
             <IonMenu side="end" contentId="main-content">
                 <IonHeader>
+
+    const [menuIsOpen, setMenuIsOpen] = useState(false);
+
+    const handleMenuOpen = () => setMenuIsOpen(true);
+    const handleMenuClose = () => setMenuIsOpen(false);
+
+    return (
+        <>
+            <IonMenu side="end"
+                contentId="main-content"
+                className={menuIsOpen ? "" : "inert"}
+                onIonDidOpen={handleMenuOpen}
+                onIonDidClose={handleMenuClose}
+            >
+                <IonHeader >
+
                     <IonToolbar color="liz">
                         <IonTitle>Menú</IonTitle>
                     </IonToolbar>
@@ -326,7 +333,7 @@ export function Menu() {
                         </IonRow>
                     </IonGrid>
                 </IonFooter>
-            </IonMenu>
+            </IonMenu >
 
             {/* cerrar modal */}
             <ModalBase modalRef={modalRef} closeModal={closeModal} >
@@ -337,20 +344,22 @@ export function Menu() {
             <IonAlert
 
                 isOpen={showLogoutAlert}
-                onDidDismiss={() => setShowLogoutAlert(false)}
+                onDidDismiss={() => setShowLogoutAlert(false)
+                }
                 header="¿Desea Cerrar Sesión?"
-                buttons={[
-                    {
-                        text: "No",
-                        cssClass: "alert-button-cancel",
-                    },
-                    {
-                        text: "Sí",
-                        cssClass: "alert-button-confirm",
-                        handler: handleLogout,
-                    },
-                ]}
-            ></IonAlert>
+                buttons={
+                    [
+                        {
+                            text: "No",
+                            cssClass: "alert-button-cancel",
+                        },
+                        {
+                            text: "Sí",
+                            cssClass: "alert-button-confirm",
+                            handler: handleLogout,
+                        },
+                    ]}
+            ></IonAlert >
         </>
     );
 }

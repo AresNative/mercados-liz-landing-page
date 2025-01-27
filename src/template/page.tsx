@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import style from "@/components/displays/header.module.css";
 import { useLocation } from "react-router-dom";
 
+
 interface ContainerProps {
     children: React.ReactNode;
 }
@@ -99,9 +100,9 @@ const Page: React.FC<ContainerProps> = ({ children }) => {
                                     derechos reservados.
                                 </li>
                                 <li style={{ display: "flex", gap: "1rem", marginLeft: "1rem", marginRight: "1rem" }}>
-                                    <a style={{ color: "var(--primary)" }}>Términos y Condiciones</a>
-                                    <a style={{ color: "var(--primary)" }}>Política de Privacidad</a>
-                                    <a style={{ color: "var(--primary)" }}>Contacto</a>
+                                    <a style={{ color: "var(--primary)", textDecoration: "none" }} href="/terminosycondiciones">Términos y Condiciones</a>
+                                    <a style={{ color: "var(--primary)", textDecoration: "none" }} href="/privacidad">Política de Privacidad</a>
+                                    <a style={{ color: "var(--primary)", textDecoration: "none" }} href="/Contact"> Contacto </a>
                                 </li>
                             </ul>
                         </IonToolbar>

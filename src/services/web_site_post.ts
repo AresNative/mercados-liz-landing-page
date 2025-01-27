@@ -52,6 +52,9 @@ export async function PostValoracion(data: any) {
 }
 /* Manda la informacion de postulacion */
 export async function PostPostulacion(data: any) {
+  const archivos = await extractFiles(data);
+  let archivosFormato = renderData(archivos);
+  PostArchivos(archivosFormato);
   const apiUrl = process.env.REACT_APP_API_URL;
   fetch(`${apiUrl}users/postulacion`, {
     method: "POST",
@@ -104,3 +107,30 @@ export async function PostArchivos(data: any) {
     .catch((err) => console.error(err));
   return response;
 }
+
+//fijos
+export function renderData(media: any) {
+  const formData = new FormData();
+  formData.append("File", media[0]);
+  return formData;
+}
+
+type DynamicObject = { [key: string]: any };
+const extractFiles = (obj: DynamicObject): any[] => {
+  const result: any[] = [];
+  const isFile = (value: any) =>
+    typeof value === "object" && value !== null && "name" in value;
+  const recursiveSearch = (data: DynamicObject | any): void => {
+    if (typeof data === "object" && data !== null) {
+      for (const key in data) {
+        if (isFile(data[key])) {
+          result.push(data[key]);
+        } else if (typeof data[key] === "object") {
+          recursiveSearch(data[key]);
+        }
+      }
+    }
+  };
+  recursiveSearch(obj);
+  return result;
+};

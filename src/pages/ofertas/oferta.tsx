@@ -4,7 +4,6 @@ import { Input } from "@/components/functions/input";
 import { Select } from "@/components/functions/select";
 import { Button } from "@/components/functions/button";
 
-
 const PromocionesPage = () => {
     return (
         <>
@@ -13,7 +12,7 @@ const PromocionesPage = () => {
                 <div className={styles["reclutamiento-columnas2"]}>
                     <input type="file" placeholder="Subir" style={{ padding: "1px" }} />
                 </div>
-                <Button label={"Publicar Oferta"} color={"default"} />
+                <Button label={"Publicar Oferta"} color={"default"} type="button" onClick={{}} />
             </form>
 
             {/* */}
@@ -42,7 +41,7 @@ const PromocionesPage = () => {
                         <Input label={"Precio Promoción"} type='text' placheolder={"$" + "Precio Promoción"} />
                     </div>
                 </div>
-                <Button label={"Publicar Oferta"} color={"default"} />
+                <Button label={"Publicar Oferta"} color={"default"} type="button" onClick={{}} />
             </form>
 
         </>

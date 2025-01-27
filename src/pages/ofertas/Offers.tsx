@@ -16,9 +16,9 @@ const Offers = () => {
             </section>
 
             <section className={Styles["content"]}>
-                <div className={Styles["marca"]}>
-                    <h2>marca</h2>
-                    <p></p>
+                <div >
+                    <h1 className={Styles["p"]} > Ve nuestras Promociones del dia</h1>
+
                 </div>
                 <ul className={Styles["productos"]}>
                     <li></li>

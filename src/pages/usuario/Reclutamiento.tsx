@@ -77,7 +77,7 @@ const Reclutamiento = () => {
 
                     {esUltimaPagina && (
                         <>
-                            <input type="file" accept=".pdf" multiple />
+                            
                             <label>
                                 <input type="checkbox" /> Acepto los términos y condiciones de la aplicación.
                             </label>

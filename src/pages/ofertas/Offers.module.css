@@ -40,15 +40,15 @@
 
 .content {
     margin: 1rem;
-    margin-top: 4rem;
+    margin-top: 2rem;
     margin-bottom: 2rem;
     min-height: 40vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
-    padding: 2rem;
+    gap: 1rem;
+    padding: 1rem;
 }
 
 .marca {

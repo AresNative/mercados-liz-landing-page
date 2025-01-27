@@ -24,7 +24,6 @@ export async function GetPostulacion() {
     .catch((err) => console.error(err));
   return response;
 }
-
 /*Muestra Informacion Nuevos Proveedores */
 export async function GetProvInfo() {
   const apiUrl = process.env.REACT_APP_API_URL;
@@ -38,14 +37,13 @@ export async function GetProvInfo() {
     .catch((err) => console.error(err));
   return response;
 }
-
 /*Muestra los Documentos*/
 export async function GetArchivos(nombreArchivo = "pruebas.pdf") {
   const apiUrl = process.env.REACT_APP_API_URL;
   const response = fetch(`${apiUrl}Archivos/${nombreArchivo}`, {
     method: "GET",
   })
-    .then((response) => response.json())
+    .then((response) => response)
     .then((response) => {
       return response;
     })

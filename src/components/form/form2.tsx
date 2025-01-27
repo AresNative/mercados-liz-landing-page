@@ -71,6 +71,10 @@ export function SwitchTypeInputRender(props: any) {
                     options={props.cuestion.options || []} // Pasar opciones al componente
                 />
             );
+        case "archivo":
+            return (
+                <input type="file" {...props.register(props.cuestion.name)} />
+            );
         case "H1":
             return <h1 key={`title-${props.cuestion.name}`}>{props.cuestion.name}</h1>;
         default:

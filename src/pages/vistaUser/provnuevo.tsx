@@ -1,13 +1,15 @@
 import { GetProvInfo, GetArchivos } from "@/services/web_site_gets";
 import { useEffect, useState } from "react";
 import './tablasrh.css';
+import { File, FileText } from "lucide-react";
 
 /*Vista Postulaciones tabla y contenido */
-
 const InfprovPage = () => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+
+    const [vistaURL, setVistaURL] = useState<string | null>(null)
 
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage] = useState(10);
@@ -26,7 +28,6 @@ const InfprovPage = () => {
                 setLoading(false);
             });
     }, []);
-
 
     const handleDepartmentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFilterDepartment(e.target.value);
@@ -62,6 +63,13 @@ const InfprovPage = () => {
 
     if (data.length === 0) {
         return <p>No hay datos disponibles.</p>;
+    }
+
+    async function verArchivo() {
+        const r: any = await GetArchivos("676dd496-8f74-40d0-9986-dde88ee08ee3.pdf");
+        const blob = await r.blob()
+        const url = URL.createObjectURL(blob)
+        setVistaURL(url);
     }
 
     return (
@@ -100,22 +108,35 @@ const InfprovPage = () => {
                         <tr className="provfontSize">
                             <th>Nombre</th>
                             <th>Correo</th>
-                            <th>Tel</th>
+                            <th>Telefono</th>
                             <th>Compañía</th>
                             <th>Tipo de producto</th>
                             <th>Departamento al que va dirigido</th>
-                            <th>Archivo</th>
+                            <th>Catalogo</th>
                         </tr>
                     </thead>
                     <tbody className="provfontSize">
                         {currentData.map((info: any, index) => (
                             <tr key={index}>
-                                <td>{info.name || "N/A"}</td>
+                                <td >{info.name || "N/A"}</td>
                                 <td>{info.email || "N/A"}</td>
                                 <td>{info.telefono || "N/A"}</td>
                                 <td>{info.company || "N/A"}</td>
                                 <td>{info.type_prod || "N/A"}</td>
                                 <td>{info.department || "N/A"}</td>
+
+                                <td>{vistaURL ? (<iframe
+                                    src={vistaURL!}
+                                    title="PDF Preview"
+                                    frameBorder="0"
+                                >
+                                </iframe>) : (<button style={{
+                                    color: "purple",
+                                    background: "transparent",
+                                    margin: ".5rem"
+                                }} onClick={() => {
+                                    verArchivo()
+                                }} ><FileText /></button>)}</td>
                             </tr>
                         ))}
                     </tbody>

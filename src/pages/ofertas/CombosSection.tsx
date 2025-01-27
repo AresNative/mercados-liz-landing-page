@@ -12,11 +12,11 @@ const combos = [
         /*   description: 'Essential groceries for a family of 4', */
         items: [
             'Carne preparada para asar 3kg',
-            'Carbon El terco 3kg',
-            'Plato con Division 20pz',
+            'Carbón El Terco 3kg',
+            'Plato con división 20pz',
             'Refresco Crush Mandarina 2lt',
             'Paquete de vasos 10oz con 25pz',
-            'Tortillas de maiz Mercado Liz 2kg'
+            'Tortillas de maíz Mercado Liz 2kg'
         ],
         savings: '10% Desc',
         validUntil: 'Válido solo sábado y domingo',
@@ -30,12 +30,12 @@ const combos = [
         /*  description: 'Complete breakfast essentials', */
         items: [
             'Carne preparada para asar 5kg',
-            'Carbon El terco 3kg',
-            'Plato con Division 20pz',
+            'Carbón El Terco 3kg',
+            'Plato con división 20pz',
             'Queso Monterry 400gr',
             'Refresco Crush Mandarina 2lt',
             'Paquete de vasos 10oz con 25pz',
-            'Tortillas de maiz Mercado Liz 2kg'
+            'Tortillas de maíz Mercado Liz 2kg'
         ],
         savings: '10% Desc',
         validUntil: 'Válido solo sábado y domingo'
@@ -48,17 +48,17 @@ const combos = [
         /* description: 'Essential groceries for a family of 4', */
         items: [
             'Carne preparada para asar 7kg',
-            'Carbon El terco 3kg',
-            'Plato con Division 20pz',
+            'Carbón El Terco 3kg',
+            'Plato con división 20pz',
             'Queso Monterry 500gr',
             'Refresco Crush Mandarina 2lt',
-            'paquete de 100pz de  servilletas ',
+            'Paquete de 100pz de  servilletas ',
             'Paquete de vasos 10oz con 25pz',
-            'Tortillas de maiz Mercado Liz 1kg'
+            'Tortillas de maíz Mercado Liz 1kg'
         ],
         savings: '10% Desc',
         validUntil: 'Válido solo sábado y domingo',
-        /*  imageUrl: 'https://media.istockphoto.com/id/1195743934/es/vector/lindo-dise%C3%B1o-vectorial-de-car%C3%A1cter-panda.jpg?s=612x612&w=0&k=20&c=0CS46nLvvKoLpxo6tv68IxKBR7GEHXV-hq26PnBnNuY=' */
+        /*  imageUrl:'https://media.istockphoto.com/id/1195743934/es/vector/lindo-dise%C3%B1o-vectorial-de-car%C3%A1cter-panda.jpg?s=612x612&w=0&k=20&c=0CS46nLvvKoLpxo6tv68IxKBR7GEHXV-hq26PnBnNuY=' */
     },
     {
         id: 4,
@@ -68,14 +68,14 @@ const combos = [
         /* description: 'Essential groceries for a family of 4', */
         items: [
             'Menudo de res Americano 3kg',
-            'Maiz Blanco la costeña 3kg',
+            'maíz blanco La Costeña 3kg',
             'Patita de res 1.5kg',
             'Plato pozolero 1pq de 25pz',
-            'Totopos Naturales Mercado Liz',
+            'Totopos naturales Mercado Liz',
         ],
         savings: '10% Desc',
         validUntil: 'Válido solo sábado y domingo',
-        /*  imageUrl: 'https://media.istockphoto.com/id/1195743934/es/vector/lindo-dise%C3%B1o-vectorial-de-car%C3%A1cter-panda.jpg?s=612x612&w=0&k=20&c=0CS46nLvvKoLpxo6tv68IxKBR7GEHXV-hq26PnBnNuY=' */
+        /*  imageUrl:'https://media.istockphoto.com/id/1195743934/es/vector/lindo-dise%C3%B1o-vectorial-de-car%C3%A1cter-panda.jpg?s=612x612&w=0&k=20&c=0CS46nLvvKoLpxo6tv68IxKBR7GEHXV-hq26PnBnNuY=' */
     },
     {
         id: 5,
@@ -85,16 +85,16 @@ const combos = [
         /* description: 'Essential groceries for a family of 4', */
         items: [
             'Espinazo de puerco 6kg',
-            'Maiz Blanco la costeña 3kg',
+            'maíz blanco La Costeña 3kg',
             'Manita de puerco 3k',
             'Plato pozolero 1pq de 25pz',
-            'Totopos Naturales Mercado Liz',
+            'Totopos naturales Mercado Liz',
             'Refresco Crush Mandarina 2lt',
         ],
         savings: '10% Desc',
         validUntil: 'Válido solo sábado y domingo',
 
-        /*  imageUrl: 'https://media.istockphoto.com/id/1195743934/es/vector/lindo-dise%C3%B1o-vectorial-de-car%C3%A1cter-panda.jpg?s=612x612&w=0&k=20&c=0CS46nLvvKoLpxo6tv68IxKBR7GEHXV-hq26PnBnNuY=' */
+        /*  imageUrl:'https://media.istockphoto.com/id/1195743934/es/vector/lindo-dise%C3%B1o-vectorial-de-car%C3%A1cter-panda.jpg?s=612x612&w=0&k=20&c=0CS46nLvvKoLpxo6tv68IxKBR7GEHXV-hq26PnBnNuY=' */
     },
 
 ];

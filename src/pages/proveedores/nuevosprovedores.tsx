@@ -8,7 +8,7 @@ import styles from "./nuevosprov.module.css";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
-import { PostProveedor } from "@/services/web_site_post";
+import { PostArchivos, PostProveedor, renderData } from "@/services/web_site_post";
 
 interface Opcion {
     texto: string;
@@ -91,8 +91,10 @@ const NuevoProvePage = () => {
     const esUltimaPagina = paginaActual === preguntas.length - 1;
 
     const onSubmit = handleSubmit(async (data) => {
+        console.log(data);
         try {
             await PostProveedor(data);
+            await PostArchivos(renderData(data.archivo));
 
             // Mostrar mensaje de éxito
             Swal.fire({
@@ -167,7 +169,7 @@ const NuevoProvePage = () => {
                     <p className="sub-titulos5">
                         En caso de contar con algún catálogo con sus productos favor de anexarlo
                     </p>
-                    <input type="file" accept=".pdf,.xlsx" {...register("archivos")} />
+                    <input type="file" accept=".pdf,.xlsx" multiple {...register("archivos")} />
                     <div style={{ display: "flex" }}>
                         <Button label="Enviar" type="submit" color="default" />
                     </div>

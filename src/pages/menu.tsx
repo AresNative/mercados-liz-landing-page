@@ -21,7 +21,7 @@ import { Select } from "@/components/functions/select";
 import { useForm } from "react-hook-form";
 import { PostUser, PostUserReg } from "@/services/web_site_post";
 import Swal from 'sweetalert2';
-import { setLocalStorageItem } from "@/services/localstorage";
+import { removeFromLocalStorage, setLocalStorageItem } from "@/services/localstorage";
 import { useDispatch } from "react-redux";
 import { assignUsers } from "@/store/reducerUser";
 
@@ -64,38 +64,56 @@ export function Menu() {
     }
     // Cierra el modal
     function closeModal() {
+        router.push("/")
         modalRef.current?.dismiss();
+        removeFromLocalStorage("typeUser")
     }
     //  Login o Sign up
     const { register, control, handleSubmit } = useForm();
     const onSubmit = handleSubmit(async (data) => {
-
         if (name === "Login") {
-            await PostUser(data).then((response: any) => {
-                if (response.token) {
+            try {
+                const response: any = await PostUser(data);
+
+                if (response && response.token) {
+                    // Si el servidor devuelve un token válido
                     setLocalStorageItem("token", response);
-                    mostrarAlerta("inicio correcto");
+                    setLocalStorageItem("typeUser", "Compras"); // Guarda el tipo de usuario
+                    mostrarAlerta("Inicio de sesión exitoso");
 
+                    // Actualiza el estado global del usuario
+                    dispatch(
+                        assignUsers({
+                            id: response.userId,
+                            token: response.token,
+                            typeUser: "Compras"
+                        })
+                    );
+
+                    // Redirecciona al inicio
+                    router.push("/");
                 } else {
-                    mostrarAlerta("Datos incorrectos intente otra vez ");
-
-                }//if (response.typeUser) setLocalStorageItem("typeUser", response.typeUser); --tipo de usuario para que en menu se muestren 
-                // ** almacen
-                dispatch(
-                    assignUsers({
-                        id: response.userId,
-                        token: response.token,
-                        permisos: []
-                    }) // Asignación del usuario en el store
-                );
-
-            });
+                    // Si las credenciales no son válidas
+                    mostrarAlerta("Datos incorrectos. Intente nuevamente.");
+                }
+            } catch (error) {
+                console.error("Error durante el inicio de sesión:", error);
+                mostrarAlerta("Ocurrió un problema. Intente más tarde.");
+            }
         } else {
+            // Lógica para registro
             const { name, apellido, ...otros } = data;
             const dataForm = { name: `${name} ${apellido}`, date: new Date(), ...otros };
-            PostUserReg(dataForm).then((r: any) => {
-                mostrarAlerta("registro realizado");
-            });
+
+            try {
+                const response: any = await PostUserReg(dataForm);
+                if (response) {
+                    mostrarAlerta("Registro exitoso");
+                }
+            } catch (error) {
+                console.error("Error durante el registro:", error);
+                mostrarAlerta("Ocurrió un problema. Intente más tarde.");
+            }
         }
     });
     const mostrarAlerta = (message: string) => {
@@ -260,16 +278,14 @@ export function Menu() {
 
     // Función para manejar el cierre de sesión
     const handleLogout = () => {
-
+        router.push("/")
         // Limpia el almacenamiento local
         localStorage.removeItem("token");
         localStorage.removeItem("typeUser");
 
         // Limpia el estado global si es necesario
-        /*  dispatch(assignUsers({ id: null, token: null, permisos: [] })); */
+        dispatch(assignUsers({ id: 0, token: "", typeUser: "" }));
 
-        // Redirige al inicio
-        router.push("/home");
     };
     return (
         <>

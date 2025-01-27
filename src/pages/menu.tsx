@@ -279,22 +279,11 @@ export function Menu() {
     };
 
     return (
-        <>
-            <IonMenu side="end" contentId="main-content">
-                <IonHeader>
 
-    const [menuIsOpen, setMenuIsOpen] = useState(false);
-
-    const handleMenuOpen = () => setMenuIsOpen(true);
-    const handleMenuClose = () => setMenuIsOpen(false);
-
-    return (
         <>
             <IonMenu side="end"
                 contentId="main-content"
-                className={menuIsOpen ? "" : "inert"}
-                onIonDidOpen={handleMenuOpen}
-                onIonDidClose={handleMenuClose}
+               
             >
                 <IonHeader >
 

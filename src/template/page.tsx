@@ -67,7 +67,7 @@ const Page: React.FC<ContainerProps> = ({ children }) => {
                         style={{
                             "--background": headerStyle.background,
                             color: headerStyle.color,
-                            /* backdropFilter: headerStyle.backdropFilter, */
+                            backdropFilter: headerStyle.backdropFilter,
                         }}
                     >
 

@@ -61,8 +61,9 @@ const Reclutamiento = () => {
     return (
         <Page>
             <h2 className="titulos" style={{ marginBottom: "3rem", marginTop: "6rem", marginRight: "2rem" }}>Si estás interesado en unirte de nuestra familia, llena el siguiente formulario</h2>
+           
             <div className="margen-pagina">
-                <img src="/uvas.png" className="img-uva5" />
+                 <img src="/uvas.png" className="img-uva5" />
                 <div className={styles["reclutamiento"]}>
                     <div>
                         <div>
@@ -76,7 +77,7 @@ const Reclutamiento = () => {
 
                     {esUltimaPagina && (
                         <>
-                            <input type="file" accept=".pdf" multiple />
+                            
                             <label>
                                 <input type="checkbox" /> Acepto los términos y condiciones de la aplicación.
                             </label>

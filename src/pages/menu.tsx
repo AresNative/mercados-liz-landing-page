@@ -21,7 +21,7 @@ import { Select } from "@/components/functions/select";
 import { useForm } from "react-hook-form";
 import { PostUser, PostUserReg } from "@/services/web_site_post";
 import Swal from 'sweetalert2';
-import { setLocalStorageItem } from "@/services/localstorage";
+import { removeFromLocalStorage, setLocalStorageItem } from "@/services/localstorage";
 import { useDispatch } from "react-redux";
 import { assignUsers } from "@/store/reducerUser";
 
@@ -56,41 +56,57 @@ export function Menu() {
         setname(modalName);
         modalRef.current?.present();
     }
-
     // Cierra el modal
     function closeModal() {
+        router.push("/")
         modalRef.current?.dismiss();
+        removeFromLocalStorage("typeUser")
     }
     //  Login o Sign up
     const { register, handleSubmit } = useForm();
     const onSubmit = handleSubmit(async (data) => {
-
-
         if (name === "Login") {
-            await PostUser(data).then((response: any) => {
-                if (response.token) {
+            try {
+                const response: any = await PostUser(data);
+
+                if (response && response.token) {
+                    // Si el servidor devuelve un token válido
                     setLocalStorageItem("token", response);
-                    mostrarAlerta("inicio correcto");
+                    setLocalStorageItem("typeUser", "Admin"); // Guarda el tipo de usuario
+                    mostrarAlerta("Inicio de sesión exitoso");
+
+                    // Actualiza el estado global del usuario
+                    dispatch(
+                        assignUsers({
+                            id: response.userId,
+                            token: response.token,
+                            typeUser: "Admin"
+                        })
+                    );
+                    // Redirecciona al inicio
+                    router.push("/");
                 } else {
-                    mostrarAlerta("Datos incorrectos intente otra vez ");
-
-                }//if (response.typeUser) setLocalStorageItem("typeUser", response.typeUser); --tipo de usuario para que en menu se muestren 
-                // ** almacen
-                dispatch(
-                    assignUsers({
-                        id: response.userId,
-                        token: response.token,
-                        permisos: []
-                    }) // Asignación del usuario en el store
-                );
-
-            });
+                    // Si las credenciales no son válidas
+                    mostrarAlerta("Datos incorrectos. Intente nuevamente.");
+                }
+            } catch (error) {
+                console.error("Error durante el inicio de sesión:", error);
+                mostrarAlerta("Ocurrió un problema. Intente más tarde.");
+            }
         } else {
+            // Lógica para registro
             const { name, apellido, ...otros } = data;
             const dataForm = { name: `${name} ${apellido}`, date: new Date(), ...otros };
-            PostUserReg(dataForm).then((r: any) => {
-                mostrarAlerta("registro realizado");
-            });
+
+            try {
+                const response: any = await PostUserReg(dataForm);
+                if (response) {
+                    mostrarAlerta("Registro exitoso");
+                }
+            } catch (error) {
+                console.error("Error durante el registro:", error);
+                mostrarAlerta("Ocurrió un problema. Intente más tarde.");
+            }
         }
     });
     const mostrarAlerta = (message: string) => {
@@ -114,7 +130,6 @@ export function Menu() {
     };
     function renderForm() {
         const isLogin = name === "Login";
-
         return (
             <div key={name} className={styles["modal-container"]}>
                 <div className={styles["tab-container"]}>
@@ -138,7 +153,6 @@ export function Menu() {
                             onClick={closeModal}
                         />
                     </div>
-
                     {/* Renderizado condicional de campos de entrada */}
                     {isLogin ? (
                         <>
@@ -156,15 +170,6 @@ export function Menu() {
                             /* autocomplete="off" */
                             />
                             <p className={styles["switch-text"]}>
-                                <span
-                                    onClick={() => setname("Sign up")}
-                                    className={styles["switch-link"]}
-                                >
-                                    {" "}
-                                    ¿Olvidaste tu contraseña?
-                                </span>
-                            </p>
-                            <p className={styles["switch-text"]}>
                                 ¿No tienes cuenta?
                                 <span
                                     onClick={() => setname("Sign up")}
@@ -177,7 +182,6 @@ export function Menu() {
 
                             <Button type="submit" color="default" label="Iniciar Sesión" />
                         </>
-                        /*se agrego el espacio de que si se olvido la contraseña*/
                     ) :
                         (
                             <>
@@ -209,8 +213,7 @@ export function Menu() {
                                     values={[
                                         { name: "Administración" },
                                         { name: "Recursos Humanos" },
-                                        { name: "Contabilidad" },
-                                        { name: "Recibo" },
+                                        { name: "Compras y ventas" }
                                     ]}
                                     message="Áreas"
                                 />
@@ -227,6 +230,7 @@ export function Menu() {
                                 <Button type="submit" color="default" label="Registrate" />
                             </>
                         )
+
                     }
                 </form>
             </div>
@@ -241,7 +245,7 @@ export function Menu() {
         { link: "/Contact", icon: <Info color='#6cb2ff' size={20} />, text: "Más información", view: true },//
         { link: "/Reclutamiento", icon: <BaggageClaim /* BriefcaseBusiness */ color='var(--primary)' size={20} />, text: "Únete a la familia", view: true },
         { link: "/Historia", icon: <BookOpenText color='#9f80ff' size={20} />, text: "Nuestra Historia", view: true },
-        { link: "/Servicio", icon: <Star color='#cfa8f8'/*#cfa8f8*/ size={20} />, text: "Valoranos", view: true },//
+        { link: "/Servicio", icon: <Star color='#cfa8f8' size={20} />, text: "Valoranos", view: true },//
         { link: "/ProveedoresNuev", icon: <Forklift color='var(--primary)' size={20} />, text: "Nuevos Proveedores", view: true },
         { link: "/Proveedores", icon: <FileBadge color='pink' size={20} />, text: "Proveedores", view: true },
         { link: "/CertificacionPage", icon: <ShieldCheck color='var(--primary)' size={20} />, text: "Certificaciones", view: true }
@@ -249,33 +253,19 @@ export function Menu() {
 
     // Estado para mostrar la alerta de cerrar sesión
     const [showLogoutAlert, setShowLogoutAlert] = useState(false);
-
     // Función para manejar el cierre de sesión
     const handleLogout = () => {
-
+        router.push("/")
         // Limpia el almacenamiento local
         localStorage.removeItem("token");
         localStorage.removeItem("typeUser");
-
         // Limpia el estado global si es necesario
-        /*  dispatch(assignUsers({ id: null, token: null, permisos: [] })); */
-
-        // Redirige al inicio
-        router.push("/home");
+        dispatch(assignUsers({ id: 0, token: "", typeUser: "" }));
     };
-    const [menuIsOpen, setMenuIsOpen] = useState(false);
-
-    const handleMenuOpen = () => setMenuIsOpen(true);
-    const handleMenuClose = () => setMenuIsOpen(false);
 
     return (
         <>
-            <IonMenu side="end"
-                contentId="main-content"
-                className={menuIsOpen ? "" : "inert"}
-                onIonDidOpen={handleMenuOpen}
-                onIonDidClose={handleMenuClose}
-            >
+            <IonMenu side="end" contentId="main-content">
                 <IonHeader >
                     <IonToolbar color="liz">
                         <IonTitle>Menú</IonTitle>
@@ -283,7 +273,8 @@ export function Menu() {
                 </IonHeader>
                 <IonContent className="ion-padding" >
                     <IonList style={{ borderRadius: "5px" }}>
-                        {ruta.map((data: any, key: any) => (<Rutas key={key} link={data.link} icon={data.icon} text={data.text} view={data.view} />))}
+                        {ruta.map((data: any, key: any) => (
+                            <Rutas key={key} link={data.link} icon={data.icon} text={data.text} view={data.view} />))}
                     </IonList>
                 </IonContent>
                 <IonFooter >
@@ -297,10 +288,8 @@ export function Menu() {
                                     </span>
                                 </Tooltip>
                             </IonCol>
-
                             {/* Ícono de log out para  el modal */}
                             <IonCol style={{ display: "flex", alignItems: "center", gap: "0.5rem", cursor: "pointer", justifyContent: "center" }}>
-
                                 <IonButton color="liz" size="small" shape='round' fill="clear" id="present-alert" onClick={() => setShowLogoutAlert(true)}>
                                     <Tooltip content="Cerrar sesión" >
                                         <span className="text-lg text-default-100 cursor-pointer active:opacity-80">
@@ -313,30 +302,26 @@ export function Menu() {
                     </IonGrid>
                 </IonFooter>
             </IonMenu >
-
             {/* cerrar modal */}
             <ModalBase modalRef={modalRef} closeModal={closeModal} >
                 {renderForm()}
             </ModalBase>
-
             {/* Alerta de cerrar sesión */}
             <IonAlert
-
                 isOpen={showLogoutAlert}
                 onDidDismiss={() => setShowLogoutAlert(false)
                 }
                 header="¿Desea Cerrar Sesión?"
                 buttons={
-                    [
-                        {
-                            text: "No",
-                            cssClass: "alert-button-cancel",
-                        },
-                        {
-                            text: "Sí",
-                            cssClass: "alert-button-confirm",
-                            handler: handleLogout,
-                        },
+                    [{
+                        text: "No",
+                        cssClass: "alert-button-cancel",
+                    },
+                    {
+                        text: "Sí",
+                        cssClass: "alert-button-confirm",
+                        handler: handleLogout,
+                    },
                     ]}
             ></IonAlert >
         </>

@@ -47,7 +47,7 @@ const Home: React.FC = () => {
       <nav className='section-2'>
         <IonFab
           style={{ bottom: '-4rem', left: '50%', transform: 'translate(-50%, -50%)' }}
-           // Cambia aria-hidden por esto
+        // Cambia aria-hidden por esto
         >
           <IonFabButton aria-hidden="false" color="liz">
             <IonIcon icon={chevronDown} />
@@ -66,14 +66,14 @@ const Home: React.FC = () => {
           <li>
             <a href="https://wa.me/52NUMERO" target="_blank"  >
               <IonButton color="success" shape='round' fill="clear" >
-                <IonIcon size='large' icon={logoWhatsapp}  />
+                <IonIcon size='large' icon={logoWhatsapp} />
               </IonButton>
             </a>
           </li>
           <li>
             <a href="https://mail.google.com/mail/?view=cm&to=atncliente@mercadosliz.com&su=Consulta%20sobre%20servicio%20y%20más%20información&body=Hola,%20quisiera%20saber%20más%20sobre%20sus%20productos%20y%20servicios%20que%20ofrecen.%0AGracias" target="_blank" >
               <IonButton color="liz" shape='round' fill="clear" >
-                <Mail color="var(--primary)" size={24}  />
+                <Mail color="var(--primary)" size={24} />
               </IonButton>
             </a>
           </li>
@@ -83,19 +83,19 @@ const Home: React.FC = () => {
       <section style={{ marginTop: "5rem" }}>
         <h2 className="titulos">Nuestras características</h2>
         <ul className='product'>
-          <IconCard title='Selección Local' text='Productos auténticos del Valle de Guadalupe' >
+          <IconCard title='Selección Local' text='Productos auténticos del Valle de Guadalupe.' >
             <ShoppingCart color='var(--secondary)' size={50} />
           </IconCard>
 
-          <IconCard title='Entrega a Domicilio' text='Rápida en todo el Valle y alrededores' >
+          <IconCard title='Entrega a Domicilio' text='Rápida en todo el Valle y alrededores.' >
             <Truck color='var(--secondary)' size={50} />
           </IconCard>
 
-          <IconCard title='Mayoreo' text='Productos a mayoreo y menudeo' >
+          <IconCard title='Mayoreo' text='Productos a mayoreo y menudeo.' >
             <Package color='var(--secondary)' size={50} />
           </IconCard>
 
-          <IconCard title='Pagos Seguros' text='Múltiples opciones disponibles' >
+          <IconCard title='Pagos Seguros' text='Múltiples opciones disponibles.' >
             <CreditCard color='var(--secondary)' size={50} />
           </IconCard>
         </ul>

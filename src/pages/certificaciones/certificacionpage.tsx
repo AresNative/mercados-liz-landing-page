@@ -18,7 +18,6 @@ const CertificacionPage = () => {
         return certifications.filter((cert) => cert.category === selectedCategory);
     }, [selectedCategory]);
 
-
     return (
         <Page>
             <div className={styles.pageWrapper}>
@@ -49,9 +48,6 @@ const CertificacionPage = () => {
                         </div>
                     </div>
                 </div>
-                <p>
-                    Página meramente ilustrativa y no se cuentan con las certificaciones mencionadas
-                </p>
             </div>
         </Page>
     );

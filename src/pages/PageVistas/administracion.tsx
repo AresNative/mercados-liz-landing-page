@@ -46,7 +46,7 @@ const AdministracionPage = () => {
                             color={activeSection === "NuevosProvs" ? "dark" : "default"}
                             label={
                                 <>
-                                    <Forklift style={{ margin: "3px" }} /> {"Nuevos Provs."}
+                                    <Forklift style={{ margin: "3px" }} /> {"Nuevos  Provs."}
                                 </>
                             }
                             onClick={() => handleSectionChange("NuevosProvs")}

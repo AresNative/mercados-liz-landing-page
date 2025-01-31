@@ -3,14 +3,14 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 export interface Users {
   id: number;
   token: string;
-  permisos: any;
+  typeUser: string;
 }
 
 // Estado inicial con un array de permisos
 const initialState: Users = {
   id: 0,
-  token: "",
-  permisos: [],
+  token: " ",
+  typeUser: "",
 };
 
 const UsersSlice = createSlice({
@@ -23,7 +23,7 @@ const UsersSlice = createSlice({
 
       state.id = action.payload.id;
       state.token = action.payload.token;
-      state.permisos = action.payload.permisos;
+      state.typeUser = action.payload.typeUser;
     },
   },
 });

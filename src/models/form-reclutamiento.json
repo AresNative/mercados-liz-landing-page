@@ -326,5 +326,11 @@
          { "nombre": "Abarrotes" },
          { "nombre": "Cocina" }
       ]
+   },
+   {
+      "type":"archivo",
+      "name":"archivos"
+
    }
+
 ]

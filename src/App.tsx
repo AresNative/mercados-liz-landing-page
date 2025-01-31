@@ -28,7 +28,7 @@ import ServicioPage from './pages/usuario/Calificacion';
 import 'animate.css';
 import { useSelector } from 'react-redux';
 import { RootState } from './store/store';
-import './index.css';
+/* import './index.css'; */
 import CertificacionPage from './pages/certificaciones/certificacionpage';
 import RHPage from './pages/PageVistas/Rh';
 import InfValoracionPage from './pages/vistaUser/valoracion';
@@ -39,111 +39,148 @@ import NuevoProvePage from './pages/proveedores/nuevosprovedores';
 import InfprovPage from './pages/vistaUser/provnuevo';
 import ProveePage from './pages/proveedores/portalprov';
 import HistoriaPage from './pages/info/History';
-import OfertasPage from './pages/ofertas/oferta';
 import PromocionesPage from './pages/ofertas/oferta';
+import ValoracionEmpleadosPage from './pages/PageVistas/valoracionesEmpleados';
+import PrivacidadPage from './pages/info/privacidad';
+import TerminosPage from './pages/info/terminos';
+import React, { useEffect } from 'react';
+import { getLocalStorageItem } from './services/localstorage';
+import { rutasAdmin, rutasCompras, rutasRH } from './constantes/rutas';
+
 setupIonicReact({
   mode: 'ios'
 });
 
 const App: React.FC = () => {
   const selector = useSelector((state: RootState) => state.users);
-
-  /*  if (selector.id === 2) {
- 
-     return <IonApp>
-       <IonReactRouter>
-         <IonRouterOutlet>
-           {/*  *\/}
-           <Route exact path="/">
-             <Redirect to="/home" />
-           </Route>
-           <Route exact path="/home">
-             <Home />
-           </Route>
-           <Route exact path="/Reclutamiento">
-             <Reclutamiento />
-           </Route>
- 
-         </IonRouterOutlet>
-       </IonReactRouter >
-     </IonApp>
- 
-   } 
-   */
-
-  return (
-    <IonApp>
-      <IonReactRouter>
-        <IonRouterOutlet>
-          {/*  */}
-
-          <Route exact path="/home">
-            <Home />
-          </Route>
-          <Route exact path="/Reclutamiento">
-            <Reclutamiento />
-          </Route>
-          <Route exact path="/Ofertas">
-            <Offers />
-          </Route>
-          <Route exact path="/billing">
-            <Billing />
-          </Route>
-          <Route exact path="/Contact">
-            <ContactPage />
-          </Route>
-          <Route exact path="/Historia">
-            <HistoriaPage />
-          </Route>
-          <Route exact path="/Sesion">
-            <SesionPage />
-          </Route>
-          <Route exact path="/Servicio">
-            <ServicioPage />
-          </Route>
-          <Route exact path="/ProveedoresNuev">
-            <NuevoProvePage />
-          </Route>
-          <Route exact path="/Proveedores">
-            <ProveePage />
-          </Route>
-
-          {/* prueba*/}
-          <Route exact path="/CertificacionPage">
-            <CertificacionPage />
-          </Route>
-
-          {/* Paginas informacion que muestran datos  */}
-          <Route exact path="/provpage">
-            <InfprovPage />
-          </Route>
-          <Route exact path="/InfValoracionPage">
-            <InfValoracionPage />
-
-            {/* Vistas Interaccion Usuarios */}
-          </Route>
-          <Route exact path="/AdministracionPage">
-            <AdministracionPage />
-          </Route>
-          <Route exact path="/RecursosHumanos">
-            <RHPage />
-          </Route>
-          <Route exact path="/ComprasVentasPage">
-            <ComprasVentasPage />
-          </Route>
-          <Route exact path="/PromocionesPage">
-            <PromocionesPage />
-          </Route>
-          {/* ------------ */}
-          {/*  */}
-          <Route exact path="/">
-            <Redirect to="/home" />
-          </Route>
-        </IonRouterOutlet>
-      </IonReactRouter>
-    </IonApp>
-  )
+  const usuario = getLocalStorageItem("typeUser")
+  console.log(usuario);
+  return <SwitchTypeUserRender rol={usuario ? usuario : selector.typeUser} />
 };
 
 export default App;
 
+function SwitchTypeUserRender(props: any) {
+  console.log(props);
+
+
+  const renderRoutes = (routes: Array<{ src: string; pagina: React.ComponentType }>) =>
+    routes.map((data, index) => (
+      <Route key={index} exact path={data.src}>
+        {React.createElement(data.pagina)}
+      </Route>
+    ));
+
+  switch (props.rol) {
+    case "recursosH":
+      return (
+        <IonApp>
+          <IonReactRouter>
+            <IonRouterOutlet>
+              {renderRoutes(rutasRH)}
+              <Route exact path="/">
+                <Redirect to={rutasRH[0]?.src || "/"} />
+              </Route>
+            </IonRouterOutlet>
+          </IonReactRouter>
+        </IonApp>
+      );
+
+    case "Admin":
+      return <IonApp>
+        <IonReactRouter>
+          <IonRouterOutlet>
+            {renderRoutes(rutasAdmin)}
+            <Route exact path="/">
+              <Redirect to={rutasAdmin[0]?.src || "/"} />
+            </Route>
+          </IonRouterOutlet>
+        </IonReactRouter>
+      </IonApp>
+
+    case "Compras":
+      return <IonApp>
+        <IonReactRouter>
+          <IonRouterOutlet>
+            {renderRoutes(rutasCompras)}
+            <Route exact path="/">
+              <Redirect to={rutasCompras[0]?.src || "/"} />
+            </Route>
+          </IonRouterOutlet>
+        </IonReactRouter>
+      </IonApp>
+    default:
+      return <IonApp>
+        <IonReactRouter>
+          <IonRouterOutlet>
+            {/*  */}
+
+            {/* Informacion */}
+            <Route exact path="/Contact">
+              <ContactPage />
+            </Route>
+
+            <Route exact path="/privacidad">
+              <PrivacidadPage />
+            </Route>
+            <Route exact path="/terminosycondiciones">
+              <TerminosPage />
+            </Route>
+
+
+            {/* Menu */}
+            <Route exact path="/home">
+              <Home />
+            </Route>
+            <Route exact path="/Reclutamiento">
+              <Reclutamiento />
+            </Route>
+            <Route exact path="/Ofertas">
+              <Offers />
+            </Route>
+            <Route exact path="/billing">
+              <Billing />
+            </Route>
+
+            <Route exact path="/Historia">
+              <HistoriaPage />
+            </Route>
+            <Route exact path="/Sesion">
+              <SesionPage />
+            </Route>
+            <Route exact path="/Servicio">
+              <ServicioPage />
+            </Route>
+            <Route exact path="/ProveedoresNuev">
+              <NuevoProvePage />
+            </Route>
+            <Route exact path="/Proveedores">
+              <ProveePage />
+            </Route>
+
+            {/* prueba*/}
+            <Route exact path="/CertificacionPage">
+              <CertificacionPage />
+            </Route>
+
+            {/* Paginas informacion que muestran datos  */}
+            <Route exact path="/provpage">
+              <InfprovPage />
+            </Route>
+
+
+            {/* Vistas Interaccion Usuarios */}
+
+            <Route exact path="/ValoracionEmpleadosPage">
+              <ValoracionEmpleadosPage />
+            </Route>
+
+            {/*  */}
+            <Route exact path="/">
+              <Redirect to="/home" />
+            </Route>
+          </IonRouterOutlet>
+        </IonReactRouter>
+      </IonApp>;
+  }
+}

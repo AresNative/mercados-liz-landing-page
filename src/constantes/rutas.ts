@@ -45,7 +45,20 @@ export const rutasAdmin: ruta[] = [
   },
   {
     src: "/Servicio",
-    label: "Portal Administracion",
+    label: "Portal ",
     pagina: ServicioPage,
   },
+  {
+    src: "/Ofertas",
+    label: "Portal Compras",
+    pagina: Offers,
+  },
+  {
+    src: "/Reclutamiento",
+    label: "Portal Recursos Humanos",
+    pagina: Reclutamiento,
+  },
+
+
+  
 ];

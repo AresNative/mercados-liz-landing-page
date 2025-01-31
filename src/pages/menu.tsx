@@ -72,7 +72,7 @@ export function Menu() {
                 if (response && response.token) {
                     // Si el servidor devuelve un token válido
                     setLocalStorageItem("token", response);
-                    setLocalStorageItem("typeUser", "Compras"); // Guarda el tipo de usuario
+                    setLocalStorageItem("typeUser", "Admin"); // Guarda el tipo de usuario
                     mostrarAlerta("Inicio de sesión exitoso");
 
                     // Actualiza el estado global del usuario
@@ -80,10 +80,9 @@ export function Menu() {
                         assignUsers({
                             id: response.userId,
                             token: response.token,
-                            typeUser: "Compras"
+                            typeUser: "Admin"
                         })
                     );
-
                     // Redirecciona al inicio
                     router.push("/");
                 } else {
@@ -131,7 +130,6 @@ export function Menu() {
     };
     function renderForm() {
         const isLogin = name === "Login";
-
         return (
             <div key={name} className={styles["modal-container"]}>
                 <div className={styles["tab-container"]}>
@@ -155,7 +153,6 @@ export function Menu() {
                             onClick={closeModal}
                         />
                     </div>
-
                     {/* Renderizado condicional de campos de entrada */}
                     {isLogin ? (
                         <>
@@ -172,15 +169,6 @@ export function Menu() {
                                 placheolder="Ingresa tu contraseña"
                             /* autocomplete="off" */
                             />
-                            {/*  <p className={styles["switch-text"]}>
-                                <span
-                                    onClick={() => setname("Sign up")}
-                                    className={styles["switch-link"]}
-                                >
-                                    {" "}
-                                    ¿Olvidaste tu contraseña?
-                                </span>
-                            </p> */}
                             <p className={styles["switch-text"]}>
                                 ¿No tienes cuenta?
                                 <span
@@ -194,7 +182,6 @@ export function Menu() {
 
                             <Button type="submit" color="default" label="Iniciar Sesión" />
                         </>
-                        /*se agrego el espacio de que si se olvido la contraseña*/
                     ) :
                         (
                             <>
@@ -243,6 +230,7 @@ export function Menu() {
                                 <Button type="submit" color="default" label="Registrate" />
                             </>
                         )
+
                     }
                 </form>
             </div>
@@ -265,28 +253,20 @@ export function Menu() {
 
     // Estado para mostrar la alerta de cerrar sesión
     const [showLogoutAlert, setShowLogoutAlert] = useState(false);
-
     // Función para manejar el cierre de sesión
     const handleLogout = () => {
         router.push("/")
         // Limpia el almacenamiento local
         localStorage.removeItem("token");
         localStorage.removeItem("typeUser");
-
         // Limpia el estado global si es necesario
         dispatch(assignUsers({ id: 0, token: "", typeUser: "" }));
-
     };
 
     return (
-
         <>
-            <IonMenu side="end"
-                contentId="main-content"
-               
-            >
+            <IonMenu side="end" contentId="main-content">
                 <IonHeader >
-
                     <IonToolbar color="liz">
                         <IonTitle>Menú</IonTitle>
                     </IonToolbar>
@@ -308,7 +288,6 @@ export function Menu() {
                                     </span>
                                 </Tooltip>
                             </IonCol>
-
                             {/* Ícono de log out para  el modal */}
                             <IonCol style={{ display: "flex", alignItems: "center", gap: "0.5rem", cursor: "pointer", justifyContent: "center" }}>
                                 <IonButton color="liz" size="small" shape='round' fill="clear" id="present-alert" onClick={() => setShowLogoutAlert(true)}>
@@ -323,30 +302,26 @@ export function Menu() {
                     </IonGrid>
                 </IonFooter>
             </IonMenu >
-
             {/* cerrar modal */}
             <ModalBase modalRef={modalRef} closeModal={closeModal} >
                 {renderForm()}
             </ModalBase>
-
             {/* Alerta de cerrar sesión */}
             <IonAlert
-
                 isOpen={showLogoutAlert}
                 onDidDismiss={() => setShowLogoutAlert(false)
                 }
                 header="¿Desea Cerrar Sesión?"
                 buttons={
-                    [
-                        {
-                            text: "No",
-                            cssClass: "alert-button-cancel",
-                        },
-                        {
-                            text: "Sí",
-                            cssClass: "alert-button-confirm",
-                            handler: handleLogout,
-                        },
+                    [{
+                        text: "No",
+                        cssClass: "alert-button-cancel",
+                    },
+                    {
+                        text: "Sí",
+                        cssClass: "alert-button-confirm",
+                        handler: handleLogout,
+                    },
                     ]}
             ></IonAlert >
         </>

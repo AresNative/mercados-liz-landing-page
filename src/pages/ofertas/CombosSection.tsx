@@ -1,6 +1,6 @@
 import React from 'react';
-import { IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonCardSubtitle, IonBadge } from '@ionic/react';
-import { ShoppingBasket, Timer, Percent } from 'lucide-react';
+import { IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonBadge } from '@ionic/react';
+import { ShoppingBasket, Timer } from 'lucide-react';
 import Styles from "@/pages/ofertas/Offers.module.css";
 
 const combos = [
@@ -9,7 +9,6 @@ const combos = [
         name: 'Combo Asada 3kg',
         price: '$505.84',
         originalPrice: '$556.42',
-        /*   description: 'Essential groceries for a family of 4', */
         items: [
             'Carne preparada para asar 3kg',
             'Carbón El Terco 3kg',
@@ -27,7 +26,6 @@ const combos = [
         name: 'Combo Asada 5kg',
         price: '$799.00',
         originalPrice: '$878.90',
-        /*  description: 'Complete breakfast essentials', */
         items: [
             'Carne preparada para asar 5kg',
             'Carbón El Terco 3kg',
@@ -45,7 +43,6 @@ const combos = [
         name: 'Combo Asada 7kg',
         price: '$1,049.81',
         originalPrice: '$1,154.79',
-        /* description: 'Essential groceries for a family of 4', */
         items: [
             'Carne preparada para asar 7kg',
             'Carbón El Terco 3kg',
@@ -65,7 +62,6 @@ const combos = [
         name: 'Combo Menudo',
         price: '$433.47',
         originalPrice: '$476.81',
-        /* description: 'Essential groceries for a family of 4', */
         items: [
             'Menudo de res Americano 3kg',
             'maíz blanco La Costeña 3kg',
@@ -82,7 +78,6 @@ const combos = [
         name: 'Combo Pozole',
         price: '$455.59',
         originalPrice: '$501.14',
-        /* description: 'Essential groceries for a family of 4', */
         items: [
             'Espinazo de puerco 6kg',
             'maíz blanco La Costeña 3kg',
@@ -93,7 +88,6 @@ const combos = [
         ],
         savings: '10% Desc',
         validUntil: 'Válido solo sábado y domingo',
-
         /*  imageUrl:'https://media.istockphoto.com/id/1195743934/es/vector/lindo-dise%C3%B1o-vectorial-de-car%C3%A1cter-panda.jpg?s=612x612&w=0&k=20&c=0CS46nLvvKoLpxo6tv68IxKBR7GEHXV-hq26PnBnNuY=' */
     },
 
@@ -104,7 +98,6 @@ const ComboSection: React.FC = () => {
         <div>
             <p className={Styles["p"]}>¿Conoces nuestros combos?</p>
             <p className={Styles["p2"]}>Ahorra tiempo, dinero y esfuerzo.</p>
-
             <div className={Styles["divcom"]}>
                 {combos.map((combo) => (
                     <IonCard key={combo.id} className={Styles["cardcom"]}>
@@ -117,16 +110,10 @@ const ComboSection: React.FC = () => {
                                         <span className={Styles["spanpreOri"]}>{combo.originalPrice}</span>
                                     </div>
                                 </div>
-                                {/*   <IonBadge color="liz" className={Styles["badge"]}>
-                                {combo.suc}
-                            </IonBadge> */}
+                                {/*   <IonBadge color="liz" className={Styles["badge"]}>{combo.suc}</IonBadge> */}
                             </div>
-
                         </IonCardHeader>
-                        {/*   <IonCardSubtitle className={Styles["subtitle"]}>{combo.description}</IonCardSubtitle> */}
-
                         <IonCardContent>
-
                             <div className={Styles["divcard"]}>
                                 <div className={Styles["divcardcont"]}>
                                     <h4 className={Styles["h4"]}>
@@ -142,14 +129,12 @@ const ComboSection: React.FC = () => {
                                         ))}
                                     </ul>
                                 </div>
-
                                 <div className={Styles["divcomb2"]}>
                                     <div className={Styles["divcombo2"]}>
                                         <Timer />
                                         <span>{combo.validUntil}</span>
                                     </div>
                                     <div className={Styles["divcombo2"]}>
-                                        {/*  <Percent className={Styles["percent"]} /> */}
                                         <span className={Styles["spancomb"]}>{combo.savings}</span>
                                     </div>
                                 </div>

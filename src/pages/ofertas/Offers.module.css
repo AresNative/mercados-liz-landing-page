@@ -235,7 +235,7 @@
 
 .swiper {
     margin-top: 6.5rem;
-    height: 30vh !important;
+    height: 90vh !important;
     width: 80vh;
     border-radius: 1rem;
     background: #ffffff00;
@@ -243,30 +243,39 @@
     overflow: auto;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0);
 }
+.swiper-slide {
+    height: auto !important;
+    min-height: 30vh;
+    /* O ajusta según necesidad */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
 
 /* Estilos para pantallas pequeñas (teléfonos) */
 @media (max-width: 376px) {
     .swiper {
+        height: 20vh !important;
+        margin-top: 6rem;
+        /* Altura en vista pequeña */
+        width: 50vh !important;
+        /* Ancho en vista pequeña */
+    }
+}
+
+@media (min-width: 500px) {
+    .swiper {
         margin-top: 6rem !important;
         height: 30vh !important;
         /* Altura en vista pequeña */
-        width: 35vh !important;
+        width: 90vh !important;
         /* Ancho en vista pequeña */
-        margin: 2rem;
+        margin: 1rem;
         /* Margen en vista pequeña */
     }
 }
-@media (min-width: 500px) {
-    .swiper {
-            margin-top: 6rem !important;
-            height: 30vh !important;
-            /* Altura en vista pequeña */
-            width: 90vh !important;
-            /* Ancho en vista pequeña */
-            margin: 1rem;
-            /* Margen en vista pequeña */
-        }
-}
+
 @media (max-width: 920px) {
     .swiper {
         margin-top: 6rem !important;
@@ -277,80 +286,88 @@
     }
 }
 .div {
-    position: relative;
-    width: 90vh;
-    height: 90vh;
+    height: auto;
+    max-height: 10vh;
 }
 .img {
     border-radius: .5rem;
-    width: 95vh;
+    width: 90vh;
     /*--*/
-     height: 70vh;
+    height: 30vh;
+    /* |*/
+    object-fit: fill;
+}
+
+@media (max-width: 376px) {
+    .img {
+            border-radius: .5rem;
+            width: 42%;
+            /*--*/
+            height: 0%;
+            /* |*/
+        }
+   
+}
+@media (max-width: 476px) {
+    .img {
+        border-radius: .5rem;
+        width: 42%;
+        /*--*/
+        height: 0%;
         /* |*/
-    /*  object-fit: fill;  */
-} 
-.fondo {
-    position: absolute;
-    inset: 0;
-    /* Equivale a top: 0; right: 0; bottom: 0; left: 0; */
-    background-color: #00000000;
-}
-.contenido {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 1rem;
-    background-color: #00000000;
-    color: rgb(0, 0, 0);
-    border-bottom-left-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-}
-
-@media (max-width:430px) {
-    .contenido {
-        padding: 1rem !important;
     }
-}
-.spancont {
-    display: inline-block;
-    background-color: #22c55e00;
-    font-size: 0.75rem;
-    font-weight: 600;
-    border-radius: 9999px;
-    margin-bottom: 0.5rem;
-    color: white;
+     .swiper {
+        margin-left: 3rem !important;
+     height: 15vh !important;
+     /* Altura en vista pequeña */
+    width: 50vh !important;
+     /* Ancho en vista pequeña */
+         }
+
 }
 
-@media (max-width:430px) {
-    .spancont {
-        font-size: 0.875rem;
+@media (max-width: 360px) {
+    .img {
+        border-radius: .5rem;
+        width: 42%;
+        /*--*/
+        height: 0%;
+        /* |*/
+    }
+    .swiper {
+        margin: auto;
+        margin-right: 1rem;
+        margin-left: 1rem !important;
+        height: 18vh !important;
+        /* Altura en vista pequeña */
+        width: 50vh !important;
+        /* Ancho en vista pequeña */
     }
 }
 
-.h3 {
-    font-size: 1.125rem;
-    font-weight: 700;
-}
-
-@media (max-width:430px) {
-    .h3 {
-        font-size: 1.5rem;
+@media (max-width: 345px) {
+    .img {
+        border-radius: .5rem;
+        width: 42%;
+        /*--*/
+        height: 0%;
+        /* |*/
     }
-}
-
-.parf {
-    font-size: 0.875rem;
-}
-
-@media (max-width:430px) {
-    .parf {
-        font-size: 1rem;
+    .swiper {
+        margin: auto;
+        margin-right: .5rem !important;
+        margin-left: .5rem !important;
+        height: 18vh !important;
+        /* Altura en vista pequeña */
+        width: 50vh !important;
+        /* Ancho en vista pequeña */
     }
+
 }
 
 /*------------------------------------------------------------------------------------------*/
 /*PDF*/
+
 .pdfdiv {
     margin-top: 1rem !important;
     background: #7c2bbe17;
@@ -456,7 +473,6 @@
         color: #e22424;
 }
 .badge {
- /*    size: 2rem; */
     height: 1rem;
     width: 10rem;
     font-size: 0.75rem;
@@ -618,7 +634,7 @@
     }
 }
 
-/*ajuste*/
+/*--------------ajuste------------------*/
 .reclutamiento-columnas {
     display: flex;
     gap: 1rem !important;

@@ -12,12 +12,12 @@ const Offers = () => {
             </section>
             {/* PDF Catalog Section */}
             <section className="mb-8">
-                <PdfViewer pdfUrl="https://www.google.com/imghp?hl=es-419&ogbl" />
+                <PdfViewer pdfUrl="https://www.google.com" />
             </section>
 
             <section className={Styles["content"]}>
                 <div >
-                    <h1 className={Styles["p"]} > Ve nuestras Promociones del dia</h1>
+                    <h1 className={Styles["p"]} > Ve nuestras promociones del día </h1>
 
                 </div>
                 <ul className={Styles["productos"]}>

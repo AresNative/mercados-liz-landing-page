@@ -30,39 +30,33 @@ import { useSelector } from 'react-redux';
 import { RootState } from './store/store';
 /* import './index.css'; */
 import CertificacionPage from './pages/certificaciones/certificacionpage';
-import RHPage from './pages/PageVistas/Rh';
-import InfValoracionPage from './pages/vistaUser/valoracion';
-import AdministracionPage from './pages/PageVistas/administracion';
-import ComprasVentasPage from './pages/PageVistas/comprasVentas';
 import Offers from './pages/ofertas/Offers';
 import NuevoProvePage from './pages/proveedores/nuevosprovedores';
 import InfprovPage from './pages/vistaUser/provnuevo';
 import ProveePage from './pages/proveedores/portalprov';
 import HistoriaPage from './pages/info/History';
-import PromocionesPage from './pages/ofertas/oferta';
 import ValoracionEmpleadosPage from './pages/PageVistas/valoracionesEmpleados';
 import PrivacidadPage from './pages/info/privacidad';
 import TerminosPage from './pages/info/terminos';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { getLocalStorageItem } from './services/localstorage';
 import { rutasAdmin, rutasCompras, rutasRH } from './constantes/rutas';
+import PageTest from './pages/test/Page';
 
 setupIonicReact({
   mode: 'ios'
 });
 
 const App: React.FC = () => {
+
   const selector = useSelector((state: RootState) => state.users);
-  const usuario = getLocalStorageItem("typeUser")
-  console.log(usuario);
+  const usuario = getLocalStorageItem("typeUser");
+
   return <SwitchTypeUserRender rol={usuario ? usuario : selector.typeUser} />
 };
 
 export default App;
-
 function SwitchTypeUserRender(props: any) {
-  console.log(props);
-
 
   const renderRoutes = (routes: Array<{ src: string; pagina: React.ComponentType }>) =>
     routes.map((data, index) => (
@@ -85,35 +79,36 @@ function SwitchTypeUserRender(props: any) {
           </IonReactRouter>
         </IonApp>
       );
-
     case "Admin":
-      return <IonApp>
-        <IonReactRouter>
-          <IonRouterOutlet>
-            {renderRoutes(rutasAdmin)}
-            <Route exact path="/">
-              <Redirect to={rutasAdmin[0]?.src || "/"} />
-            </Route>
-          </IonRouterOutlet>
-        </IonReactRouter>
-      </IonApp>
-
+      return (
+        <IonApp>
+          <IonReactRouter>
+            <IonRouterOutlet>
+              {renderRoutes(rutasAdmin)}
+              <Route exact path="/">
+                <Redirect to={rutasAdmin[0]?.src || "/"} />
+              </Route>
+            </IonRouterOutlet>
+          </IonReactRouter>
+        </IonApp>
+      );
     case "Compras":
-      return <IonApp>
-        <IonReactRouter>
-          <IonRouterOutlet>
-            {renderRoutes(rutasCompras)}
-            <Route exact path="/">
-              <Redirect to={rutasCompras[0]?.src || "/"} />
-            </Route>
-          </IonRouterOutlet>
-        </IonReactRouter>
-      </IonApp>
+      return (
+        <IonApp>
+          <IonReactRouter>
+            <IonRouterOutlet>
+              {renderRoutes(rutasCompras)}
+              <Route exact path="/">
+                <Redirect to={rutasCompras[0]?.src || "/"} />
+              </Route>
+            </IonRouterOutlet>
+          </IonReactRouter>
+        </IonApp>
+      );
     default:
       return <IonApp>
         <IonReactRouter>
           <IonRouterOutlet>
-            {/*  */}
 
             {/* Informacion */}
             <Route exact path="/Contact">
@@ -126,7 +121,6 @@ function SwitchTypeUserRender(props: any) {
             <Route exact path="/terminosycondiciones">
               <TerminosPage />
             </Route>
-
 
             {/* Menu */}
             <Route exact path="/home">
@@ -167,10 +161,11 @@ function SwitchTypeUserRender(props: any) {
             <Route exact path="/provpage">
               <InfprovPage />
             </Route>
-
+            <Route exact path="/test">
+              <PageTest />
+            </Route>
 
             {/* Vistas Interaccion Usuarios */}
-
             <Route exact path="/ValoracionEmpleadosPage">
               <ValoracionEmpleadosPage />
             </Route>

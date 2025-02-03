@@ -12,6 +12,8 @@ interface Filter {
 }
 
 interface CombosData {
+    // ! la interfaz puede variar dependiendo del endpoint a llenar
+    // ? no es necesaria para la consulta
     name: string;
     price: number;
     price_ofer: number;
@@ -93,7 +95,7 @@ export default function PageTest() {
 
         try {
             setIsSubmitting(true);
-            await sendFormData('v2/insert/combos', formData);
+            await sendFormData('v2/insert/combos', formData);//! estas son las variables que indican la api seleccionada
             setMessage('Data submitted successfully!');
             setFile(null);
         } catch (error) {
@@ -114,7 +116,7 @@ export default function PageTest() {
         loadData({
             filtros: [{ key: "", value: "", operator: "" }],
             page: currentPage,
-        }, 'v2/select/postulaciones');
+        }, 'v2/select/postulaciones');//! estas son las variables que indican la api seleccionada
     }, []);
     const handlePageChange = (newPage: number) => {
         if (newPage < 1 || newPage > totalPages) return;
@@ -122,7 +124,7 @@ export default function PageTest() {
         loadData({
             filtros: [{ key: "", value: "", operator: "" }],
             page: newPage,
-        }, 'v2/select/postulaciones');
+        }, 'v2/select/postulaciones');//! estas son las variables que indican la api seleccionada
     };
     return (
         <main>

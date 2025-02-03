@@ -1,137 +1,178 @@
-import { EnvConfig } from "@/utils/env.config";
+
 import { useEffect, useMemo, useState } from "react";
+import { fetchDynamicData } from "./api/get-data";
+import { sendFormData } from "./api/post-data";
+import { styles } from "./styles";
+import { TableComponent } from "./components/table";
 
+interface Filter {
+    key: string;
+    value: string;
+    operator: string;
+}
 
-const { api } = EnvConfig();
+interface CombosData {
+    name: string;
+    price: number;
+    price_ofer: number;
+    description: string;
+    date: string;
+    state: "Disponible" | "Agotado";
+    porcentaje: number;
+}
+
+interface CombosRequest {
+    filtros: Filter[];
+    page: number;
+}
+
 export default function PageTest() {
-    const [file, setFile] = useState(null);
+    const [file, setFile] = useState<File | null>(null);
     const [message, setMessage] = useState('');
+    const [data, setData] = useState<Record<string, any>[]>([]);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(0);
 
-    const [data, setdata] = useState([])
-
-    const handleFileChange = (e: any) => {
-        setFile(e.target.files[0]);
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setMessage('');
+        setFile(e.target.files?.[0] || null);
     };
-    /*
-    ! funcionalidad  -> carga de datos
-    */
-    async function loadData(filter: any, endpoint: string) {
-        console.log(filter.filtros);
 
-        const response = await fetch(api + endpoint + `?page=${filter.page}`, {
-            method: 'POST',
-            body: filter.filtros, // No necesitas agregar headers para FormData
-        });
-        return await response.json();
-    }
-    const columns = useMemo(() => {
-        return data.length > 0 ? Object.keys(data[0]).filter(Boolean) : [];
-    }, [data]);
-    useEffect(() => {
-        const filterData: any = {
-            filtros: [{
-                key: "",
-                value: "",
-                operator: ""
-            }],
-            page: 1,
+    const loadData = async (filter: CombosRequest, endpoint: string) => {
+        try {
+            const { data: resultData, totalPages: pages } = await fetchDynamicData<any>(filter, endpoint);
+            setData(resultData);
+            setTotalPages(pages);
+        } catch (error) {
+            console.error('Error loading data:', error);
+            setMessage(error instanceof Error ? error.message : 'Error loading data');
         }
-        loadData(filterData, 'v2/select/combos')
-    }, [])
-    /* 
-    ! funcionalidad  -> envio de informacion
-    */
-    async function insertMedia(data: any, endpoint: string) {
-        const response = await fetch(api + endpoint, {
-            method: 'POST',
-            body: data, // No necesitas agregar headers para FormData
-        });
-        return await response.json();
-    }
+    };
 
-    async function handleSubmit(e: any) {// ? esta funcion es para mandar multimedia - todo tipo de archivos
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        const formData = new FormData();
+        setMessage('');
+
         if (!file) {
-            setMessage('Por favor, selecciona un archivo.');
+            setMessage('Please select a file');
             return;
         }
-        // Agregar el archivo
+
+        const formData = new FormData();
         formData.append('File', file);
 
-        const postulacionData: any = {
-            name: "Combo Familiar",
-            price: "299.9",
-            price_ofer: "249.9",
-            description: "test",
-            date: "2025-02-01",
-            state: "Disponible",
-            porcentaje: "16"
+        function getRandomPrice(base: number): number {
+            return parseFloat((base + Math.random() * 50 - 25).toFixed(2));
         }
-        formData.append('CombosData', JSON.stringify(postulacionData));
+
+        function getRandomPercentage(): number {
+            return Math.floor(Math.random() * 21); // Porcentaje entre 0 y 20
+        }
+
+        function getRandomDate(): string {
+            const start = new Date(2025, 0, 1).getTime();
+            const end = new Date(2025, 11, 31).getTime();
+            const randomTime = start + Math.random() * (end - start);
+            return new Date(randomTime).toISOString().split("T")[0];
+        }
+
+        const comboData: CombosData =
+        {
+            name: "Combo Pareja",
+            price: getRandomPrice(199.9),
+            price_ofer: getRandomPrice(149.9),
+            description: "Incluye 1 pizza mediana y 2 refrescos de 500ml.",
+            date: getRandomDate(),
+            state: Math.random() > 0.5 ? "Disponible" : "Agotado",
+            porcentaje: getRandomPercentage()
+        }
+            ;
+
+        formData.append('CombosData', JSON.stringify(comboData));
 
         try {
-
-            const result = await insertMedia(formData, 'v2/insert/combos')
-            if (result) {
-                setMessage('Postulación enviada correctamente.');
-            } else {
-                setMessage('Error al enviar la postulación.');
-            }
+            setIsSubmitting(true);
+            await sendFormData('v2/insert/combos', formData);
+            setMessage('Data submitted successfully!');
+            setFile(null);
         } catch (error) {
-            setMessage('Error al conectar con el servidor.');
-            console.error(error);
+            const errorMessage = error instanceof Error
+                ? error.message
+                : 'Server connection error';
+            setMessage(`Error: ${errorMessage}`);
+        } finally {
+            setIsSubmitting(false);
         }
-    }
+    };
 
+    const columns = useMemo(() =>
+        data[0] ? Object.keys(data[0]) : []
+        , [data]);
+
+    useEffect(() => {
+        loadData({
+            filtros: [{ key: "", value: "", operator: "" }],
+            page: currentPage,
+        }, 'v2/select/postulaciones');
+    }, []);
+    const handlePageChange = (newPage: number) => {
+        if (newPage < 1 || newPage > totalPages) return;
+        setCurrentPage(newPage);
+        loadData({
+            filtros: [{ key: "", value: "", operator: "" }],
+            page: newPage,
+        }, 'v2/select/postulaciones');
+    };
     return (
-        <main className="bg-red-600 min-h-[100vh] min-w-[100vh]">
-            <h1>Subir Archivo y Enviar Datos de Prueba</h1>
+        <main>
+            <h1>File Upload and Test Data</h1>
             <form onSubmit={handleSubmit}>
-                <div style={{ marginBottom: '20px' }}>
-                    <label style={{ display: 'block', marginBottom: '10px' }}>
-                        Selecciona un archivo:
+                <div style={styles.formContainer}>
+                    <label style={styles.fileLabel}>
+                        Select a file:
+                        <input
+                            type="file"
+                            onChange={handleFileChange}
+                            disabled={isSubmitting}
+                        />
                     </label>
-                    <input type="file" onChange={handleFileChange} />
                 </div>
                 <button
                     type="submit"
-                    style={{
-                        padding: '10px 20px',
-                        backgroundColor: '#0070f3',
-                        color: 'white',
-                        border: 'none',
-                        borderRadius: '5px',
-                        cursor: 'pointer',
-                    }}
+                    style={styles.submitButton}
+                    disabled={isSubmitting}
                 >
-                    Enviar Datos de Prueba
+                    {isSubmitting ? 'Submitting...' : 'Submit Test Data'}
                 </button>
             </form>
-            {message && <p style={{ marginTop: '20px', color: '#0070f3' }}>{message}</p>}
 
+            {message && <p style={styles.message}>{message}</p>}
 
+            <div style={styles.tableContainer}>
+                <TableComponent columns={columns} data={data} />
+                <div style={styles.paginationContainer}>
+                    <button
+                        style={styles.paginationButton}
+                        onClick={() => handlePageChange(currentPage - 1)}
+                        disabled={currentPage === 1}
+                    >
+                        Previous
+                    </button>
 
-            <table style={{ marginTop: "15px" }}>
-                <thead>
-                    <tr>
-                        {columns && columns.map((key, row) => (
-                            <th key={key}>
-                                <span>{row}</span>
-                            </th>
-                        ))}
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        {data && data.map((key, row) => (
-                            <td key={key}>
-                                <span>{row}</span>
-                            </td>
-                        ))}
-                    </tr>
-                </tbody>
-            </table>
+                    <span style={styles.pageInfo}>
+                        Page {currentPage} of {totalPages}
+                    </span>
+
+                    <button
+                        style={styles.paginationButton}
+                        onClick={() => handlePageChange(currentPage + 1)}
+                        disabled={currentPage >= totalPages}
+                    >
+                        Next
+                    </button>
+                </div>
+            </div>
         </main>
-    )
+    );
 }

@@ -54,7 +54,7 @@ export default function PageTest() {
             <section className="w-4/5 m-auto">
                 <h1>File Upload and Test Data</h1>
                 <MainForm
-                    actionType={"registrar-combo"}
+                    actionType={'v2/insert/combos'}
                     dataForm={[
                         {
                             name: "name",

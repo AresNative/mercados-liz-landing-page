@@ -42,7 +42,7 @@ export const MainForm = ({ message_button, dataForm, actionType, aditionalData, 
 
   function getMutationFunction(actionType: string) {
     switch (actionType) {
-      case "registrar-combo":
+      case 'v2/insert/combos':
         return sendFormData
       default:
         return () => { };
@@ -78,7 +78,7 @@ export const MainForm = ({ message_button, dataForm, actionType, aditionalData, 
     const mutationFunction = getMutationFunction(actionType);
 
     try {
-      await mutationFunction('v2/insert/combos', formatData);
+      await mutationFunction(actionType, formatData);
 
       if (valueAssign && action) {
         if (Array.isArray(valueAssign)) {

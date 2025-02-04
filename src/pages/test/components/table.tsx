@@ -1,5 +1,4 @@
 import { Check, X, Download } from 'lucide-react';
-import { styles } from '../styles';
 
 interface TableComponentProps {
     columns: string[];
@@ -13,7 +12,7 @@ const formatValue = (key: string, value: any) => {
     const normalizedKey = key.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
     // Formato de fechas (considera cualquier campo que contenga "fecha")
-    if (normalizedKey.includes('fecha') && typeof value === 'string') {
+    if (normalizedKey.includes('fecha') && typeof value === 'string' || normalizedKey.includes('date') && typeof value === 'string') {
         try {
             const date = new Date(value);
 
@@ -74,24 +73,24 @@ const formatValue = (key: string, value: any) => {
 };
 
 export const TableComponent = ({ columns, data }: TableComponentProps) => (
-    <table style={styles.table}>
-        <thead>
+    <table className="w-full overflow-auto">
+        <thead className="bg-gray-50">
             <tr>
                 {columns.map((column) => (
-                    <th key={column} style={styles.tableHeader}>
+                    <th key={column} className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         {column}
                     </th>
                 ))}
             </tr>
         </thead>
-        <tbody>
+        <tbody className="bg-white divide-y divide-gray-200">
             {data.map((row, rowIndex) => (
                 <tr key={rowIndex} style={{
                     backgroundColor: rowIndex % 2 === 0 ? "#f9f9f9" : "#ffffff",
                     borderBottom: "1px solid #dddddd"
                 }}>
-                    {columns.map((column) => (
-                        <td key={column} style={styles.tableCell}>
+                    {columns.map((column, key) => (
+                        <td key={key} className="px-6 py-4 whitespace-nowrap">
                             {formatValue(column, row[column])}
                         </td>
                     ))}

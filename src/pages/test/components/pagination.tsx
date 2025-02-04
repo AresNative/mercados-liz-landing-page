@@ -1,26 +1,26 @@
 
-import { styles } from "../styles";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 export default function PaginationTable({ currentPage, totalPages, handlePageChange }: any) {
     return (
-        <div style={styles.paginationContainer}>
+        <div className="flex items-center justify-center space-x-2 mt-5">
             <button
-                style={styles.paginationButton}
-                onClick={() => handlePageChange(currentPage - 1)}
+                onClick={() => handlePageChange((prev: any) => Math.max(prev - 1, 1))}
                 disabled={currentPage === 1}
+                className="px-3 py-2 rounded-md bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-                Previous
+                <ChevronLeft className="h-5 w-5" />
             </button>
-
-            <span style={styles.pageInfo}>
-                Page {currentPage} of {totalPages}
-            </span>
-
+            <span
+                className="px-3 py-2 rounded-md bg-white border border-gray-300 text-gray-700"
+            >{currentPage} de {totalPages}</span>
             <button
-                style={styles.paginationButton}
-                onClick={() => handlePageChange(currentPage + 1)}
-                disabled={currentPage >= totalPages}
+                onClick={() =>
+                    handlePageChange((prev: any) => Math.min(prev + 1, totalPages))
+                }
+                disabled={currentPage === totalPages}
+                className="px-3 py-2 rounded-md bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-                Next
+                <ChevronRight className="h-5 w-5" />
             </button>
         </div>
     )

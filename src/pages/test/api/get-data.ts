@@ -12,16 +12,13 @@ interface CombosRequest {
 }
 
 const { api } = EnvConfig();
-const DEFAULT_TIMEOUT = 100; // 10o ms
 
 export async function fetchDynamicData<T = unknown>(
   filter: CombosRequest,
-  endpoint: string,
-  timeout: number = DEFAULT_TIMEOUT
+  endpoint: string
 ): Promise<{ data: T[]; totalPages: number }> {
   // Cambio en el tipo de retorno
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), timeout);
 
   try {
     const response = await fetch(`${api}${endpoint}`, {
@@ -32,8 +29,6 @@ export async function fetchDynamicData<T = unknown>(
       body: JSON.stringify(filter),
       signal: controller.signal,
     });
-
-    clearTimeout(timeoutId);
 
     if (!response.ok) {
       const errorData = await parseErrorResponse(response);
@@ -49,8 +44,6 @@ export async function fetchDynamicData<T = unknown>(
       totalPages: result.totalPages || 0, // Añadimos totalPages
     };
   } catch (error) {
-    clearTimeout(timeoutId);
-
     const errorMessage =
       error instanceof Error ? error.message : "Unknown error occurred";
 

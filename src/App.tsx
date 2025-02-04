@@ -41,8 +41,8 @@ import TerminosPage from './pages/info/terminos';
 import React from 'react';
 import { getLocalStorageItem } from './services/localstorage';
 import { rutasAdmin, rutasCompras, rutasRH } from './constantes/rutas';
-import PageTest from './pages/test/admin/Page';
-import PageUser from './pages/test/user/page';
+import PageTest from './pages/test/@admin/Page';
+import PageUser from './pages/test/@user/page';
 
 setupIonicReact({
   mode: 'ios'

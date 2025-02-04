@@ -4,6 +4,7 @@ import { sendFormData } from "../api/post-data";
 import { styles } from "../styles";
 import { TableComponent } from "../components/table";
 import PaginationTable from "../components/pagination";
+import MainForm from "../components/form/main-form";
 
 interface Filter {
     key: string;
@@ -111,9 +112,25 @@ export default function PageTest() {
     };
 
     return (
-        <main>
+        <main className="w-full min-h-full overflow-auto">
             <h1>File Upload and Test Data</h1>
-            <form onSubmit={handleSubmit}>
+
+            <MainForm
+                actionType="Buscar"
+                dataForm={[
+                    {
+                        name: "search",
+                        type: "INPUT",
+                        label: "Busca algun dato de interes",
+                        placeholder: "Buscar productos...",
+                        require: false,
+                    },
+
+                ]}
+
+                message_button="Buscar"
+            />
+            {/* <form onSubmit={handleSubmit}>
                 <div style={styles.formContainer}>
                     <label style={styles.fileLabel}>
                         Select a file:
@@ -131,7 +148,7 @@ export default function PageTest() {
                 >
                     {isSubmitting ? 'Submitting...' : 'Submit Test Data'}
                 </button>
-            </form>
+            </form> */}
 
             {message && <p style={styles.message}>{message}</p>}
 

@@ -95,7 +95,7 @@ body {
     }
 }
 
-/* * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -532,4 +532,4 @@ h2.titulos2 {
     --ion-color-contrast-rgb: var(--ion-color-violet-contrast-rgb);
     --ion-color-shade: var(--ion-color-violet-shade);
     --ion-color-tint: var(--ion-color-violet-tint);
-} */
+}

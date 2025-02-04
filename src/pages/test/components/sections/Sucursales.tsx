@@ -30,7 +30,7 @@ const Sucursales: React.FC = () => {
     setZoom(10.5)
   }
   return (
-    <section className="bg-gradient-to-br from-purple-100 to-purple-200 rounded-xl p-6">
+    <section className="bg-gradient-to-br from-purple-100 to-purple-200 rounded-xl p-6 h-full">
       <header>
         <h2 className="text-2xl font-bold text-purple-700 mb-6">
           Nuestras Sucursales
@@ -61,7 +61,7 @@ const Sucursales: React.FC = () => {
           {sucursales.map((sucursal, index) => (
             <IonItem
               key={index}
-              className="py-3 cursor-pointer hover:bg-purple-50 transition-colors duration-300"
+              className="py-3 cursor-pointer transition-colors duration-300"
               onClick={() => handleSucursalClick(sucursal.coordenadas)}
             >
               <IonLabel>
@@ -71,7 +71,7 @@ const Sucursales: React.FC = () => {
             </IonItem>
           ))}
           <IonItem
-            className="mt-4 py-3 cursor-pointer hover:bg-purple-50 transition-colors duration-300"
+            className="mt-4 py-3 cursor-pointer transition-colors duration-300"
             onClick={handleClear}>
             <IonLabel>
               <h2 className="font-semibold text-purple-600">Ver todas las sucursales</h2>

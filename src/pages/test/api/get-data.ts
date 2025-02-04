@@ -18,7 +18,7 @@ export async function fetchDynamicData<T = unknown>(
   endpoint: string
 ): Promise<{ data: T[]; totalPages: number }> {
   // Cambio en el tipo de retorno
-  const controller = new AbortController();
+  //const controller = new AbortController();
 
   try {
     const response = await fetch(`${api}${endpoint}`, {
@@ -27,7 +27,7 @@ export async function fetchDynamicData<T = unknown>(
         "Content-Type": "application/json",
       },
       body: JSON.stringify(filter),
-      signal: controller.signal,
+      //signal: controller.signal,
     });
 
     if (!response.ok) {

@@ -4,6 +4,7 @@ import { styles } from "../styles";
 import { TableComponent } from "../components/table";
 import PaginationTable from "../components/pagination";
 import MainForm from "../components/form/main-form";
+import Background from "../template/background";
 
 interface Filter {
     key: string;
@@ -48,7 +49,7 @@ export default function PageTest() {
     };
 
     return (
-        <main className="w-full h-full  overflow-auto">
+        <Background>
             <section className="w-4/5 m-auto">
                 <h1>Formato de subida para combos</h1>
                 <MainForm
@@ -131,6 +132,6 @@ export default function PageTest() {
                 <TableComponent columns={columns} data={data} />
                 <PaginationTable totalPages={totalPages} currentPage={currentPage} handlePageChange={handlePageChange} />
             </div>
-        </main>
+        </Background>
     );
 }

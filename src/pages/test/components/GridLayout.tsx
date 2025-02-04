@@ -7,64 +7,55 @@ import Recetas from "./sections/Recetas"
 import Contacto from "./sections/Contacto"
 import Newsletter from "./sections/Newsletter"
 import Historia from "./sections/Historia"
-import Sucursales from "./Sucursales"
+import Sucursales from "./sections/Sucursales"
 
 const GridLayout: React.FC = () => {
   return (
     <section>
-      <div className="min-h-screen bg-gray-900 p-4 md:p-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12 gap-4 max-w-7xl mx-auto">
+      <div className="p-4 sm:p-6 md:p-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 sm:gap-6 mx-auto">
           {/* Productos - Sección 10 */}
-          <div className="md:col-span-2 lg:col-span-3 bg-gray-800 rounded-lg p-4 relative">
-            <span className="top-2 left-2 bg-black/50 text-white px-2 py-1 rounded-md text-sm">10</span>
+          <div className="sm:col-span-1 lg:col-span-3">
             <Productos />
           </div>
 
           {/* Ofertas - Sección 3 */}
-          <div className="md:col-span-2 lg:col-span-6 bg-gray-800 rounded-lg p-4 relative">
-            <span className="top-2 left-2 bg-black/50 text-white px-2 py-1 rounded-md text-sm">3</span>
+          <div className="sm:col-span-2 lg:col-span-6">
             <Ofertas />
           </div>
 
           {/* Servicios - Sección 4 */}
-          <div className="md:col-span-2 lg:col-span-3 bg-gray-800 rounded-lg p-4 relative">
-            <span className="top-2 left-2 bg-black/50 text-white px-2 py-1 rounded-md text-sm">4</span>
+          <div className="sm:col-span-1 lg:col-span-3">
             <Servicios />
           </div>
 
           {/* Blog - Sección 9 */}
-          <div className="md:col-span-2 lg:col-span-3 bg-gray-800 rounded-lg p-4 relative">
-            <span className="top-2 left-2 bg-black/50 text-white px-2 py-1 rounded-md text-sm">9</span>
+          <div className="sm:col-span-1 lg:col-span-3">
             <Blog />
           </div>
 
           {/* Sucursales - Sección 2 */}
-          <div className="md:col-span-4 lg:col-span-6 bg-gray-800 rounded-lg p-4 relative">
-            <span className="top-2 left-2 bg-black/50 text-white px-2 py-1 rounded-md text-sm">2</span>
+          <div className="sm:col-span-2 lg:col-span-6">
             <Sucursales />
           </div>
 
           {/* Recetas - Sección 5 */}
-          <div className="md:col-span-2 lg:col-span-3 bg-gray-800 rounded-lg p-4 relative">
-            <span className="top-2 left-2 bg-black/50 text-white px-2 py-1 rounded-md text-sm">5</span>
+          <div className="sm:col-span-1 lg:col-span-3">
             <Recetas />
           </div>
 
           {/* Historia - Sección 6 */}
-          <div className="md:col-span-2 lg:col-span-3 bg-gray-800 rounded-lg p-4 relative">
-            <span className="top-2 left-2 bg-black/50 text-white px-2 py-1 rounded-md text-sm">6</span>
+          <div className="sm:col-span-1 lg:col-span-3">
             <Historia />
           </div>
 
           {/* Newsletter - Sección 8 */}
-          <div className="md:col-span-2 lg:col-span-3 bg-gray-800 rounded-lg p-4 relative">
-            <span className="top-2 left-2 bg-black/50 text-white px-2 py-1 rounded-md text-sm">8</span>
+          <div className="sm:col-span-2 lg:col-span-4">
             <Newsletter />
           </div>
 
           {/* Contacto - Sección 7 */}
-          <div className="md:col-span-2 lg:col-span-6 bg-gray-800 rounded-lg p-4 relative">
-            <span className="top-2 left-2 bg-black/50 text-white px-2 py-1 rounded-md text-sm">7</span>
+          <div className="sm:col-span-2 lg:col-span-5">
             <Contacto />
           </div>
         </div>
@@ -74,4 +65,3 @@ const GridLayout: React.FC = () => {
 }
 
 export default GridLayout
-

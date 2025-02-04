@@ -10,15 +10,17 @@ const Servicios: React.FC = () => {
   ]
 
   return (
-    <div className="h-full">
-      <h2 className="text-xl font-bold text-white mb-4">Nuestros Servicios</h2>
-      <div className="space-y-4">
+    <div className="h-full bg-white rounded-xl p-4 sm:p-6 shadow-lg">
+      <h2 className="text-xl sm:text-2xl font-bold text-purple-700 mb-4 sm:mb-6">Nuestros Servicios</h2>
+      <div className="space-y-4 sm:space-y-6">
         {servicios.map((servicio, index) => (
-          <div key={index} className="flex items-center space-x-3 bg-gray-700 p-3 rounded-lg">
-            <IonIcon icon={servicio.icon} className="text-2xl text-purple-400" />
+          <div key={index} className="flex gap-3 sm:gap-4 items-center p-3 sm:p-4 bg-purple-50 border border-purple-200 rounded-lg hover:shadow-md transition-shadow duration-300">
+            <div className="bg-purple-100 rounded-full p-2 sm:p-3">
+              <IonIcon icon={servicio.icon} className="text-xl sm:text-2xl text-purple-600" />
+            </div>
             <div>
-              <h3 className="text-white font-medium">{servicio.title}</h3>
-              <p className="text-gray-300 text-sm">{servicio.desc}</p>
+              <h3 className="font-medium text-base sm:text-lg text-purple-800">{servicio.title}</h3>
+              <p className="text-purple-600 text-sm sm:text-base">{servicio.desc}</p>
             </div>
           </div>
         ))}
@@ -28,4 +30,3 @@ const Servicios: React.FC = () => {
 }
 
 export default Servicios
-

@@ -32,7 +32,7 @@ export function MyMap() {
                 defaultCenter={[32.0947939, -116.5735554]} // Coordenadas por defecto
                 center={sucursalVista || [32.0947939, -116.5735554]}
                 // Mostrar la sucursal o la vista por defecto
-                defaultZoom={15}
+                defaultZoom={16}
             >
                 {/* Marcador en la ubicación de la sucursal seleccionada */}
                 <Marker width={50} anchor={sucursalVista || [32.0947939, -116.5735554]} />

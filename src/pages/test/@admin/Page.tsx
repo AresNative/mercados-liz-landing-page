@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { fetchDynamicData } from "../api/get-data";
-import { styles } from "../styles";
 import { TableComponent } from "../components/table";
+import { CombosField } from "../constants/combos";
 import PaginationTable from "../components/pagination";
 import MainForm from "../components/form/main-form";
 import Background from "../template/background";
@@ -18,7 +18,6 @@ interface CombosRequest {
 }
 
 export default function PageTest() {
-    const [message, setMessage] = useState('');
     const [data, setData] = useState<Record<string, any>[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
@@ -30,7 +29,6 @@ export default function PageTest() {
             setTotalPages(pages);
         } catch (error) {
             console.error('Error loading data:', error);
-            setMessage(error instanceof Error ? error.message : 'Error loading data');
         }
     };
 
@@ -54,71 +52,7 @@ export default function PageTest() {
                 <h1>Formato de subida para combos</h1>
                 <MainForm
                     actionType={'v2/insert/combos'}
-                    dataForm={[
-                        {
-                            name: "name",
-                            type: "INPUT",
-                            label: "Nombre del combo",
-                            placeholder: "Añada un nombre valido...",
-                            require: false,
-                        },
-                        {
-                            type: "SELECT",
-                            options: [
-                                "Dsiponible",
-                                "Proximamente",
-                                "Agotado",
-                            ],
-                            enableAutocomplete: "true",
-                            name: "state",
-                            label: "Estado",
-                            placeholder: "estado",
-                            require: false,
-                            multi: false,
-                        },
-                        {
-                            type: "INPUT",
-                            name: "porcentaje",
-                            label: "Porcentaje de oferta",
-                            placeholder: "Porcentaje del precio en oferta",
-                            require: false,
-                        },
-                        {
-                            type: "Flex",
-                            name: "flex",
-                            label: "Flex",
-                            require: false,
-                            elements: [{
-                                type: "INPUT",
-                                name: "price",
-                                label: "Precio",
-                                placeholder: "Precio base de los productos en conjunto",
-                                require: false,
-                            },
-                            {
-                                type: "INPUT",
-                                name: "price_ofer",
-                                label: "Precio en oferta",
-                                placeholder: "Precio del combo",
-                                require: false,
-                            },],
-                        },
-                        {
-                            type: "FILE",
-                            name: "file",
-                            label: "archivo",
-                            placeholder: "Archivo",
-                            require: false,
-                        },
-
-                        {
-                            type: "TEXT_AREA",
-                            name: "description",
-                            label: "Descripcion del combo",
-                            placeholder: "Describe el combo",
-                            require: false,
-                        },
-                    ]}
+                    dataForm={CombosField()}
                     aditionalData={{
                         date: new Date()
                     }}
@@ -126,9 +60,8 @@ export default function PageTest() {
                 />
             </section>
 
-            {message && <p style={styles.message}>{message}</p>}
 
-            <div className="w-4/5  m-auto mt-10 overflow-auto">
+            <div className="w-4/5 m-auto mt-10 overflow-auto">
                 <TableComponent columns={columns} data={data} />
                 <PaginationTable totalPages={totalPages} currentPage={currentPage} handlePageChange={handlePageChange} />
             </div>

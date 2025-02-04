@@ -4,7 +4,7 @@ import { cartOutline, eyeOutline } from "ionicons/icons"
 
 const Productos: React.FC = () => {
     return (
-        <div className="h-full flex flex-col bg-white rounded-xl p-4 sm:p-6 shadow-lg">
+        <div className="h-full border flex flex-col bg-white rounded-xl p-4 sm:p-6 shadow-lg">
             <h2 className="text-xl sm:text-2xl font-bold text-purple-700 mb-4 sm:mb-6 flex items-center">
                 <IonIcon icon={cartOutline} className="mr-2" />
                 Productos Destacados

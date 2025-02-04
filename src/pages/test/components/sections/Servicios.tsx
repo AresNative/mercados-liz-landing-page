@@ -10,7 +10,7 @@ const Servicios: React.FC = () => {
   ]
 
   return (
-    <div className="h-full bg-white rounded-xl p-4 sm:p-6 shadow-lg">
+    <div className="h-full border bg-white rounded-xl p-4 sm:p-6 shadow-lg">
       <h2 className="text-xl sm:text-2xl font-bold text-purple-700 mb-4 sm:mb-6">Nuestros Servicios</h2>
       <div className="space-y-4 sm:space-y-6">
         {servicios.map((servicio, index) => (

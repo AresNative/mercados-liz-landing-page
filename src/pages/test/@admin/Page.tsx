@@ -22,7 +22,6 @@ export default function PageTest() {
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
 
-
     const loadData = async (filter: CombosRequest, endpoint: string) => {
         try {
             const { data: resultData, totalPages: pages } = await fetchDynamicData<any>(filter, endpoint);
@@ -33,7 +32,6 @@ export default function PageTest() {
             setMessage(error instanceof Error ? error.message : 'Error loading data');
         }
     };
-
 
     const columns = useMemo(() => data[0] ? Object.keys(data[0]) : [], [data]);
 
@@ -52,7 +50,7 @@ export default function PageTest() {
     return (
         <main className="w-full h-full  overflow-auto">
             <section className="w-4/5 m-auto">
-                <h1>File Upload and Test Data</h1>
+                <h1>Formato de subida para combos</h1>
                 <MainForm
                     actionType={'v2/insert/combos'}
                     dataForm={[

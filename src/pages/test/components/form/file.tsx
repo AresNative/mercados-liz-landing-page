@@ -12,6 +12,7 @@ export function FileComponent(props: InputMediaProps) {
         event.stopPropagation();
         const files = Array.from(event.dataTransfer.files);
         setDocuments((prev) => [...prev, ...files]);
+        props.setValue(cuestion.name, files);
     }, []);
 
     const preventDefault = useCallback((event: React.DragEvent<HTMLDivElement>) => {

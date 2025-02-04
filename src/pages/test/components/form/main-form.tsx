@@ -22,13 +22,10 @@ import { FileComponent as File } from "./file";
 import { ImgComponent as Image } from "./img";
 
 import { Button } from "../button";
-//import { openAlertReducer } from "@/hooks/reducers/drop-down";
-
-//import { useAppDispatch } from "@/hooks/selector";
+import { sendFormData } from "../../api/post-data";
 
 export const MainForm = ({ message_button, dataForm, actionType, aditionalData, action, valueAssign }: MainFormProps) => {
 
-  //const dispatch = useAppDispatch();
   const [loading, setLoading] = useState(false);
 
   const {
@@ -45,8 +42,8 @@ export const MainForm = ({ message_button, dataForm, actionType, aditionalData, 
 
   function getMutationFunction(actionType: string) {
     switch (actionType) {
-      case "add-project":
-        return (st: string) => { };
+      case "registrar-combo":
+        return sendFormData
       default:
         return () => { };
     }
@@ -54,12 +51,35 @@ export const MainForm = ({ message_button, dataForm, actionType, aditionalData, 
 
   async function onSubmit(submitData: any) {
     setLoading(true);
-    let combinedData: any = {}
-    if (aditionalData) combinedData = { ...submitData, ...aditionalData };
-    else combinedData = submitData;
+
+    let combinedData: any = {};
+
+    const formatData = new FormData();
+
+    // Validar si `submitData.file` es un array y agregar los archivos directamente a FormData
+    if (Array.isArray(submitData.file)) {
+      submitData.file.forEach((file: File) => {
+        formatData.append("File", file); // Agregar archivos sin procesarlos
+      });
+    } else if (submitData.file) {
+      formatData.append("File", submitData.file);
+    }
+
+    console.log("Archivos enviados:", submitData.file);
+
+    // Remover el campo file del submitData
+    const { file, ...sanitizedData } = submitData;
+
+    if (aditionalData) combinedData = { ...sanitizedData, ...aditionalData };
+    else combinedData = sanitizedData;
+
+    formatData.append('CombosData', JSON.stringify(combinedData));
+
     const mutationFunction = getMutationFunction(actionType);
+
     try {
-      await mutationFunction(combinedData);
+      await mutationFunction('v2/insert/combos', formatData);
+
       if (valueAssign && action) {
         if (Array.isArray(valueAssign)) {
           // Si es un array, mapeamos los valores y creamos un objeto
@@ -80,24 +100,8 @@ export const MainForm = ({ message_button, dataForm, actionType, aditionalData, 
         if (action) {
           await action()
         }
-      /* dispatch(
-        openAlertReducer({
-          message: "Éxito! Operación realizada",
-          type: "success", //? "info" |  "success" | "warning" | "error"
-          icon: <ArchiveRestore className="w-6 h-6 text-green-600" />
-        })
-      ); */
-
-      /* dispatch(closeModal({ modalName: actionType })); */
     } catch (error) {
       console.error("Error en el envío del formulario:", error);
-      /* dispatch(
-        openAlertReducer({
-          message: "Error! Algo salió mal",
-          type: "error",
-          icon: <CircleAlert className="w-6 h-6 text-red-600" />
-        })
-      ); */
     } finally {
       setLoading(false);
     }

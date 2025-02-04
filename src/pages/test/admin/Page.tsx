@@ -1,9 +1,9 @@
-
 import { useEffect, useMemo, useState } from "react";
-import { fetchDynamicData } from "./api/get-data";
-import { sendFormData } from "./api/post-data";
-import { styles } from "./styles";
-import { TableComponent } from "./components/table";
+import { fetchDynamicData } from "../api/get-data";
+import { sendFormData } from "../api/post-data";
+import { styles } from "../styles";
+import { TableComponent } from "../components/table";
+import PaginationTable from "../components/pagination";
 
 interface Filter {
     key: string;
@@ -12,8 +12,6 @@ interface Filter {
 }
 
 interface CombosData {
-    // ! la interfaz puede variar dependiendo del endpoint a llenar
-    // ? no es necesaria para la consulta
     name: string;
     price: number;
     price_ofer: number;
@@ -64,23 +62,16 @@ export default function PageTest() {
         const formData = new FormData();
         formData.append('File', file);
 
-        function getRandomPrice(base: number): number {
-            return parseFloat((base + Math.random() * 50 - 25).toFixed(2));
-        }
-
-        function getRandomPercentage(): number {
-            return Math.floor(Math.random() * 21); // Porcentaje entre 0 y 20
-        }
-
-        function getRandomDate(): string {
+        const getRandomPrice = (base: number): number => parseFloat((base + Math.random() * 50 - 25).toFixed(2));
+        const getRandomPercentage = (): number => Math.floor(Math.random() * 21);
+        const getRandomDate = (): string => {
             const start = new Date(2025, 0, 1).getTime();
             const end = new Date(2025, 11, 31).getTime();
             const randomTime = start + Math.random() * (end - start);
             return new Date(randomTime).toISOString().split("T")[0];
-        }
+        };
 
-        const comboData: CombosData =
-        {
+        const comboData: CombosData = {
             name: "Combo Pareja",
             price: getRandomPrice(199.9),
             price_ofer: getRandomPrice(149.9),
@@ -88,44 +79,37 @@ export default function PageTest() {
             date: getRandomDate(),
             state: Math.random() > 0.5 ? "Disponible" : "Agotado",
             porcentaje: getRandomPercentage()
-        }
-            ;
+        };
 
         formData.append('CombosData', JSON.stringify(comboData));
 
         try {
             setIsSubmitting(true);
-            await sendFormData('v2/insert/combos', formData);//! estas son las variables que indican la api seleccionada
+            await sendFormData('v2/insert/combos', formData);
             setMessage('Data submitted successfully!');
             setFile(null);
         } catch (error) {
-            const errorMessage = error instanceof Error
-                ? error.message
-                : 'Server connection error';
+            const errorMessage = error instanceof Error ? error.message : 'Server connection error';
             setMessage(`Error: ${errorMessage}`);
         } finally {
             setIsSubmitting(false);
         }
     };
 
-    const columns = useMemo(() =>
-        data[0] ? Object.keys(data[0]) : []
-        , [data]);
+    const columns = useMemo(() => data[0] ? Object.keys(data[0]) : [], [data]);
 
     useEffect(() => {
         loadData({
             filtros: [{ key: "", value: "", operator: "" }],
             page: currentPage,
-        }, 'v2/select/postulaciones');//! estas son las variables que indican la api seleccionada
-    }, []);
+        }, 'v2/select/combos');
+    }, [currentPage]);
+
     const handlePageChange = (newPage: number) => {
         if (newPage < 1 || newPage > totalPages) return;
         setCurrentPage(newPage);
-        loadData({
-            filtros: [{ key: "", value: "", operator: "" }],
-            page: newPage,
-        }, 'v2/select/postulaciones');//! estas son las variables que indican la api seleccionada
     };
+
     return (
         <main>
             <h1>File Upload and Test Data</h1>
@@ -153,27 +137,7 @@ export default function PageTest() {
 
             <div style={styles.tableContainer}>
                 <TableComponent columns={columns} data={data} />
-                <div style={styles.paginationContainer}>
-                    <button
-                        style={styles.paginationButton}
-                        onClick={() => handlePageChange(currentPage - 1)}
-                        disabled={currentPage === 1}
-                    >
-                        Previous
-                    </button>
-
-                    <span style={styles.pageInfo}>
-                        Page {currentPage} of {totalPages}
-                    </span>
-
-                    <button
-                        style={styles.paginationButton}
-                        onClick={() => handlePageChange(currentPage + 1)}
-                        disabled={currentPage >= totalPages}
-                    >
-                        Next
-                    </button>
-                </div>
+                <PaginationTable totalPages={totalPages} currentPage={currentPage} handlePageChange={handlePageChange} />
             </div>
         </main>
     );

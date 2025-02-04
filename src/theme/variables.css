@@ -2,7 +2,100 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+}
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 0 0% 3.9%;
+        --card: 0 0% 100%;
+        --card-foreground: 0 0% 3.9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 0 0% 3.9%;
+        --primary: 0 0% 9%;
+        --primary-foreground: 0 0% 98%;
+        --secondary: 0 0% 96.1%;
+        --secondary-foreground: 0 0% 9%;
+        --muted: 0 0% 96.1%;
+        --muted-foreground: 0 0% 45.1%;
+        --accent: 0 0% 96.1%;
+        --accent-foreground: 0 0% 9%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 0 0% 89.8%;
+        --input: 0 0% 89.8%;
+        --ring: 0 0% 3.9%;
+        --chart-1: 12 76% 61%;
+        --chart-2: 173 58% 39%;
+        --chart-3: 197 37% 24%;
+        --chart-4: 43 74% 66%;
+        --chart-5: 27 87% 67%;
+        --radius: 0.5rem;
+        --sidebar-background: 0 0% 98%;
+        --sidebar-foreground: 240 5.3% 26.1%;
+        --sidebar-primary: 240 5.9% 10%;
+        --sidebar-primary-foreground: 0 0% 98%;
+        --sidebar-accent: 240 4.8% 95.9%;
+        --sidebar-accent-foreground: 240 5.9% 10%;
+        --sidebar-border: 220 13% 91%;
+        --sidebar-ring: 217.2 91.2% 59.8%;
+    }
+
+    .dark {
+        --background: 0 0% 3.9%;
+        --foreground: 0 0% 98%;
+        --card: 0 0% 3.9%;
+        --card-foreground: 0 0% 98%;
+        --popover: 0 0% 3.9%;
+        --popover-foreground: 0 0% 98%;
+        --primary: 0 0% 98%;
+        --primary-foreground: 0 0% 9%;
+        --secondary: 0 0% 14.9%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 0 0% 14.9%;
+        --muted-foreground: 0 0% 63.9%;
+        --accent: 0 0% 14.9%;
+        --accent-foreground: 0 0% 98%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 0 0% 14.9%;
+        --input: 0 0% 14.9%;
+        --ring: 0 0% 83.1%;
+        --chart-1: 220 70% 50%;
+        --chart-2: 160 60% 45%;
+        --chart-3: 30 80% 55%;
+        --chart-4: 280 65% 60%;
+        --chart-5: 340 75% 55%;
+        --sidebar-background: 240 5.9% 10%;
+        --sidebar-foreground: 240 4.8% 95.9%;
+        --sidebar-primary: 224.3 76.3% 48%;
+        --sidebar-primary-foreground: 0 0% 100%;
+        --sidebar-accent: 240 3.7% 15.9%;
+        --sidebar-accent-foreground: 240 4.8% 95.9%;
+        --sidebar-border: 240 3.7% 15.9%;
+        --sidebar-ring: 217.2 91.2% 59.8%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -75,11 +168,8 @@ h3 {
 }
 .inert {
     pointer-events: none;
-    /* Desactiva interacciones con el mouse */
     user-select: none;
-    /* Evita que el contenido sea seleccionable */
     opacity: 0.5;
-    /* Opcional: reduce la opacidad para indicar que está deshabilitado */
 }
 .overlay .titulos{
     color: var(--primary);
@@ -122,7 +212,6 @@ h2.titulos2 {
     font-weight: 300;
     text-align: center;
 }
-/* Media para todas las pantallas */
 @media (max-width: 340px) {
     .titulos  {
         max-inline-size: 20rem;
@@ -140,7 +229,6 @@ h2.titulos2 {
         }
 }
 
-/**/
 .sub-titulos {
     font-size: 2.5rem;
     font-weight: 300;
@@ -166,7 +254,6 @@ h2.titulos2 {
 .sub-titulos5 {
     font-size: 1rem;
     font-weight: 3000;
- /* text-align: center; */
     color: #6900a9;
 }
 .section-1 {
@@ -177,7 +264,6 @@ h2.titulos2 {
     height: 75vh;
     display: flex;
 }
-/**/
 @media (max-width: 510px) {
     .section-1 {
         height: 100%;
@@ -219,10 +305,8 @@ h2.titulos2 {
     width: 50%;
 }
 
-/* Tarjetas responsivas */
 @media (max-width: 480px) {
 
-    /* Teléfonos pequeños */
     .card-mail {
         width: 90%;
         margin: 0.5px;
@@ -230,7 +314,6 @@ h2.titulos2 {
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
-    /* Teléfonos medianos */
     .card-mail {
         width: 85%;
         margin: 1px;
@@ -238,7 +321,6 @@ h2.titulos2 {
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-    /* Tablets verticales */
     .card-mail {
         width: 75%;
         margin: 5px;
@@ -247,7 +329,6 @@ h2.titulos2 {
 
 @media (min-width: 1025px) and (max-width: 1280px) {
 
-    /* Tablets horizontales y laptops pequeños */
     .card-mail {
         width: 70%;
         margin: 10px;
@@ -256,7 +337,6 @@ h2.titulos2 {
 
 @media (min-width: 1281px) and (max-width: 1920px) {
 
-    /* Laptops grandes y pantallas estándar */
     .card-mail {
         width: 60%;
         margin: 15px;
@@ -265,7 +345,6 @@ h2.titulos2 {
 
 @media (min-width: 1921px) and (max-width: 2560px) {
 
-    /* Pantallas grandes */
     .card-mail {
         width: 50%;
         margin: 20px;
@@ -274,7 +353,6 @@ h2.titulos2 {
 
 @media (min-width: 2561px) {
 
-    /* Televisores y pantallas ultra grandes */
     .card-mail {
         width: 40%;
         margin: 25px;
@@ -454,4 +532,4 @@ h2.titulos2 {
     --ion-color-contrast-rgb: var(--ion-color-violet-contrast-rgb);
     --ion-color-shade: var(--ion-color-violet-shade);
     --ion-color-tint: var(--ion-color-violet-tint);
-}
+} */

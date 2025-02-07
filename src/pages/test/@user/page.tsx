@@ -44,12 +44,12 @@ const PageUser: React.FC = () => {
                                             Conoce como empezo nuestra historia y como hemos crecido a lo largo del tiempo...
                                         </p>
                                         <button className="text-purple-600 rounded-lg text-base font-medium hover:underline hover:bg-transparent transition-colors duration-300 flex items-center">
-                                            Suscribir
+                                            Ver mas
                                             <IonIcon icon={arrowForward} className="ml-2" />
                                         </button>
                                     </div>
                                     <div className="relative h-[25rem] w-full grow">
-                                        <div className="absolute top-32 right-0 bottom-0 left-10 overflow-hidden rounded-tl-xl bg-slate-200 shadow-2xl">
+                                        <div className="absolute top-32 right-0 bottom-0 left-10 overflow-hidden rounded-tl-xl bg-[#f2f2f7] shadow-2xl">
                                             <img src="/historia.png" />
                                         </div>
                                     </div>

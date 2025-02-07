@@ -269,7 +269,7 @@ h2.titulos2 {
 
 .section {
     background-image:
-        linear-gradient(#ffffff00 0%, #fdfdfde5 70%, #ffff 100%),
+        linear-gradient(#69696979 0%, #fdfdfdb2 70%, #ffff 100%),
         url('/merc1.jpg');
     background-size: cover;
     height: 75vh;

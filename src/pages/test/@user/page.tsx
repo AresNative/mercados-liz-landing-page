@@ -74,7 +74,7 @@ const PageUser: React.FC = () => {
                 </nav>
 
                 <div className="py-2 sm:py-8">
-                    <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+                    <div className="mx-auto max-w-2xl lg:px-6 lg:max-w-7xl">
                         <div className="mt-10 grid gap-4 sm:mt-16 lg:grid-cols-3 lg:grid-rows-2">
                             <section className="relative lg:row-span-2">
                                 <div className="absolute inset-px rounded-lg bg-white lg:rounded-l-[2rem]"></div>

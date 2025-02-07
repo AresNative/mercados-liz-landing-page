@@ -1,67 +1,54 @@
-import type React from "react"
-import Productos from "./sections/Productos"
-import Ofertas from "./sections/Ofertas"
-import Servicios from "./sections/Servicios"
-import Blog from "./sections/Blog"
-import Recetas from "./sections/Recetas"
-import Contacto from "./sections/Contacto"
-import Newsletter from "./sections/Newsletter"
-import Historia from "./sections/Historia"
-import Sucursales from "./sections/Sucursales"
+import type React from "react";
+import Ofertas from "./sections/Ofertas";
+import Servicios from "./sections/Servicios";
+import Blog from "./sections/Blog";
+import Contacto from "./sections/Contacto";
+import Newsletter from "./sections/Newsletter";
+import Historia from "./sections/Historia";
+import Sucursales from "./sections/Sucursales";
 
 const GridLayout: React.FC = () => {
   return (
-    <section>
-      <div className="p-4 sm:p-6 md:p-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 sm:gap-6 mx-auto">
-          {/* Productos - Sección 10 */}
-          <div className="sm:col-span-1 lg:col-span-3">
-            <Productos />
-          </div>
+    <section className="py-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-3 grid-rows-5 gap-2">
 
-          {/* Ofertas - Sección 3 */}
-          <div className="sm:col-span-2 lg:col-span-6">
-            <Ofertas />
-          </div>
+        {/* Ofertas - div1 */}
+        <div className="col-span-3 row-span-1">
+          <Ofertas />
+        </div>
 
-          {/* Servicios - Sección 4 */}
-          <div className="sm:col-span-1 lg:col-span-3">
-            <Servicios />
-          </div>
+        {/* Servicios - div2 */}
+        <div className="col-span-1 row-span-2">
+          <Servicios />
+        </div>
 
-          {/* Blog - Sección 9 */}
-          <div className="sm:col-span-1 lg:col-span-3">
-            <Blog />
-          </div>
+        {/* Sucursales - div3 */}
+        <div className="col-span-1 row-span-2">
+          <Historia />
+        </div>
 
-          {/* Sucursales - Sección 2 */}
-          <div className="sm:col-span-2 lg:col-span-6">
-            <Sucursales />
-          </div>
+        {/* Historia - div4 */}
+        <div className="col-span-2 row-span-1">
+          <Sucursales />
+        </div>
 
-          {/* Recetas - Sección 5 */}
-          <div className="sm:col-span-1 lg:col-span-3">
-            <Recetas />
-          </div>
+        {/* Blog - div5 */}
+        <div className="col-span-1 row-span-2">
+          <Blog />
+        </div>
 
-          {/* Historia - Sección 6 */}
-          <div className="sm:col-span-1 lg:col-span-3">
-            <Historia />
-          </div>
+        {/* Contacto - div6 */}
+        <div className="col-span-2 row-span-1">
+          <Contacto />
+        </div>
 
-          {/* Newsletter - Sección 8 */}
-          <div className="sm:col-span-2 lg:col-span-4">
-            <Newsletter />
-          </div>
-
-          {/* Contacto - Sección 7 */}
-          <div className="sm:col-span-2 lg:col-span-5">
-            <Contacto />
-          </div>
+        {/* Newsletter - div7 */}
+        <div className="col-span-2 row-span-1">
+          <Newsletter />
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default GridLayout
+export default GridLayout;

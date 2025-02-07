@@ -37,9 +37,9 @@ const Sucursales: React.FC = () => {
         </h2>
       </header>
       <div className="flex flex-col md:flex-row gap-6">
-        <div className="w-full md:w-1/2 h-64 md:h-auto rounded-lg overflow-hidden shadow-lg">
+        <div className="w-full md:h-auto rounded-lg overflow-hidden shadow-lg">
           <Map
-            height={550}
+            height={800}
             center={center}
             zoom={zoom}
             onBoundsChanged={({ center, zoom }) => {
@@ -71,7 +71,7 @@ const Sucursales: React.FC = () => {
             </IonItem>
           ))}
           <IonItem
-            className="mt-4 py-3 cursor-pointer transition-colors duration-300"
+            className="mt-56 py-3 cursor-pointer transition-colors duration-300"
             onClick={handleClear}>
             <IonLabel>
               <h2 className="font-semibold text-purple-600">Ver todas las sucursales</h2>

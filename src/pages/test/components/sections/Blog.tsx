@@ -4,7 +4,7 @@ import { newspaperOutline, arrowForward } from "ionicons/icons"
 
 const Blog: React.FC = () => {
   return (
-    <div className="h-full border bg-white rounded-xl p-4 sm:p-6 shadow-lg">
+    <div className="h-full p-4 sm:p-6">
       <h2 className="text-xl sm:text-2xl font-bold text-purple-700 mb-4 sm:mb-6 flex items-center">
         <IonIcon icon={newspaperOutline} className="mr-2" />
         Blog
@@ -18,7 +18,7 @@ const Blog: React.FC = () => {
               <p className="text-purple-600 text-sm sm:text-base mb-3 sm:mb-4 line-clamp-3">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
               </p>
-              <button className="text-purple-600 font-medium text-sm sm:text-base flex items-center hover:text-purple-700 transition-colors duration-300">
+              <button className="text-purple-600 font-medium text-sm sm:text-base flex items-center hover:text-purple-700 hover:underline hover:bg-transparent transition-colors duration-300">
                 Leer más
                 <IonIcon icon={arrowForward} className="ml-1 sm:ml-2" />
               </button>

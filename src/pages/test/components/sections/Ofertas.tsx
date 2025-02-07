@@ -4,7 +4,7 @@ import { pricetagOutline, cartOutline } from "ionicons/icons"
 
 const Ofertas: React.FC = () => {
   return (
-    <div className="bg-white border rounded-xl p-4 sm:p-6 shadow-lg h-full">
+    <div className="p-4 sm:p-6">
       <h2 className="text-xl sm:text-2xl font-bold text-purple-700 mb-4 sm:mb-6 flex items-center">
         <IonIcon icon={pricetagOutline} className="mr-2" />
         Ofertas Especiales

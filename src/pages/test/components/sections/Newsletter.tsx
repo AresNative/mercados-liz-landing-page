@@ -13,7 +13,7 @@ const Newsletter: React.FC = () => {
         <p className="text-gray-600 text-base mb-6 text-center">
           Suscríbete para recibir ofertas exclusivas y noticias.
         </p>
-        <div className="flex gap-2 w-full max-w-md">
+        <div className="flex flex-col gap-2 w-full max-w-md">
           <input
             type="email"
             placeholder="Tu email"

@@ -80,7 +80,22 @@
         --sidebar-ring: 217.2 91.2% 59.8%;
     }
 }
+@keyframes infinite-scroll {
+    0% {
+        transform: translateX(0);
+    }
 
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-infinite-scroll {
+    animation: infinite-scroll 20s linear infinite;
+}
+/* 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+*/
 
 * {
     margin: 0;

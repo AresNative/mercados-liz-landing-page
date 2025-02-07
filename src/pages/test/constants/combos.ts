@@ -10,11 +10,11 @@ export function CombosField(): Field[] {
       require: false,
     },
     {
+      name: "state",
       type: "SELECT",
+      label: "Estado",
       options: ["Dsiponible", "Proximamente", "Agotado"],
       enableAutocomplete: "true",
-      name: "state",
-      label: "Estado",
       placeholder: "estado",
       require: false,
       multi: false,

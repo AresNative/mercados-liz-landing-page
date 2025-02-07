@@ -124,7 +124,7 @@ export const MainForm = ({ message_button, dataForm, actionType, aditionalData, 
         />
       ))}
       <Button
-        color="success"
+        color="info"
         type="submit"
         label={loading ? "Loading..." : message_button}
       />

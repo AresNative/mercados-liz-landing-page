@@ -266,6 +266,15 @@ h2.titulos2 {
     height: 75vh;
     display: flex;
 }
+
+.section {
+    background-image:
+        linear-gradient(#ffffff00 0%, #fdfdfde5 70%, #ffff 100%),
+        url('/merc1.jpg');
+    background-size: cover;
+    height: 75vh;
+    display: flex;
+}
 @media (max-width: 510px) {
     .section-1 {
         height: 100%;

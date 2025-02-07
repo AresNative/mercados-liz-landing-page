@@ -33,6 +33,7 @@ const PageUser: React.FC = () => {
                         </p>
                     </div>
                 </section>
+
                 <div className="py-2 sm:py-8">
                     <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
                         <div className="mt-10 grid gap-4 sm:mt-16 lg:grid-cols-3 lg:grid-rows-2">
@@ -157,7 +158,6 @@ const PageUser: React.FC = () => {
                                 </ul>
                                 <div className="pointer-events-none absolute inset-px rounded-lg ring-1 shadow-sm ring-black/5 rounded-b-[2rem]"></div>
                             </section>
-
                         </div>
                     </div>
                 </div>

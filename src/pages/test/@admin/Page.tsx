@@ -5,6 +5,7 @@ import { CombosField } from "../constants/combos";
 import PaginationTable from "../components/pagination";
 import MainForm from "../components/form/main-form";
 import Background from "../template/background";
+import { IonPage } from "@ionic/react";
 
 interface Filter {
     key: string;
@@ -48,23 +49,26 @@ export default function PageTest() {
 
     return (
         <Background>
-            <section className="w-4/5 m-auto">
-                <h1>Formato de subida para combos</h1>
-                <MainForm
-                    actionType={'v2/insert/combos'}
-                    dataForm={CombosField()}
-                    aditionalData={{
-                        date: new Date()
-                    }}
-                    message_button="registrar"
-                />
-            </section>
+            <IonPage className="overflow-y-auto overflow-x-hidden pb-2 w-full min-h-screen lg:px-14 m-auto">
+
+                <section className="w-4/5 m-auto" >
+                    <h1>Formato de subida para combos</h1>
+                    <MainForm
+                        actionType={'v2/insert/combos'}
+                        dataForm={CombosField()}
+                        aditionalData={{
+                            date: new Date()
+                        }}
+                        message_button="registrar"
+                    />
+                </section>
 
 
-            <div className="w-4/5 m-auto mt-10 overflow-auto">
-                <TableComponent columns={columns} data={data} />
-                <PaginationTable totalPages={totalPages} currentPage={currentPage} handlePageChange={handlePageChange} />
-            </div>
+                <div className="w-4/5 m-auto mt-10s">
+                    <TableComponent columns={columns} data={data} />
+                    <PaginationTable totalPages={totalPages} currentPage={currentPage} handlePageChange={handlePageChange} />
+                </div>
+            </IonPage>
         </Background>
     );
 }

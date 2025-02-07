@@ -24,7 +24,6 @@ const PageUser: React.FC = () => {
                         <OffertCard key={key} avatarUrl={data.link} />
                     ))}
                 </div>
-
                 <GridLayout />
             </IonPage>
         </Background>

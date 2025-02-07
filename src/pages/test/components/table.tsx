@@ -74,30 +74,32 @@ const formatValue = (key: string, value: any) => {
 
 export const TableComponent = ({ columns, data }: TableComponentProps) => (
     <div className="bg-white border shadow-xl rounded-lg overflow-hidden">
-        <table className="w-full">
-            <thead>
-                <tr>
-                    {columns.map((column) => (
-                        <th key={column} className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            {column}
-                        </th>
-                    ))}
-                </tr>
-            </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
-                {data.map((row, rowIndex) => (
-                    <tr key={rowIndex} style={{
-                        backgroundColor: rowIndex % 2 === 0 ? "#f9f9f9" : "#ffffff",
-                        borderBottom: "1px solid #dddddd"
-                    }}>
-                        {columns.map((column, key) => (
-                            <td key={key} className="px-6 py-4 whitespace-nowrap">
-                                {formatValue(column, row[column])}
-                            </td>
+        <div className="w-full overflow-x-scroll">
+            <table className="w-full overflow-x-scroll">
+                <thead>
+                    <tr>
+                        {columns.map((column) => (
+                            <th key={column} className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                {column}
+                            </th>
                         ))}
                     </tr>
-                ))}
-            </tbody>
-        </table>
+                </thead>
+                <tbody className="bg-white divide-y divide-gray-200">
+                    {data.map((row, rowIndex) => (
+                        <tr key={rowIndex} style={{
+                            backgroundColor: rowIndex % 2 === 0 ? "#f9f9f9" : "#ffffff",
+                            borderBottom: "1px solid #dddddd"
+                        }}>
+                            {columns.map((column, key) => (
+                                <td key={key} className="px-6 py-4 whitespace-nowrap">
+                                    {formatValue(column, row[column])}
+                                </td>
+                            ))}
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
     </div>
 );

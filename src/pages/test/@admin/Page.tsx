@@ -6,6 +6,7 @@ import PaginationTable from "../components/pagination";
 import MainForm from "../components/form/main-form";
 import Background from "../template/background";
 import { IonPage } from "@ionic/react";
+import Body from "../template/body";
 interface formatFilter {
     key: string;
     value: string;
@@ -60,26 +61,24 @@ export default function PageTest() {
     };
 
     return (
-        <Background>
-            <IonPage className="overflow-y-auto overflow-x-hidden w-full min-h-screen py-28 lg:px-14 m-auto">
-                <section className="w-4/5 m-auto" >
-                    <h1>Formato de subida para combos</h1>
-                    <MainForm
-                        actionType={'v2/insert/combos'}
-                        dataForm={CombosField()}
-                        aditionalData={{
-                            date: new Date()
-                        }}
-                        message_button="registrar"
-                    />
-                </section>
+        <Body>
+            <section className="w-4/5 m-auto" >
+                <h1>Formato de subida para combos</h1>
+                <MainForm
+                    actionType={'v2/insert/combos'}
+                    dataForm={CombosField()}
+                    aditionalData={{
+                        date: new Date()
+                    }}
+                    message_button="registrar"
+                />
+            </section>
 
 
-                <div className="w-4/5 m-auto mt-10s">
-                    <TableComponent columns={columns} data={data} />
-                    <PaginationTable totalPages={totalPages} currentPage={currentPage} handlePageChange={handlePageChange} />
-                </div>
-            </IonPage>
-        </Background>
+            <div className="w-4/5 m-auto mt-10">
+                <TableComponent columns={columns} data={data} />
+                <PaginationTable totalPages={totalPages} currentPage={currentPage} handlePageChange={handlePageChange} />
+            </div>
+        </Body>
     );
 }

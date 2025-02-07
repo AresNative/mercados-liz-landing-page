@@ -30,55 +30,48 @@ const Sucursales: React.FC = () => {
     setZoom(10.5)
   }
   return (
-    <section className="bg-gradient-to-br from-purple-100 to-purple-200 rounded-xl p-6 h-full">
-      <header>
-        <h2 className="text-2xl font-bold text-purple-700 mb-6">
-          Nuestras Sucursales
-        </h2>
-      </header>
-      <div className="flex flex-col md:flex-row gap-6">
-        <div className="w-full md:h-auto rounded-lg overflow-hidden shadow-lg">
-          <Map
-            height={800}
-            center={center}
-            zoom={zoom}
-            onBoundsChanged={({ center, zoom }) => {
-              setCenter(center)
-              setZoom(zoom)
-            }}
-          >
-            {sucursales.map((sucursal, index) => (
-              <Marker
-                key={index}
-                width={50}
-                anchor={sucursal.coordenadas}
-                color={center === sucursal.coordenadas ? "#6366f1" : "#4f46e5"}
-              />
-            ))}
-          </Map>
-        </div>
-        <IonList className="w-full md:w-1/2 bg-white border border-purple-200 shadow-lg rounded-lg p-4">
+    <section className="p-6 h-full flex flex-col gap-6">
+      <div className="w-full md:h-auto rounded-lg overflow-hidden shadow-lg">
+        <Map
+          height={400}
+          center={center}
+          zoom={zoom}
+          onBoundsChanged={({ center, zoom }) => {
+            setCenter(center)
+            setZoom(zoom)
+          }}
+        >
           {sucursales.map((sucursal, index) => (
-            <IonItem
+            <Marker
               key={index}
-              className="py-3 cursor-pointer transition-colors duration-300"
-              onClick={() => handleSucursalClick(sucursal.coordenadas)}
-            >
-              <IonLabel>
-                <h2 className="font-semibold text-purple-800">{sucursal.nombre}</h2>
-                <p className="text-sm md:text-base text-gray-600">{sucursal.direccion}</p>
-              </IonLabel>
-            </IonItem>
+              width={50}
+              anchor={sucursal.coordenadas}
+              color={center === sucursal.coordenadas ? "violet" : "purple"}
+            />
           ))}
+        </Map>
+      </div>
+      <IonList className="w-full p-4">
+        {sucursales.map((sucursal, index) => (
           <IonItem
-            className="mt-56 py-3 cursor-pointer transition-colors duration-300"
-            onClick={handleClear}>
+            key={index}
+            className="py-3 cursor-pointer transition-colors duration-300"
+            onClick={() => handleSucursalClick(sucursal.coordenadas)}
+          >
             <IonLabel>
-              <h2 className="font-semibold text-purple-600">Ver todas las sucursales</h2>
+              <h2 className="font-semibold text-purple-800">{sucursal.nombre}</h2>
+              <p className="text-sm md:text-base text-gray-600">{sucursal.direccion}</p>
             </IonLabel>
           </IonItem>
-        </IonList>
-      </div>
+        ))}
+        <IonItem
+          className="cursor-pointer transition-colors duration-300"
+          onClick={handleClear}>
+          <IonLabel>
+            <h2 className="font-semibold text-purple-600">Ver todas las sucursales</h2>
+          </IonLabel>
+        </IonItem>
+      </IonList>
     </section>
   )
 }

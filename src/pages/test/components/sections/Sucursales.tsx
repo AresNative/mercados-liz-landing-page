@@ -11,7 +11,7 @@ interface Sucursal {
 
 const Sucursales: React.FC = () => {
   const sucursales: Sucursal[] = [
-    { nombre: "Matriz", direccion: "Calle Principal 123", coordenadas: [32.099733119103604, -116.5656031728404] },
+    { nombre: "Mayoreo", direccion: "Calle Principal 123", coordenadas: [32.099733119103604, -116.5656031728404] },
     { nombre: "Valle de guadalupe", direccion: "Avenida Norte 456", coordenadas: [32.0947939, -116.5735554] },
     { nombre: "Valle de las palmas", direccion: "Boulevard Sur 789", coordenadas: [32.36670812592066, -116.61484440041006] },
     { nombre: "Testerazo", direccion: "Boulevard Sur 789", coordenadas: [32.295697914465485, -116.53331677806355] },

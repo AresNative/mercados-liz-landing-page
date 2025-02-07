@@ -1,27 +1,34 @@
 import { EnvConfig } from "@/utils/env.config";
 
-interface Filter {
+interface formatFilter {
   key: string;
   value: string;
-  operator: string;
+  operator: "like" | "=" | ">=" | "<=" | ">" | "<" | "<>" | ""; // Incluí "" como opción para el operador.
 }
 
-interface CombosRequest {
-  filtros: Filter[];
+interface formatSuma {
+  key: string;
+}
+interface formatLoadDate {
+  filters: {
+    filtros: formatFilter[];
+    sumas: formatSuma[];
+  };
   page: number;
+  sum: boolean;
 }
 
 const { api } = EnvConfig();
 
 export async function fetchDynamicData<T = unknown>(
-  filter: CombosRequest,
+  filter: formatLoadDate,
   endpoint: string
 ): Promise<{ data: T[]; totalPages: number }> {
   // Cambio en el tipo de retorno
   //const controller = new AbortController();
 
   try {
-    const response = await fetch(`${api}${endpoint}`, {
+    const response = await fetch(`${api}${endpoint}?page=${filter.page}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

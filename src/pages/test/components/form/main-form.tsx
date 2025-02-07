@@ -108,7 +108,7 @@ export const MainForm = ({ message_button, dataForm, actionType, aditionalData, 
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-2 my-2 m-auto">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-2 my-2 m-auto relative  pb-16">
       {dataForm.map((field, key) => (
         <SwitchTypeInputRender
           key={key}

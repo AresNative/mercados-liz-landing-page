@@ -25,9 +25,11 @@ const PageUser: React.FC = () => {
     ]
     // Duplicamos los elementos para crear el efecto infinito
     const duplicatedItems = [...ruta, ...ruta];
+
     return (
         <Background>
-            <IonPage className="overflow-y-auto overflow-x-hidden pb-2 w-full min-h-screen  m-auto">
+            <IonPage className="overflow-y-auto overflow-x-hidden w-full min-h-screen  m-auto">
+
                 <section className="section min-h-96">
                     <div className="overlay m-auto ">
                         <h2 className="text-center text-lg font-semibold text-lime-300">Tu Supermercado de Confianza </h2>
@@ -209,10 +211,10 @@ const PageUser: React.FC = () => {
                     ))}
                 </div>
 
-                <section className="w-2/3 h-44 m-auto mb-5 flex flex-col gap-4">
+                <section className="w-2/3 h-44 m-auto flex flex-col gap-4">
                     <h2 className="text-center">Contacto directo</h2>
 
-                    <ul className="m-auto flex flex-wrap flex-col items-center justify-center gap-4 sm:flex-row">
+                    <ul className="m-auto flex flex-wrap flex-col relative items-center justify-center gap-4 sm:flex-row">
 
                         <li>
                             <MainForm
@@ -224,7 +226,7 @@ const PageUser: React.FC = () => {
                                 message_button="registrar"
                             />
                         </li>
-                        <li>
+                        <li className=" lg:-mt-16">
                             <div className="contact-item">
                                 <MapPin color="var(--primary)" size={24} />
                                 <span>Calle Principal 216, 22750 Francisco Zarco, B.C.</span>

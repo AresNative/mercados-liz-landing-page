@@ -43,6 +43,7 @@ import { getLocalStorageItem } from './services/localstorage';
 import { rutasAdmin, rutasCompras, rutasRH } from './constantes/rutas';
 import PageTest from './pages/test/@admin/page';
 import PageUser from './pages/test/@user/page';
+import PageTestMaquetado from './pages/test/@test/page';
 
 setupIonicReact({
   mode: 'ios'
@@ -167,6 +168,9 @@ function SwitchTypeUserRender(props: any) {
             </Route>
             <Route exact path="/user">
               <PageUser />
+            </Route>
+            <Route exact path="/t2">
+              <PageTestMaquetado />
             </Route>
 
             {/* Vistas Interaccion Usuarios */}

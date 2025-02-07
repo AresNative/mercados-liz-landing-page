@@ -6,16 +6,22 @@ import PaginationTable from "../components/pagination";
 import MainForm from "../components/form/main-form";
 import Background from "../template/background";
 import { IonPage } from "@ionic/react";
-
-interface Filter {
+interface formatFilter {
     key: string;
     value: string;
-    operator: string;
+    operator: "like" | "=" | ">=" | "<=" | ">" | "<" | "<>" | ""; // Incluí "" como opción para el operador.
 }
 
-interface CombosRequest {
-    filtros: Filter[];
+interface formatSuma {
+    key: string;
+}
+interface formatLoadDate {
+    filters: {
+        filtros: formatFilter[];
+        sumas: formatSuma[];
+    };
     page: number;
+    sum: boolean;
 }
 
 export default function PageTest() {
@@ -23,7 +29,7 @@ export default function PageTest() {
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
 
-    const loadData = async (filter: CombosRequest, endpoint: string) => {
+    const loadData = async (filter: formatLoadDate, endpoint: string) => {
         try {
             const { data: resultData, totalPages: pages } = await fetchDynamicData<any>(filter, endpoint);
             setData(resultData);
@@ -36,9 +42,15 @@ export default function PageTest() {
     const columns = useMemo(() => data[0] ? Object.keys(data[0]) : [], [data]);
 
     useEffect(() => {
+        console.log(currentPage);
+
         loadData({
-            filtros: [{ key: "", value: "", operator: "" }],
+            filters: {
+                filtros: [{ key: "", value: "", operator: "" }],
+                sumas: [{ key: "Categoria" }],
+            },
             page: currentPage,
+            sum: false
         }, 'v2/select/combos');
     }, [currentPage]);
 
@@ -49,8 +61,7 @@ export default function PageTest() {
 
     return (
         <Background>
-            <IonPage className="overflow-y-auto overflow-x-hidden pb-2 w-full min-h-screen lg:px-14 m-auto">
-
+            <IonPage className="overflow-y-auto overflow-x-hidden w-full min-h-screen py-28 lg:px-14 m-auto">
                 <section className="w-4/5 m-auto" >
                     <h1>Formato de subida para combos</h1>
                     <MainForm

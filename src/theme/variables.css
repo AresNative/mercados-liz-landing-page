@@ -220,7 +220,6 @@ h2.titulos2 {
         margin-left: 3.5rem;
         margin-right: 1.5rem;
     }
-
     h2.titulos2 {
      margin-top: .5rem;
      margin-bottom: 1rem;
@@ -317,6 +316,8 @@ h2.titulos2 {
 
 @media (max-width: 480px) {
 
+    /* Teléfonos pequeños */
+
     .card-mail {
         width: 90%;
         margin: 0.5px;
@@ -338,7 +339,7 @@ h2.titulos2 {
 }
 
 @media (min-width: 1025px) and (max-width: 1280px) {
-
+    /* Tablets horizontales y laptops pequeños */
     .card-mail {
         width: 70%;
         margin: 10px;
@@ -347,6 +348,8 @@ h2.titulos2 {
 
 @media (min-width: 1281px) and (max-width: 1920px) {
 
+    /* Laptops grandes y pantallas estándar */
+
     .card-mail {
         width: 60%;
         margin: 15px;
@@ -354,7 +357,6 @@ h2.titulos2 {
 }
 
 @media (min-width: 1921px) and (max-width: 2560px) {
-
     .card-mail {
         width: 50%;
         margin: 20px;

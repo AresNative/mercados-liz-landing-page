@@ -20,7 +20,7 @@ export function UserCard({ name, email, avatarUrl }: UserCardProps) {
 export function OffertCard({ avatarUrl }: UserCardProps) {
     return (
         <div className="offert-card">
-            <img src={avatarUrl} className="offert-card__avatar" />
+            <img src={avatarUrl} loading="lazy" alt="" className="offert-card__avatar" />
         </div>
     );
 };

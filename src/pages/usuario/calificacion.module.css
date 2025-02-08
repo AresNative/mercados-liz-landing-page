@@ -1,18 +1,20 @@
 .estrellas {
     cursor: pointer;
-    gap: 5px;
-    align-content: center;
-    border-radius: 1%;
     stroke-width: 2%;
+    stroke: #9c9999;
+    fill: none;
+    transition: fill 0.2s ease, stroke 0.2s ease;
 }
 .estrella2 {
     cursor: pointer;
-    fill: var(--violet-6) !important;
-    border-radius: 1%;
     stroke-width: 2%;
+    stroke: var(--violet-10);
+    fill: var(--violet-6);
+    transition: fill 0.2s ease, stroke 0.2s ease;
 }
-.estrellas:hover {
-    stroke-width: 1%;
+
+.estrella2:hover {
+    transform: scale(1.1);
 }
 .form {
     z-index: 200 !important;

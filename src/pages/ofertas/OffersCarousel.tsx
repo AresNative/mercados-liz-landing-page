@@ -8,28 +8,26 @@ import Styles from "./Offers.module.css";
 const offers = [
     {
         id: 1,
-        image: "/panaderia.png",
-        title: "",
-        description: "",
+        image: "/frutas.png",
     },
     {
         id: 2,
-        image: "/domicilio.png",
-        title: "",
-        description: "",
+        image: "/panaderia.png",
     },
     {
         id: 3,
-        image: "/Carnes.png",
-        title: "",
-        description: "",
+        image: "/domicilio.png",
     },
     {
         id: 4,
-        image: "/frutas.png",
-        title: "",
-        description: "",
+        image: "/Carnes.png",
     },
+    /*    {
+           id: 5,
+           image: "/proveedores.png",
+           title: "",
+           description: "",
+       }, */
 ];
 
 const OffersCarousel: React.FC = () => {
@@ -41,7 +39,6 @@ const OffersCarousel: React.FC = () => {
             pagination={{ clickable: true }}
             autoplay={{ delay: 2000 }}
             className={Styles["swiper"]}
-
         >
             {offers.map((offer) => (
                 <SwiperSlide key={offer.id} className={Styles["swiper-slide"]}>
@@ -57,5 +54,4 @@ const OffersCarousel: React.FC = () => {
         </Swiper>
     );
 };
-
 export default OffersCarousel;

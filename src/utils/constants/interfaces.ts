@@ -14,7 +14,8 @@ export type FieldType =
   | "SELECT"
   | "FILE"
   | "IMG"
-  | "SEARCH";
+  | "SEARCH"
+  | "H1";
 
 export interface SelectOption {
   value: string;
@@ -41,6 +42,7 @@ export interface MainFormProps {
   dataForm: Field[];
   aditionalData?: any;
   valueAssign?: any;
+  formatForm: string;
   action?: (...args: any[]) => any;
 }
 

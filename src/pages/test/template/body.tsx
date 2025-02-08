@@ -4,6 +4,7 @@ import { useLocation } from "react-router";
 import { useRef, useState, useEffect } from "react";
 
 import style from "@/components/displays/header.module.css";
+import ThemeToggle from "../components/ThemeToggle";
 export default function Body({ children }: { children: React.ReactNode }) {
 
     const fecha = new Date().getFullYear();
@@ -36,6 +37,8 @@ export default function Body({ children }: { children: React.ReactNode }) {
         return () => contentElement.removeEventListener("ionScroll", onScroll);
     }, [isHomePage]);
 
+    const [darkMode, setdarkMode] = useState(false)
+
     return (
         <Background>
             <IonPage className="overflow-y-auto overflow-x-hidden w-full min-h-screen pt-24 m-auto">
@@ -56,6 +59,7 @@ export default function Body({ children }: { children: React.ReactNode }) {
                 </IonHeader>
                 <div className="relative">
                     {children}
+                    {/* <ThemeToggle darkMode={darkMode} setDarkMode={setdarkMode} /> */}
                 </div>
                 <ul className="relative bottom-0 flex flex-col bg-white border-t-slate-500 w-full">
                     <li>©{fecha} SUPERMERCADOS MEJIA S. DE R.L. DE C.V. Todos los derechos reservados.</li>

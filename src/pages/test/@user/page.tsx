@@ -209,42 +209,52 @@ const PageUser: React.FC = () => {
                 ))}
             </div>
 
-            <section className="w-2/3 m-auto flex flex-col gap-4">
-                <h2 className="text-center">Contacto directo</h2>
-
-                <ul className="m-auto flex flex-col relative items-center justify-center gap-4 sm:flex-row">
-                    <li>
-                        <MainForm
-                            actionType={'v2/insert/combos'}
-                            dataForm={ContactoField()}
-                            aditionalData={{
-                                date: new Date()
-                            }}
-                            message_button="registrar"
-                        />
+            <section className="w-[90%] m-auto mb-10 relative max-lg:row-start-3 lg:col-start-2 lg:row-start-2">
+                <div className="absolute inset-px rounded-lg bg-white"></div>
+                <ul className="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)]">
+                    <li className="px-8 pt-8 sm:px-10 sm:pt-10">
+                        <p className="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center">Contacto directo</p>
+                        <p className="my-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
+                            Haznos llegar tus dudas o sugerencias...
+                        </p>
                     </li>
-                    <li className="lg:-mt-16">
-                        <div className="contact-item">
-                            <MapPin color="var(--primary)" size={24} />
-                            <span>Calle Principal 216, 22750 Francisco Zarco, B.C.</span>
-                        </div>
+                    <li className="@container flex flex-1 items-center max-lg:py-6 lg:pb-2">
+                        <ul className="m-auto flex flex-col relative items-center justify-center gap-4 sm:flex-row">
+                            <li>
+                                <MainForm
+                                    actionType={'v2/insert/combos'}
+                                    dataForm={ContactoField()}
+                                    aditionalData={{
+                                        date: new Date()
+                                    }}
+                                    message_button="registrar"
+                                />
+                            </li>
+                            <li className="lg:-mt-16">
+                                <div className="contact-item">
+                                    <MapPin color="var(--primary)" size={24} />
+                                    <span>Calle Principal 216, 22750 Francisco Zarco, B.C.</span>
+                                </div>
 
-                        <div className="contact-item">
-                            <Phone color="var(--primary)" size={24} />
-                            <span>+52 646 155 2022</span>
-                        </div>
+                                <div className="contact-item">
+                                    <Phone color="var(--primary)" size={24} />
+                                    <span>+52 646 155 2022</span>
+                                </div>
 
-                        <div className="contact-item">
-                            <Mail color="var(--primary)" size={24} />
-                            <span>atncliente@mercadosliz.com</span>
-                        </div>
+                                <div className="contact-item">
+                                    <Mail color="var(--primary)" size={24} />
+                                    <span>atncliente@mercadosliz.com</span>
+                                </div>
 
-                        <div className="contact-item">
-                            <span ><strong >Horario de Atención:</strong></span>
-                            <span style={{ paddingLeft: "5px" }}> 08:00 AM - 09:00 PM</span>
-                        </div>
+                                <div className="contact-item">
+                                    <span ><strong >Horario de Atención:</strong></span>
+                                    <span style={{ paddingLeft: "5px" }}> 08:00 AM - 09:00 PM</span>
+                                </div>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
+                <div className="pointer-events-none absolute inset-px ring-1 shadow-sm ring-black/5 rounded-[2rem]"></div>
             </section>
         </Body>
     )

@@ -1,5 +1,4 @@
-"use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 import { MainFormProps } from "@/utils/constants/interfaces";
@@ -24,9 +23,10 @@ import { ImgComponent as Image } from "./img";
 import { Button } from "../button";
 import { sendFormData } from "../../api/post-data";
 
-export const MainForm = ({ message_button, dataForm, actionType, aditionalData, action, valueAssign }: MainFormProps) => {
-
+export const MainForm = ({ message_button, dataForm, actionType, aditionalData, action, valueAssign, formatForm }: MainFormProps) => {
   const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState(0);
+  const [formData, setFormData] = useState<any>({}); // Estado para guardar datos
 
   const {
     handleSubmit,
@@ -40,10 +40,26 @@ export const MainForm = ({ message_button, dataForm, actionType, aditionalData, 
     formState: { errors },
   } = useForm();
 
+  // Efecto para restaurar los valores del formulario al cambiar de página
+  useEffect(() => {
+    const currentPageData = pages[page].reduce((acc: any, field: any) => {
+      if (field.name && formData[field.name]) {
+        acc[field.name] = formData[field.name];
+      }
+      return acc;
+    }, {});
+
+    Object.keys(currentPageData).forEach((key) => {
+      setValue(key, currentPageData[key]);
+    });
+  }, [page, formData, setValue]);
+
   function getMutationFunction(actionType: string) {
     switch (actionType) {
       case 'v2/insert/combos':
-        return sendFormData
+        return sendFormData;
+      case 'v2/insert/postulaciones':
+        return sendFormData;
       default:
         return () => { };
     }
@@ -51,29 +67,26 @@ export const MainForm = ({ message_button, dataForm, actionType, aditionalData, 
 
   async function onSubmit(submitData: any) {
     setLoading(true);
+    console.log(submitData);
 
     let combinedData: any = {};
-
     const formatData = new FormData();
 
-    // Validar si `submitData.file` es un array y agregar los archivos directamente a FormData
     if (Array.isArray(submitData.file)) {
       submitData.file.forEach((file: File) => {
-        formatData.append("File", file); // Agregar archivos sin procesarlos
+        formatData.append("File", file);
       });
     } else if (submitData.file) {
       formatData.append("File", submitData.file);
     }
 
     console.log("Archivos enviados:", submitData.file);
-
-    // Remover el campo file del submitData
     const { file, ...sanitizedData } = submitData;
 
     if (aditionalData) combinedData = { ...sanitizedData, ...aditionalData };
     else combinedData = sanitizedData;
 
-    formatData.append('CombosData', JSON.stringify(combinedData));
+    formatData.append(/* 'CombosData'  */ formatForm, JSON.stringify(combinedData));
 
     const mutationFunction = getMutationFunction(actionType);
 
@@ -82,24 +95,20 @@ export const MainForm = ({ message_button, dataForm, actionType, aditionalData, 
 
       if (valueAssign && action) {
         if (Array.isArray(valueAssign)) {
-          // Si es un array, mapeamos los valores y creamos un objeto
           const result = valueAssign.reduce((acc, v) => {
-            const key = v.replace(/^'|'$/g, ''); // Limpia comillas
+            const key = v.replace(/^'|'$/g, '');
             acc[key] = submitData[key];
             return acc;
           }, {} as Record<string, any>);
 
           await action(result);
         } else {
-          // Si es un solo valor, lo procesamos directamente
-          const key = valueAssign.replace(/^'|'$/g, ''); // Limpia comillas
+          const key = valueAssign.replace(/^'|'$/g, '');
           await action(submitData[key]);
         }
+      } else if (action) {
+        await action();
       }
-      else
-        if (action) {
-          await action()
-        }
     } catch (error) {
       console.error("Error en el envío del formulario:", error);
     } finally {
@@ -107,9 +116,25 @@ export const MainForm = ({ message_button, dataForm, actionType, aditionalData, 
     }
   }
 
+  // Dividir dataForm en páginas basadas en H1
+  const pages = dataForm.reduce((acc: any[], field: any) => {
+    if (field.type === "H1" || acc.length === 0) {
+      acc.push([]);
+    }
+    acc[acc.length - 1].push(field);
+    return acc;
+  }, []);
+
+  const handlePageChange = (newPage: number) => {
+    // Guardar los valores actuales del formulario antes de cambiar de página
+    const currentValues = getValues();
+    setFormData((prevData: any) => ({ ...prevData, ...currentValues }));
+    setPage(newPage);
+  };
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-2 my-2 m-auto relative  pb-16">
-      {dataForm.map((field, key) => (
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-2 my-2 m-auto relative pb-16">
+      {pages[page].map((field: any, key: any) => (
         <SwitchTypeInputRender
           key={key}
           cuestion={field}
@@ -123,11 +148,17 @@ export const MainForm = ({ message_button, dataForm, actionType, aditionalData, 
           setValue={setValue}
         />
       ))}
-      <Button
-        color="info"
-        type="submit"
-        label={loading ? "Loading..." : message_button}
-      />
+
+      <div className="flex justify-between mt-4">
+        {page > 0 && (
+          <Button color="indigo" type="button" label="Anterior" onClick={() => handlePageChange(page - 1)} />
+        )}
+        {page < pages.length - 1 ? (
+          <Button color="indigo" type="button" label="Siguiente" onClick={() => handlePageChange(page + 1)} />
+        ) : (
+          <Button color="info" type="submit" label={loading ? "Loading..." : message_button} />
+        )}
+      </div>
     </form>
   );
 };
@@ -160,13 +191,16 @@ export function SwitchTypeInputRender(props: any) {
     case "IMG":
       return <Image {...props} />;
     case "SEARCH":
-      return <Search {...props} />
+      return <Search {...props} />;
     case "Flex":
       return <FlexComponent {...props} elements={props.cuestion.elements} />;
+    case "H1":
+      return <h1 className="text-2xl font-bold">{props.cuestion.label}</h1>;
     default:
       return <h1>{type}</h1>;
   }
 }
+
 interface FlexProps {
   elements: any[];
   control: any;

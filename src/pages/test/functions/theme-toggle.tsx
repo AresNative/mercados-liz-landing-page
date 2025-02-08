@@ -1,6 +1,5 @@
 import type React from "react"
 import { IonToggle } from "@ionic/react"
-import { moon } from "ionicons/icons"
 
 interface ThemeToggleProps {
     darkMode: boolean
@@ -15,7 +14,6 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ darkMode, setDarkMode }) => {
                 onIonChange={(e) => setDarkMode(e.detail.checked)}
                 mode="ios"
                 color="dark"
-                icon={moon}
             />
         </div>
     )

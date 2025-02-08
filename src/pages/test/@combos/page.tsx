@@ -64,6 +64,7 @@ export default function PageTest() {
             <section className="w-4/5 m-auto" >
                 <h1>Formato de subida para combos</h1>
                 <MainForm
+                    formatForm="CombosData"
                     actionType={'v2/insert/combos'}
                     dataForm={CombosField()}
                     aditionalData={{

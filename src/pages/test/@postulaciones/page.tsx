@@ -64,6 +64,7 @@ export default function PagePostulaciones() {
             <section className="w-4/5 m-auto" >
                 <h1>Formato de subida para postulaciones</h1>
                 <MainForm
+                    formatForm="PostulacionForm"
                     actionType={'v2/insert/postulaciones'}
                     dataForm={PostulacionesField()}
                     aditionalData={{

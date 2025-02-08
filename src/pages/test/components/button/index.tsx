@@ -29,7 +29,7 @@ export function Button({
             type={type}
             onClick={onClick}
             onMouseDown={handleMouseDown}  // Agregar onMouseDown para evitar el drag
-            className={`flex gap-2 justify-center items-center right-0 absolute ${sizeClass} ${styles.text} ${styles.bg} ${styles.ring} rounded-md ${styles.hover} transition-all`}
+            className={`flex gap-2 justify-center items-center ${sizeClass} ${styles.text} ${styles.bg} ${styles.ring} rounded-md ${styles.hover} transition-all`}
             style={{ pointerEvents, opacity }}
             disabled={disabled}
         >

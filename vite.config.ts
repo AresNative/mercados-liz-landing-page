@@ -15,8 +15,8 @@ export default defineConfig(({ mode }) => {
     define: {
       "process.env": {
         REACT_APP_API_URL: env.REACT_APP_API_URL,
-        REACT_APP_API_KEY: env.REACT_APP_API_KEY,
-        REACT_APP_NODE_ENV: env.REACT_APP_NODE_ENV,
+        REACT_TEST_API_URL: env.REACT_TEST_API_URL,
+        REACT_PUBLIC_MODE: env.REACT_PUBLIC_MODE,
       },
     },
     test: {

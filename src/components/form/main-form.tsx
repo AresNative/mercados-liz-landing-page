@@ -1,4 +1,4 @@
-import { IonButton} from "@ionic/react";
+import { IonButton } from "@ionic/react";
 import styles from "./main-form.module.css"
 import { Send } from "lucide-react";
 import { PostPostulacion } from "@/services/web_site_post";
@@ -36,19 +36,19 @@ const handleEnviar = async () => {
 
 export function MainForm({ message, functionFrom, children, jsonForm }: FromProps) {
     const { register, control, handleSubmit } = useForm();
-const onSubmit = handleSubmit(async (data) => {
-    try {
-        await PostPostulacion(data);
-        handleEnviar(); // Llamar la alerta después de enviar los datos
-    } catch (error) {
-        Swal.fire({
-            title: "Error al enviar el formulario",
-            text: "Por favor, intente nuevamente.",
-            icon: "error",
-            confirmButtonText: "Aceptar",
-        });
-    }
-});
+    const onSubmit = handleSubmit(async (data) => {
+        try {
+            await PostPostulacion(data);
+            handleEnviar(); // Llamar la alerta después de enviar los datos
+        } catch (error) {
+            Swal.fire({
+                title: "Error al enviar el formulario",
+                text: "Por favor, intente nuevamente.",
+                icon: "error",
+                confirmButtonText: "Aceptar",
+            });
+        }
+    });
     return (
         <form onSubmit={onSubmit} className={styles["form"]}>
             {children}

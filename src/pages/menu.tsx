@@ -21,7 +21,7 @@ import { Select } from "@/components/functions/select";
 import { useForm } from "react-hook-form";
 import { PostUser, PostUserReg } from "@/services/web_site_post";
 import Swal from 'sweetalert2';
-import { removeFromLocalStorage, setLocalStorageItem } from "@/services/localstorage";
+import { getLocalStorageItem, removeFromLocalStorage, setLocalStorageItem } from "@/services/localstorage";
 import { useDispatch } from "react-redux";
 import { assignUsers } from "@/store/reducerUser";
 
@@ -230,12 +230,13 @@ export function Menu() {
                                 <Button type="submit" color="default" label="Registrate" />
                             </>
                         )
-
                     }
                 </form>
             </div>
         );
     }
+    // Obtener el tipo de usuario desde el localStorage para poder añadir al menu paginas que no se ven sin usuario
+    const typeUser = getLocalStorageItem("typeUser");
 
     //marcas que nos acompañan
     const ruta: any = [
@@ -248,11 +249,15 @@ export function Menu() {
         { link: "/Servicio", icon: <Star color='#cfa8f8' size={20} />, text: "Valoranos", view: true },//
         { link: "/ProveedoresNuev", icon: <Forklift color='var(--primary)' size={20} />, text: "Nuevos Proveedores", view: true },
         { link: "/Proveedores", icon: <FileBadge color='pink' size={20} />, text: "Proveedores", view: true },
-        { link: "/CertificacionPage", icon: <ShieldCheck color='var(--primary)' size={20} />, text: "Certificaciones", view: true }
+        { link: "/CertificacionPage", icon: <ShieldCheck color='var(--primary)' size={20} />, text: "Certificaciones", view: true },
+
+        //  Agregar Evaluación empleados solo si ya se inicio sesion se tiene que ajustar para el tipo de usuario
+        ...(typeUser ? [{ link: "/ValoracionEmpleadosPage", icon: <Star color='#ffd400' size={20} />, text: "Evaluación empleados", view: true }] : [])
     ]
 
     // Estado para mostrar la alerta de cerrar sesión
     const [showLogoutAlert, setShowLogoutAlert] = useState(false);
+
     // Función para manejar el cierre de sesión
     const handleLogout = () => {
         router.push("/")

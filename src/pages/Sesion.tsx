@@ -26,12 +26,6 @@ const SesionPage = () => {
     return (
         <>
         </>
-        /*  <div> */
-        /*  <h1>Esta es la pagina para iniciar sesion</h1>
-        <button onClick={() => handleLogin('admin')}>Iniciar como Admin</button>
-        <button onClick={() => handleLogin('reclutador')}>Iniciar como Reclutador</button>
-        <button onClick={() => handleLogin('usuario')}>Iniciar como Usuario</button> */
-        /*  </div> */
     )
 }
 export default SesionPage;

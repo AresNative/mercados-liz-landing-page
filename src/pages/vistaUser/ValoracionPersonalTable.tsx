@@ -1,4 +1,4 @@
-import { GetProvInfo, GetArchivos } from "@/services/web_site_gets";
+import { GetProvInfo } from "@/services/web_site_gets";
 import { useEffect, useState } from "react";
 import './tablasrh.css';
 
@@ -77,8 +77,6 @@ const ValoracionPersonalTable = () => {
     return (
         <div style={{ marginTop: "1rem", marginBottom: "1rem" }}>
             <div className="provtablecontainer">
-
-
                 <h2 className="subtitulos" style={{ padding: "20px" }}>
                     Información nuevos proveedores
                 </h2>
@@ -126,7 +124,6 @@ const ValoracionPersonalTable = () => {
                     </div>
                 </div>
 
-
                 <table className="provresponsivetable">
                     <thead>
                         <tr className="provfontSize">
@@ -135,7 +132,6 @@ const ValoracionPersonalTable = () => {
                             <th>Fecha</th>
                             <th>Productividad</th>
                             <th>Calidad de trabajo</th>
-
                         </tr>
                     </thead>
                     <tbody className="provfontSize">
@@ -146,7 +142,6 @@ const ValoracionPersonalTable = () => {
                                 <td>{info.date || "N/A"}</td>
                                 <td>{info.productivity || "N/A"}</td>
                                 <td>{info.work_quality || "N/A"}</td>
-
                             </tr>
                         ))}
                     </tbody>

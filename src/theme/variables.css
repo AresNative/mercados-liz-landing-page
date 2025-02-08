@@ -70,11 +70,8 @@ h3 {
 }
 .inert {
     pointer-events: none;
-    /* Desactiva interacciones con el mouse */
     user-select: none;
-    /* Evita que el contenido sea seleccionable */
     opacity: 0.5;
-    /* Opcional: reduce la opacidad para indicar que está deshabilitado */
 }
 .overlay .titulos{
     color: var(--primary);
@@ -117,14 +114,12 @@ h2.titulos2 {
     font-weight: 300;
     text-align: center;
 }
-/* Media para todas las pantallas */
 @media (max-width: 340px) {
     .titulos  {
         max-inline-size: 20rem;
         margin-left: 3.5rem;
         margin-right: 1.5rem;
     }
-
     h2.titulos2 {
      margin-top: .5rem;
      margin-bottom: 1rem;
@@ -161,7 +156,6 @@ h2.titulos2 {
 .sub-titulos5 {
     font-size: 1rem;
     font-weight: 3000;
- /* text-align: center; */
     color: #6900a9;
 }
 .section-1 {
@@ -216,7 +210,6 @@ h2.titulos2 {
 
 /* Tarjetas responsivas */
 @media (max-width: 480px) {
-
     /* Teléfonos pequeños */
     .card-mail {
         width: 90%;
@@ -241,7 +234,6 @@ h2.titulos2 {
 }
 
 @media (min-width: 1025px) and (max-width: 1280px) {
-
     /* Tablets horizontales y laptops pequeños */
     .card-mail {
         width: 70%;
@@ -250,7 +242,6 @@ h2.titulos2 {
 }
 
 @media (min-width: 1281px) and (max-width: 1920px) {
-
     /* Laptops grandes y pantallas estándar */
     .card-mail {
         width: 60%;
@@ -259,7 +250,6 @@ h2.titulos2 {
 }
 
 @media (min-width: 1921px) and (max-width: 2560px) {
-
     /* Pantallas grandes */
     .card-mail {
         width: 50%;
@@ -268,7 +258,6 @@ h2.titulos2 {
 }
 
 @media (min-width: 2561px) {
-
     /* Televisores y pantallas ultra grandes */
     .card-mail {
         width: 40%;

@@ -19,7 +19,6 @@ const combos = [
         ],
         savings: '10% Desc',
         validUntil: 'Válido solo sábado y domingo',
-
     },
     {
         id: 2,
@@ -90,7 +89,6 @@ const combos = [
         validUntil: 'Válido solo sábado y domingo',
         /*  imageUrl:'https://media.istockphoto.com/id/1195743934/es/vector/lindo-dise%C3%B1o-vectorial-de-car%C3%A1cter-panda.jpg?s=612x612&w=0&k=20&c=0CS46nLvvKoLpxo6tv68IxKBR7GEHXV-hq26PnBnNuY=' */
     },
-
 ];
 
 const ComboSection: React.FC = () => {
@@ -138,13 +136,11 @@ const ComboSection: React.FC = () => {
                                         <span className={Styles["spancomb"]}>{combo.savings}</span>
                                     </div>
                                 </div>
-
                             </div>
                         </IonCardContent>
                     </IonCard>
                 ))}
             </div>
-
         </div>
     );
 };

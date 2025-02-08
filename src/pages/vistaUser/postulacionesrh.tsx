@@ -2,7 +2,6 @@ import { GetPostulacion } from "@/services/web_site_gets";
 import { useEffect, useState } from "react";
 import './tablasrh.css';
 
-
 /*Vista Postulaciones tabla y contenido */
 
 const PostulacionesRHPage = () => {
@@ -68,28 +67,6 @@ const PostulacionesRHPage = () => {
     if (error) return <p>{error}</p>;
     if (data.length === 0) return <p>No hay datos disponibles.</p>;
 
-    // Solo permite seleccionar una postulación a la vez
-    /* const handleSelectPostulacion = (id: string) => {
-        setSelectedPostulaciones(prevSelected => {
-            if (prevSelected.includes(id)) {
-                // Si ya está seleccionado, lo quitamos
-                return prevSelected.filter(item => item !== id);
-            } else {
-                // Si no está seleccionado, lo agregamos
-                return [...prevSelected, id];
-            }
-        });
-    };
-
-    const handleArchive = () => {
-        if (selectedPostulaciones.length === 0) {
-            alert("No hay postulaciones seleccionadas.");
-            return;
-        }
-        console.log("Postulación archivada:", selectedPostulaciones[0]); // Solo una
-        setSelectedPostulaciones([]);
-    }; */
-
     return (
         <div className="table-container form">
             <h2 className="subtitulos" style={{ marginLeft: "1rem" }}>Información postulaciones</h2>
@@ -118,7 +95,6 @@ const PostulacionesRHPage = () => {
             <table className="responsive-table">
                 <thead>
                     <tr className="fontSize">
-                        <th>Seleccionar</th>
                         <th>Nombre</th>
                         <th>Apellido Paterno</th>
                         <th>Apellido Materno</th>
@@ -135,13 +111,6 @@ const PostulacionesRHPage = () => {
                 <tbody>
                     {currentData.map((info: any, index) => (
                         <tr key={index} className="fontSize">
-                            {/*  <td>
-                                <input
-                                    type="checkbox"
-                                    checked={selectedPostulaciones.includes(info.id)}
-                                    onChange={() => handleSelectPostulacion(info.id)}
-                                />
-                            </td> */}
                             <td>{info.nombre || "N/A"}</td>
                             <td>{info.apellido_paterno || "N/A"}</td>
                             <td>{info.apellido_materno || "N/A"}</td>
@@ -163,10 +132,6 @@ const PostulacionesRHPage = () => {
                 <span>Página {currentPage} de {totalPages}</span>
                 <button onClick={handleNextPage} disabled={currentPage === totalPages}>Siguiente</button>
             </div>
-
-            {/*  <button onClick={handleArchive} style={{ marginTop: "1rem", padding: "0.5rem", background: "#007bff", color: "white", borderRadius: "5px" }}>
-                Archivar seleccionado
-            </button> */}
         </div>
     );
 };

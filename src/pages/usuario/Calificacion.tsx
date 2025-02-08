@@ -26,12 +26,12 @@ export default function ServicioPage() {
         setRating(value);
         setValue("valor", value);
     };
+
     const onSubmit = handleSubmit(async (data) => {
         console.log(data);
-
         try {
             await PostValoracion(data);
-            handleEnviar(); // Llamar la alerta después de enviar los datos
+            handleEnviar();
         } catch (error) {
             Swal.fire({
                 title: "Error al enviar el formulario",
@@ -42,9 +42,9 @@ export default function ServicioPage() {
         }
         setRating(0);
         setFeedback("");
-        setValue("comment", "")
+        setValue("comment", "");
+    }); // Reiniciar la calificación y el contenido del textarea
 
-    }) // Reiniciar la calificación y el contenido del textarea
     const handleEnviar = () => {
         let timerInterval: NodeJS.Timeout;
         Swal.fire({
@@ -65,11 +65,11 @@ export default function ServicioPage() {
                 clearInterval(timerInterval);
             }
         });
-    }
+    };
 
     return (
         <Page>
-            <form onSubmit={onSubmit} >
+            <form onSubmit={onSubmit}>
                 <IonCard className={styles["form"]}>
                     <IonCardHeader>
                         <IonCardTitle className={styles["p"]}>Califica nuestro servicio</IonCardTitle>
@@ -79,19 +79,22 @@ export default function ServicioPage() {
                             {calif.values.map((star) => (
                                 <Star
                                     key={star}
-                                    className={` ${rating + 1 <= star ? `${styles.estrellas}` : `${styles.estrella2}`}`}
+                                    className={
+                                        star <= (hoverRating || rating)
+                                            ? styles.estrella2
+                                            : styles.estrellas
+                                    }
                                     onClick={() => handleRating(star)}
-                                    {...register("valor", { value: rating })}
                                     onMouseEnter={() => setHoverRating(star)}
                                     onMouseLeave={() => setHoverRating(0)}
                                     size={35}
-                                />
-                            ))}
+                                />))}
                         </div>
+
                         <IonTextarea
                             className={styles["textarea2"]}
                             placeholder="Deja tu opinión, para nosotros es muy importante escucharte*"
-                            onIonChange={(e) => setFeedback(e.detail.value!)} // Actualizar el estado
+                            onIonChange={(e) => setFeedback(e.detail.value!)}
                             {...register("comment", { required: true && "Campo obligatorio" })}
                         />
                         <IonButton
@@ -99,9 +102,7 @@ export default function ServicioPage() {
                             disabled={rating === 0 || feedback.trim() === ""}
                             fill="outline"
                             slot="center"
-                            color="liz"
-                        >
-                            Enviar <SendIcon color="purple" />
+                            color="liz"> Enviar <SendIcon style={{ marginLeft: "0.4rem" }} color="purple" />
                         </IonButton>
                     </IonCardContent>
                 </IonCard>

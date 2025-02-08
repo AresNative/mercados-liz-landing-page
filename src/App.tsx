@@ -109,6 +109,7 @@ function SwitchTypeUserRender(props: any) {
         </IonApp>
       );
     default:
+
       return <IonApp>
         <IonReactRouter>
           <IonRouterOutlet>
@@ -117,7 +118,6 @@ function SwitchTypeUserRender(props: any) {
             <Route exact path="/Contact">
               <ContactPage />
             </Route>
-
             <Route exact path="/privacidad">
               <PrivacidadPage />
             </Route>
@@ -125,7 +125,9 @@ function SwitchTypeUserRender(props: any) {
               <TerminosPage />
             </Route>
 
-            {/* Menu */}
+
+            {/* Menú */}
+
             <Route exact path="/home">
               <Home />
             </Route>
@@ -138,7 +140,6 @@ function SwitchTypeUserRender(props: any) {
             <Route exact path="/billing">
               <Billing />
             </Route>
-
             <Route exact path="/Historia">
               <HistoriaPage />
             </Route>
@@ -155,15 +156,20 @@ function SwitchTypeUserRender(props: any) {
               <ProveePage />
             </Route>
 
-            {/* prueba*/}
+            {/* prueba */}
             <Route exact path="/CertificacionPage">
               <CertificacionPage />
+            </Route>
+            <Route exact path="/ValoracionEmpleadosPage"> {/* Vistas Interaccion Usuarios y prueba para Menú con typeUser*/}
+              <ValoracionEmpleadosPage />
             </Route>
 
             {/* Paginas informacion que muestran datos  */}
             <Route exact path="/provpage">
               <InfprovPage />
             </Route>
+
+
             <Route exact path="/test">
               <PageTest />
             </Route>
@@ -173,6 +179,7 @@ function SwitchTypeUserRender(props: any) {
             <Route exact path="/postulaciones">
               <PagePostulaciones />
             </Route>
+
 
             {/* Vistas Interaccion Usuarios */}
             <Route exact path="/ValoracionEmpleadosPage">

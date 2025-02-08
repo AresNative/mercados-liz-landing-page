@@ -7,7 +7,8 @@ import styles from "@/pages/PageVistas/valoracionempleados.module.css";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
-import {Star } from "lucide-react"; // Asegúrate de tener instalado lucide-react para las estrellas
+import { Star } from "lucide-react";
+import { IonTextarea } from "@ionic/react";
 
 interface Opcion {
     texto: string;
@@ -155,6 +156,7 @@ const ValoracionEmpleadosPage = () => {
                                 />
                             )}
                         </div>
+
                     ))}
 
                     {/* Sección de calificación con estrellas: Productividad */}
@@ -200,6 +202,13 @@ const ValoracionEmpleadosPage = () => {
                             </div>
                         </div>
                     </div>
+                    <div>
+                        <IonTextarea
+                            style={{ display: "flex", alignItems: "center", marginTop: "1rem" }}
+                            className={styles["textarea2"]}
+                            placeholder="Comentarios sobre el desempeño del empleado"
+                        />
+                    </div>
 
 
                     <div style={{ display: "flex", alignContent: "center" }}>
@@ -207,13 +216,8 @@ const ValoracionEmpleadosPage = () => {
                     </div>
                 </div>
             </form>
-            {/*<Angry></Angry>
-            <Annoyed></Annoyed>
-            <Smile></Smile> */}
         </Page>
     );
 };
 
 export default ValoracionEmpleadosPage;
-
-

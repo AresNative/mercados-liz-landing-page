@@ -5,7 +5,7 @@ export function ContactoField(): Field[] {
     {
       name: "name",
       type: "INPUT",
-      label: "Nombre completo o correo de contacto",
+      label: "Nombre completo",
       placeholder: "Juan Perez",
       require: false,
     },

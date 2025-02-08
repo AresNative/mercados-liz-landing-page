@@ -1,4 +1,4 @@
-import { IonButtons, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from "@ionic/react";
+import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from "@ionic/react";
 import Background from "./background";
 import { useLocation } from "react-router";
 import { useRef, useState, useEffect } from "react";
@@ -41,10 +41,10 @@ export default function Body({ children }: { children: React.ReactNode }) {
 
     return (
         <Background>
-            <IonPage className="overflow-y-auto overflow-x-hidden w-full min-h-screen pt-24 m-auto">
-                <IonHeader className="fixed top-0 left-8 w-full z-50">
+            <IonPage className="overflow-y-auto overflow-x-hidden w-full min-h-screen pt-24 m-auto relative">
+                <IonHeader className="absolute top-0 left-8 w-full z-50">
                     <IonToolbar
-                        className="absolute -left-8"
+                        className="fixed -top-1 left-0 z-50"
                         style={{
                             "--background": headerStyle.background,
                             color: headerStyle.color,
@@ -57,18 +57,19 @@ export default function Body({ children }: { children: React.ReactNode }) {
                         </IonButtons>
                     </IonToolbar>
                 </IonHeader>
-                <div className="relative">
+                <IonContent className="ion-content-v2">
                     {children}
                     {/* <ThemeToggle darkMode={darkMode} setDarkMode={setdarkMode} /> */}
-                </div>
-                <ul className="relative bottom-0 flex flex-col bg-white border-t-slate-500 w-full">
-                    <li>©{fecha} SUPERMERCADOS MEJIA S. DE R.L. DE C.V. Todos los derechos reservados.</li>
-                    <li className="flex sm:flex-row gap-2">
-                        <a style={{ color: "var(--primary)", textDecoration: "none" }} href="/terminosycondiciones">Términos y Condiciones</a>
-                        <a style={{ color: "var(--primary)", textDecoration: "none" }} href="/privacidad">Política de Privacidad</a>
-                        <a style={{ color: "var(--primary)", textDecoration: "none" }} href="/Contact">Contacto</a>
-                    </li>
-                </ul>
+                    <ul className="bottom-0 mt-5 flex flex-col bg-white border-t-slate-100 w-full border lg:items-center">
+                        <li>©{fecha} SUPERMERCADOS MEJIA S. DE R.L. DE C.V. Todos los derechos reservados.</li>
+                        <li className="flex sm:flex-row gap-2">
+                            <a style={{ color: "var(--primary)", textDecoration: "none" }} href="/terminosycondiciones">Términos y Condiciones</a>
+                            <a style={{ color: "var(--primary)", textDecoration: "none" }} href="/privacidad">Política de Privacidad</a>
+                            <a style={{ color: "var(--primary)", textDecoration: "none" }} href="/Contact">Contacto</a>
+                        </li>
+                    </ul>
+                </IonContent>
+
 
             </IonPage>
 

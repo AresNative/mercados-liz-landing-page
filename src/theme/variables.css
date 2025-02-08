@@ -93,6 +93,9 @@
 .animate-infinite-scroll {
     animation: infinite-scroll 20s linear infinite;
 }
+.ion-content-v2{
+    --background: transparent !important;
+}
 /* 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 */

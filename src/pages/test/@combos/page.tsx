@@ -4,9 +4,8 @@ import { TableComponent } from "../components/table";
 import { CombosField } from "../constants/combos";
 import PaginationTable from "../components/pagination";
 import MainForm from "../components/form/main-form";
-import Background from "../template/background";
-import { IonPage } from "@ionic/react";
 import Body from "../template/body";
+
 interface formatFilter {
     key: string;
     value: string;

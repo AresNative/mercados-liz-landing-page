@@ -41,9 +41,10 @@ import TerminosPage from './pages/info/terminos';
 import React from 'react';
 import { getLocalStorageItem } from './services/localstorage';
 import { rutasAdmin, rutasCompras, rutasRH } from './constantes/rutas';
-import PageTest from './pages/test/@admin/page';
+import PageTest from './pages/test/@combos/page';
 import PageUser from './pages/test/@user/page';
 import PageTestMaquetado from './pages/test/@test/page';
+import PagePostulaciones from './pages/test/@postulaciones/page';
 
 setupIonicReact({
   mode: 'ios'
@@ -169,8 +170,8 @@ function SwitchTypeUserRender(props: any) {
             <Route exact path="/user">
               <PageUser />
             </Route>
-            <Route exact path="/t2">
-              <PageTestMaquetado />
+            <Route exact path="/postulaciones">
+              <PagePostulaciones />
             </Route>
 
             {/* Vistas Interaccion Usuarios */}

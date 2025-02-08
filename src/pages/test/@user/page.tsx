@@ -1,10 +1,10 @@
+import { arrowForward, cardOutline, chevronDown, logoFacebook, logoWhatsapp, rocketOutline, starOutline } from "ionicons/icons";
 import { IonButton, IonFab, IonFabButton, IonIcon } from "@ionic/react";
 import { OffertCard } from "@/components/displays/card";
-import Sucursales from "../components/sections/Sucursales";
-import { arrowForward, cardOutline, chevronDown, logoFacebook, logoWhatsapp, rocketOutline, starOutline } from "ionicons/icons";
 import { Mail, MapPin, Phone } from "lucide-react";
-import MainForm from "../components/form/main-form";
 import { ContactoField } from "../constants/contacto";
+import Sucursales from "../components/sections/Sucursales";
+import MainForm from "../components/form/main-form";
 import Body from "../template/body";
 
 const PageUser: React.FC = () => {
@@ -29,10 +29,10 @@ const PageUser: React.FC = () => {
 
     return (
         <Body>
-            <section className="section w-full lg:min-h-[70vh] sm:min-h-[73vh]">
+            <section className="section w-full lg:min-h-[70vh] min-h-[55vh]">
                 <div className="overlay m-auto ">
                     <h2 className="text-center text-lg font-semibold text-lime-300">Tu Supermercado de Confianza </h2>
-                    <p className="mx-auto mt-2 max-w-lg text-center text-4xl font-semibold tracking-tight text-balance text-purple-700 sm:text-5xl">
+                    <p className="mx-auto mt-2 max-w-lg text-center text-4xl font-semibold font-[Lobster] tracking-tight text-balance text-purple-700 sm:text-5xl">
                         Siempre Fresco Siempre Bien
                     </p>
                 </div>
@@ -109,9 +109,9 @@ const PageUser: React.FC = () => {
                                         En nuestro supermercado, nos esforzamos por ofrecerte la mejor experiencia de compra con una amplia variedad de productos y servicios diseñados para tu comodidad.
                                     </p>
                                 </div>
-                                <div className="flex flex-1 flex-col gap-2 px-8 my-auto overflow-y-auto max-h-64">
+                                <div className="flex flex-1 flex-col gap-2 px-8 my-auto overflow-y-auto max-h-64 p-10">
                                     {servicios.map((servicio, index) => (
-                                        <div key={index} className="flex gap-3 sm:gap-4 items-center p-3 cursor sm:p-4 bg-white border rounded-lg hover:shadow-md transition-shadow duration-300">
+                                        <div key={index} className="flex gap-3 sm:gap-4 items-center p-3 cursor sm:p-4 bg-white border rounded-lg hover:shadow-md shadow-xl transition-shadow duration-300">
                                             <IonIcon icon={servicio.icon} className="text-xl sm:text-2xl text-purple-600 p-2" />
                                             <div>
                                                 <h3 className="font-medium text-base sm:text-lg text-black">{servicio.title}</h3>
@@ -128,7 +128,7 @@ const PageUser: React.FC = () => {
                             <div className="absolute inset-px rounded-lg bg-white"></div>
                             <ul className="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)]">
                                 <li className="px-8 pt-8 sm:px-10 sm:pt-10">
-                                    <p className="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center">Ofertas</p>
+                                    <p className="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center">Promociones</p>
                                     <p className="my-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
                                         Ofertas Especiales en Menudeo y Mayoreo 📢.
                                     </p>
@@ -175,7 +175,7 @@ const PageUser: React.FC = () => {
                             <ul className="relative flex h-full flex-col overflow-hidden rounded-lg">
                                 <div className="px-8 py-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0">
                                     <p className="my-2 text-lg text-center font-medium tracking-tight text-gray-950 max-lg:text-center">
-                                        Mantente Informado con Nuestra Sección de Noticias
+                                        Mantente informado con nuestra sección de noticias
                                     </p>
                                     <li className="mb-5 mx-auto max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
                                         <p className="text-gray-600 text-base text-center">

@@ -1,55 +1,53 @@
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from "@ionic/react";
 import Background from "./background";
-import { useLocation } from "react-router";
-import { useRef, useState, useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import style from "@/components/displays/header.module.css";
-import ThemeToggle from "../components/ThemeToggle";
+
 export default function Body({ children }: { children: React.ReactNode }) {
-
     const fecha = new Date().getFullYear();
-    const contentRef = useRef<HTMLIonContentElement>(null);
-    const location = useLocation();
-    const isHomePage = location.pathname === "/home";
-
-    const [headerStyle, setHeaderStyle] = useState({
-        background: isHomePage ? "transparent" : "linear-gradient(to right, #790596, #37065f)",
-        color: isHomePage ? "#000" : "#fff",
-        backdropFilter: isHomePage ? "none" : "blur(0px)",
-    });
-
-    const handleScroll = (scrollTop: number) => {
-        if (isHomePage) {
-            const newStyle = scrollTop > 50
-                ? { background: "#d1d1d196", color: "#000", backdropFilter: "blur(10px)" }
-                : { background: "37065f", color: "#37065f", backdropFilter: "none" };
-            setHeaderStyle(newStyle);
-        }
-    };
+    const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+    const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
     useEffect(() => {
-        if (!isHomePage || !contentRef.current) return;
+        const handleScroll = () => {
+            setIsHeaderVisible(window.scrollY <= 50);
+        };
 
-        const contentElement = contentRef.current;
-        const onScroll = (event: CustomEvent) => handleScroll((event.detail as any).scrollTop);
+        const handleMouseMove = (e: MouseEvent) => {
+            if (e.clientY < 50) {
+                setIsHeaderVisible(true);
+                if (timeoutRef.current) clearTimeout(timeoutRef.current);
+            }
+        };
 
-        contentElement.addEventListener("ionScroll", onScroll);
-        return () => contentElement.removeEventListener("ionScroll", onScroll);
-    }, [isHomePage]);
+        const handleMouseLeave = () => {
+            if (window.scrollY > 50) {
+                timeoutRef.current = setTimeout(() => setIsHeaderVisible(false), 300);
+            }
+        };
 
-    const [darkMode, setdarkMode] = useState(false)
+        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("mousemove", handleMouseMove);
+        window.addEventListener("mouseleave", handleMouseLeave);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("mousemove", handleMouseMove);
+            window.removeEventListener("mouseleave", handleMouseLeave);
+            if (timeoutRef.current) clearTimeout(timeoutRef.current);
+        };
+    }, []);
 
     return (
         <Background>
             <IonPage className="overflow-y-auto overflow-x-hidden w-full min-h-screen pt-24 m-auto relative">
-                <IonHeader className="absolute top-0 left-8 w-full z-50">
+                <IonHeader
+                    className={`fixed top-0 left-0 w-full transition-transform duration-300 ${isHeaderVisible ? "translate-y-0" : "-translate-y-full"}`}
+                >
                     <IonToolbar
-                        className="fixed -top-1 left-0 z-50"
-                        style={{
-                            "--background": headerStyle.background,
-                            color: headerStyle.color,
-                            backdropFilter: headerStyle.backdropFilter,
-                        }}
+                        style={{ "--background": "linear-gradient(to right, #A855F7, #37065f)" } as React.CSSProperties}
+                        className="text-white"
                     >
                         <IonTitle size="large" className={style.titulos}>Liz</IonTitle>
                         <IonButtons slot="end" className={style.centerButton}>
@@ -59,7 +57,6 @@ export default function Body({ children }: { children: React.ReactNode }) {
                 </IonHeader>
                 <IonContent className="ion-content-v2">
                     {children}
-                    {/* <ThemeToggle darkMode={darkMode} setDarkMode={setdarkMode} /> */}
                     <ul className="bottom-0 mt-5 flex flex-col bg-white border-t-slate-100 w-full border lg:items-center">
                         <li>©{fecha} SUPERMERCADOS MEJIA S. DE R.L. DE C.V. Todos los derechos reservados.</li>
                         <li className="flex sm:flex-row gap-2">
@@ -69,11 +66,7 @@ export default function Body({ children }: { children: React.ReactNode }) {
                         </li>
                     </ul>
                 </IonContent>
-
-
             </IonPage>
-
         </Background>
-    )
+    );
 }
-

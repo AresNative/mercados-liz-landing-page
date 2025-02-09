@@ -43,7 +43,6 @@ import { getLocalStorageItem } from './services/localstorage';
 import { rutasAdmin, rutasCompras, rutasRH } from './constantes/rutas';
 import PageTest from './pages/test/@combos/page';
 import PageUser from './pages/test/@user/page';
-import PageTestMaquetado from './pages/test/@test/page';
 import PagePostulaciones from './pages/test/@postulaciones/page';
 
 setupIonicReact({
@@ -179,7 +178,6 @@ function SwitchTypeUserRender(props: any) {
             <Route exact path="/postulaciones">
               <PagePostulaciones />
             </Route>
-
 
             {/* Vistas Interaccion Usuarios */}
             <Route exact path="/ValoracionEmpleadosPage">

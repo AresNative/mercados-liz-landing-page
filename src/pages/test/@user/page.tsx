@@ -40,7 +40,7 @@ const PageUser: React.FC = () => {
 
     return (
         <Body>
-            <section className="section w-full lg:min-h-[68vh] min-h-[55vh]">
+            <section className="section w-full lg:min-h-[70vh] min-h-[60vh]">
                 <div className="overlay m-auto ">
                     <h2 className="text-center text-lg font-semibold text-lime-300">Tu Supermercado de Confianza </h2>
                     <p className="mx-auto mt-2 max-w-lg text-center text-4xl font-semibold font-[Lobster] tracking-tight text-balance text-purple-700 sm:text-5xl">

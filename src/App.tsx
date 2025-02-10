@@ -45,6 +45,10 @@ import PageCombos from './pages/test/@combos/page';
 import PageUser from './pages/test/@user/page';
 import PagePostulaciones from './pages/test/@postulaciones/page';
 import PageVacantes from './pages/test/@vacantes/page';
+import PageProveedores from './pages/test/@proveedores/page';
+import PageProveedoresPortal from './pages/test/@proveedoresPortal/page';
+import PageValoracion from './pages/test/@valoracion/page';
+import PageEvaluacion from './pages/test/@evaluacion/page';
 
 setupIonicReact({
   mode: 'ios'
@@ -170,6 +174,9 @@ function SwitchTypeUserRender(props: any) {
             </Route>
 
 
+            {/* 
+              ? paginas con nuevo modelo -- ! obligatorio 
+            */}
             <Route exact path="/combos">
               <PageCombos />
             </Route>
@@ -182,6 +189,21 @@ function SwitchTypeUserRender(props: any) {
             <Route exact path="/vacantes">
               <PageVacantes />
             </Route>
+            <Route exact path="/proveedores">
+              <PageProveedores />
+            </Route>
+            <Route exact path="/proveedoresPortal">
+              <PageProveedoresPortal />
+            </Route>
+            <Route exact path="/valoracion">
+              <PageValoracion />
+            </Route>
+            <Route exact path="/evaluacion">
+              <PageEvaluacion />
+            </Route>
+            {/* 
+              ? paginas con nuevo modelo -- ! obligatorio 
+            */}
 
             {/* Vistas Interaccion Usuarios */}
             <Route exact path="/ValoracionEmpleadosPage">

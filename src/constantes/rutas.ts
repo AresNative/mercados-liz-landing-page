@@ -26,7 +26,7 @@ export const rutasRH: ruta[] = [
   },
   {
     src: "/ValoracionEmpleadosPage",
-    label: "Evaluacion Empleados",
+    label: "Evaluación Empleados",
     pagina: ValoracionPersonalTable,
   },
   /* Preguntar que mas accesos o que otra ventana necesita para poder agregarla 
@@ -47,7 +47,7 @@ export const rutasCompras: ruta[] = [
   },
   {
     src: "/ValoracionEmpleadosPage",
-    label: "Evaluacion Empleados",
+    label: "Evaluación Empleados",
     pagina: ValoracionEmpleadosPage,
   },
   /* Preguntar que mas accesos o que otra ventana necesita para poder agregarla cesar y Luis */
@@ -76,9 +76,8 @@ export const rutasAdmin: ruta[] = [
   },
   {
     src: "/ValoracionEmpleadosPage",
-    label: "Evaluacion Empleados",
+    label: "Evaluación Empleados",
     pagina: ValoracionEmpleadosPage,
   },
-
   /* Preguntar que mas accesos o que otra ventana necesita para poder agregarla  *Dani y Luis */
 ];

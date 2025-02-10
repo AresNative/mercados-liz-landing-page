@@ -7,7 +7,6 @@ import { useEffect, useRef, useState } from "react";
 import style from "@/components/displays/header.module.css";
 import { useLocation } from "react-router-dom";
 
-
 interface ContainerProps {
     children: React.ReactNode;
 }

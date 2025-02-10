@@ -6,7 +6,7 @@ import PdfViewer from "./PdfViewer";
 
 const Offers = () => {
     return (
-        <Page /* */>
+        <Page  /* */>
             <section>
                 <OffersCarousel />
             </section>

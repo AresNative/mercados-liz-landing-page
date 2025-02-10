@@ -41,21 +41,21 @@ const preguntas: Pregunta[] = [
         id: 1,
         texto: "Datos Generales",
         opciones: [
-            { texto: "Evaluacion personal", tipo: "h1" },
+            { texto: "Evaluación personal", tipo: "h1" },
             {
                 texto: "Información",
                 tipo: "text",
                 subopciones: [
-                    { texto: "Nombre del empleado", tipo: "text", props: "mm" },
-                    { texto: "Departamento/Area", tipo: "text", props: "mm" },
+                    { texto: "Evaluación personal", tipo: "text", props: "mm" },
+                    { texto: "Departamento/Área", tipo: "text", props: "mm" },
                 ],
             },
             {
                 texto: "Datos Fecha",
                 tipo: "text",
                 subopciones: [
-                    { texto: "Fecha de Evaluacion", tipo: "date", props: "mm" },
-                    { texto: "Nombre de quien evalua ", tipo: "text", props: "mm" },
+                    { texto: "Fecha de Evaluación", tipo: "date", props: "mm" },
+                    { texto: "Nombre de quien evalúa ", tipo: "text", props: "mm" },
                 ],
             },
         ],
@@ -98,7 +98,7 @@ const ValoracionEmpleadosPage = () => {
             reset();
         } catch (error) {
             Swal.fire({
-                title: "Error al enviar  Evaluación",
+                title: "Error al enviar Evaluación",
                 text: "Por favor, intente nuevamente.",
                 icon: "error",
                 confirmButtonText: "Aceptar",
@@ -110,7 +110,7 @@ const ValoracionEmpleadosPage = () => {
         <Page>
             <form onSubmit={onSubmit}>
                 <h2 className="titulos" style={{ marginTop: "6rem" }}>
-                    Evaluacion de personal Mercado Liz
+                    Evaluación de personal Mercado Liz
                 </h2>
                 <div className={styles["reclutamiento"]}>
                     {preguntaActual.opciones.map((data: Opcion, index: number) => (
@@ -209,8 +209,6 @@ const ValoracionEmpleadosPage = () => {
                             placeholder="Comentarios sobre el desempeño del empleado"
                         />
                     </div>
-
-
                     <div style={{ display: "flex", alignContent: "center" }}>
                         <Button label="Enviar" type="submit" color="default" />
                     </div>

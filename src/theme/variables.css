@@ -96,9 +96,7 @@
 .ion-content-v2{
     --background: transparent !important;
 }
-/* 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-*/
+
 
 * {
     margin: 0;
@@ -275,6 +273,10 @@ h2.titulos2 {
         url('/merc1.jpg');
     background-size: cover;
     display: flex;
+}
+.sectionM {
+    max-width: 100%;
+    overflow-x: hidden; /* Oculta el scroll horizontal */
 }
 @media (max-width: 510px) {
     .section-1 {

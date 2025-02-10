@@ -43,6 +43,7 @@ const Home: React.FC = () => {
     { link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdqT8qaJuNDmCdKqNbOrwbmFztSkOKZQCJsA&s", alt: "Logo StarMilk ", loading: "lazy" },
     { link: "https://cdn.worldvectorlogo.com/logos/yoplait.svg", alt: "Logo Youplayt", loading: "lazy" },
     { link: "https://images.seeklogo.com/logo-png/50/2/la-costena-logo-png_seeklogo-507641.png", alt: "Logo La costeña", loading: "lazy" },
+    { link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbYRdgVd44Lk6xU3V08lNPGTBDmmP4jp2kng&s", alt: "Logo La costeña", loading: "lazy" },
   ];
 
   return (
@@ -107,13 +108,14 @@ const Home: React.FC = () => {
             <Package color='var(--secondary)' size={50} />
           </IconCard>
 
-          <IconCard title='Pagos Seguros' text='Pagos con  Credito, Debito y Efectivo' >
+          <IconCard title='Pagos Seguros' text='Pagos con Crédito, Débito y Efectivo' >
             <CreditCard color='var(--secondary)' size={50} />
           </IconCard>
         </ul>
       </section>
+      {/* ----------------------------------------------------------------------------------------------- */}
 
-      <section
+      <section className='sectionM'
         style={{
           marginTop: "5rem",
           borderTop: "1px solid #b4b4b4e0",
@@ -123,12 +125,14 @@ const Home: React.FC = () => {
         <nav>
           <h2 className="titulos">Marcas que nos acompañan</h2>
           <ul className={Styles["ul"]}>
-            {ruta.map((data, key) => (
+            {[...ruta, ...ruta].map((data, key) => (
               <OffertCard key={key} avatarUrl={data.link} />
             ))}
           </ul>
         </nav>
       </section>
+
+      {/* ----------------------------------------------------------------------------------------------- */}
 
       <section className='mail'>
         <h2 className="titulos">Contacto directo</h2>

@@ -64,8 +64,16 @@
 }
 .content {
     z-index: 200 !important;
-    width: 12rem;
+    width: fit-content;
+    /* Ajusta el ancho según el contenido */
     margin: auto;
+    display: flex;
+    flex-direction: row;
+    /* Asegura que las estrellas estén en fila */
+    gap: 0.2rem;
+    /* Espaciado entre estrellas */
+    justify-content: center;
+    align-items: center;
 }
 .textarea2 {
     z-index: 200 !important;

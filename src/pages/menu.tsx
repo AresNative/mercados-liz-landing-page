@@ -241,7 +241,7 @@ export function Menu() {
     //marcas que nos acompañan
     const ruta: any = [
         { link: "/", icon: <Home color='var(--primary)' size={20} />, text: "Inicio", view: true },
-        { link: "/ofertas", icon: <BadgeDollarSign color='purple' size={20} />, text: "Ofertas", view: true /* view: getLocalStorageItem("token") ? true : false  */ },
+        { link: "/ofertas", icon: <BadgeDollarSign color='green' size={20} />, text: "Ofertas", view: true /* view: getLocalStorageItem("token") ? true : false  */ },
         /*  { link: "/billing", icon: <FilePlus2 color='var(--primary)' size={20} />, text: "Facturación", view: true /* view: getLocalStorageItem("typeUser") === "alamcen" ? true : false   }, */
         { link: "/Contact", icon: <Info color='#6cb2ff' size={20} />, text: "Más información", view: true },//
         { link: "/Reclutamiento", icon: <BaggageClaim /* BriefcaseBusiness */ color='var(--primary)' size={20} />, text: "Únete a la familia", view: true },

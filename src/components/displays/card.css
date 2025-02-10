@@ -46,15 +46,16 @@
 } 
 /* Offert card*/
 .offert-card {
-    /*Carrusel marcas en home*/
     margin: 0.3rem;
     display: flex;
-    align-items: normal;
-    align-content: center;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
-    min-height: 200px;
-    min-width: 200px;
-    max-width: 200px;
+    min-width: 150px;
+    /* Reducimos para evitar desbordamiento */
+    max-width: 150px;
+    height: 150px;
+    overflow: hidden;
 }
 .offert-card:hover {
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);

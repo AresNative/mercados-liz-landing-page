@@ -1,37 +1,47 @@
 .nav {
     /* background:#f2f2f7; */
-    margin: 0.5rem;
+    margin: 0.2rem;
     background: #ffffff;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 10px 2px 10px 2px!important;
+    padding: 1px 2px 1px 2px!important;
     margin: auto;
 }
 .marquee-container {
-    overflow: hidden;
+    overflow: hidden; /* Oculta el contenido que se desborda */
     width: 100%;
     position: relative;
+    display: flex;
+    justify-content: center;
 }
+
 .ul {
     display: flex;
     align-items: center;
-    width: fit-content;
-    animation: marquee 18s linear infinite !important;
+    gap: .01rem;
+    /* Espaciado entre los logos */
+    width: max-content;
+    animation: marquee 10s linear infinite !important;
+    white-space: nowrap;
+    /* Evita saltos de línea */
 }
+
 .ul li {
     flex: 0 0 auto;
-    padding: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 1px;
+    transition: transform 0.0s ease, box-shadow 0.3s ease;
 }
+
 @keyframes marquee {
     from {
-        transform: translateX(100%);
+        transform: translateX(0%);
     }
 
     to {
-        transform: translateX(-100%);
+        transform: translateX(-50%);
+        /* Se repite más rápido */
     }
 }
 .content {

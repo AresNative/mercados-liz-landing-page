@@ -79,7 +79,7 @@ const PostulacionesRHPage = () => {
                     placeholder=" Vacante"
                     value={filterVacante}
                     onChange={handleVacanteChange}
-                    style={{ padding: "0.1rem", marginBottom: "1rem", marginRight: "1rem", borderRadius: "5px", borderColor: "#e5d9f7 " }}
+                    style={{ padding: "0.1rem", marginBottom: "1rem", marginRight: "1rem", borderRadius: "5px", borderBlockColor: "#e5d9f7 " }}
                 />
                 <label htmlFor="sucursalFilter">Filtrar por Sucursal: </label>
                 <input

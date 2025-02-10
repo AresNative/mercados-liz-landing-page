@@ -58,16 +58,13 @@ export const MainForm = ({ message_button, dataForm, actionType, aditionalData, 
     switch (actionType) {
       case 'v2/insert/combos':
         return sendFormData;
-      case 'v2/insert/postulaciones':
-        return sendFormData;
       default:
-        return () => { };
+        return sendFormData;
     }
   }
 
   async function onSubmit(submitData: any) {
     setLoading(true);
-    console.log(submitData);
 
     let combinedData: any = {};
     const formatData = new FormData();
@@ -86,29 +83,31 @@ export const MainForm = ({ message_button, dataForm, actionType, aditionalData, 
     if (aditionalData) combinedData = { ...sanitizedData, ...aditionalData };
     else combinedData = sanitizedData;
 
-    formatData.append(/* 'CombosData'  */ formatForm, JSON.stringify(combinedData));
+    formatData.append(formatForm, JSON.stringify(combinedData));
 
     const mutationFunction = getMutationFunction(actionType);
 
     try {
       await mutationFunction(actionType, formatData);
 
-      if (valueAssign && action) {
-        if (Array.isArray(valueAssign)) {
-          const result = valueAssign.reduce((acc, v) => {
+      if (!action) return;
+
+      const executeAction = async (data?: any) => await action(data);
+
+      if (valueAssign) {
+        const result = Array.isArray(valueAssign)
+          ? valueAssign.reduce((acc, v) => {
             const key = v.replace(/^'|'$/g, '');
             acc[key] = submitData[key];
             return acc;
-          }, {} as Record<string, any>);
+          }, {} as Record<string, any>)
+          : submitData[valueAssign.replace(/^'|'$/g, '')];
 
-          await action(result);
-        } else {
-          const key = valueAssign.replace(/^'|'$/g, '');
-          await action(submitData[key]);
-        }
-      } else if (action) {
-        await action();
+        await executeAction(result);
+      } else {
+        await executeAction();
       }
+
     } catch (error) {
       console.error("Error en el envío del formulario:", error);
     } finally {

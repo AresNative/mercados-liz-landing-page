@@ -42,7 +42,7 @@ export default function PageProveedoresPortal() {
     const columns = useMemo(() => data[0] ? Object.keys(data[0]) : [], [data]);
 
     useEffect(() => {
-        console.log(currentPage);
+
 
         loadData({
             filters: {
@@ -68,7 +68,8 @@ export default function PageProveedoresPortal() {
                     actionType={'v2/insert/proveedoresPortal'}
                     dataForm={ProveedoresPortalField()}
                     aditionalData={{
-                        date: new Date()
+                        fecha: new Date(),
+                        id_proveedor: 8
                     }}
                     message_button="registrar"
                 />

@@ -42,7 +42,7 @@ export default function PageProveedores() {
     const columns = useMemo(() => data[0] ? Object.keys(data[0]) : [], [data]);
 
     useEffect(() => {
-        console.log(currentPage);
+
 
         loadData({
             filters: {
@@ -64,12 +64,9 @@ export default function PageProveedores() {
             <section className="w-4/5 m-auto" >
                 <h1>Formato de subida para proveedores</h1>
                 <MainForm
-                    formatForm="ProveedoresData"
+                    formatForm="ProveedoresForm"
                     actionType={'v2/insert/proveedores'}
                     dataForm={ProveedoresField()}
-                    aditionalData={{
-                        date: new Date()
-                    }}
                     message_button="registrar"
                 />
             </section>

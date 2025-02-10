@@ -42,7 +42,7 @@ export default function PageValoracion() {
     const columns = useMemo(() => data[0] ? Object.keys(data[0]) : [], [data]);
 
     useEffect(() => {
-        console.log(currentPage);
+
 
         loadData({
             filters: {
@@ -64,7 +64,7 @@ export default function PageValoracion() {
             <section className="w-4/5 m-auto" >
                 <h1>Formato de subida para valoracion</h1>
                 <MainForm
-                    formatForm="ValoracionData"
+                    formatForm="Valoracion"
                     actionType={'v2/insert/valoracion'}
                     dataForm={ValoracionField()}
                     aditionalData={{

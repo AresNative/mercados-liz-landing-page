@@ -42,7 +42,7 @@ export default function PageEvaluacion() {
     const columns = useMemo(() => data[0] ? Object.keys(data[0]) : [], [data]);
 
     useEffect(() => {
-        console.log(currentPage);
+
 
         loadData({
             filters: {
@@ -64,11 +64,11 @@ export default function PageEvaluacion() {
             <section className="w-4/5 m-auto" >
                 <h1>Formato de subida para evaluacion</h1>
                 <MainForm
-                    formatForm="EvaluacionData"
+                    formatForm="evaluacion"
                     actionType={'v2/insert/evaluacion'}
                     dataForm={EvaluacionField()}
                     aditionalData={{
-                        date: new Date()
+                        fecha: new Date()
                     }}
                     message_button="registrar"
                 />

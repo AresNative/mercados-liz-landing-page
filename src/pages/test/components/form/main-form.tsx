@@ -74,12 +74,12 @@ export const MainForm = ({ message_button, dataForm, actionType, aditionalData, 
     else combinedData = sanitizedData;
     let jsonData = {}
 
-    if (formatForm === "vacantes") jsonData = { [formatForm]: [combinedData] };
+    if (formatForm === "vacantes" || formatForm === 'evaluacion' || formatForm === 'valoracion') jsonData = { [formatForm]: [combinedData] };
     // Para otros formatos, usar el formato normal
     formatData.append(formatForm, JSON.stringify(combinedData));
 
     try {
-      if (formatForm === "vacantes") await sendFormDataJson(actionType, jsonData);
+      if (formatForm === "vacantes" || formatForm === 'evaluacion' || formatForm === 'valoracion') await sendFormDataJson(actionType, jsonData);
       else await sendFormData(actionType, formatData);
 
       if (!action) return;

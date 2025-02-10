@@ -64,7 +64,7 @@ export default function PageValoracion() {
             <section className="w-4/5 m-auto" >
                 <h1>Formato de subida para valoracion</h1>
                 <MainForm
-                    formatForm="Valoracion"
+                    formatForm="valoracion"
                     actionType={'v2/insert/valoracion'}
                     dataForm={ValoracionField()}
                     aditionalData={{

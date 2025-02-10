@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { fetchDynamicData } from "../api/get-data";
 import { TableComponent } from "../components/table";
-import { CombosField } from "../constants/combos";
+import { VacantesField } from "../constants/vacantes";
 import PaginationTable from "../components/pagination";
 import MainForm from "../components/form/main-form";
 import Body from "../template/body";
@@ -24,7 +24,7 @@ interface formatLoadDate {
     sum: boolean;
 }
 
-export default function PageCombos() {
+export default function PageVacantes() {
     const [data, setData] = useState<Record<string, any>[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
@@ -51,7 +51,7 @@ export default function PageCombos() {
             },
             page: currentPage,
             sum: false
-        }, 'v2/select/combos');
+        }, 'v2/select/vacantes');
     }, [currentPage]);
 
     const handlePageChange = (newPage: number) => {
@@ -62,11 +62,11 @@ export default function PageCombos() {
     return (
         <Body>
             <section className="w-4/5 m-auto" >
-                <h1>Formato de subida para combos</h1>
+                <h1>Formato de subida para vacantes</h1>
                 <MainForm
-                    formatForm="CombosData"
-                    actionType={'v2/insert/combos'}
-                    dataForm={CombosField()}
+                    formatForm="VacantesData"
+                    actionType={'v2/insert/vacantes'}
+                    dataForm={VacantesField()}
                     aditionalData={{
                         date: new Date()
                     }}

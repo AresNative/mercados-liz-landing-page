@@ -21,7 +21,7 @@ import { FileComponent as File } from "./file";
 import { ImgComponent as Image } from "./img";
 
 import { Button } from "../button";
-import { sendFormData } from "../../api/post-data";
+import { sendFormData, sendFormDataJson } from "../../api/post-data";
 
 export const MainForm = ({ message_button, dataForm, actionType, aditionalData, action, valueAssign, formatForm }: MainFormProps) => {
   const [loading, setLoading] = useState(false);
@@ -54,15 +54,6 @@ export const MainForm = ({ message_button, dataForm, actionType, aditionalData, 
     });
   }, [page, formData, setValue]);
 
-  function getMutationFunction(actionType: string) {
-    switch (actionType) {
-      case 'v2/insert/combos':
-        return sendFormData;
-      default:
-        return sendFormData;
-    }
-  }
-
   async function onSubmit(submitData: any) {
     setLoading(true);
 
@@ -77,18 +68,19 @@ export const MainForm = ({ message_button, dataForm, actionType, aditionalData, 
       formatData.append("File", submitData.file);
     }
 
-    console.log("Archivos enviados:", submitData.file);
     const { file, ...sanitizedData } = submitData;
 
     if (aditionalData) combinedData = { ...sanitizedData, ...aditionalData };
     else combinedData = sanitizedData;
+    let jsonData = {}
 
+    if (formatForm === "vacantes") jsonData = { [formatForm]: [combinedData] };
+    // Para otros formatos, usar el formato normal
     formatData.append(formatForm, JSON.stringify(combinedData));
 
-    const mutationFunction = getMutationFunction(actionType);
-
     try {
-      await mutationFunction(actionType, formatData);
+      if (formatForm === "vacantes") await sendFormDataJson(actionType, jsonData);
+      else await sendFormData(actionType, formatData);
 
       if (!action) return;
 

@@ -64,12 +64,13 @@ export default function PageVacantes() {
             <section className="w-4/5 m-auto" >
                 <h1>Formato de subida para vacantes</h1>
                 <MainForm
-                    formatForm="VacantesData"
+                    formatForm="vacantes"
                     actionType={'v2/insert/vacantes'}
                     dataForm={VacantesField()}
-                    aditionalData={{
-                        date: new Date()
-                    }}
+                    /* aditionalData={{
+                        check_in: new Date(),
+                        check_out: new Date(),
+                    }} */
                     message_button="registrar"
                 />
             </section>

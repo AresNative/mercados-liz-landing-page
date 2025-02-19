@@ -3,21 +3,19 @@ import { MainForm } from '@/components/form/main-form';
 import { Input } from '@/components/functions/input';
 import { MyMap } from '@/components/plugins/map';
 import Page from '@/template/page';
-import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonFab, IonFabButton, IonIcon } from '@ionic/react';
+import { IonButton,/*  IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, */ IonFab, IonFabButton, IonIcon } from '@ionic/react';
 import {
   chevronDown,
   logoFacebook,
   logoWhatsapp
 } from 'ionicons/icons';
-import { Coins, Mails, MapPin, Package, Phone, ShoppingCart, Truck, WrapText } from 'lucide-react';
+import { Coins, Mails, MapPin, Package, Phone, ShoppingCart, Truck } from 'lucide-react';
 import { useDispatch } from 'react-redux';
 import { asingn } from "@/store/reducers";
 import { List } from '@/components/displays/list'
 import { OffertCard } from '@/components/displays/card';
 import Styles from "./ofertas/Offers.module.css";
 import { useRef } from 'react';
-import OffersCarousel from './ofertas/OffersCarousel';
-import { Card, CardHeader } from '@nextui-org/react';
 
 const Home: React.FC = () => {
   const dispatch = useDispatch();

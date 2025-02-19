@@ -18,7 +18,7 @@ export function Input({ label, type, placheolder, props, defaultValue }: Inputpr
             className={styles["use-input"]}
             value={defaultValue}
             {...props}
-          
+
         >
             {type === "password" && (<IonInputPasswordToggle slot="end" color="dark" />)}
         </IonInput>

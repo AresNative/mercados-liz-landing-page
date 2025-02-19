@@ -3,10 +3,9 @@ import Styles from "@/pages/ofertas/Offers.module.css";
 import OffersCarousel from "./OffersCarousel";
 import ComboSection from "./CombosSection";
 import PdfViewer from "./PdfViewer";
-
 const Offers = () => {
     return (
-        <Page  /* */>
+        <Page /* */>
             <section>
                 <OffersCarousel />
             </section>

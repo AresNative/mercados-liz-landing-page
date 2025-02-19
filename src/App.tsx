@@ -40,7 +40,7 @@ import PrivacidadPage from './pages/info/privacidad';
 import TerminosPage from './pages/info/terminos';
 import React from 'react';
 import { getLocalStorageItem } from './services/localstorage';
-import { rutasAdmin, rutasCompras, rutasRH } from './constantes/rutas';
+import { rutasAdmin, rutasCompras, rutasRecursosH } from './constantes/rutas';
 import PageTest from './pages/test/@combos/page';
 import PageUser from './pages/test/@user/page';
 import PageTestMaquetado from './pages/test/@test/page';
@@ -69,14 +69,14 @@ function SwitchTypeUserRender(props: any) {
     ));
 
   switch (props.rol) {
-    case "recursosH":
+    case "RecursosH":
       return (
         <IonApp>
           <IonReactRouter>
             <IonRouterOutlet>
-              {renderRoutes(rutasRH)}
+              {renderRoutes(rutasRecursosH)}
               <Route exact path="/">
-                <Redirect to={rutasRH[0]?.src || "/"} />
+                <Redirect to={rutasRecursosH[0]?.src || "/"} />
               </Route>
             </IonRouterOutlet>
           </IonReactRouter>

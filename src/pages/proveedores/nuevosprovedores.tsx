@@ -63,6 +63,7 @@ const preguntas: Pregunta[] = [
                         tipo: "select",
                         props: "department",
                         values: [
+                            //{ nombre: "" },
                             { nombre: "Abarrotes Comestibles" },
                             { nombre: "Frutas y Verduras" },
                             { nombre: "Cuidado Personal" },
@@ -73,11 +74,12 @@ const preguntas: Pregunta[] = [
                             { nombre: "Dulcería" },
                             { nombre: "Especies y Condimentos" },
                             { nombre: "Materia Prima" },
+                            { nombre: "Articulos de Oficina" },
+                            { nombre: "Servicios Generales" },
+                            { nombre: "Mascotas" },
                         ]
                     }
-
                 ]
-
             },
         ],
     },

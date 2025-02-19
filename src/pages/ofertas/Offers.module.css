@@ -16,24 +16,21 @@
     display: flex;
     justify-content: center;
 }
-
 .ul {
     display: flex;
     align-items: center;
     gap: .01rem;
     /* Espaciado entre los logos */
     width: max-content;
-    animation: marquee 10s linear infinite !important;
+    animation: marquee 15s linear infinite !important;
     white-space: nowrap;
     /* Evita saltos de línea */
 }
-
 .ul li {
     flex: 0 0 auto;
     padding: 1px;
     transition: transform 0.0s ease, box-shadow 0.3s ease;
 }
-
 @keyframes marquee {
     from {
         transform: translateX(0%);
@@ -121,7 +118,6 @@
     border-radius: 1rem;
     box-shadow: 0 4px 4px #0000001a;
 }
-
 .marcacom h2 {
     font-size: xx-large;
     font-weight: 700;
@@ -211,7 +207,7 @@
 }
 
 /*-------------------------------------------------------------------------------------------*/
-/*Carrusel*/
+    /*Carrusel*/
 
 .swiper {
     margin-top: 6.5rem;
@@ -232,7 +228,6 @@
     justify-content: center;
     overflow: hidden;
 }
-
 /* Estilos para pantallas pequeñas (teléfonos) */
 @media (max-width: 376px) {
     .swiper {
@@ -243,7 +238,6 @@
         /* Ancho en vista pequeña */
     }
 }
-
 @media (min-width: 500px) {
     .swiper {
         margin-top: 6rem !important;
@@ -255,7 +249,6 @@
         /* Margen en vista pequeña */
     }
 }
-
 @media (max-width: 920px) {
     .swiper {
         margin-top: 6rem !important;
@@ -277,7 +270,6 @@
     /* |*/
     object-fit: fill;
 }
-
 @media (max-width: 376px) {
     .img {
             border-radius: .5rem;
@@ -286,7 +278,6 @@
             height: 0%;
             /* |*/
         }
-   
 }
 @media (max-width: 476px) {
     .img {
@@ -303,9 +294,7 @@
     width: 50vh !important;
      /* Ancho en vista pequeña */
          }
-
 }
-
 @media (max-width: 360px) {
     .img {
         border-radius: .5rem;
@@ -324,7 +313,6 @@
         /* Ancho en vista pequeña */
     }
 }
-
 @media (max-width: 345px) {
     .img {
         border-radius: .5rem;
@@ -342,7 +330,6 @@
         width: 50vh !important;
         /* Ancho en vista pequeña */
     }
-
 }
 
 /*------------------------------------------------------------------------------------------*/
@@ -380,7 +367,6 @@
         color: #ad00fd;
     }
 }
-
 .parfo {
     margin-top: 0.5rem;
     color: #66be2b;
@@ -390,7 +376,6 @@
     display: flex;
     gap: 1rem;
 }
-
 .botton {
     width: 9rem;
     height: 2vh;
@@ -424,7 +409,6 @@
         grid-template-columns: repeat(3, 1fr);
     }
 }
-
 .cardcom {
     overflow: hidden;
 }
@@ -457,7 +441,6 @@
     width: 10rem;
     font-size: 0.75rem;
 }
-
 .subtitle {
     padding: .5rem ;
     margin:0 0 0 1rem;
@@ -535,7 +518,6 @@
     font-weight: 100;
     color: #110f11;
 }
-
 @media (max-width:430px) {
     .p {
         margin-top: 4px;
@@ -679,7 +661,6 @@ button:hover {
         background-color: #b08ad1;
     }
 }
-
 .p2 {
     margin: 0.5rem;
     text-align: center;
@@ -688,7 +669,6 @@ button:hover {
     font-weight: 10;
     color: #110f11;
 }
-
 @media (max-width:430px) {
     .p2 {
         margin-top: 4px;

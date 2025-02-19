@@ -10,6 +10,7 @@ import { useLocation } from "react-router-dom";
 interface ContainerProps {
     children: React.ReactNode;
 }
+
 const Page: React.FC<ContainerProps> = ({ children }) => {
     const fecha = new Date().getFullYear();
     const contentRef = useRef<HTMLIonContentElement>(null);
@@ -33,7 +34,7 @@ const Page: React.FC<ContainerProps> = ({ children }) => {
                 });
             } else {
                 setHeaderStyle({
-                    background: "37065f", // Color inicial
+                    background: "transparent", // Color inicial
                     color: "#37065f",
                     backdropFilter: "none",
                 });

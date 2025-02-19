@@ -13,7 +13,7 @@ interface ruta {
   pagina: React.ComponentType;
 }
 
-export const rutasRH: ruta[] = [
+export const rutasRecursosH: ruta[] = [
   {
     src: "/RecursosHumanos",
     label: "Portal Recursos Humanos",

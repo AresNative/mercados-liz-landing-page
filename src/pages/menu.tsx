@@ -74,7 +74,6 @@ export function Menu() {
                     setLocalStorageItem("token", response);
                     setLocalStorageItem("typeUser", "Admin"); // Guarda el tipo de usuario
                     mostrarAlerta("Inicio de sesión exitoso");
-
                     // Actualiza el estado global del usuario
                     dispatch(
                         assignUsers({
@@ -97,7 +96,6 @@ export function Menu() {
             // Lógica para registro
             const { name, apellido, ...otros } = data;
             const dataForm = { name: `${name} ${apellido}`, date: new Date(), ...otros };
-
             try {
                 const response: any = await PostUserReg(dataForm);
                 if (response) {

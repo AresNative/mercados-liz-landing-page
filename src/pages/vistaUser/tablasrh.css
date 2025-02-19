@@ -1,11 +1,13 @@
 .table-container {
     margin: auto;
-    width: 9%;
+    width: 95% !important;
     overflow-x: auto;
     background: #ffffff;
     font-size: medium !important;
+    padding: auto;
 }
 .responsive-table {
+    margin:auto ;
     width: 100%;
     border-collapse: collapse;
 }
@@ -18,10 +20,10 @@
     /*Encabezado*/
     font-weight: 600;
     color:#6503c2;
-    border-bottom: 1px solid #c990ff18; /*linea encabezado*/
+    border-bottom: 1px solid #c990ff; /*linea encabezado*/
 }
 .responsive-table tbody tr:hover {
-    background-color: #8b00fd0c;
+    background-color: #faf3ff;
 }
 .limrenglones{
     max-inline-size: 1rem;
@@ -40,6 +42,7 @@
     background: #ffffff;
     border-radius: 15px;
     margin-bottom: 2rem;
+    padding: .4rem;
 }
 @media (max-width:430px) {
     .responsive-table {
@@ -158,7 +161,7 @@
     background-color: #8b00fd0c;
 }
 .provlimrenglones {
-    max-inline-size: 65rem;
+    max-inline-size: 6rem !important;
     /* Ajusta el ancho máximo */
     white-space: nowrap;
     /* Evita el salto de línea */

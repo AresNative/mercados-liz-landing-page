@@ -54,6 +54,7 @@
     display: flex;
     flex-direction: column;
 }
+
 .content-card ion-button {
     z-index: 200 !important;
     width: 8rem;

@@ -15,12 +15,10 @@ const PostulacionesRHPage = () => {
     const [filterVacante, setFilterVacante] = useState<string>("");
     const [filterSucursal, setFilterSucursal] = useState<string>("");
 
-    const [selectedPostulaciones, setSelectedPostulaciones] = useState<string[]>([]);
-
     useEffect(() => {
         GetPostulacion()
             .then((info: any) => {
-                setData(info.data || []);
+                setData((info.data || []).reverse());
                 setLoading(false);
             })
             .catch((err) => {

@@ -1,7 +1,7 @@
 import { GetProvInfo, GetArchivos } from "@/services/web_site_gets";
 import { useEffect, useState } from "react";
 import './tablasrh.css';
-import { File, FileText } from "lucide-react";
+import { FileText } from "lucide-react";
 
 /*Vista Postulaciones tabla y contenido */
 const InfprovPage = () => {
@@ -19,7 +19,7 @@ const InfprovPage = () => {
     useEffect(() => {
         GetProvInfo()
             .then((info: any) => {
-                setData(info.data || []);
+                setData((info.data || []).reverse());
                 setLoading(false);
             })
             .catch((err) => {
@@ -107,8 +107,8 @@ const InfprovPage = () => {
                     <thead>
                         <tr className="provfontSize">
                             <th>Nombre</th>
-                            <th>Correo</th>
-                            <th>Telefono</th>
+                            <th>Correo Electronico </th>
+                            <th>Numero de Telefono</th>
                             <th>Compañía</th>
                             <th>Tipo de producto</th>
                             <th>Departamento al que va dirigido</th>
@@ -123,7 +123,7 @@ const InfprovPage = () => {
                                 <td>{info.telefono || "N/A"}</td>
                                 <td>{info.company || "N/A"}</td>
                                 <td>{info.type_prod || "N/A"}</td>
-                                <td>{info.department || "N/A"}</td>
+                                <td style={{ maxInlineSize: "20rem", wordWrap: "break-word", whiteSpace: "normal" }}>{info.department || "N/A"}</td>
 
                                 <td>{vistaURL ? (<iframe
                                     src={vistaURL!}

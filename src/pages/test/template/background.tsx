@@ -1,8 +1,9 @@
 import { Menu } from "@/pages/menu";
 import { IonPage } from "@ionic/react";
 
+import "@/pages/test/utils/assets/init-assets.css";
+import "@/pages/test/utils/assets/animations.css";
 export default function Background({ children }: { children: React.ReactNode }) {
-
 
     return (
         <>

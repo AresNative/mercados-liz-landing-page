@@ -1,48 +1,42 @@
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from "@ionic/react";
+import { IonButtons, IonContent, IonHeader, IonMenuButton, IonTitle, IonToolbar } from "@ionic/react";
 import Background from "./background";
 import { useEffect, useState, useRef } from "react";
-
 import style from "@/components/displays/header.module.css";
 
 export default function Body({ children }: { children: React.ReactNode }) {
     const fecha = new Date().getFullYear();
     const [isHeaderVisible, setIsHeaderVisible] = useState(true);
-    const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const lastScrollTop = useRef(0);
 
     useEffect(() => {
+        const mainContent = document.querySelector(".main-content") as HTMLElement;
+
+        if (!mainContent) return;
+
         const handleScroll = () => {
-            setIsHeaderVisible(window.scrollY <= 50);
-        };
+            const currentScroll = (mainContent as HTMLElement).scrollTop;
 
-        const handleMouseMove = (e: MouseEvent) => {
-            if (e.clientY < 50) {
-                setIsHeaderVisible(true);
-                if (timeoutRef.current) clearTimeout(timeoutRef.current);
+            if (currentScroll > lastScrollTop.current && currentScroll > 50) {
+                setIsHeaderVisible(false); // Oculta el header
+            } else {
+                setIsHeaderVisible(true); // Muestra el header
             }
+
+            lastScrollTop.current = currentScroll;
         };
 
-        const handleMouseLeave = () => {
-            if (window.scrollY > 50) {
-                timeoutRef.current = setTimeout(() => setIsHeaderVisible(false), 300);
-            }
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        window.addEventListener("mousemove", handleMouseMove);
-        window.addEventListener("mouseleave", handleMouseLeave);
+        mainContent.addEventListener("scroll", handleScroll);
 
         return () => {
-            window.removeEventListener("scroll", handleScroll);
-            window.removeEventListener("mousemove", handleMouseMove);
-            window.removeEventListener("mouseleave", handleMouseLeave);
-            if (timeoutRef.current) clearTimeout(timeoutRef.current);
+            mainContent.removeEventListener("scroll", handleScroll);
         };
-    }, []);
+    }, [lastScrollTop]);
+    console.log(isHeaderVisible);
 
     return (
         <Background>
             <IonHeader
-                className={`fixed top-0 left-0 w-full transition-transform duration-300 ${isHeaderVisible ? "translate-y-0" : "-translate-y-full"}`}
+                className={`main-content fixed top-0 left-0 w-full transition-transform duration-300 ${isHeaderVisible ? "block" : "hidden"}`}
             >
                 <IonToolbar
                     style={{ "--background": "linear-gradient(to right, #A855F7, #37065f)" } as React.CSSProperties}

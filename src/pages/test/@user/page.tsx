@@ -1,51 +1,27 @@
-import { arrowForward, cardOutline, chevronDown, logoFacebook, logoWhatsapp, rocketOutline, starOutline } from "ionicons/icons";
+import { arrowForward, chevronDown, logoFacebook, logoWhatsapp } from "ionicons/icons";
 import { IonButton, IonFab, IonFabButton, IonIcon } from "@ionic/react";
 import { OffertCard } from "@/components/displays/card";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { ContactoField } from "../constants/contacto";
+import { ruta } from "./constants/logo-empresas";
+import { servicios } from "./constants/servicios";
 import Sucursales from "../components/sections/Sucursales";
 import MainForm from "../components/form/main-form";
 import Body from "../template/body";
 
 const PageUser: React.FC = () => {
-    const ruta = [
-        { link: "https://i.pinimg.com/originals/1e/c1/d2/1ec1d2ce366d1f603b1bde70ae508063.png", alt: "Logo Coca-Cola", loading: "lazy" },
-        { link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSgEuX0hSXHfBeGvSHwOyoXcd-sJOh96GvQQ&s", alt: "Logo Carnes JC", loading: "lazy" },
-        { link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7Ub0t4Q4nI1ec4QiDNyMYDTIhYDkKfpgEdg&s", alt: "Logo Bachoco", loading: "lazy" },
-        { link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoNLrjPjBNdUknJi15FZm4Hn6V8v8KSIxmxw&s", alt: "Logo Jumex", loading: "lazy" },
-        { link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW-dbiFtg2py_AmoUAo0rW4XsHJLBD8NqdWA&s", alt: "Logo el Pato", loading: "lazy" },
-        { link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr80DB83MHyE8_vSgXMYPNP4JwBX-haUY9gA&s", alt: "Logo Lala", loading: "lazy" },
-        { link: "https://storage.googleapis.com/www-paredro-com/uploads/2018/11/%C2%BFPor-que%CC%81-el-logo-de-Sabritas-tiene-una-carita-feliz.jpg", alt: "Logo Sabritas", loading: "lazy" },
-        { link: "https://upload.wikimedia.org/wikipedia/commons/6/68/Pepsi_2023.svg", alt: "Logo Pepsi", loading: "lazy" },
-        { link: "https://impulsoregio.wordpress.com/wp-content/uploads/2015/01/barcel-1.png", alt: "Logo Barce;", loading: "lazy" },
-        { link: "https://grupopenafiel.com.mx/wp-content/uploads/2023/01/penafiel2.jpg", alt: "Logo Logo Peñafiel", loading: "lazy" },
-        { link: "https://i.pinimg.com/474x/6e/0c/16/6e0c16bacd5f4d0ec47578bede80529b.jpg", alt: "Logo Snappe", loading: "lazy" },
-        { link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPBhUzaJmH8cw30ZIK5CPj-65dkB6fP3J8kA&s", alt: "Logo Purina", loading: "lazy" },
-        { link: "https://logoeps.com/wp-content/uploads/2013/04/nestle-chocolate-vector-logo.png", alt: "Logo Nescle", loading: "lazy" },
-        { link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCvC_ZkhQZ9Sa9WFZ1oMcOI0nguyc1mCAlBQ&s", alt: "Logo Grand chunk", loading: "lazy" },
-        { link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt2FD9gES91gxVxTSlb_ajTepOmAI6pCZD-g&s", alt: "Logo Logo diamcers", loading: "lazy" },
-        { link: "https://laikapp.s3.amazonaws.com/dev_images_categories/whiskas_logo_circulo3.png", alt: "Logo whiskas", loading: "lazy" },
-        { link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdqT8qaJuNDmCdKqNbOrwbmFztSkOKZQCJsA&s", alt: "Logo StarMilk ", loading: "lazy" },
-        { link: "https://cdn.worldvectorlogo.com/logos/yoplait.svg", alt: "Logo Youplayt", loading: "lazy" },
-        { link: "https://images.seeklogo.com/logo-png/50/2/la-costena-logo-png_seeklogo-507641.png", alt: "Logo La costeña", loading: "lazy" },
-    ];
     // Duplicamos los elementos para crear el efecto infinito
     const duplicatedItems = [...ruta, ...ruta];
-
-    const servicios = [
-        { icon: starOutline, title: "Calidad Premium", desc: "Los mejores productos" },
-        { icon: cardOutline, title: "Pago Seguro", desc: "Múltiples métodos" },
-        { icon: rocketOutline, title: "Entrega a domicilio", desc: "Rápida en todo el Valle y alrededores." },
-    ]
-
     return (
         <Body>
             <section className="section w-full lg:min-h-[70vh] min-h-[60vh]">
                 <div className="overlay m-auto ">
-                    <h2 className="text-center text-lg font-semibold text-lime-300">Tu Supermercado de Confianza </h2>
-                    <p className="mx-auto mt-2 max-w-lg text-center text-4xl font-semibold font-[Lobster] tracking-tight text-balance text-purple-700 sm:text-5xl">
+                    <h2 className="text-center text-lg font-semibold text-lime-200 shadow-2xl">Tu supermercado de confianza </h2>
+                    <p className="mx-auto mt-2 max-w-lg text-center text-4xl font-semibold font-[Lobster] tracking-tight text-balance text-purple-600 sm:text-5xl">
                         Siempre Fresco Siempre Bien
                     </p>
+                    <p className="mt-8 text-lg font-medium text-center text-purple-600 sm:text-xl/8">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat.</p>
+
                 </div>
             </section>
 
@@ -77,7 +53,7 @@ const PageUser: React.FC = () => {
                     <li>
                         <a href="https://mail.google.com/mail/?view=cm&to=atncliente@mercadosliz.com&su=Consulta%20sobre%20servicio%20y%20más%20información&body=Hola,%20quisiera%20saber%20más%20sobre%20sus%20productos%20y%20servicios%20que%20ofrecen.%0AGracias" target="_blank" >
                             <IonButton color="liz" shape='round' fill="clear" >
-                                <Mail color="var(--primary)" size={24} />
+                                <Mail className="text-purple-400" size={24} />
                             </IonButton>
                         </a>
                     </li>
@@ -85,6 +61,7 @@ const PageUser: React.FC = () => {
             </nav>
 
             <section className="py-2 sm:py-8">
+                <h2 className="text-center">Nuestras caracteristicas</h2>
                 <div className="mx-auto max-w-2xl lg:px-6 lg:max-w-7xl">
                     <div className="mt-10 grid gap-4 sm:mt-16 lg:grid-cols-3 lg:grid-rows-2">
                         <section className="relative lg:row-span-2">
@@ -97,10 +74,10 @@ const PageUser: React.FC = () => {
                                     <p className="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
                                         Conoce como empezo nuestra historia y como hemos crecido a lo largo del tiempo...
                                     </p>
-                                    <button className="text-purple-600 rounded-lg text-base font-medium hover:underline hover:bg-transparent transition-colors duration-300 flex items-center">
+                                    <a href="/Historia" className="text-purple-600 rounded-lg text-base font-medium hover:underline hover:bg-transparent transition-colors duration-300 flex items-center">
                                         Ver mas
                                         <IonIcon icon={arrowForward} className="ml-2" />
-                                    </button>
+                                    </a>
                                 </div>
                                 <div className="relative h-[25rem] w-full grow">
                                     <div className="absolute top-32 right-0 bottom-0 left-10 overflow-hidden rounded-tl-xl bg-[#f2f2f7] shadow-2xl">
@@ -171,7 +148,7 @@ const PageUser: React.FC = () => {
                                         Sucursales
                                     </p>
                                     <p className="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
-                                        Encuentra Todo lo que Necesitas en un Solo Lugar 🏪.
+                                        Encuentra todo lo que necesitas en un solo lugar 🏪.
                                     </p>
                                 </li>
                                 <li className="relative min-h-[20rem] w-full grow">
@@ -239,12 +216,39 @@ const PageUser: React.FC = () => {
             </section>
 
             <h2 className="text-center">Marcas que nos acompañan</h2>
-            <div className="flex animate-infinite-scroll">
-
+            <div className="flex animate-infinite-scroll mt-10 mb-10">
                 {duplicatedItems.map((data, key) => (
                     <OffertCard key={key} avatarUrl={data.link} />
                 ))}
             </div>
+
+
+            <div className="m-auto w-11/12">
+                <h2 className="text-center">Reseñas</h2>
+                <div className="mx-auto px-6 lg:px-8  mt-10">
+                    <div className="mx-auto grid grid-cols-1 gap-4 lg:grid-cols-3">
+
+                        {Array.from({ length: 3 }).map((index: any) =>
+                        (<article key={index} className=" p-4 bg-white border rounded-3xl flex max-w-xl flex-col items-start justify-between">
+                            <div className="flex items-center gap-x-4 text-xs ">
+                                <time className="text-gray-500">Mar 16, 2020</time>
+                                <a href="#" className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Marketing</a>
+                            </div>
+                            <div className="group relative">
+                                <h3 className="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
+                                    <a href="#" className="text-purple-600 hover:text-purple-400">
+                                        <span className="absolute inset-0"></span>
+                                        Boost your conversion rate
+                                    </a>
+                                </h3>
+                                <p className="mt-5 line-clamp-3 text-sm/6 text-gray-600">Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.</p>
+                            </div>
+                        </article>))}
+
+                    </div>
+                </div>
+            </div>
+
 
             <section className="w-[90%] lg:w-3/5 m-auto my-10 relative max-lg:row-start-3 lg:col-start-2 lg:row-start-2">
                 <div className="absolute inset-px rounded-lg bg-white"></div>
@@ -268,7 +272,7 @@ const PageUser: React.FC = () => {
                                     message_button="registrar"
                                 />
                             </li>
-                            <li className=" w-2/3 m-auto flex flex-col gap-4">
+                            <li className="w-full m-auto flex flex-col gap-2 -mt-0">
                                 <div className="contact-item">
                                     <MapPin color="var(--primary)" size={24} />
                                     <span>Calle Principal 216, 22750 Francisco Zarco, B.C.</span>

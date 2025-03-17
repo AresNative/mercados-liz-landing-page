@@ -14,7 +14,7 @@ const HistoriaPage = () => {
             {/* Icono de página en construcción */}
             <h2 className="titulos" z-index="100%" style={{ marginTop: "2rem" }}>Nuestra historia. </h2>
             {/* Línea de tiempo */}
-            <div className="timeline ">
+            <div className="timeline">
 
                 <div className="timeline-event ">
                     <div className="timeline-icon" style={{ backgroundColor: '#FF5656' }}>

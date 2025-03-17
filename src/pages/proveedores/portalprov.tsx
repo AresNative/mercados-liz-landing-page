@@ -1,4 +1,3 @@
-
 import "@/pages/margen-pagina.css"
 import { Input } from "@/components/functions/input";
 import { Select } from "@/components/functions/select";
@@ -56,6 +55,36 @@ const preguntas: Pregunta[] = [
 
 const ProveePage = () => {
 
+    /* Arrastra */
+    const [file, setFile] = useState<File | null>(null);
+
+    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (event.target.files) {
+            setFile(event.target.files[0]);
+        }
+    };
+
+    const handleRemoveFile = () => {
+        setFile(null);
+        const input = document.getElementById("fileInput") as HTMLInputElement;
+        if (input) {
+            input.value = "";
+        }
+    };
+
+    const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
+        event.preventDefault();
+        if (event.dataTransfer.files.length > 0) {
+            setFile(event.dataTransfer.files[0]);
+        }
+    };
+
+    const handleDragOver = (event: React.DragEvent<HTMLDivElement>) => {
+        event.preventDefault();
+    };
+
+    /* Arrastra */
+
     const [paginaActual, setPaginaActual] = useState(0)
     const [respuestas, setRespuestas] = useState<Respuesta[]>([])
 
@@ -81,7 +110,7 @@ const ProveePage = () => {
 
     const handleEnviar = () => {
         // Aquí puedes implementar la lógica para enviar las respuestas a un servidor
-        alert("¡Cuestionario enviado con éxito!123")
+        alert("¡Cuestionario enviado con éxito!")
     }
 
     const respuestaActual = respuestas.find(r => r.preguntaId === preguntaActual.id)?.respuesta || ""
@@ -133,7 +162,26 @@ const ProveePage = () => {
                                 </div>
                             );
                         })}
-                        <input type="file" data-multiple-caption="{count} archivos seleccionados" accept=".xml,.pdf" multiple />
+
+                        <div
+                            className={"drop-zone"}
+                            onDragOver={handleDragOver}
+                            onDrop={handleDrop}
+                        >
+                            {file && (
+                                <button type="button" onClick={handleRemoveFile} className={"remove-button"}>
+                                    ❌
+                                </button>)}
+                            <input
+                                type="file"
+                                accept="application/pdf"
+                                id="fileInput"
+                                onChange={handleFileChange}
+                                style={{ display: "none" }} />
+                            <label htmlFor="fileInput" className={"file-label"}>
+                                {file ? file.name : "Haz clic o arrastra un archivo aquí"}
+                            </label>
+                        </div>
 
                         <div>
                             <textarea className="textarea" placeholder="Comentario"></textarea>
@@ -165,7 +213,6 @@ const ProveePage = () => {
                             <td>"Comentario"</td>
                             <td>
                                 <IonButton color={"danger"} slot="end" shape="round" size="small" fill="clear" onClick={AbrirPDF}>
-
                                     <FileText />
                                 </IonButton>
                             </td>

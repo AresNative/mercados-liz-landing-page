@@ -14,29 +14,30 @@ const sucursalCoordenadas: { [key: string]: [number, number] } = {
 
 export function MyMap() {
     const selector = useSelector((state: RootState) => state.filters.filters);
-    const [sucursalVista, setSucursalVista] = useState<[number, number] | null>(null);
+    const [sucursalesVisibles, setSucursalesVisibles] = useState<[number, number][]>([]);
 
     useEffect(() => {
-        selector.map((data: any) => {
-            const sucursal = data.sucursal;
-            // Si la sucursal existe en el mapeo, actualizar la vista
-            if (sucursal && sucursalCoordenadas[sucursal]) {
-                setSucursalVista(sucursalCoordenadas[sucursal]);
-            }
-        });
+        // Filtrar sucursales activas según el selector y actualizar el estado
+        const nuevasSucursales = selector
+            .map((data: any) => sucursalCoordenadas[data.sucursal])
+            .filter((coords: [number, number] | undefined) => coords !== undefined) as [number, number][];
+
+        setSucursalesVisibles(nuevasSucursales.length > 0 ? nuevasSucursales : Object.values(sucursalCoordenadas));
     }, [selector]);
 
     return (
         <div className={styles['map']}>
             <Map
                 defaultCenter={[32.0947939, -116.5735554]} // Coordenadas por defecto
-                center={sucursalVista || [32.0947939, -116.5735554]}
-                // Mostrar la sucursal o la vista por defecto
-                defaultZoom={16}
+                center={sucursalesVisibles.length === 1 ? sucursalesVisibles[0] : [32.2, -116.6]}
+                defaultZoom={12} // Ajusta el zoom para que se vean todas las sucursales
             >
-                {/* Marcador en la ubicación de la sucursal seleccionada */}
-                <Marker width={50} anchor={sucursalVista || [32.0947939, -116.5735554]} />
+                {/* Renderizar todos los marcadores */}
+                {sucursalesVisibles.map((coords, index) => (
+                    <Marker key={index} width={50} anchor={coords} color="#7200c4" />
+                ))}
             </Map>
         </div>
     );
 }
+

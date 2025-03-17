@@ -16,9 +16,9 @@ const InfValoracionPage = () => {
                 console.log("Datos recibidos:", info);
                 setData(info.data || []); //envio de datos viejo nuevo
                 /* setData((info.data || []).reverse()); //este es una opcion 
-                 const reversedData = (info.data || []).reverse(); // Invierte el orden
-                 setData(reversedData);
-                 setLoading(false); //envio de datos nuevo viejo  este es una segunda opcion*/
+                const reversedData = (info.data || []).reverse(); // Invierte el orden
+                setData(reversedData);
+                setLoading(false); //envio de datos nuevo viejo  este es una segunda opcion*/
                 setLoading(false);
             })
             .catch((err) => {
@@ -104,7 +104,9 @@ const InfValoracionPage = () => {
                         {currentData.map((info: any, index) => (
                             <tr key={index}>
                                 <td className="vallimrenglones">{info.comment || "N/A"}</td>
-                                <td>{info.valor || "N/A"}</td>
+                                <td style={{
+                                    textAlign: "center"
+                                }}>{info.valor || "N/A"}</td>
                             </tr>
                         ))}
                     </tbody>

@@ -40,7 +40,7 @@ const ContactPage = () => {
                                             <span style={{ paddingLeft: "5px" }}>Domingo a jueves 7:00 AM - 09:00 PM </span>
                                         </div>
                                         <div>
-                                            <span style={{ paddingLeft: "5px" }}>Viernes a sabado 7:00 AM - 10:00 PM </span>
+                                            <span style={{ paddingLeft: "5px" }}>Viernes y sabado 7:00 AM - 10:00 PM </span>
                                         </div>
 
                                     </span>
@@ -116,6 +116,7 @@ const ContactPage = () => {
                                     <span><strong>Horario de Atención:{" "}</strong></span>
                                     <span style={{ paddingLeft: "5px" }}>7:00 AM - 10:00 PM</span>
                                 </div>
+                                
                             </li>
                             {/* ----------------------------------------------------------- */}
                         </ul>

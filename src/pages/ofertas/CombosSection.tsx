@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonBadge } from '@ionic/react';
+import { IonCard, IonCardHeader, IonCardTitle, IonCardContent, } from '@ionic/react';
 import { ShoppingBasket, Timer } from 'lucide-react';
 import Styles from "@/pages/ofertas/Offers.module.css";
 
@@ -63,7 +63,7 @@ const combos = [
         originalPrice: '$476.81',
         items: [
             'Menudo de res Americano 3kg',
-            'maíz blanco La Costeña 3kg',
+            'Maíz blanco La Costeña 3kg',
             'Patita de res 1.5kg',
             'Plato pozolero 1pq de 25pz',
             'Totopos naturales Mercado Liz',
@@ -79,7 +79,7 @@ const combos = [
         originalPrice: '$501.14',
         items: [
             'Espinazo de puerco 6kg',
-            'maíz blanco La Costeña 3kg',
+            'Maíz blanco La Costeña 3kg',
             'Manita de puerco 3k',
             'Plato pozolero 1pq de 25pz',
             'Totopos naturales Mercado Liz',

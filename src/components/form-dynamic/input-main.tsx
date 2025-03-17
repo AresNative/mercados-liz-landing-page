@@ -1,4 +1,4 @@
-import { IonInput} from "@ionic/react";
+import { IonInput } from "@ionic/react";
 import styles from "@/components/functions/input.module.css";
 import { useEffect } from "react";
 
@@ -52,7 +52,6 @@ export function InputDynamic(props: InputProps) {
                 {...props.register(cuestion.name, {
                     required: cuestion.require ? "The field is required." : false,
                 })}
-               
             />
             {props.errors[cuestion.name]?.message && (
                 <div className={styles["error-message"]}>

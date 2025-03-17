@@ -72,6 +72,20 @@
     box-shadow: 0 0 0 4px #0000001a;
 }
 
+@media (max-width:540px) {
+    .timeline {
+        padding: 10px;
+    }
+    .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 40px;
+            width: 4px;
+            background-color: #ccc;
+    }
+}
 
 /*Img*/
 .container {

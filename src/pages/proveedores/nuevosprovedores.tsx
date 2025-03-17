@@ -86,6 +86,38 @@ const preguntas: Pregunta[] = [
 ];
 
 const NuevoProvePage = () => {
+
+    /* Arrastra */
+    const [file, setFile] = useState<File | null>(null);
+
+    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (event.target.files) {
+            setFile(event.target.files[0]);
+        }
+    };
+
+    const handleRemoveFile = () => {
+        setFile(null);
+        const input = document.getElementById("fileInput") as HTMLInputElement;
+        if (input) {
+            input.value = "";
+        }
+    };
+
+    const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
+        event.preventDefault();
+        if (event.dataTransfer.files.length > 0) {
+            setFile(event.dataTransfer.files[0]);
+        }
+    };
+
+    const handleDragOver = (event: React.DragEvent<HTMLDivElement>) => {
+        event.preventDefault();
+    };
+
+    /* Arrastra */
+
+
     const [paginaActual, setPaginaActual] = useState(0);
     const { register, handleSubmit, setValue, reset } = useForm();
 
@@ -171,7 +203,31 @@ const NuevoProvePage = () => {
                     <p className="sub-titulos5">
                         En caso de contar con algún catálogo con sus productos favor de anexarlo
                     </p>
-                    <input type="file" accept=".pdf,.xlsx" multiple {...register("archivos")} />
+
+                    <div
+                        className={"drop-zone"}
+                        onDragOver={handleDragOver}
+                        onDrop={handleDrop}
+                    >
+                        {file && (
+                            <button type="button" onClick={handleRemoveFile} className={"remove-button"}>
+                                ❌
+                            </button>)}
+                        <input
+                            type="file"
+                            accept=".pdf,.xlsx"
+                            multiple
+                            {...register("archivos")}
+                            style={{ display: "none" }}
+                            id="fileInput"
+                            onChange={handleFileChange}
+                        />
+                        <label htmlFor="fileInput" className={"file-label"}>
+                            {file ? file.name : "Haz clic o arrastra un archivo aquí"}
+                        </label>
+                    </div>
+
+                    {/*   <input type="file" accept=".pdf,.xlsx" multiple {...register("archivos")} /> */}
                     <div style={{ display: "flex" }}>
                         <Button label="Enviar" type="submit" color="default" />
                     </div>

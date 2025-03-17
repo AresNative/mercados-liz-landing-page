@@ -1,9 +1,6 @@
 .animate-infinite-scroll {
   animation: infinite-scroll 20s linear infinite;
 }
-.ion-content-v2 {
-  --background: transparent !important;
-}
 * {
   margin: 0;
   padding: 0;
@@ -77,28 +74,8 @@ h3 {
   color: var(--ion-color-liz-tint);
   text-shadow: #2b2b2ba2 2px 2px 5px;
 }
-.inert {
-  pointer-events: none;
-  user-select: none;
-  opacity: 0.5;
-}
 .overlay .titulos {
   color: var(--primary);
-}
-h1.titulos {
-  margin-top: 5rem;
-  font-size: 4rem;
-  font-family: "Lobster";
-  font-weight: 300;
-  text-align: center;
-}
-h2.titulos {
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
-  font-size: 2.5rem;
-  font-family: "Lobster";
-  font-weight: 300;
-  text-align: center;
 }
 .titulos {
   margin-top: 0.5rem;
@@ -115,7 +92,23 @@ h2.titulos {
   margin: 2.3rem;
   color: #000000;
 }
+
 h2.titulos2 {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  font-family: "Lobster";
+  font-weight: 300;
+  text-align: center;
+}
+h1.titulos {
+  margin-top: 5rem;
+  font-size: 4rem;
+  font-family: "Lobster";
+  font-weight: 300;
+  text-align: center;
+}
+h2.titulos {
   margin-top: 0.5rem;
   margin-bottom: 1rem;
   font-size: 2.5rem;
@@ -138,29 +131,13 @@ h2.titulos2 {
     text-align: center;
   }
 }
-
 .sub-titulos {
   font-size: 2.5rem;
   font-weight: 300;
   text-align: center;
   color: var(--violet-12);
 }
-.sub-titulos2 {
-  font-size: 2rem;
-  font-weight: 150;
-  text-align: center;
-  color: whitesmoke;
-}
-.sub-titulos3 {
-  font-size: 2.5rem;
-  font-weight: 300;
-  text-align: center;
-}
-.sub-titulos4 {
-  font-size: 2rem;
-  font-weight: 150;
-  text-align: center;
-}
+
 .sub-titulos5 {
   font-size: 1rem;
   font-weight: 3000;
@@ -180,21 +157,17 @@ ion-fab-button::part(native):hover {
   background: #6000a0 !important;
 }
 .section-1 {
-  background-image: linear-gradient(#ffffff00 0%, #fdfdfde5 70%, #f2f2f7 100%),
+  background-image: linear-gradient(#ffffff00 0%, #fdfdfdee 70%, #f2f2f7 100%),
+    /* Degradado Imagen  */
     url("/merc1.jpg");
-  background-size: cover;
+background-repeat: no-repeat;
   height: 75vh;
-  display: flex;
-}
-.section {
-  background-image: linear-gradient(#69696979 0%, #fdfdfdb2 70%, #ffff 100%),
-    url("/merc1.jpg");
-  background-size: cover;
   display: flex;
 }
 .sectionM {
   max-width: 100%;
-  overflow-x: hidden; /* Oculta el scroll horizontal */
+  overflow-x: hidden;
+  /* Oculta el scroll horizontal */
 }
 @media (max-width: 510px) {
   .section-1 {
@@ -205,9 +178,13 @@ ion-fab-button::part(native):hover {
     padding: 15px;
   }
 }
+.redes {
+ margin-top: 1rem !important;
+}
 .section-2 {
   position: relative;
   border-bottom: 1px solid #b4b4b4e0;
+  /* Linea separacion */
   padding-top: 3rem;
   padding-bottom: 3rem;
   display: flex;
@@ -227,15 +204,12 @@ ion-fab-button::part(native):hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #ffffff, #ffffff);
+  background: linear-gradient(135deg, #ffffff, #ffffff);/* Iconos Redes */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
-.section-2 ul li a:hover {
-  transform: scale(1.1);
-  box-shadow: 0px 6px 12px #7600c069;
-}
 .product {
+  /* background: #ffffff00; */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap-reverse;
@@ -245,56 +219,32 @@ ion-fab-button::part(native):hover {
   align-items: center;
   justify-content: center;
 }
-.card-mail {
-  list-style: none;
-  padding: 16px;
-  width: 50%;
+.section-2 ul li a:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 6px 12px #b133ff57;
+  /* Sombra iconos */
 }
-
-@media (max-width: 480px) {
-  /* Teléfonos pequeños */
-  .card-mail {
-    width: 90%;
-    margin: 0.5px;
-  }
+.dudas {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap-reverse;
+  gap: 1rem;
+  width: 90%;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
 }
-@media (min-width: 481px) and (max-width: 768px) {
-  .card-mail {
-    width: 85%;
-    margin: 1px;
-  }
-}
-@media (min-width: 769px) and (max-width: 1024px) {
-  .card-mail {
-    width: 75%;
-    margin: 5px;
-  }
-}
-@media (min-width: 1025px) and (max-width: 1280px) {
-  /* Tablets horizontales y laptops pequeños */
-  .card-mail {
-    width: 70%;
-    margin: 10px;
-  }
-}
-@media (min-width: 1281px) and (max-width: 1920px) {
-  /* Laptops grandes y pantallas estándar */
-  .card-mail {
-    width: 60%;
-    margin: 15px;
-  }
-}
-@media (min-width: 1921px) and (max-width: 2560px) {
-  .card-mail {
-    width: 50%;
-    margin: 20px;
-  }
-}
-@media (min-width: 2561px) {
-  .card-mail {
-    width: 40%;
-    margin: 25px;
-  }
+@media (max-width: 510px) {
+  .dudas {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap-reverse;
+      gap: 1rem;
+      width: 90%;
+      margin: auto;
+      align-items: center;
+      justify-content: center;
+    }
 }
 .contact-item {
   display: flex;
@@ -314,23 +264,37 @@ ion-fab-button::part(native):hover {
   margin: auto;
 }
 @media (max-width: 510px) {
-  .section-3 {
-    width: 90%;
-    margin: 1rem 1rem 1rem 1rem;
+.section-3 {
+   width: 90%;
+   margin: 1rem 1rem 1rem 1rem;
   }
 }
 .mail {
-  min-height: 2rem;
+  margin-top: 2rem;
+  width: 45rem;
   background: #fff;
+  min-height: 2rem;
+  /*  background: #fff; */
   margin-bottom: 0rem;
   display: flex;
   flex-direction: column;
   justify-content: center !important;
-  align-items: center ;
+  align-items: center;
   border-radius: 5px;
 }
-@media (max-width: 345px) {
+@media (max-width: 375px) {
   .mail {
+    min-height: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (max-width: 430px) {
+  .mail {
+    width: 23rem !important;
+    min-height: 2rem;
     background: #fff;
     display: flex;
     flex-direction: column;
@@ -338,35 +302,17 @@ ion-fab-button::part(native):hover {
     align-items: center;
   }
 }
-.mail2 {
+@media (max-width: 345px) {
+  .mail {
+    width: 19rem !important;
     min-height: 2rem;
-    background: #ffffff;
-    margin-bottom: 0rem;
+    background: #fff;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 5px;
-   
+  }
 }
-
-@media (max-width: 375px) {
-    .mail2 {
-        background: #fff;
-        display: none;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-}
-.card-mail2 {
-    display: flex;
-    flex-direction: column; 
-    list-style: none;
-    padding: 16px;
- 
-}
-
 .img-uva5 {
   opacity: 0.6;
   position: absolute;
@@ -377,12 +323,243 @@ ion-fab-button::part(native):hover {
   transform: rotate(105deg);
   z-index: 100;
 }
-
 @media (max-width: 450px) {
   .img-uva5 {
     display: none;
   }
 }
+
+@media (max-width: 390px) {
+.drop-zone {
+    margin: 5px 0rem 5px 0rem;
+    border: 2px dashed #aaa;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    width: 290px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+    position: relative;
+  }
+}
+
+
+/* Archivos */
+.drop-zone {
+ margin: 5px 0rem 5px 0rem;
+  border: 2px dashed #aaa;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  width: 300px;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+
+@media (max-width: 390px) {
+  .drop-zone {
+    margin: 5px 0rem 5px 0rem;
+    border: 2px dashed #aaa;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    width: 290px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+    position: relative;
+  }
+}
+
+.drop-zone:hover {
+  background: linear-gradient(0deg, rgba(239, 213, 255, 0.227328431372549) 0%, rgba(81, 90, 218, 0.11808473389355745) 100%);
+  border-color: #aaaaaa !important;
+  /*  background-color: #e0e0e0; */
+}
+
+.drop-zone.drag-over {
+  background-color: #d1ecf1;
+  border-color: #17a2b8 !important;
+}
+
+.file-label {
+  display: block;
+  cursor: pointer;
+  font-size: 16px;
+  color: #555;
+}
+.remove-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: #ffffff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.remove-button:hover {
+  background-color: #ffc6c6;
+}
+/* ---------------Archivos--------------- */
+
+/*----------------------------------------------@media modificado-------------------------------------------------*/
+
+/* Nest Hub */
+@media (max-width: 1024px) {
+  .mail {
+    width: 30rem !important;
+    min-height: 2rem;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .section-2 {
+    position: relative;
+    border-bottom: 1px solid #b4b4b4e0;
+    /* Linea separacion */
+    padding-top: .1rem;
+    padding-bottom: 2.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+/* surface pro7 */
+@media (max-width: 912px) {
+  .mail {
+    width: 30rem !important;
+    min-height: 2rem;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .section-1 {
+    background-image: linear-gradient(#ffffff44 0%, #fdfdfdee 70%, #f2f2f7 100%),
+      /* Degradado Imagen  */
+      url("/merc1.jpg");
+    background-repeat: no-repeat;
+    height: 60vh;
+    display: flex;
+  }
+
+  .section-2 {
+    position: relative;
+    background: linear-gradient(#ffffff00 0%, #fdfdfd00 70%, #f2f2f7 100%);
+    /* Linea separacion */
+    padding-top: .1rem;
+    padding-bottom: 2.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+/* asus Zenbook */
+@media (max-width: 853px) {
+  .mail {
+    width: 30rem !important;
+    min-height: 2rem;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .section-2 {
+    position: relative;
+  background: linear-gradient(#ffffff00 0%, #fdfdfdaf 70%, #f2f2f7 100% );
+    /* Linea separacion */
+    padding-top: .1rem;
+    padding-bottom: 2.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+ /* Surface duo */
+@media (max-width: 540px) {
+  .titulos {
+    margin-top: 0.5rem;
+    font-family: "Lobster";
+    font-weight: 300;
+    text-align: center;
+    margin: 1rem;
+    }
+  h1.titulos {
+    margin-top: 2rem;
+    font-size: 4rem;
+    font-family: "Lobster";
+    font-weight: 300;
+    text-align: center;
+    }
+}
+
+/* Iphone 14 pro max*/
+ @media (max-width: 430px) {
+  .mail {
+      width: 25rem !important;
+      min-height: 2rem;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+ }
+    /* Iphone 12pro*/
+@media (max-width: 390px) {
+  .mail {
+    width: 23rem !important;
+    min-height: 2rem;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+        align-items: center;
+      }
+    }
+
+ /* Iphone SE*/
+ @media (max-width: 375px) {
+   .mail {
+     width: 23rem !important;
+     min-height: 2rem;
+     background: #fff;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+   }
+ }
+
+ /* Galaxyz Z Fold 5 Continuous */
+@media (max-width: 344px) {
+  .mail {
+    width: 21rem !important;
+    min-height: 2rem;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+      }
+    }
 
 :root {
   --primary: #7700c0;

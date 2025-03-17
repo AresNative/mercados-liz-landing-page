@@ -1,9 +1,7 @@
 import { IconCard } from '@/components/displays/card-icon';
-import { MainForm } from '@/components/form/main-form';
-import { Input } from '@/components/functions/input';
 import { MyMap } from '@/components/plugins/map';
 import Page from '@/template/page';
-import { IonButton,/*  IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, */ IonFab, IonFabButton, IonIcon } from '@ionic/react';
+import { IonButton, IonFab, IonFabButton, IonIcon } from '@ionic/react';
 import {
   chevronDown,
   logoFacebook,
@@ -43,7 +41,6 @@ const Home: React.FC = () => {
     { link: "https://grupopenafiel.com.mx/wp-content/uploads/2023/01/penafiel2.jpg", alt: "Logo Logo Peñafiel" },
     { link: "https://i.pinimg.com/474x/6e/0c/16/6e0c16bacd5f4d0ec47578bede80529b.jpg", alt: "Logo Snappe" },
     { link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPBhUzaJmH8cw30ZIK5CPj-65dkB6fP3J8kA&s", alt: "Logo Purina" },
-    { link: "https://logoeps.com/wp-content/uploads/2013/04/nestle-chocolate-vector-logo.png", alt: "Logo Nestle" },
     { link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCvC_ZkhQZ9Sa9WFZ1oMcOI0nguyc1mCAlBQ&s", alt: "Logo Grand chunk" },
     { link: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt2FD9gES91gxVxTSlb_ajTepOmAI6pCZD-g&s", alt: "Logo Logo diamcers", },
     { link: "https://laikapp.s3.amazonaws.com/dev_images_categories/whiskas_logo_circulo3.png", alt: "Logo whiskas" },
@@ -58,9 +55,6 @@ const Home: React.FC = () => {
       <section className='section-1' style={{ padding: "1rem" }}>
         <div className='overlay'>
           <h1 className="titulos">Siempre Fresco Siempre Bien</h1>
-          <p style={{ fontSize: "x-large", textAlign: "center", fontFamily: "cursive" }}>
-            {/*  100% Originales del valle de Guadalupe . */}
-          </p>
         </div>
       </section>
       {/* ---------------------------------Siguiente Seccion -------------------------------------------------- */}
@@ -72,11 +66,11 @@ const Home: React.FC = () => {
         </IonFab>
         <ul>
           {/* ---------------------------Redes Sociales--------------------------------------------- */}
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '15px', marginTop: '20px' }}>
+          <div className='redes' style={{ display: 'flex', justifyContent: 'center', gap: '15px', marginTop: '20px' }}>
             <li>
               <a href="https://www.facebook.com/share/1WZv93NVER/" target="_blank" >
                 <IonButton shape='round' fill="clear" title="Ir a Facebook">
-                  <IonIcon size='large' icon={logoFacebook} /*  style={{ color:"#6000a0" }} */ />
+                  <IonIcon size='large' icon={logoFacebook} />
                 </IonButton>
               </a>
             </li>
@@ -84,7 +78,7 @@ const Home: React.FC = () => {
             <li>
               <a href="https://wa.me/526462087706" target="_blank"  >
                 <IonButton color="success" shape='round' fill="clear" title="Ir a WhatsApp"  >
-                  <IonIcon size='large' icon={logoWhatsapp} /* style={{ color: "#6000a0" }} */ />
+                  <IonIcon size='large' icon={logoWhatsapp} />
                 </IonButton>
               </a>
             </li>
@@ -99,39 +93,43 @@ const Home: React.FC = () => {
         </ul>
       </nav>
       {/* ----------------------------------Caracteristicas--------------------------------------- */}
-      <div className='Caract' style={{ marginTop: "5rem" }} >
-        <section ref={nextSectionRef}>
-          <h2 className="titulos"> Razones para elegirnos</h2>
-          <ul className='product '>
 
-            <IconCard title='Entrega a Domicilio' text='Envío rápido y seguro.' >
-              <Truck color='#00ced1' size={50} />
-            </IconCard>
-            <IconCard title='Selección Local' text='Directo desde el Valle de Guadalupe.  ' >
-              <ShoppingCart color="#7700c0" size={50} />
-            </IconCard>
-            <IconCard title='Mayoreo' text='Mayoreo y menudeo sin límites.' >
-              <Package color='#c36f31' size={50} />
-            </IconCard>
-            <IconCard title='Pagos Seguros' text='Pagos con Crédito, Débito y Efectivo' >
-              <Coins color='#FFD700' size={50} />
-            </IconCard>
+      <section ref={nextSectionRef} style={{ marginTop: "5rem" }}>
+        <h2 className="titulos"> Razones para elegirnos</h2>
+        <ul className='product '>
 
-          </ul>
-        </section>
-      </div>
+          <IconCard title='Entrega a Domicilio' text='Envío rápido y seguro.' >
+            <Truck color='#00ced1' size={50} />
+          </IconCard>
+          <IconCard title='Selección Local' text='Directo desde el Valle de Guadalupe.  ' >
+            <ShoppingCart color="#7700c0" size={50} />
+          </IconCard>
+          <IconCard title='Mayoreo' text='Mayoreo y menudeo sin límites.' >
+            <Package color='#c36f31' size={50} />
+          </IconCard>
+          <IconCard title='Pagos Seguros' text='Pagos con Crédito, Débito y Efectivo' >
+            <Coins color='#FFD700' size={50} />
+          </IconCard>
+
+        </ul>
+      </section>
 
       {/* ------------------------------------Marcas---------------------------------------------------- */}
 
       <section className='sectionM'
         style={{
           marginTop: "5rem",
-          borderTop: "1px solid #b4b4b4e0",
+          borderTop: " solid 1px #b4b4b4e0",
           marginBottom: "1rem",
+
         }}
       >
         <nav>
-          <h2 className="titulos">Juntos te ofrecemos calidad  {/* Las marcas que nos impulsan */}</h2>
+          <h2 className="titulos" style={{
+            marginTop: "2rem",
+            marginBottom: "3rem",
+
+          }}>Juntos te ofrecemos calidad   {/* Las marcas que nos impulsan */}</h2>
           <ul className={Styles["ul"]}>
             {[...ruta, ...ruta].map((data, key) => (
               <OffertCard key={key} avatarUrl={data.link} />
@@ -140,60 +138,47 @@ const Home: React.FC = () => {
         </nav>
       </section>
 
-      {/* ------------------------------------Seccion 1--------------------------------------------------- */}
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
-        <section className='mail'>
-          <h2 className="titulos"> ¿Dudas? ¡Pregúntanos!</h2>
-          <ul className='product'>
-            <li style={{ marginBottom: "16px" }}>
-              <MainForm message='Enviar' >
-                <Input label="Nombre(s)" type="text" placheolder="Ingrese sus nombres" />
-                <Input label="Mensaje" type="text" placheolder="Exprese sus dudas..." />
-              </MainForm>
-            </li>
+      {/* ------------------------------------Dudas--------------------------------------------------- */}
 
-            <li className="card-mail">
-              <div className="contact-item">
-                <MapPin color="var(--primary)" size={24} />
-                <span>Calle Principal 216, 22750 Francisco Zarco, B.C.</span>
-              </div>
+      <section className='mail' >
+        <h2 className="titulos"> ¿Dudas? ¡Pregúntanos!</h2>
+        <ul className='dudas'>
 
-              <div className="contact-item">
-                <Phone color="var(--primary)" size={24} />
-                <span>+52 646 155 2022</span>
-              </div>
+          <li /*  className="card-mail" */>
+            <div className="contact-item">
+              <MapPin color="var(--primary)" size={24} />
+              <span>Calle Principal 216, 22750 Francisco Zarco, B.C.</span>
+            </div>
 
-              <div className="contact-item">
-                <Mails color="var(--primary)" size={24} />
-                <span>atncliente@mercadosliz.com</span>
-              </div>
+            <div className="contact-item">
+              <Phone color="var(--primary)" size={24} />
+              <span>+52 646 155 2022</span>
+            </div>
 
-              <div className="contact-item">
-                <span ><strong >Horario de Atención:</strong></span>
-                <span style={{ paddingLeft: "5px" }}> 08:00 AM - 09:00 PM</span>
-              </div>
-            </li>
-          </ul>
-        </section>
-        {/* ---------------------------Segunda Seccion---------------------------------------------- */}
+            <div className="contact-item">
+              <Mails color="var(--primary)" size={24} />
+              <span>atncliente@mercadosliz.com</span>
+            </div>
 
-        {/*  <section className='mail2'>
-          <h2 className="titulos">¿Sabías que…? </h2>
-          <div>
-          </div>
-        </section> */}
-      </div >
+            <div className="contact-item">
+              <span ><strong >Horario de  Atención:</strong></span>
+              <span style={{ paddingLeft: "5px" }}> 08:00 AM - 06:00 PM</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+
 
       {/* ----------------------------------------Mapa--------------------------------------------------- */}
       <section className='section-3'>
-        <h2 className="titulos" style={{ marginTop: "3rem" }}>
+        <h2 className="titulos" style={{ marginTop: "6rem" }}>
           ¡Encuentra tu Mercado Liz más cercano!
         </h2>
 
         <div style={{ margin: "1rem" }}>
           <List>
             <div >
-
               <IonButton style={{ textDecoration: "underline" }} color="liz" shape="round" fill="clear" onClick={() => incrementTes("Matriz")}>
                 <MapPin color="var(--primary)" size={24} />  Liz Mayoreo
               </IonButton>
@@ -215,7 +200,6 @@ const Home: React.FC = () => {
           <MyMap />
         </div>
       </section>
-
     </Page >
   );
 };

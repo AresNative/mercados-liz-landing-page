@@ -28,6 +28,7 @@
 .limrenglones{
     max-inline-size: 1rem;
 }
+
 .fontSize{
     font-size: medium !important
 }
@@ -268,7 +269,7 @@
 }
 @media (max-width: 430px) {
     .valresponsive-table {
-        width: 50rem;
+        width: 40rem;
         overflow: scroll !important;
         font-size: x-large !important;
     }

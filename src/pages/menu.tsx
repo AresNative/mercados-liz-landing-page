@@ -72,14 +72,14 @@ export function Menu() {
                 if (response && response.token) {
                     // Si el servidor devuelve un token válido
                     setLocalStorageItem("token", response);
-                    setLocalStorageItem("typeUser", "Admin"); // Guarda el tipo de usuario
+                    setLocalStorageItem("typeUser", "Compras"); // Guarda el tipo de usuario
                     mostrarAlerta("Inicio de sesión exitoso");
                     // Actualiza el estado global del usuario
                     dispatch(
                         assignUsers({
                             id: response.userId,
                             token: response.token,
-                            typeUser: "Admin"
+                            typeUser: "Compras"
                         })
                     );
                     // Redirecciona al inicio

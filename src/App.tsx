@@ -50,6 +50,7 @@ import PageProveedoresPortal from './pages/test/@proveedoresPortal/page';
 import PageValoracion from './pages/test/@valoracion/page';
 import PageEvaluacion from './pages/test/@evaluacion/page';
 import EtiquetasLayout from './pages/test/@etiquetas/layout';
+import ListasPage from './pages/test/@listas/page';
 
 setupIonicReact({
   mode: 'ios'
@@ -204,6 +205,9 @@ function SwitchTypeUserRender(props: any) {
             </Route>
             <Route exact path="/etiquetas">
               <EtiquetasLayout />
+            </Route>
+            <Route exact path="/listas">
+              <ListasPage />
             </Route>
             {/* 
               ? paginas con nuevo modelo -- ! obligatorio 

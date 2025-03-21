@@ -60,7 +60,7 @@ const PageUser: React.FC = () => {
                 </ul>
             </nav>
 
-            <section className="py-2 sm:py-8">
+            <section className="py-2 sm:py-8 lg:mt-10 mt-24">
                 <h2 className="text-center">Nuestras caracteristicas</h2>
                 <div className="mx-auto max-w-2xl lg:px-6 lg:max-w-7xl">
                     <div className="mt-10 grid gap-4 sm:mt-16 lg:grid-cols-3 lg:grid-rows-2">
@@ -228,8 +228,8 @@ const PageUser: React.FC = () => {
                 <div className="mx-auto px-6 lg:px-8  mt-10">
                     <div className="mx-auto grid grid-cols-1 gap-4 lg:grid-cols-3">
 
-                        {Array.from({ length: 3 }).map((index: any) =>
-                        (<article key={index} className=" p-4 bg-white border rounded-3xl flex max-w-xl flex-col items-start justify-between">
+                        {Array.from({ length: 3 }).map((index: any, key: any) =>
+                        (<article key={key} className=" p-4 bg-white border rounded-3xl flex max-w-xl flex-col items-start justify-between">
                             <div className="flex items-center gap-x-4 text-xs ">
                                 <time className="text-gray-500">Mar 16, 2020</time>
                                 <a href="#" className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Marketing</a>

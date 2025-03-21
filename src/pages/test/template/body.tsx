@@ -1,42 +1,14 @@
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonTitle, IonToolbar } from "@ionic/react";
 import Background from "./background";
-import { useEffect, useState, useRef } from "react";
 import style from "@/components/displays/header.module.css";
 
 export default function Body({ children }: { children: React.ReactNode }) {
     const fecha = new Date().getFullYear();
-    const [isHeaderVisible, setIsHeaderVisible] = useState(true);
-    const lastScrollTop = useRef(0);
-
-    useEffect(() => {
-        const mainContent = document.querySelector(".main-content") as HTMLElement;
-
-        if (!mainContent) return;
-
-        const handleScroll = () => {
-            const currentScroll = (mainContent as HTMLElement).scrollTop;
-
-            if (currentScroll > lastScrollTop.current && currentScroll > 50) {
-                setIsHeaderVisible(false); // Oculta el header
-            } else {
-                setIsHeaderVisible(true); // Muestra el header
-            }
-
-            lastScrollTop.current = currentScroll;
-        };
-
-        mainContent.addEventListener("scroll", handleScroll);
-
-        return () => {
-            mainContent.removeEventListener("scroll", handleScroll);
-        };
-    }, [lastScrollTop]);
-    console.log(isHeaderVisible);
 
     return (
         <Background>
             <IonHeader
-                className={`main-content fixed top-0 left-0 w-full transition-transform duration-300 ${isHeaderVisible ? "block" : "hidden"}`}
+                className={`main-content fixed top-0 left-0 w-full transition-transform duration-300 `}
             >
                 <IonToolbar
                     style={{ "--background": "linear-gradient(to right, #A855F7, #37065f)" } as React.CSSProperties}

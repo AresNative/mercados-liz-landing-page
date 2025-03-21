@@ -49,6 +49,7 @@ import PageProveedores from './pages/test/@proveedores/page';
 import PageProveedoresPortal from './pages/test/@proveedoresPortal/page';
 import PageValoracion from './pages/test/@valoracion/page';
 import PageEvaluacion from './pages/test/@evaluacion/page';
+import EtiquetasLayout from './pages/test/@etiquetas/layout';
 
 setupIonicReact({
   mode: 'ios'
@@ -200,6 +201,9 @@ function SwitchTypeUserRender(props: any) {
             </Route>
             <Route exact path="/evaluacion">
               <PageEvaluacion />
+            </Route>
+            <Route exact path="/etiquetas">
+              <EtiquetasLayout />
             </Route>
             {/* 
               ? paginas con nuevo modelo -- ! obligatorio 

@@ -30,7 +30,7 @@ export default function LabelPreview({
           <div
             ref={labelRef}
             style={getLabelStyle()}
-            className={`${selectedFormat === "cenefa" ? "flex items-center" : ""}`}
+            className={`${selectedFormat === "cenefa" ? "flex" : ""}`}
           >
             {selectedFormat === "cenefa" ? (
               <>

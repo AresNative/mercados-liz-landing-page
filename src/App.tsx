@@ -1,46 +1,11 @@
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import Home from '@/pages/Home';
-import Reclutamiento from '@/pages/usuario/Reclutamiento';
 
 import ContactPage from '@/pages/info/Contact';
 import SesionPage from '@/pages/Sesion';
 import Billing from '@/pages/usuario/Billing';
 
-import '@/theme/variables.css';
-/* Core CSS required for Ionic components to work properly */
-import '@ionic/react/css/core.css';
-
-/* Basic CSS for apps built with Ionic */
-import '@ionic/react/css/normalize.css';
-import '@ionic/react/css/structure.css';
-import '@ionic/react/css/typography.css';
-
-/* Optional CSS utils that can be commented out */
-import '@ionic/react/css/padding.css';
-import '@ionic/react/css/float-elements.css';
-import '@ionic/react/css/text-alignment.css';
-import '@ionic/react/css/text-transformation.css';
-import '@ionic/react/css/flex-utils.css';
-import '@ionic/react/css/display.css';
-import ServicioPage from './pages/usuario/Calificacion';
-import 'animate.css';
-import { useSelector } from 'react-redux';
-import { RootState } from './store/store';
-/* import './index.css'; */
-import CertificacionPage from './pages/certificaciones/certificacionpage';
-import Offers from './pages/ofertas/Offers';
-import NuevoProvePage from './pages/proveedores/nuevosprovedores';
-import InfprovPage from './pages/vistaUser/provnuevo';
-import ProveePage from './pages/proveedores/portalprov';
-import HistoriaPage from './pages/info/History';
-import ValoracionEmpleadosPage from './pages/PageVistas/valoracionesEmpleados';
-import PrivacidadPage from './pages/info/privacidad';
-import TerminosPage from './pages/info/terminos';
-import React from 'react';
-import { getLocalStorageItem } from './services/localstorage';
-import { rutasAdmin, rutasCompras, rutasRH } from './constantes/rutas';
 import PageCombos from './pages/test/@combos/page';
 import PageUser from './pages/test/@user/page';
 import PagePostulaciones from './pages/test/@postulaciones/page';
@@ -51,30 +16,60 @@ import PageValoracion from './pages/test/@valoracion/page';
 import PageEvaluacion from './pages/test/@evaluacion/page';
 import EtiquetasLayout from './pages/test/@etiquetas/layout';
 import ListasPage from './pages/test/@listas/page';
+import ServicioPage from './pages/usuario/Calificacion';
+
+import '@/theme/variables.css';
+/* Core CSS required for Ionic components to work properly */
+import '@ionic/react/css/core.css';
+
+/* Basic CSS for apps built with Ionic */
+import '@ionic/react/css/normalize.css';
+import '@ionic/react/css/structure.css';
+
+/* Optional CSS utils that can be commented out */
+import '@ionic/react/css/padding.css';
+import '@ionic/react/css/float-elements.css';
+import '@ionic/react/css/text-alignment.css';
+import '@ionic/react/css/text-transformation.css';
+import '@ionic/react/css/flex-utils.css';
+import '@ionic/react/css/display.css';
+import 'animate.css';
+
+import { useSelector } from 'react-redux';
+import { RootState } from './store/store';
+import CertificacionPage from './pages/certificaciones/certificacionpage';
+import Offers from './pages/ofertas/Offers';
+import HistoriaPage from './pages/info/History';
+import ValoracionEmpleadosPage from './pages/PageVistas/valoracionesEmpleados';
+import PrivacidadPage from './pages/info/privacidad';
+import TerminosPage from './pages/info/terminos';
+import React, { useMemo } from 'react';
+import { getLocalStorageItem } from './services/localstorage';
+import { rutasAdmin, rutasCompras, rutasRH } from './constantes/rutas';
 
 setupIonicReact({
   mode: 'ios'
 });
 
 const App: React.FC = () => {
-
   const selector = useSelector((state: RootState) => state.users);
-  const usuario = getLocalStorageItem("typeUser");
+  const usuario = useMemo(() => getLocalStorageItem("typeUser"), []);
 
-  return <SwitchTypeUserRender rol={usuario ? usuario : selector.typeUser} />
+  return <SwitchTypeUserRender rol={usuario || selector.typeUser} />;
 };
 
-export default App;
-function SwitchTypeUserRender(props: any) {
+export default React.memo(App);
 
-  const renderRoutes = (routes: Array<{ src: string; pagina: React.ComponentType }>) =>
-    routes.map((data, index) => (
-      <Route key={index} exact path={data.src}>
-        {React.createElement(data.pagina)}
-      </Route>
-    ));
+const SwitchTypeUserRender: React.FC<{ rol: any }> = React.memo(({ rol }) => {
+  const renderRoutes = useMemo(() =>
+    (routes: Array<{ src: string; pagina: React.ComponentType }>) =>
+      routes.map((data, index) => (
+        <Route key={index} exact path={data.src} component={data.pagina} />
+      )),
+    []
+  );
 
-  switch (props.rol) {
+  switch (rol) {
     case "recursosH":
       return (
         <IonApp>
@@ -115,7 +110,6 @@ function SwitchTypeUserRender(props: any) {
         </IonApp>
       );
     default:
-
       return <IonApp>
         <IonReactRouter>
           <IonRouterOutlet>
@@ -131,15 +125,7 @@ function SwitchTypeUserRender(props: any) {
               <TerminosPage />
             </Route>
 
-
             {/* Menú */}
-
-            {/* <Route exact path="/home">
-              <Home />
-            </Route>
-            <Route exact path="/Reclutamiento">
-              <Reclutamiento />
-            </Route> */}
             <Route exact path="/Ofertas">
               <Offers />
             </Route>
@@ -155,12 +141,6 @@ function SwitchTypeUserRender(props: any) {
             <Route exact path="/Servicio">
               <ServicioPage />
             </Route>
-            {/* <Route exact path="/ProveedoresNuev">
-              <NuevoProvePage />
-            </Route>
-            <Route exact path="/Proveedores">
-              <ProveePage />
-            </Route> */}
 
             {/* prueba */}
             <Route exact path="/CertificacionPage">
@@ -169,12 +149,6 @@ function SwitchTypeUserRender(props: any) {
             <Route exact path="/ValoracionEmpleadosPage"> {/* Vistas Interaccion Usuarios y prueba para Menú con typeUser*/}
               <ValoracionEmpleadosPage />
             </Route>
-
-            {/* Paginas informacion que muestran datos  */}
-            {/* <Route exact path="/provpage">
-              <InfprovPage />
-            </Route> */}
-
 
             {/* 
               ? paginas con nuevo modelo -- ! obligatorio 
@@ -213,12 +187,6 @@ function SwitchTypeUserRender(props: any) {
               ? paginas con nuevo modelo -- ! obligatorio 
             */}
 
-            {/* Vistas Interaccion Usuarios */}
-            {/* <Route exact path="/ValoracionEmpleadosPage">
-              <ValoracionEmpleadosPage />
-            </Route> */}
-
-            {/*  */}
             <Route exact path="/">
               <Redirect to="/user" />
             </Route>
@@ -226,4 +194,4 @@ function SwitchTypeUserRender(props: any) {
         </IonReactRouter>
       </IonApp>;
   }
-}
+})

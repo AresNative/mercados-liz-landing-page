@@ -46,6 +46,7 @@ import TerminosPage from './pages/info/terminos';
 import React, { useMemo } from 'react';
 import { getLocalStorageItem } from './services/localstorage';
 import { rutasAdmin, rutasCompras, rutasRH } from './constantes/rutas';
+import VerificadorPage from './pages/test/@verificador/page';
 
 setupIonicReact({
   mode: 'ios'
@@ -182,6 +183,9 @@ const SwitchTypeUserRender: React.FC<{ rol: any }> = React.memo(({ rol }) => {
             </Route>
             <Route exact path="/listas">
               <ListasPage />
+            </Route>
+            <Route exact path="/verificador">
+              <VerificadorPage />
             </Route>
             {/* 
               ? paginas con nuevo modelo -- ! obligatorio 

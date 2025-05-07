@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { IonItem, IonLabel, IonList, IonSpinner, IonSelect, IonSelectOption, IonProgressBar } from "@ionic/react";
 import { useGetArticulosQuery } from "@/pages/test/hooks/reducers/api";
-import { Search, ShoppingBasket } from "lucide-react";
+import { ScanBarcode, Search, ShoppingBasket } from "lucide-react";
 import { Product } from "@/pages/test/utils/data/example-data";
 
 type Sucursal = {
@@ -236,7 +236,11 @@ function PriceChecker() {
                                                                     ${product.precio.toLocaleString()}
                                                                 </span>
                                                             )}
-
+                                                            <label className="flex items-center text-sm gap-1">
+                                                                <ScanBarcode className="h-4 w-4 fill-[#8B5CF6]" />
+                                                                Codigo de barras:
+                                                                <span className="text-[#8B5CF6]">{inputValue}</span>
+                                                            </label>
                                                             <IonProgressBar
                                                                 value={getProgress}
                                                                 style={{

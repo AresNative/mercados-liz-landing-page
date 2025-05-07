@@ -32,25 +32,18 @@ const PAGE_SIZE = 5;
 const COOLDOWN_TIME = 3000;
 
 function PriceChecker() {
-    const [page, setPage] = useState(1);
     const [combinedData, setCombinedData] = useState<Product[]>([]);
     const [inputValue, setInputValue] = useState("");
-    const [query, setQuery] = useState("");
     const [selectedSucursal, setSelectedSucursal] = useState(sucursales[2].id);
     const [getProgress, setProgress] = useState(0);
 
-    const debouncedInput = useDebounce(inputValue, 200);
-
-    useEffect(() => {
-        setQuery(debouncedInput);
-    }, [debouncedInput]);
-
-    const { data } = useGetArticulosQuery({
-        page,
+    const { data, isLoading, isError, error } = useGetArticulosQuery({
         pageSize: PAGE_SIZE,
-        filtro: query,
+        filtro: inputValue,
         listaPrecio: selectedSucursal,
-    });
+    }, { refetchOnMountOrArgChange: true, skip: inputValue.length < 3 });
+    //const debouncedInputValue = useDebounce(inputValue, 500);
+
     async function fetchData(art: any) {
         const newProducts = await art
             .map((item: any) => {
@@ -72,7 +65,7 @@ function PriceChecker() {
     useEffect(() => {
         if (data) {
             fetchData(data.precios)
-        }/* 7503027753629 | 038000184932 */
+        }/* 7503027753629 | 038000184932 | 7501008057032 */
     }, [data]);
 
     useEffect(() => {
@@ -81,12 +74,11 @@ function PriceChecker() {
         }, COOLDOWN_TIME);
 
         return () => clearTimeout(timer);
-    }, [debouncedInput]);
+    }, [inputValue]);
 
     useEffect(() => {
-        setPage(1);
         setCombinedData([]);
-    }, [query, selectedSucursal]);
+    }, [inputValue, selectedSucursal]);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const newValue = e.target.value;
@@ -100,20 +92,19 @@ function PriceChecker() {
     const handleKeyDown = (e: React.KeyboardEvent) => {
         if (e.key === 'Enter') e.preventDefault();
     };
-
     useEffect(() => {
         const interval = setInterval(() => {
-            setProgress((prevProgress) => prevProgress + 0.01);
-        }, 10);
-
-        if (getProgress > 1) {
-            setTimeout(() => {
-                setProgress(0);
-            }, 2000);
-        }
+            setProgress(prev => {
+                if (prev >= 1) {
+                    clearInterval(interval);
+                    return 1;
+                }
+                return prev + 0.05; // Ajusta este valor para cambiar la velocidad
+            });
+        }, 100); // Actualiza cada 100 ms (2000 ms total)
 
         return () => clearInterval(interval);
-    }, [combinedData]);
+    }, [data]);
 
     return (
         <div className="mx-auto inset-0 z-20">

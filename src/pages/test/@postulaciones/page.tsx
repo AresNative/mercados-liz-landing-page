@@ -42,8 +42,6 @@ export default function PagePostulaciones() {
     const columns = useMemo(() => data[0] ? Object.keys(data[0]) : [], [data]);
 
     useEffect(() => {
-
-
         loadData({
             filters: {
                 filtros: [{ key: "", value: "", operator: "" }],

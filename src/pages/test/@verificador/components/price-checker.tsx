@@ -1,11 +1,10 @@
 import type React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { IonItem, IonLabel, IonList, IonSpinner, IonSelect, IonSelectOption, IonProgressBar } from "@ionic/react";
 import { useGetArticulosQuery } from "@/pages/test/hooks/reducers/api";
 import { Search, ShoppingBasket } from "lucide-react";
 import { Product } from "@/pages/test/utils/data/example-data";
-import useDebounce from "../../hooks/use-debounce";
 
 type Sucursal = {
     id: string;
@@ -32,21 +31,39 @@ const PAGE_SIZE = 5;
 const COOLDOWN_TIME = 3000;
 
 function PriceChecker() {
-    const [combinedData, setCombinedData] = useState<Product[]>([]);
+    const [displayData, setDisplayData] = useState<Product[]>([]);
     const [inputValue, setInputValue] = useState("");
     const [selectedSucursal, setSelectedSucursal] = useState(sucursales[2].id);
+    const [productNotFound, setProductNotFound] = useState(false);
     const [getProgress, setProgress] = useState(0);
+    const timeoutRef = useRef<NodeJS.Timeout>();
+    const inputValueRef = useRef(inputValue);
 
-    const { data, isLoading, isError, error } = useGetArticulosQuery({
-        pageSize: PAGE_SIZE,
-        filtro: inputValue,
-        listaPrecio: selectedSucursal,
-    }, { refetchOnMountOrArgChange: true, skip: inputValue.length < 3 });
-    //const debouncedInputValue = useDebounce(inputValue, 500);
+    const { data, isLoading, refetch } = useGetArticulosQuery(
+        {
+            pageSize: PAGE_SIZE,
+            filtro: inputValue,
+            listaPrecio: selectedSucursal,
+        },
+        { refetchOnMountOrArgChange: true, skip: inputValue.length < 3 }
+    );
 
-    async function fetchData(art: any) {
-        const newProducts = await art
-            .map((item: any) => {
+    useEffect(() => {
+        inputValueRef.current = inputValue;
+    }, [inputValue]);
+
+    const startDisplayTimer = () => {
+        clearTimeout(timeoutRef.current);
+        timeoutRef.current = setTimeout(() => {
+            setDisplayData([]);
+            setInputValue('');
+        }, COOLDOWN_TIME);
+    };
+
+    useEffect(() => {
+        if (data) {
+            const isBarcode = /^\d{12,13}$/.test(inputValueRef.current);
+            const newProducts = data.precios.map((item: any) => {
                 const oferta = data.ofertas?.find((o: any) => o.articulo === item.cuenta);
                 return {
                     id: item.codigo,
@@ -60,29 +77,35 @@ function PriceChecker() {
                 };
             });
 
-        setCombinedData(newProducts);
-    }
-    useEffect(() => {
-        if (data) {
-            fetchData(data.precios)
-        }/* 7503027753629 | 038000184932 | 7501008057032 */
+            if (isBarcode && data.precios.length === 0) {
+                setProductNotFound(true);
+                startDisplayTimer();
+            } else {
+                setDisplayData(newProducts);
+                setProductNotFound(false);
+                startDisplayTimer();
+            }
+        } else {
+            setProductNotFound(true);
+        }
     }, [data]);
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setInputValue('');
-        }, COOLDOWN_TIME);
-
-        return () => clearTimeout(timer);
-    }, [inputValue]);
-
-    useEffect(() => {
-        setCombinedData([]);
-    }, [inputValue, selectedSucursal]);
+        const interval = setInterval(() => {
+            setProgress(prev => prev >= 1 ? 1 : prev + 0.05);
+        }, 100);
+        return () => clearInterval(interval);
+    }, [displayData]);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setProductNotFound(false);
         const newValue = e.target.value;
         setInputValue(newValue);
+
+        if (/^\d{12,13}$/.test(newValue)) {
+            refetch();
+            startDisplayTimer();
+        }
     };
 
     const handleSucursalChange = (e: CustomEvent) => {
@@ -92,19 +115,6 @@ function PriceChecker() {
     const handleKeyDown = (e: React.KeyboardEvent) => {
         if (e.key === 'Enter') e.preventDefault();
     };
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setProgress(prev => {
-                if (prev >= 1) {
-                    clearInterval(interval);
-                    return 1;
-                }
-                return prev + 0.05; // Ajusta este valor para cambiar la velocidad
-            });
-        }, 100); // Actualiza cada 100 ms (2000 ms total)
-
-        return () => clearInterval(interval);
-    }, [data]);
 
     return (
         <div className="mx-auto inset-0 z-20">
@@ -145,8 +155,30 @@ function PriceChecker() {
 
                 <div className="w-full max-w-sm absolute top-32 inset-0 mx-auto z-10 mt-2">
                     <AnimatePresence mode="wait">
-                        {combinedData.length > 0 && (
+                        {isLoading ? (
                             <motion.div
+                                key="loading"
+                                initial={{ opacity: 0, y: -20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -20 }}
+                                className="w-full max-h-[500px] overflow-y-auto border rounded-md shadow-lg overflow-hidden bg-white p-4 flex items-center justify-center"
+                            >
+                                <IonSpinner name="crescent" />
+                                <span className="ml-2">Buscando en el catálogo...</span>
+                            </motion.div>
+                        ) : productNotFound && inputValue ? (
+                            <motion.div
+                                key="not-found"
+                                initial={{ opacity: 0, y: -20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -20 }}
+                                className="w-full max-h-[500px] overflow-y-auto border rounded-md shadow-lg overflow-hidden bg-white p-4 text-center text-gray-500"
+                            >
+                                El código de barras "{inputValue}" no existe en el catálogo.
+                            </motion.div>
+                        ) : displayData.length > 0 ? (
+                            <motion.div
+                                key="results"
                                 className="w-full max-h-[500px] overflow-y-auto border rounded-md shadow-lg overflow-hidden bg-white"
                                 initial={{ opacity: 0, y: -20 }}
                                 animate={{ opacity: 1, y: 0 }}
@@ -154,9 +186,9 @@ function PriceChecker() {
                                 transition={{ duration: 0.2 }}
                             >
                                 <motion.ul>
-                                    {combinedData.map((product) => (
+                                    {displayData.map((product) => (
                                         <motion.li
-                                            key={product.id}
+                                            key={`${product.id}-${Date.now()}`}
                                             className="px-3 py-2 flex items-center justify-between cursor-pointer rounded-md"
                                             layout
                                             whileHover={{ scale: 1.02 }}
@@ -224,12 +256,12 @@ function PriceChecker() {
 
                                 <div className="bottom-0 mt-2 px-3 py-2 border-t border-gray-100">
                                     <div className="flex items-center justify-between text-xs text-gray-500">
-                                        <span>Resultados: {combinedData.length}</span>
+                                        <span>Resultados: {displayData.length}</span>
                                         <span>ESC para cancelar</span>
                                     </div>
                                 </div>
                             </motion.div>
-                        )}
+                        ) : null}
                     </AnimatePresence>
                 </div>
             </div>
